@@ -5,10 +5,7 @@
 /log
 /tmp
 
-# Ignore Byebug command history file.
-.byebug_history
-
-# Ignore other unneccessary files
+# Ignore other unnecessary files
 database.yml
 /doc
-/vendor
+/vendor/ruby/
