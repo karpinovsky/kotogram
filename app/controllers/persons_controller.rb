@@ -1,4 +1,4 @@
 class PersonsController < ApplicationController
-  def profile
+  def index
   end
 end
