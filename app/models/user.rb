@@ -8,4 +8,8 @@ class User < ApplicationRecord
          :trackable,                # for statistics
          :validatable,              # for validating users
          :confirmable               # for confirming registration
+
+  def to_param
+    login
+  end
 end
