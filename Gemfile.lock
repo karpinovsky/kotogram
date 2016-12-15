@@ -38,18 +38,27 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     ast (2.3.0)
+    autoprefixer-rails (6.5.4)
+      execjs
     bcrypt (3.1.11)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.6)
-    coffee-rails (4.2.1)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.2.x)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.11.1)
+    capybara (2.11.0)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    childprocess (0.5.9)
+      ffi (~> 1.0, >= 1.0.11)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     devise (4.2.0)
@@ -58,6 +67,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
@@ -106,6 +116,7 @@ GEM
     parser (2.3.3.1)
       ast (~> 2.2)
     powerpack (0.1.1)
+    public_suffix (2.0.4)
     puma (3.6.2)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -140,6 +151,23 @@ GEM
       ffi (>= 0.5.0)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-rails (3.5.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     rubocop (0.46.0)
       parser (>= 2.3.1.1, < 3.0)
       powerpack (~> 0.1)
@@ -149,6 +177,7 @@ GEM
     ruby-progressbar (1.8.1)
     ruby_parser (3.8.3)
       sexp_processor (~> 4.1)
+    rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -156,6 +185,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (3.0.3)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     sexp_processor (4.7.0)
     spring (2.0.0)
       activesupport (>= 4.2)
@@ -187,16 +220,20 @@ GEM
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
+    websocket (1.2.3)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   byebug
-  coffee-rails (~> 4.2)
+  capybara
   devise
   haml-rails
   jbuilder (~> 2.5)
@@ -205,12 +242,13 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  rspec-rails
   rubocop
   sass-rails (~> 5.0)
+  selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
-  tzinfo-data
   uglifier (>= 1.3.0)
   web-console
 
