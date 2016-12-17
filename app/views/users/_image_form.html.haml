@@ -6,4 +6,4 @@
 
 - @images.each do |i|
   = image_tag i.image.thumb.url
-  = link_to "delete", image_path(i), method: :delete
+  = link_to 'delete', image_path(i), method: :delete

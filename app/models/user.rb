@@ -18,12 +18,11 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
- def to_param
-   login
- end
+  def to_param
+    login
+  end
 
- def self.search(login)
-  where('name LIKE ?', "%#{login}%")
- end
-
+  def self.search(login)
+    where('name LIKE ?', "%#{login}%")
+  end
 end

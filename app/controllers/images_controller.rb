@@ -1,5 +1,4 @@
 class ImagesController < ApplicationController
-
   def create
     @image = current_user.images.build
     current_user.images.create!(image_params)
