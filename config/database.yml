@@ -1,0 +1,24 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: <%= ENV['KOTOGRAM_DATABASE_PASSWORD'] %>
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: kotogram_development
+
+test:
+  <<: *default
+  database: kotogram_test
+
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  <<: *default
+  database: kotogram_production
+  username: kotogram
+  password: <%= ENV['KOTOGRAM_DATABASE_PASSWORD'] %>
