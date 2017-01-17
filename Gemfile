@@ -1,7 +1,10 @@
 # source 'https://rubygems.org'
 
-gem 'bootstrap-sass'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 4.3'
 gem 'devise'
+gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'

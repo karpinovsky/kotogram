@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :images
+  accepts_nested_attributes_for :images
   before_save { login.downcase! }
   VALID_NAME_REGEX  = /\A^[a-zA-Z]+$\z/i
   VALID_LOGIN_REGEX = /\A(^[a-zA-Z])\w*([a-zA-Z]|\d)$\z/i

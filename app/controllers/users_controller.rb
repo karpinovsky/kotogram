@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+  include Concerns::UserByLogin
+
   def index
     @users = User.search(params[:login])
   end
 
   def show
-    @user = User.find_by(login: params[:login])
+    @images = user_by_login.images.all.order('created_at DESC')
   end
 
   def feed

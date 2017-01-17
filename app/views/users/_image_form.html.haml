@@ -1,0 +1,9 @@
+= form_for Image.new, url: images_path, html: { multipart: true } do |i|
+  .field
+    = i.file_field :image
+  .actions
+    = i.submit
+
+- @images.each do |i|
+  = image_tag i.image.thumb.url
+  = link_to "delete", image_path(i), method: :delete
