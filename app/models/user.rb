@@ -1,13 +1,22 @@
 class User < ApplicationRecord
+  before_save { login.downcase! }
+  VALID_NAME_REGEX  = /\A^[a-zA-Z]$\z/i
+  VALID_LOGIN_REGEX = /\A(^[a-zA-Z])\w*([a-zA-Z]|\d)$\z/i
+  validates :name,  presence: true, format: { with: VALID_NAME_REGEX },
+                    length: { minimum: 2 }
+  validates :login, presence: true, format: { with: VALID_LOGIN_REGEX },
+                    length: { minimum: 5, maximum: 20 },
+                    uniqueness: { case_sensitive: false }
 
-  # Include devise modules
-  devise :database_authenticatable, # for users authentification
-         :registerable,             # for registration, edit, destroy users
-         :recoverable,              # for password recovery
-         :rememberable,             # for remembering users by cookies
-         :trackable,                # for statistics
-         :validatable,              # for validating users
-         :confirmable               # for confirming registration
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
+
+  private
 
   def to_param
     login
