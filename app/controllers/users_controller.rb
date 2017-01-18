@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by(login: params[:id])
+    @user = User.find_by(login: params[:login])
   end
 
   def feed

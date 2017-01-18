@@ -9,7 +9,5 @@ Rails.application.routes.draw do
       root to: 'devise/registrations#new', as: :unauthenticated_root
     end
   end
-  resources :users, path: '' do
-    get ':login', to: 'users#show'
-  end
+  resources :users, param: :login, path: ''
 end
