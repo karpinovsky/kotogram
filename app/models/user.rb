@@ -9,7 +9,8 @@ class User < ApplicationRecord
          :validatable,              # for validating users
          :confirmable               # for confirming registration
 
-  def to_param
-    login
-  end
+ def to_param
+   login
+ end
+
 end
