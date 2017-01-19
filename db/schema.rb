@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20170116200304) do
     t.datetime "updated_at",                          null: false
     t.string   "name",                   default: "", null: false
     t.string   "login",                  default: "", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["login"], name: "index_users_on_login", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

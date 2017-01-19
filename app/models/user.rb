@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   before_save { login.downcase! }
-  VALID_NAME_REGEX  = /\A^[a-zA-Z]$\z/i
+  VALID_NAME_REGEX  = /\A^[a-zA-Z]+$\z/i
   VALID_LOGIN_REGEX = /\A(^[a-zA-Z])\w*([a-zA-Z]|\d)$\z/i
   validates :name,  presence: true, format: { with: VALID_NAME_REGEX },
                     length: { minimum: 2 }
@@ -18,6 +18,10 @@ class User < ApplicationRecord
 
  def to_param
    login
+ end
+
+ def self.search(login)
+  where('name LIKE ?', "%#{login}%")
  end
 
 end
