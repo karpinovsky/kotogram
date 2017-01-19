@@ -16,8 +16,6 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
-  private
-
  def to_param
    login
  end
