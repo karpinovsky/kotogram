@@ -1,32 +1,34 @@
-source 'https://rubygems.org'
-ruby '2.3.3'
+# source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'bootstrap-sass'
 gem 'devise'
 gem 'haml-rails'
-gem 'bootstrap-sass'
-gem 'rubocop', require: false
-gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
+gem 'puma', '~> 3.0'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'sass-rails', '~> 5.0'
+gem 'turbolinks', '~> 5'
+gem 'uglifier', '>= 1.3.0'
+
+gem 'haml_lint'
+gem 'rubocop', require: false
+gem 'scss_lint', require: false
 
 group :development do
-  gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console'
 end
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'selenium-webdriver'
   gem 'capybara'
+  gem 'selenium-webdriver'
 end
