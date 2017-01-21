@@ -3,3 +3,5 @@
 /tmp
 /doc
 /vendor/ruby/
+/public/uploads/
+.byebug_history

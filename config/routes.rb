@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
   resources :users, param: :login, only: :index
   resources :users, param: :login, path: '', except: :index
+  resources :images, only: [ :create, :destroy ]
 end
