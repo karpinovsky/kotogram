@@ -1,10 +1,10 @@
 - if user_signed_in?
-  %header{ class: "nav navbar-default navbar-fixed-top" }
+  %header.nav.navbar-default.navbar-fixed-top
     .container
       .nav.navbar-left
         = link_to 'Kotogram', root_path
         = link_to 'Profile', current_user
-        = form_tag(users_path, method: :get, class: "navbar-form navbar-right") do
+        = form_tag(users_path, method: :get, class: 'navbar-form navbar-right') do
           .form-group
-            = text_field_tag :search, "", placeholder: "Search", class: "form-control"
-          = submit_tag 'Search', name: nil, class: "btn btn-default"
+            = text_field_tag :search, '', placeholder: 'Search', class: 'form-control'
+          = submit_tag 'Search', name: nil, class: 'btn btn-default'

@@ -1,0 +1,15 @@
+Rails:
+    Enabled: true
+AllCops:
+  Exclude:
+   - bin/*
+   - config/**/*
+   - db/**/*
+   - local/**/*
+   - vendor/**/*
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100

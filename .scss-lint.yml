@@ -1,0 +1,4 @@
+scss_files: 'app/assets/stylesheets/**/*.css.scss'
+linters:
+    Comment:
+          exclude: '**/*.scss'
