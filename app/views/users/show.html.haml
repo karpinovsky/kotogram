@@ -1,8 +1,8 @@
 %p.notice= notice
 %p.alert=  alert
 
-%span= user_by_login.email
-
-= render 'image_form'
-
-= link_to 'Sign out', destroy_user_session_path, method: :delete
+= user_by_login.email
+= render 'sign_out'
+= render 'follow_form'
+= render 'stats'
+= render 'images'
