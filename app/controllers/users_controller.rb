@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   include Concerns::UserByLogin
 
   def index
-    @users = User.search(params[:login])
+    @users = User.search(params[:search])
   end
 
   def show
@@ -11,11 +11,5 @@ class UsersController < ApplicationController
 
   def feed
     # user's feed
-  end
-
-  private
-
-  def search_params
-    params.require(:user).permit(:login)
   end
 end
