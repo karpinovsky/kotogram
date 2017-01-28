@@ -22,7 +22,7 @@ class User < ApplicationRecord
     login
   end
 
-  def self.search(login)
-    where('name LIKE ?', "%#{login}%")
+  def self.search(search)
+    where('login LIKE ?', "%#{search}%")
   end
 end
