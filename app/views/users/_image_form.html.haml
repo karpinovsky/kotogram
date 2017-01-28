@@ -1,3 +1,3 @@
-= form_for Image.new, url: images_path, html: { multipart: true } do |i|
+= form_for Image.new, url: user_images_path(current_user), html: { multipart: true } do |i|
   = i.file_field :image
   = i.submit

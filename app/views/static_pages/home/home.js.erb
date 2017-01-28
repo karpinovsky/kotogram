@@ -1,0 +1,9 @@
+$('#signin-link').bind('ajax:complete', function() {
+  $('#signup-form').replaceWith('<%= j render('static_pages/home/signin_form') %>');
+  $('#signin-link').replaceWith('<%= j render('static_pages/home/signup_link') %>');
+});
+
+$('#signup-link').bind('ajax:complete', function() {
+  $('#signin-form').replaceWith('<%= j render('static_pages/home/signup_form') %>');
+  $('#signup-link').replaceWith('<%= j render('static_pages/home/signin_link')%>');
+});

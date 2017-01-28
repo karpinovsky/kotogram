@@ -1,25 +1,12 @@
-class UserConstraint
-    def matches?(params)
-      User.exists?(login: params[:login])
-    end
-end
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { registrations: 'registrations' }
-  devise_scope :user do
-    get 'users/sign_out' => 'devise/sessions#destroy'
-    authenticated :user do
-      root to: 'users#feed'
-    end
-    unauthenticated :user do
-      root to: 'devise/registrations#new', as: :unauthenticated_root
-    end
-  end
-  resources :users, param: :login, only: :index
-  resources :users, param: :login, path: '', except: :index, constraints: UserConstraint.new do
+  root 'static_pages#home'
+  devise_for :users, path: '', path_names: { sign_in: '', sign_out: 'signout'}
+  resources :users, param: :login, path: '', except: [ :index, :create, :new ] do
+    resources :images, only: [ :create, :destroy ]
+    get 'users', on: :collection, action: :index, as: ''
     member do
       get :following, :followers
     end
   end
-  resources :images, only: [ :create, :destroy ]
   resources :relationships, only: [ :create, :destroy ]
 end
