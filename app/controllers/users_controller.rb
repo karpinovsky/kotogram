@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include Concerns::UserByLogin
+  include Concerns::CurrentUser
 
   def index
     @users = User.search(params[:search])
@@ -10,6 +11,14 @@ class UsersController < ApplicationController
   end
 
   def feed
-    # user's feed
+    @feed_items = current_user.feed
+  end
+
+  def following
+    # users followed by user
+  end
+
+  def followers
+    # user's followers
   end
 end

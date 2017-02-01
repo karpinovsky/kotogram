@@ -13,3 +13,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/LineLength:
   Max: 100
+Style/IdenticalConditionalBranches:
+  Enabled: false

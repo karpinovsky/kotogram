@@ -1,0 +1,4 @@
+- @user ||= user_by_login
+= form_for(current_user.relationships.find_by(followed_id: @user),
+  html: { method: :delete }, remote: true) do |f|
+  = f.submit 'Unfollow'

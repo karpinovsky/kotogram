@@ -1,4 +1,4 @@
 %p.notice= notice
 %p.alert=  alert
-
-%span user's feed
+- if @feed_items.any?
+  = render partial: 'feed_item', collection: @feed_items

@@ -1,3 +1,8 @@
+class UserConstraint
+    def matches?(params)
+      User.exists?(login: params[:login])
+    end
+end
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   devise_scope :user do
@@ -10,6 +15,11 @@ Rails.application.routes.draw do
     end
   end
   resources :users, param: :login, only: :index
-  resources :users, param: :login, path: '', except: :index
+  resources :users, param: :login, path: '', except: :index, constraints: UserConstraint.new do
+    member do
+      get :following, :followers
+    end
+  end
   resources :images, only: [ :create, :destroy ]
+  resources :relationships, only: [ :create, :destroy ]
 end
