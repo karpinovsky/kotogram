@@ -1,3 +1,4 @@
 - @images.each do |i|
   = image_tag i.image.thumb.url
-  = link_to 'delete', image_path(i), method: :delete
+  - if current_user?(user_by_login)
+    = link_to 'delete', user_image_path(current_user, i), method: :delete
