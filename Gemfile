@@ -1,5 +1,6 @@
 # source 'https://rubygems.org'
 
+gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
