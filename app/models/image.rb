@@ -6,4 +6,5 @@ class Image < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   validates :user_id, presence: true
+  has_many :comments, as: :commentable
 end
