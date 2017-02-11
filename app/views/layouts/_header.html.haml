@@ -1,8 +1,9 @@
 - if user_signed_in?
-  %header.nav.navbar-default.navbar-fixed-top
+  %header.nav.navbar-default
     .container
+      .navbar-header
+        = link_to icon('instagram'), root_path
       .nav.navbar-left
-        = link_to 'Kotogram', root_path
         = link_to 'Profile', current_user
         = form_tag(users_path, method: :get, class: 'navbar-form navbar-right') do
           .form-group

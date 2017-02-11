@@ -1,0 +1,31 @@
+.nav.navbar-default{
+  height: 80px;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+}
+.container{
+  height: inherit;
+}
+
+// logo
+.navbar-header{
+  height: 40px;
+  position: relative;
+  top: 20px;
+}
+.fa.fa-instagram{
+  color: #262626;
+  font-size: 265%;
+  height: 40px;
+  position: relative;
+}
+.fa.fa-instagram::after {
+  margin-left: 18px;
+  padding-left: 15px;
+  border-left: 1px solid #939393;
+  content: 'Kotogram';
+  font-size: 70%;
+  position: relative;
+  bottom: 3px;
+  font-family: 'Lobster Two', cursive;
+}
