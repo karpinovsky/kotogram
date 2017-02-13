@@ -1,11 +1,18 @@
 - if user_signed_in?
   %header.nav.navbar-default
     .container
-      .navbar-header
-        = link_to icon('instagram'), root_path
-      .nav.navbar-left
-        = link_to 'Profile', current_user
-        = form_tag(users_path, method: :get, class: 'navbar-form navbar-right') do
-          .form-group
-            = text_field_tag :search, '', placeholder: 'Search', class: 'form-control'
-          = submit_tag 'Search', name: nil, class: 'btn btn-default'
+      .row
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          .navbar-header
+            = link_to icon('instagram'), root_path
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          .navbar-form.navbar-left
+            = form_tag(users_path, method: :get) do
+              .form-group
+                = text_field_tag :search, '', placeholder: 'Search', class: 'form-control'
+                = submit_tag 'Search', name: nil, class: 'btn btn-default'
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          .nav.navbar-nav.navbar-right
+            = link_to icon('circle-thin'), 'explore/', id: 'explore'
+            = link_to icon('heart-o'), 'explore/#', id: 'news'
+            = link_to icon('user-o'), current_user, id: 'profile'

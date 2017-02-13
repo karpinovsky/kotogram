@@ -1,31 +1,147 @@
+.container-fluid{
+  background-color: #fafafa;
+}
 .nav.navbar-default{
   height: 80px;
   background-color: white;
   border-bottom: 1px solid #e7e7e7;
-}
-.container{
-  height: inherit;
-}
+  .container{
+    height: inherit;
+    .row{
+      height: inherit;
+      .col-lg-4.col-md-4.col-sm-4.col-xs-4{
+        height: inherit;
+        .navbar-header{
+          position: relative;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          a{
+            display: block;
+            height: inherit;
+            .fa.fa-instagram{
+              color: #262626;
+              font-size: 265%;
+            }
+            .fa.fa-instagram::after{
+              margin-left: 18px;
+              padding-left: 15px;
+              border-left: 1px solid #262626;
+              content: 'Kotogram';
+              font-size: 70%;
+              font-family: 'Lobster Two', cursive;
+              position: relative;
+              bottom: 3px;
+            }
+          }
+        }
+        .navbar-form.navbar-left{
+          position: relative;
+          //top: 19px;
+          top: 45%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          .form-group
+          {
+            .form-control{
+              border-radius: 3px;
+              border-width: 1px;
+              border-color: #dbdbdb;
+              width: 215px;
+              height: 30px;
+              text-align: center;
+            }
+            input[type='text'], textarea{
+              background-color: #fafafa;
+              width: 215px;
+            }
+            input[type=text]:focus{
+              background-color: white;
+              position: relative;
+              text-align: left;
+              box-shadow: none;
+            }
+          }
+          .form-group::before{
+            content: "\f002";
+            font-family: FontAwesome;
+            font-size: 74%;
+            position: relative;
+            left: 85px;
+            bottom: 1px;
+            color: #999cb4;
+          }
+        }
+        .nav.navbar-nav.navbar-right{
+          position: relative;
+          height: 24px;
+          //top: 34px;
+          top: 58%;
+          left: -30%;
+          transform: translate(-30%, -50%);
+          //right: 115px;
 
-// logo
-.navbar-header{
-  height: 40px;
-  position: relative;
-  top: 20px;
+          a#explore{
+            display: inline-block;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            //top: 30px;
+            .fa.fa-circle-thin{
+              color: #262626;
+              font-size: 160%;
+            }
+          }
+          a#news{
+            display: inline-block;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            margin-left: 26px;
+            //top: 30px;
+            .fa.fa-heart-o{
+              color: #262626;
+              font-size: 160%;
+            }
+          }
+          a#profile{
+            display: inline-block;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            margin-left: 29px;
+            //top: 30px;
+            .fa.fa-user-o{
+              color: #262626;
+              font-size: 160%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
-.fa.fa-instagram{
-  color: #262626;
-  font-size: 265%;
-  height: 40px;
-  position: relative;
+//input[type="text"], textarea {
+//  background-color : #fafafa;
+//  width: 300px;
+//}
+//input[type="text"], ::before {
+//  content: 'lala';
+  //content: "[&#xf002]";
+  //font-family: FontAwesome;
+//}
+//input[type="text"] {
+//  width: 500px;
+//}
+input::-webkit-input-placeholder {
+  color: #999cb4 !important;
 }
-.fa.fa-instagram::after {
-  margin-left: 18px;
-  padding-left: 15px;
-  border-left: 1px solid #939393;
-  content: 'Kotogram';
-  font-size: 70%;
-  position: relative;
-  bottom: 3px;
-  font-family: 'Lobster Two', cursive;
+input:-moz-placeholder {
+  color: #999cb4 !important;
+}
+input::-moz-placeholder {
+  color: #999cb4 !important;
+}
+input:-ms-input-placeholder {
+  color: #999cb4 !important;
 }
