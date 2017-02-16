@@ -102,6 +102,10 @@ $light-gray-fontawesome-search-icon: #999cb4;
       text-align: left;
     }
 
+    .form-control::placeholder {
+      color: $light-gray-fontawesome-search-icon;
+    }
+
   }
 
 }
