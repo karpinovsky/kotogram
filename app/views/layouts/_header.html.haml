@@ -10,6 +10,7 @@
             = form_tag(users_path, method: :get) do
               .form-group
                 = text_field_tag :search, '', placeholder: 'Search', class: 'form-control'
+                //= submit_tag 'Search', name: nil, class: 'btn btn-default'
         .col-lg-4
           .nav.navbar-nav
             = link_to icon('circle-thin'), '#', class: 'explore'
