@@ -1,5 +1,5 @@
 - commentable.comments.each do |comment|
-  - @user = User.find_by(login: comment.user_username)
+  - @user = User.find_by(username: comment.user_username)
   = link_to comment.user_username, @user, class: 'feed-item-commentor-link'
   .feed-item-comment-body
     = comment.body

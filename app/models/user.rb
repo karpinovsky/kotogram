@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  scope :search, ->(search) { where('login LIKE ?', "%#{search}%") }
+  scope :search, ->(search) { where('username LIKE ?', "%#{search}%") }
   has_many :images
   accepts_nested_attributes_for :images
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
@@ -8,12 +8,9 @@ class User < ApplicationRecord
                                    class_name: 'Relationship',
                                    dependent: :destroy
   has_many :followers, through: :reverse_relationships
-  before_save { login.downcase! }
-  VALID_NAME_REGEX  = /\A^[a-zA-Z]+$\z/i
-  VALID_LOGIN_REGEX = /\A(^[a-zA-Z])\w*([a-zA-Z]|\d)$\z/i
-  validates :name,  presence: true, format: { with: VALID_NAME_REGEX },
-                    length: { minimum: 2 }
-  validates :login, presence: true, format: { with: VALID_LOGIN_REGEX },
+  before_save { username.downcase! }
+  VALID_USERNAME_REGEX = /\A(^[a-zA-Z])\w*([a-zA-Z]|\d)$\z/i
+  validates :username, presence: true, format: { with: VALID_USERNAME_REGEX },
                     length: { minimum: 5, maximum: 20 },
                     uniqueness: { case_sensitive: false }
 
@@ -26,7 +23,7 @@ class User < ApplicationRecord
          :confirmable
 
   def to_param
-    login
+    username
   end
 
   def feed

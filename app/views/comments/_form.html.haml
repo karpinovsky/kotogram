@@ -1,4 +1,4 @@
 = form_for [user, commentable, Comment.new] do |f|
-  = f.hidden_field :user_username, value: current_user.login
+  = f.hidden_field :user_username, value: current_user.username
   = f.text_area :body, placeholder: 'Add a comment...', class: 'feed-item-comment-textarea'
   //= f.submit

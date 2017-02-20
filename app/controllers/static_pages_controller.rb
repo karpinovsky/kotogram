@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   include Concerns::DeviseAuthentication
-  include Concerns::UserByLogin
+  include Concerns::UserByUsername
   include Concerns::CurrentUser
 
   def home

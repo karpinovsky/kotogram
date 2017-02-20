@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  include Concerns::UserByLogin
+  include Concerns::UserByUsername
   include Concerns::CurrentUser
 
   def index
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @images = user_by_login.images.all.order('created_at DESC')
+    @images = user_by_username.images.all.order('created_at DESC')
   end
 
   def feed

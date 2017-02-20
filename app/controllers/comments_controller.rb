@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  include Concerns::UserByLogin
+  include Concerns::UserByUsername
 
   def create
     authenticate_user!
