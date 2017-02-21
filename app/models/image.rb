@@ -4,7 +4,6 @@ class Image < ApplicationRecord
     where("user_id IN (#{followed_user_ids})", user_id: user.id)
   }
   mount_uploader :image, ImageUploader
-  belongs_to :user
-  validates :user_id, presence: true
-  has_many :comments, as: :commentable
+  belongs_to :post
+  accepts_nested_attributes_for :post
 end

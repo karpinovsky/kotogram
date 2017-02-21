@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @images = user_by_username.images.all.order('created_at DESC')
+    #@images = user_by_username.images.all.order('created_at DESC')
   end
 
   def feed
-    @feed_items = current_user.feed
+    #@feed_items = current_user.feed
   end
 
   def following

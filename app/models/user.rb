@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   scope :search, ->(search) { where('username LIKE ?', "%#{search}%") }
-  has_many :images
-  accepts_nested_attributes_for :images
+  has_many :posts
+  accepts_nested_attributes_for :posts
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: 'followed_id',

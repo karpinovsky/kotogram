@@ -1,8 +1,0 @@
-- user_by_username.images.map do |i|
-  = image_tag i.image.thumb.url
-  - if current_user?(user_by_username)
-    %br
-    = link_to 'delete', user_image_path(current_user, i), method: :delete
-  %br
-  = render partial: 'comments/comments', locals: { commentable: i }
-  = render partial: 'comments/form',     locals: { commentable: i, user: user_by_username}
