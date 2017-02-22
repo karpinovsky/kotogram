@@ -5,5 +5,4 @@ class Image < ApplicationRecord
   }
   mount_uploader :image, ImageUploader
   belongs_to :post
-  accepts_nested_attributes_for :post
 end

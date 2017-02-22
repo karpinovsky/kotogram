@@ -3,6 +3,9 @@
     = p.hidden_field :user_id, value: current_user.id
     = p.text_field :body
   .field
+    = p.fields_for :description, Description.new do |description_form|
+      = description_form.text_area :body
+  .field
     = p.fields_for :image, Image.new do |image_form|
       = image_form.file_field :image
   .actions
