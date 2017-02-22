@@ -1,12 +1,11 @@
-= form_for Post.new, url: user_posts_path(current_user) do |p|
+= form_for Post.new, url: user_posts_path(current_user) do |post|
   .field
-    = p.hidden_field :user_id, value: current_user.id
-    = p.text_field :body
+    = post.hidden_field :user_id, value: current_user.id
   .field
-    = p.fields_for :description, Description.new do |description_form|
+    = post.fields_for :description, Description.new do |description_form|
       = description_form.text_area :body
   .field
-    = p.fields_for :image, Image.new do |image_form|
-      = image_form.file_field :image
+    = post.fields_for :image, Image.new do |image_form|
+      = render partial: 'images/image_form', locals: { image: image_form }
   .actions
-    = p.submit
+    = post.submit

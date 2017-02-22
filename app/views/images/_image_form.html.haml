@@ -1,3 +1,2 @@
-= form_for Image.new, url: user_post_images_path(current_user, post), html: { multipart: true } do |i|
-  .field
-    = i.file_field :image
+.field
+  = image.file_field :image
