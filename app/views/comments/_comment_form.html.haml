@@ -1,0 +1,5 @@
+= form_for [user, post, Comment.new] do |comment|
+  = comment.hidden_field :post_id, value: post.id
+  = comment.hidden_field :user_username, value: user.username
+  = comment.text_area :body, placeholder: 'Add a comment...'
+  = comment.submit
