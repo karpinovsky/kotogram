@@ -2,9 +2,7 @@
   .field
     = post.hidden_field :user_id, value: current_user.id
   .field
-    = post.fields_for :description, Description.new do |description_form|
-      = render partial: 'descriptions/description_form',
-        locals: { description: description_form }
+    = post.text_area :description, placeholder: 'Add description...'
   .field
     = post.fields_for :image, Image.new do |image_form|
       = render partial: 'images/image_form', locals: { image: image_form }

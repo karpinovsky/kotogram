@@ -2,8 +2,6 @@ class Post < ApplicationRecord
   belongs_to :user
   has_one :image
   accepts_nested_attributes_for :image
-  has_one :description
-  accepts_nested_attributes_for :description
   # has_one :video
   # accepts_nested_attributes_for :video
   # has_many :comments
