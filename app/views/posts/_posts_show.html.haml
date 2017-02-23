@@ -2,3 +2,11 @@
   = render partial: 'images/image_show', locals: { post: post }
   %br
   = post.description
+  - post.comments.each do |comment|
+    = comment.body
+    %br
+  = form_for [current_user, post, Comment.new] do |comment|
+    = comment.hidden_field :post_id, value: post.id
+    = comment.hidden_field :user_username, value: current_user.username
+    = comment.text_area :body, placeholder: 'Add a comment...'
+    = comment.submit

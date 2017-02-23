@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, param: :username, path: '', except: [ :index, :create, :new ] do
     resources :posts, only: [ :create, :destroy ] do
       resources :images, only: [ :create, :destroy ]
+      resources :comments, only: [ :create, :destroy ]
     end
     get 'users', on: :collection, action: :index, as: ''
     member do
