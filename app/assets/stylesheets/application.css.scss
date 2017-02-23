@@ -179,6 +179,7 @@ $light-gray-fontawesome-search-icon: #999cb4;
 }
 
 .feed-item {
+  width: inherit;
   background-color: $white;
   margin-bottom: 60px;
 }
@@ -187,11 +188,11 @@ $light-gray-fontawesome-search-icon: #999cb4;
   height: 64px;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
-  .col-lg-8 {
+  .col-lg-7 {
     height: inherit;
   }
 
-  .col-lg-4 {
+  .col-lg-5 {
     height: inherit;
   }
 }

@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def feed
-    Image.from_users_followed_by(self)
+    Post.from_users_followed_by(self)
   end
 
   def following?(other_user)

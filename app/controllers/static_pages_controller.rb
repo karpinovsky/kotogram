@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   include Concerns::CurrentUser
 
   def home
-    signed_in?
+    signed_in? && @feed_items = current_user.feed.order('created_at DESC')
     respond_to do |format|
       format.html
       format.js

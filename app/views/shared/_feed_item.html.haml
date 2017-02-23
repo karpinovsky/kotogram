@@ -1,0 +1,16 @@
+.feed-item
+  .feed-item-header
+    .col-lg-7
+      .feed-item-user
+        = link_to icon('user-o'), feed_item.user, class: 'feed-item-user-avatar-link'
+        = link_to feed_item.user.id, feed_item.user, class: 'feed-item-user-link'
+    .col-lg-5
+      .feed-item-time
+        = time_ago_in_words(feed_item.created_at)
+  .feed-item-image
+    = image_tag feed_item.image.image.homepage.url
+  .feed-item-comments
+    .feed-item-comments-show
+      = render partial: 'comments/comments_show', locals: { post: feed_item }
+    .feed-item-comments-form
+      = render partial: 'comments/comment_form',  locals: { post: feed_item, user: current_user }
