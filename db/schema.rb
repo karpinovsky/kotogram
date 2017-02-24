@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 20170223163708) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "post_id"
-    t.string   "user_username"
-    t.text     "body",          limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "post_id",                   null: false
+    t.string   "user_username",             null: false
+    t.text     "body",          limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(version: 20170223163708) do
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.text     "description", limit: 65535
+    t.integer  "user_id",                   null: false
+    t.string   "user_username",             null: false
+    t.text     "description",   limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
