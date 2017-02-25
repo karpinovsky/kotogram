@@ -14,7 +14,7 @@
       - unless feed_item.description.blank?
         = link_to feed_item.user_username, user_path(feed_item.user_username), class: 'feed-item-commentor-link'
         .feed-item-comment-body
-          = feed_item.description
+          = with_links_to_tags(feed_item.description)
         %br
       = render partial: 'comments/comments_show', locals: { post: feed_item }
     .feed-item-comments-form

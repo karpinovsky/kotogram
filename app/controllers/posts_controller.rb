@@ -4,6 +4,11 @@ class PostsController < ApplicationController
     redirect_to current_user
   end
 
+  def tags
+    tag = Tag.find_by(name: params[:name])
+    @posts = tag.posts
+  end
+
   private
 
   def post_params

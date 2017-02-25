@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [ :create, :destroy ]
+  get '/posts/explore/tags/:name', to: 'posts#tags', as: :tag
 end
