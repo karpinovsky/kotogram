@@ -1,24 +1,30 @@
-# README
+# KOTOGRAM
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Привет! Kotogram - портфолио-проект, который я разрабатываю для того,
+чтобы устроиться на работу в качестве Junior Ruby on Rails разработчика.
 
-Things you may want to cover:
+Проект представляет из себя копию Instagram. Мы с моим ментором решили
+делать проект такого типа, т.к. на нем можно попробовать много различных
+вещей и технологий, многие из которых скорее всего встретятся в моей
+будущей работе.
 
-* Ruby version
+В качестве ментора, а так же менеджера проекта выступает
+[Никита](https://github.com/nsklkn). Мы работаем по Scrum с недельными
+спринтами, таким образом я получаю опыт, похожий на разработку реального
+проекта.
 
-* System dependencies
+Вещи, которые *реализованы*:
 
-* Configuration
+* Аутентификация с помощью devise
+* Человекопонятные URL с ником пользователя
+* Загрузка и отображение картинок
+* Комментарии, хештеги и лайки
+* Лайки
 
-* Database creation
+Вещи, которые предстоит сделать:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Поиск по имени пользователя или хештегу
+* Лайки и комментарии с вебсокетами
+* Базовый дизайн сайта
+* Загрузка и воспроизведение видео
+* Поднять проект в production режиме, посаппортить его какое-то время.
