@@ -1,5 +1,20 @@
-%p.notice= notice
-%p.alert=  alert
-
-= render 'static_pages/home/signup_form'
-= render 'static_pages/home/signin_link'
+.homepage-non-auth-user
+  .container
+    .row
+      .col-lg-8.col-centered
+        .row
+          .col-lg-6.homepage-non-auth-user-kotogram-browser-image
+          .col-lg-6
+            .row
+              .col-lg-11.col-centered
+                .row
+                  .col-lg-12.homepage-non-auth-user-join
+                    .row
+                      .col-lg-12.homepage-non-auth-user-logo Kotogram
+                      .col-lg-12.homepage-non-auth-user-form
+                        .row
+                          = render 'static_pages/home/signup_form'
+                .row
+                  .col-lg-12.homepage-non-auth-user-links
+                    .row
+                      = render 'static_pages/home/signin_link'

@@ -6,7 +6,7 @@
           .navbar-header
             = link_to icon('instagram'), root_path
         .col-lg-4
-          .navbar-form
+          .navbar-form.auth-user-header-search-form
             = form_tag(users_path, method: :get) do
               .form-group
                 = text_field_tag :search, '', placeholder: 'Search', class: 'form-control'

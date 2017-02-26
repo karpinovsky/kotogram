@@ -26,10 +26,20 @@ $light-black-logo-border: #939393;
 $light-gray-search-form-border: #dbdbdb;
 $light-gray-fontawesome-search-icon: #999cb4;
 
+$ef: #efefef;
+$nine: #999;
+$b2: #b2b2b2;
+$col-3897f0: #3897f0;
+$col-e6: #e6e6e6;
+
 
 .container-fluid {
   background-color: $light-gray;
-  height: 5000px;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }
 
 //.container.main-content {
@@ -41,8 +51,122 @@ $light-gray-fontawesome-search-icon: #999cb4;
 //  border-radius: 4px;
 //}
 
+// ---------- homepage for non-authenticated user, lg ----------
 
-// ----------------------------------------- header lg -----------------------------------------
+$light-blue-homepage-non-auth-user-sign-up-in-link: #527abb;
+
+
+.homepage-non-auth-user {
+  align-items: center;
+  background-color: $light-gray;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+
+.homepage-non-auth-user-kotogram-browser-image {
+  background-image: image-url('kotogramBrowser.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 450px;
+}
+
+.homepage-non-auth-user-join {
+  background-color: $white;
+  border: 1px solid $light-gray-header-border;
+  border-radius: 4px;
+}
+
+.homepage-non-auth-user-logo {
+  align-items: center;
+  display: flex;
+  font-family: 'Lobster Two';
+  font-size: 300%;
+  height: 80px;
+  justify-content: center;
+}
+
+.homepage-non-auth-user-form {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.homepage-non-auth-user-links {
+  background-color: $white;
+  border: 1px solid $light-gray-header-border;
+  border-radius: 4px;
+  height: 80px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.homepage-non-auth-user-sign-in-link,
+.homepage-non-auth-user-sign-up-link {
+  align-items: center;
+  display: flex;
+  height: inherit;
+  justify-content: center;
+  white-space: pre-wrap;
+
+  a {
+    color: $light-blue-homepage-non-auth-user-sign-up-in-link;
+    text-decoration: none;
+  }
+}
+
+.homepage-non-auth-user-sign-up-suggestion {
+  color: $nine;
+  font-size: 120%;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.navbar-form.homepage-non-auth-user-sign-up-form,
+.navbar-form.homepage-non-auth-user-sign-in-form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  .input-group {
+    margin-bottom: 5px;
+  }
+
+  .form-control {
+    border-color: $light-gray-search-form-border;
+    border-radius: 2px;
+    height: 30px;
+    width: 230px;
+  }
+
+  .form-control:focus {
+    border-color: $b2;
+    box-shadow: none;
+  }
+
+  .form-control::placeholder {
+    color: $light-gray-fontawesome-search-icon;
+  }
+
+  .btn.btn-default {
+    background-color: $col-3897f0;
+    color: $white;
+    font-weight: 600;
+    height: 30px;
+    line-height: 28px;
+    margin-top: 5px;
+    padding: 0;
+    width: 230px;
+  }
+}
+
+
+// ---------- header for authenticated user, lg ----------------
 
 .nav.navbar-default {
   background-color: $white;
@@ -92,7 +216,7 @@ $light-gray-fontawesome-search-icon: #999cb4;
 
 }
 
-.navbar-form {
+.auth-user-header-search-form {
   left: 50%;
   position: relative;
   top: 43%;
@@ -170,24 +294,25 @@ $light-gray-fontawesome-search-icon: #999cb4;
   }
 }
 
-// ----------------------------------------- user-homepage lg -----------------------------------------
+// ----------------------------------------- user's homepage, lg -----------------------------------------
 
 .container.user-homepage.lg {
-  max-height: 100%;
   margin-top: 60px;
+  max-height: 100%;
   width: 602px;
 }
 
 .feed-item {
-  width: inherit;
   background-color: $white;
   margin-bottom: 60px;
+  width: inherit;
 }
 
 .feed-item-header {
-  height: 64px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid $col-e6;
   border-radius: 4px;
+  height: 64px;
+
   .col-lg-7 {
     height: inherit;
   }
@@ -202,80 +327,77 @@ $light-gray-fontawesome-search-icon: #999cb4;
 }
 
 .fa.fa-user-o {
-  position: relative;
   color: $light-black-logo;
   font-size: 200%;
+  position: relative;
 }
 
 .feed-item-user {
+  padding-left: 5px;
   position: relative;
   top: 50%;
   transform: translate(0%, -50%);
-  padding-left: 5px;
-  //bottom: 3px;
-  //left: 5px;
 }
 
 .feed-item-user-link {
-  display: inline-block;
-  position: relative;
   bottom: 4px;
+  color: $light-black-logo;
+  display: inline-block;
+  font-weight: 600;
   left: 8px;
   position: relative;
-  font-weight: 600;
-  color: #262626;
 }
 
 .feed-item-user-link:hover {
-  color: #262626;
+  color: $light-black-logo;
   text-decoration: none;
 }
 
 .feed-item-time {
+  color: $nine;
+  padding-right: 5px;
   position: relative;
+  text-align: right;
   top: 50%;
   transform: translate(0%, -50%);
-  color: #999;
-  text-align: right;
-  padding-right: 5px;
 }
 
 .feed-item-image {
-  border-left: 1px solid #efefef;
-  border-right: 1px solid #efefef;
-  width: inherit;
-  margin: 0px;
+  border-left: 1px solid $ef;
+  border-right: 1px solid $ef;
+  margin: 0;
   overflow: hidden;
+  width: inherit;
 }
 
 .feed-item-comments {
-  padding: 0 24px;
-  border: 1px solid #efefef;
+  border: 1px solid $ef;
   border-radius: 4px;
+  padding: 0 24px;
 }
 
 .feed-item-comments-show {
+  border-bottom: 1px solid $ef;
   padding: 15px 0;
-  border-bottom: 1px solid #efefef;
 }
 
 .feed-item-commentor-link {
-  font-weight: 600;
-  color: #262626;
+  color: $light-black-logo;
   display: inline-block;
   font-size: 15px;
+  font-weight: 600;
 }
 
 .feed-item-commentor-link:hover {
-  color: #262626;
+  color: $light-black-logo;
   text-decoration: none;
 }
 
 .feed-item-comment-body {
   display: inline-block;
-  padding-left: 5px;
-  margin-bottom: 5px;
   font-size: 15px;
+  margin-bottom: 5px;
+  padding-left: 5px;
 }
 
 .feed-item-comments-form {
@@ -284,18 +406,18 @@ $light-gray-fontawesome-search-icon: #999cb4;
 }
 
 .feed-item-comment-textarea {
-  position: relative;
+  border: 0;
+  font-size: 15px;
+  height: 27px;
   margin-left: 50px;
-  border: none;
+  overflow: hidden;
+  position: relative;
   resize: none;
   width: 450px;
-  height: 27px;
-  font-size: 15px;
-  overflow: hidden;
 }
 
 .feed-item-comment-textarea:focus {
+  border: 0;
   box-shadow: none;
-  border: none;
   outline: none;
 }
