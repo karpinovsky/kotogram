@@ -1,0 +1,4 @@
+= form_for [current_user, Avatar.new] do |avatar|
+  = avatar.hidden_field :user_id,       value: current_user.id
+  = avatar.file_field   :avatar
+  = avatar.submit
