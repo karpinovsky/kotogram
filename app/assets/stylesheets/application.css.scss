@@ -323,7 +323,10 @@ $light-blue-homepage-non-auth-user-sign-up-in-link: #527abb;
 }
 
 .feed-item-user-avatar-link {
-  display: inline-block;
+
+  img {
+    border-radius: 50%;
+  }
 }
 
 .fa.fa-user-o {
