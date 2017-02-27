@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   #devise_for :users, path: '', path_names: { sign_in: '', sign_out: 'signout'}
   devise_for :users
   resources :users, param: :username, path: '', except: [ :index, :create, :new ] do
+    resources :avatars, only: [ :create ]
     resources :posts, only: [ :create, :destroy ] do
       resources :images, only: [ :create, :destroy ]
       resources :comments, only: [ :create, :destroy ]
