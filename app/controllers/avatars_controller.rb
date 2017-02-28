@@ -1,12 +1,18 @@
 class AvatarsController < ApplicationController
+
   def create
-    @avatar = Avatar.create!(avatar_params)
-    redirect_back(fallback_location: root_path)
+    Avatar.create(avatar_params)
+    redirect_to current_user
   end
 
   def destroy
     current_user.avatar.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to current_user
+  end
+
+  def update
+    current_user.avatar.update_attributes(avatar_params)
+    redirect_to current_user
   end
 
   private

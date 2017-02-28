@@ -9,6 +9,7 @@ class User < ApplicationRecord
                                    dependent: :destroy
   has_many :followers, through: :reverse_relationships
   before_save { username.downcase! }
+  accepts_nested_attributes_for :avatar
   VALID_USERNAME_REGEX = /\A(^[a-zA-Z])\w*([a-zA-Z]|\d)$\z/i
   validates :username, presence: true, format: { with: VALID_USERNAME_REGEX },
                     length: { minimum: 5, maximum: 20 },
