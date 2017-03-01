@@ -1,7 +1,7 @@
 10.times do |n|
   user = User.new(
     email: "example#{n}@kotogram.ru",
-    fullName: "example",
+    name: "example",
     username: "example#{n}",
     password: "example",
     password_confirmation: "example",

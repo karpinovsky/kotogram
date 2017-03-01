@@ -2,8 +2,12 @@
 %p.alert=  alert
 
 = user_by_username.email
+%br
+- if current_user == user_by_username
+  = link_to 'Edit Profile', edit_user_path(current_user)
+%br
 = render 'sign_out'
 = render 'follow_form'
 = render 'stats'
-= render 'avatar'
+= render 'avatars/avatar'
 = render 'posts/posts'

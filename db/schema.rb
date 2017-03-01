@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 20170227132754) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "post_id",                   null: false
-    t.string   "user_username",             null: false
-    t.text     "body",          limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "post_id",                     null: false
+    t.string   "user_username",               null: false
+    t.text     "body",          limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,16 +66,20 @@ ActiveRecord::Schema.define(version: 20170227132754) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "fullName"
-    t.string   "username",                            null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "name"
+    t.string   "username",                                          null: false
+    t.string   "website"
+    t.text     "bio",                    limit: 65535
+    t.string   "phone"
+    t.string   "gender"
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "email",                                default: "", null: false
+    t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                        default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

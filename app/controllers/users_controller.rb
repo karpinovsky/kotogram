@@ -7,18 +7,21 @@ class UsersController < ApplicationController
   end
 
   def show
-    #@images = user_by_username.images.all.order('created_at DESC')
   end
 
-  def feed
-    #@feed_items = current_user.feed
+  def update
+    current_user.update_attributes(user_params)
   end
 
   def following
-    # users followed by user
   end
 
   def followers
-    # user's followers
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :username, :website, :bio, :email, :phone, :gender)
   end
 end
