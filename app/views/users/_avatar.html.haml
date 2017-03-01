@@ -1,5 +1,5 @@
 - if user_by_username.avatar.blank?
-  = image_tag "defaultAvatar.jpg"
+  = image_tag 'userpage_default_avatar.jpg'
   = form_for [current_user, Avatar.new] do |avatar|
     = avatar.hidden_field :user_id, value: current_user.id
     = avatar.file_field   :avatar

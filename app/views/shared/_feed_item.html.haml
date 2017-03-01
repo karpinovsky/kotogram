@@ -3,7 +3,7 @@
     .col-lg-7
       .feed-item-user
         - if feed_item.user.avatar.blank?
-          = link_to icon('user-o'), feed_item.user, class: 'feed-item-user-avatar-link'
+          = link_to image_tag('homepage_auth_user_default_avatar.jpg'), feed_item.user, class: 'feed-item-user-avatar-link'
         - else
           = link_to image_tag(feed_item.user.avatar.avatar.homepage), feed_item.user, class: 'feed-item-user-avatar-link'
         = link_to feed_item.user.username, feed_item.user, class: 'feed-item-user-link'
