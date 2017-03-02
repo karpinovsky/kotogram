@@ -15,6 +15,8 @@ class User < ApplicationRecord
                     length: { minimum: 5, maximum: 20 },
                     uniqueness: { case_sensitive: false }
 
+  devise :omniauthable, :omniauth_providers => [:facebook]
+
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -22,6 +24,24 @@ class User < ApplicationRecord
          :trackable,
          :validatable,
          :confirmable
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.first_name + '' + auth.info.last_name
+      user.username = auth.info.first_name + auth.info.last_name
+      user.skip_confirmation!
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
 
   def to_param
     username
