@@ -2,8 +2,8 @@
   .row
     .col-lg-12.homepage-non-auth-user-sign-up-suggestion Sign up to see photos and videos from your friends.
     .col-lg-12.homepage-non-auth-user-log-in-with-facebook
-      = button_to 'Log in with Faceebok', user_facebook_omniauth_authorize_path
-      = link_to "Log in with Facebook", user_facebook_omniauth_authorize_path
+      = button_to 'Log in with Facebook', user_facebook_omniauth_authorize_path
+      %span
     .navbar-form.homepage-non-auth-user-sign-up-form
       = form_for(resource, as: resource_name, url: registration_path(resource_name),
         remote: true) do |f|
