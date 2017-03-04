@@ -11,19 +11,20 @@ $homepage-non-auth-user-log-in-with-facebook-input-color: #fff;
 
 .homepage-non-auth-user-log-in-with-facebook {
   margin-bottom: 10px;
+}
 
-  input {
-    background-color: $homepage-non-auth-user-log-in-with-facebook-input-background-color;
-    border: 0;
-    border-radius: 4px;
-    color: $homepage-non-auth-user-log-in-with-facebook-input-color;
-    font-weight: bold;
-    height: 30px;
-    line-height: 28px;
-    overflow: hidden;
-    padding: 0 8px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 230px;
-  }
+.homepage-non-auth-user-btn {
+  background-color: $homepage-non-auth-user-log-in-with-facebook-input-background-color;
+  border: 0;
+  border-radius: 4px;
+  color: $homepage-non-auth-user-log-in-with-facebook-input-color;
+  font-weight: bold;
+  height: 30px;
+  line-height: 28px;
+  overflow: hidden;
+  padding: 0 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 230px;
+  outline: none;
 }
