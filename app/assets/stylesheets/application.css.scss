@@ -37,10 +37,6 @@ $col-e6: #e6e6e6;
   background-color: $light-gray;
 }
 
-.col-centered {
-  float: none;
-  margin: 0 auto;
-}
 
 //.container.main-content {
 //  background-color: $white;
@@ -56,55 +52,16 @@ $col-e6: #e6e6e6;
 $light-blue-homepage-non-auth-user-sign-up-in-link: #527abb;
 
 
-.homepage-non-auth-user {
-  align-items: center;
-  background-color: $light-gray;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  left: 0;
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  width: 100%;
+
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }
 
 
-.homepage-non-auth-user-kotogram-browser-image {
-  background-image: image-url('kotogramBrowser.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 450px;
-}
 
-.homepage-non-auth-user-join {
-  background-color: $white;
-  border: 1px solid $light-gray-header-border;
-  border-radius: 4px;
-}
 
-.homepage-non-auth-user-logo {
-  align-items: center;
-  display: flex;
-  font-family: 'Lobster Two';
-  font-size: 300%;
-  height: 80px;
-  justify-content: center;
-}
-
-.homepage-non-auth-user-form {
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.homepage-non-auth-user-links {
-  background-color: $white;
-  border: 1px solid $light-gray-header-border;
-  border-radius: 4px;
-  height: 80px;
-  margin-top: 10px;
-  text-align: center;
-}
 
 .homepage-non-auth-user-sign-in-link,
 .homepage-non-auth-user-sign-up-link {

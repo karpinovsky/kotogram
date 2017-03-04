@@ -1,0 +1,57 @@
+$homepage-non-auth-user-background-color: #fafafa;
+$homepage-non-auth-user-join-background-color: #fff;
+$homepage-non-auth-user-join-border: #e7e7e7;
+$homepage-non-auth-user-links-color: #fff;
+$homepage-non-auth-user-links-border: #e7e7e7;
+
+@mixin content-centered {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: auto
+}
+
+.homepage-non-auth-user {
+  @include content-centered;
+  background-color: $homepage-non-auth-user-background-color;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.homepage-non-auth-user-kotogram-browser-image {
+  background: image-url('kotogramBrowser.png') no-repeat center;
+  height: 450px;
+}
+
+.homepage-non-auth-user-join {
+  background-color: $homepage-non-auth-user-join-background-color;
+  border: 1px solid $homepage-non-auth-user-join-border;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.homepage-non-auth-user-logo {
+  @include content-centered;
+  height: 80px;
+  font-family: 'Lobster Two';
+  font-size: 300%;
+}
+
+.homepage-non-auth-user-form {
+  margin-bottom: 10px;
+}
+
+.homepage-non-auth-user-links {
+  background-color: $homepage-non-auth-user-links-color;
+  border: 1px solid $homepage-non-auth-user-links-border;
+  border-radius: 4px;
+  height: 80px;
+  margin-top: 10px;
+}
+
