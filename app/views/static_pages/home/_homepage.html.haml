@@ -4,17 +4,8 @@
       .col-lg-8.col-centered
         .row
           .col-lg-6.homepage-non-auth-user-kotogram-browser-image
+            = image_tag 'kotogram_browser.png'
           .col-lg-6
             .row
-              .col-lg-11.col-centered
-                .row
-                  .col-lg-12.homepage-non-auth-user-join
-                    .row
-                      .col-lg-12.homepage-non-auth-user-logo Kotogram
-                      .col-lg-12.homepage-non-auth-user-form
-                        .row
-                          = render 'static_pages/home/signup_form'
-                .row
-                  .col-lg-12.homepage-non-auth-user-links
-                    .row
-                      = render 'static_pages/home/signin_link'
+              = render 'static_pages/home/sign_up_form'
+              = render 'static_pages/home/sign_in_link'

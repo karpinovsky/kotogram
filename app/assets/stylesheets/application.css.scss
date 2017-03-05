@@ -18,359 +18,150 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-$white: #fff;
-$light-gray: #fafafa;
-$light-gray-header-border: #e7e7e7;
-$light-black-logo: #262626;
-$light-black-logo-border: #939393;
-$light-gray-search-form-border: #dbdbdb;
-$light-gray-fontawesome-search-icon: #999cb4;
-
-$ef: #efefef;
-$nine: #999;
-$b2: #b2b2b2;
-$col-3897f0: #3897f0;
-$col-e6: #e6e6e6;
-
-
-.container-fluid {
-  background-color: $light-gray;
-}
-
-
-//.container.main-content {
-//  background-color: $white;
-//  height: inherit;
-//  margin-top: 60px;
-//  width: 602px;
-//  border: 1px solid #e6e6e6;
-//  border-radius: 4px;
-//}
-
-// ---------- homepage for non-authenticated user, lg ----------
-
-$light-blue-homepage-non-auth-user-sign-up-in-link: #527abb;
-
-
-
-
 .col-centered {
   float: none;
   margin: 0 auto;
 }
 
-
-
-
-
-.homepage-non-auth-user-sign-in-link,
-.homepage-non-auth-user-sign-up-link {
+@mixin content-centered {
   align-items: center;
   display: flex;
-  height: inherit;
   justify-content: center;
-  white-space: pre-wrap;
-
-  a {
-    color: $light-blue-homepage-non-auth-user-sign-up-in-link;
-    text-decoration: none;
-  }
+  overflow: auto
 }
 
+// --------------------------- homepage non authenticated user ---------------------------
 
-.navbar-form.homepage-non-auth-user-sign-up-form,
-.navbar-form.homepage-non-auth-user-sign-in-form {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+$homepage-non-auth-user-background: #fafafa;
+$homepage-non-auth-user-logo: #262626;
+$homepage-non-auth-user-sign-up-background: #fff;
+$homepage-non-auth-user-sign-up-border: #e7e7e7;
+$homepage-non-auth-user-sign-up-suggestion: #999;
+$homepage-non-auth-user-log-in-with-facebook-btn-background: #3897f0;
+$homepage-non-auth-user-log-in-with-facebook-btn: #fff;
+$homepage-non-auth-user-form-form-control-border: #dbdbdb;
+$homepage-non-auth-user-form-form-control-focus-border: #b2b2b2;
+$homepage-non-auth-user-form-form-control-placeholder: #999cb4;
+$homepage-non-auth-user-sign-in-link-background: #fff;
+$homepage-non-auth-user-sign-in-link-border: #e7e7e7;
+$homepage-non-auth-user-or-sign-up-with-form-lines: #c7c7c7;
+$homepage-non-auth-user-links: #3897f3;
 
-  .input-group {
-    margin-bottom: 5px;
-  }
 
-  .form-control {
-    border-color: $light-gray-search-form-border;
-    border-radius: 2px;
-    height: 30px;
-    width: 230px;
-  }
+.homepage-non-auth-user {
+  @include content-centered;
+  background-color: $homepage-non-auth-user-background;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
 
-  .form-control:focus {
-    border-color: $b2;
-    box-shadow: none;
-  }
+.homepage-non-auth-user-kotogram-browser-image {
+  padding-top: 100px;
+}
 
-  .form-control::placeholder {
-    color: $light-gray-fontawesome-search-icon;
-  }
+.homepage-non-auth-user-sign-up {
+  background-color: $homepage-non-auth-user-sign-up-background;
+  border: 1px solid $homepage-non-auth-user-sign-up-border;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+}
 
-  .btn.btn-default {
-    background-color: $col-3897f0;
-    color: $white;
-    font-weight: 600;
+.homepage-non-auth-user-logo {
+  color: $homepage-non-auth-user-logo;
+  font-family: 'Lobster Two';
+  font-size: 45px;
+  margin: 10px 0 8px;
+}
+
+.homepage-non-auth-user-sign-up-suggestion {
+  color: $homepage-non-auth-user-sign-up-suggestion;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.homepage-non-auth-user-log-in-with-facebook {
+  margin-bottom: 12px;
+}
+
+.homepage-non-auth-user-btn {
+    background-color: $homepage-non-auth-user-log-in-with-facebook-btn-background;
+    border: 0;
+    border-radius: 4px;
+    color: $homepage-non-auth-user-log-in-with-facebook-btn;
+    font-weight: bold;
     height: 30px;
     line-height: 28px;
-    margin-top: 5px;
-    padding: 0;
+    overflow: hidden;
+    padding: 0 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     width: 230px;
+    outline: none;
+}
+
+.homepage-non-auth-user-or-sign-up-with-form {
+  @include content-centered;
+  @extend .homepage-non-auth-user-sign-up-suggestion;
+  font-size: 12px;
+
+  .homepage-non-auth-user-or-sign-up-with-form-left-line {
+    display: inline-block;
+    background: $homepage-non-auth-user-or-sign-up-with-form-lines;
+    height: 1px;
+    width: 90px;
+    margin-right: 15px;
+  }
+
+  .homepage-non-auth-user-or-sign-up-with-form-right-line {
+    display: inline-block;
+    background: $homepage-non-auth-user-or-sign-up-with-form-lines;
+    height: 1px;
+    width: 90px;
+    margin-left: 15px;
   }
 }
 
-
-// ---------- header for authenticated user, lg ----------------
-
-.nav.navbar-default {
-  background-color: $white;
-  border-bottom: 1px solid $light-gray-header-border;
-  height: 77px;
-}
-
-.container.header {
-  height: inherit;
-}
-
-.row {
-  height: inherit;
-}
-
-.col-lg-4 {
-  height: inherit;
-}
-
-.navbar-header {
-  left: 50%;
-  position: relative;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  a {
-    display: block;
-    height: inherit;
-
-    .fa.fa-instagram {
-      color: $light-black-logo;
-      font-size: 260%;
-    }
-
-    .fa.fa-instagram::after {
-      border-left: 1px solid $light-black-logo-border;
-      bottom: 3px;
-      content: 'Kotogram';
-      font-family: 'Lobster Two';
-      font-size: 70%;
-      margin-left: 18px;
-      padding-left: 15px;
-      position: relative;
-    }
-
-  }
-
-}
-
-.auth-user-header-search-form {
-  left: 50%;
-  position: relative;
-  top: 43%;
-  transform: translate(-50%, -50%);
+.homepage-non-auth-user-form {
+  @include content-centered;
 
   .form-group {
-    left: 50%;
-    position: relative;
-    transform: translate(-50%, 0%);
 
-    .form-control {
-      border-color: $light-gray-search-form-border;
-      border-radius: 3px;
-      border-width: 1px;
-      height: 30px;
-      left: 50%;
-      position: relative;
-      text-align: center;
-      transform: translate(-50%, 0%);
-      width: 215px;
-
+    .actions {
+      margin: 10px 0;
     }
 
-    .form-control,
-    textarea {
-      background: $light-gray;
+    .form-control {
+      border: 1px solid $homepage-non-auth-user-form-form-control-border;
+      border-radius: 2px;
+      margin-bottom: 5px;
+      height: 30px;
+      width: 230px;
     }
 
     .form-control:focus {
-      background-color: $white;
+      border-color: $homepage-non-auth-user-form-form-control-focus-border;
       box-shadow: none;
-      position: relative;
-      text-align: left;
     }
 
     .form-control::placeholder {
-      color: $light-gray-fontawesome-search-icon;
+      color: $homepage-non-auth-user-form-form-control-placeholder;
     }
-
-  }
-
-}
-
-.nav.navbar-nav {
-  left: 50%;
-  position: relative;
-  top: 54%;
-  transform: translate(-50%, -50%);
-
-  .explore a {
-    display: inline-block;
-  }
-
-  .fa.fa-circle-thin {
-    color: $light-black-logo;
-    font-size: 160%;
-  }
-
-  .news {
-    margin-left: 30px;
-  }
-
-  .fa.fa-heart-o {
-    color: $light-black-logo;
-    font-size: 160%;
-  }
-
-  .profile {
-    margin-left: 30px;
-  }
-
-  .fa.fa-user-o {
-    color: $light-black-logo;
-    font-size: 160%;
   }
 }
 
-// ----------------------------------------- user's homepage, lg -----------------------------------------
-
-.container.user-homepage.lg {
-  margin-top: 60px;
-  max-height: 100%;
-  width: 602px;
-}
-
-.feed-item {
-  background-color: $white;
-  margin-bottom: 60px;
-  width: inherit;
-}
-
-.feed-item-header {
-  border: 1px solid $col-e6;
+.homepage-non-auth-user-sign-in-link {
+  @include content-centered;
+  height: 60px;
+  background-color: $homepage-non-auth-user-sign-in-link-background;
+  border: 1px solid $homepage-non-auth-user-sign-in-link-border;
   border-radius: 4px;
-  height: 64px;
 
-  .col-lg-7 {
-    height: inherit;
+  a {
+    color: $homepage-non-auth-user-links;
+    text-decoration: none;
+    margin-left: 5px;
   }
-
-  .col-lg-5 {
-    height: inherit;
-  }
-}
-
-.feed-item-user-avatar-link {
-
-  img {
-    border-radius: 50%;
-  }
-}
-
-.fa.fa-user-o {
-  color: $light-black-logo;
-  font-size: 200%;
-  position: relative;
-}
-
-.feed-item-user {
-  padding-left: 5px;
-  position: relative;
-  top: 50%;
-  transform: translate(0%, -50%);
-}
-
-.feed-item-user-link {
-  color: $light-black-logo;
-  display: inline-block;
-  font-weight: 600;
-  left: 8px;
-  position: relative;
-}
-
-.feed-item-user-link:hover {
-  color: $light-black-logo;
-  text-decoration: none;
-}
-
-.feed-item-time {
-  color: $nine;
-  padding-right: 5px;
-  position: relative;
-  text-align: right;
-  top: 50%;
-  transform: translate(0%, -50%);
-}
-
-.feed-item-image {
-  border-left: 1px solid $ef;
-  border-right: 1px solid $ef;
-  margin: 0;
-  overflow: hidden;
-  width: inherit;
-}
-
-.feed-item-comments {
-  border: 1px solid $ef;
-  border-radius: 4px;
-  padding: 0 24px;
-}
-
-.feed-item-comments-show {
-  border-bottom: 1px solid $ef;
-  padding: 15px 0;
-}
-
-.feed-item-commentor-link {
-  color: $light-black-logo;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.feed-item-commentor-link:hover {
-  color: $light-black-logo;
-  text-decoration: none;
-}
-
-.feed-item-comment-body {
-  display: inline-block;
-  font-size: 15px;
-  margin-bottom: 5px;
-  padding-left: 5px;
-}
-
-.feed-item-comments-form {
-  height: 55px;
-  margin-top: 25px;
-}
-
-.feed-item-comment-textarea {
-  border: 0;
-  font-size: 15px;
-  height: 27px;
-  margin-left: 50px;
-  overflow: hidden;
-  position: relative;
-  resize: none;
-  width: 450px;
-}
-
-.feed-item-comment-textarea:focus {
-  border: 0;
-  box-shadow: none;
-  outline: none;
 }
