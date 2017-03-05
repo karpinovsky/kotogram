@@ -1,10 +1,16 @@
-.col-lg-12.homepage-non-auth-user-sign-up
+.col-lg-11.col-centered.homepage-non-auth-user-sign-up
   .row
-    .col-lg-12.homepage-non-auth-user-sign-up-suggestion Sign up to see photos and videos from your friends.
+    .col-lg-12.homepage-non-auth-user-logo Kotogram
+    .col-lg-12.homepage-non-auth-user-sign-up-suggestion
+      Sign up to see photos and videos from your friends.
     .col-lg-12.homepage-non-auth-user-log-in-with-facebook
-      = button_to 'Log in with Facebook', user_facebook_omniauth_authorize_path
-      %span
-    .navbar-form.homepage-non-auth-user-sign-up-form
+      = button_to 'Log in with Facebook', user_facebook_omniauth_authorize_path,
+        class: 'homepage-non-auth-user-btn'
+    .col-lg-12.homepage-non-auth-user-or-sign-up-with-form
+      .homepage-non-auth-user-or-sign-up-with-form-left-line
+      OR
+      .homepage-non-auth-user-or-sign-up-with-form-right-line
+    .col-lg-12.homepage-non-auth-user-form
       = form_for(resource, as: resource_name, url: registration_path(resource_name),
         remote: true) do |f|
         = devise_error_messages!
@@ -20,11 +26,12 @@
             = f.text_field :username, placeholder: 'Username', class: 'form-control'
 
           .input-group
-            = f.password_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control'
+            = f.password_field :password, autocomplete: 'off', placeholder: 'Password',
+              class: 'form-control'
 
           .input-group
             = f.password_field :password_confirmation, autocomplete: 'off',
                                         placeholder: 'Password Confirmation', class: 'form-control'
 
-        .actions
-          = f.submit 'Sign up', class: 'btn btn-default'
+          .actions
+            = f.submit 'Sign up', class: 'homepage-non-auth-user-btn'
