@@ -34,17 +34,17 @@
 
 $homepage-non-auth-user-background: #fafafa;
 $homepage-non-auth-user-logo: #262626;
-$homepage-non-auth-user-sign-up-background: #fff;
-$homepage-non-auth-user-sign-up-border: #e7e7e7;
+$homepage-non-auth-user-forms-background: #fff;
+$homepage-non-auth-user-forms-border: #e7e7e7;
 $homepage-non-auth-user-sign-up-suggestion: #999;
 $homepage-non-auth-user-log-in-with-facebook-btn-background: #3897f0;
 $homepage-non-auth-user-log-in-with-facebook-btn: #fff;
+$homepage-non-auth-user-or-sign-up-with-form-lines: #c7c7c7;
 $homepage-non-auth-user-form-form-control-border: #dbdbdb;
 $homepage-non-auth-user-form-form-control-focus-border: #b2b2b2;
 $homepage-non-auth-user-form-form-control-placeholder: #999cb4;
-$homepage-non-auth-user-sign-in-link-background: #fff;
-$homepage-non-auth-user-sign-in-link-border: #e7e7e7;
-$homepage-non-auth-user-or-sign-up-with-form-lines: #c7c7c7;
+$homepage-non-auth-user-links-background: #fff;
+$homepage-non-auth-user-links-border: #e7e7e7;
 $homepage-non-auth-user-links: #3897f3;
 
 
@@ -60,9 +60,10 @@ $homepage-non-auth-user-links: #3897f3;
   padding-top: 100px;
 }
 
-.homepage-non-auth-user-sign-up {
-  background-color: $homepage-non-auth-user-sign-up-background;
-  border: 1px solid $homepage-non-auth-user-sign-up-border;
+.homepage-non-auth-user-sign-up,
+.homepage-non-auth-user-sign-in {
+  background-color: $homepage-non-auth-user-forms-background;
+  border: 1px solid $homepage-non-auth-user-forms-border;
   border-radius: 4px;
   margin-bottom: 10px;
   text-align: center;
@@ -100,6 +101,14 @@ $homepage-non-auth-user-links: #3897f3;
     white-space: nowrap;
     width: 230px;
     outline: none;
+}
+
+.homepage-non-auth-user-btn-on-sign-in-form {
+  @extend .homepage-non-auth-user-btn;
+  color: #385185;
+  background: white;
+  font-size: 16px;
+  font-weight: lighter;
 }
 
 .homepage-non-auth-user-or-sign-up-with-form {
@@ -152,11 +161,12 @@ $homepage-non-auth-user-links: #3897f3;
   }
 }
 
-.homepage-non-auth-user-sign-in-link {
+.homepage-non-auth-user-sign-in-link,
+.homepage-non-auth-user-sign-up-link {
   @include content-centered;
   height: 60px;
-  background-color: $homepage-non-auth-user-sign-in-link-background;
-  border: 1px solid $homepage-non-auth-user-sign-in-link-border;
+  background-color: $homepage-non-auth-user-links-background;
+  border: 1px solid $homepage-non-auth-user-links-border;
   border-radius: 4px;
 
   a {
