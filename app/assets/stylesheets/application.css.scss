@@ -89,6 +89,7 @@ $homepage-non-auth-user-links: #3897f3;
 }
 
 .homepage-non-auth-user-btn {
+
     background-color: $homepage-non-auth-user-log-in-with-facebook-btn-background;
     border: 0;
     border-radius: 4px;
@@ -103,6 +104,13 @@ $homepage-non-auth-user-links: #3897f3;
     width: 230px;
     outline: none;
 }
+
+.fa.fa-facebook-official {
+    position: relative;
+    font-size: 18px;
+    top: 1px;
+    margin-right: 3px;
+  }
 
 .homepage-non-auth-user-btn-on-sign-in-form {
   @extend .homepage-non-auth-user-btn;
