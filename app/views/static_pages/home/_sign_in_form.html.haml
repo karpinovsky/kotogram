@@ -17,5 +17,6 @@
       OR
       .homepage-non-auth-user-or-sign-up-with-form-right-line
     .col-lg-12.homepage-non-auth-user-log-in-with-facebook
-      = button_to 'Log in with Facebook', user_facebook_omniauth_authorize_path,
-        class: 'homepage-non-auth-user-btn-on-sign-in-form'
+      = button_tag 'cancel', type: 'button', class: 'homepage-non-auth-user-btn-on-sign-in-form', onclick: "location.href = '#{user_facebook_omniauth_authorize_path}'" do
+        = icon('facebook-official')
+        %span Log in with Facebook
