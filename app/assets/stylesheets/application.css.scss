@@ -76,7 +76,8 @@ $homepage-non-auth-user-links: #3897f3;
 }
 
 .homepage-non-auth-user-kotogram-browser-image {
-  padding-top: 100px;
+  @include content-centered;
+  height: 515px;
 }
 
 .homepage-non-auth-user-sign-up,
