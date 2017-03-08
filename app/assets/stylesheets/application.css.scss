@@ -192,6 +192,7 @@ $homepage-non-auth-user-links: #3897f3;
 .homepage-non-auth-user-sign-in-link,
 .homepage-non-auth-user-sign-up-link {
   @include content-centered;
+  white-space: nowrap;
   height: 60px;
   background-color: $homepage-non-auth-user-links-background;
   border: 1px solid $homepage-non-auth-user-links-border;
