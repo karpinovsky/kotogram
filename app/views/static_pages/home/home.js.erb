@@ -1,11 +1,9 @@
-$('.col-lg-11.col-md-11.col-centered.homepage-non-auth-user-sign-in-link').bind('ajax:complete', function() {
-  $('.col-lg-11.col-md-11.col-centered.homepage-non-auth-user-sign-up').replaceWith('<%= j render('static_pages/home/sign_in_form') %>');
-  $('.col-lg-11.col-md-11.col-centered.homepage-non-auth-user-sign-in-link').replaceWith('<%= j render('static_pages/home/sign_up_link') %>');
-  $('.homepage-non-auth-user-kotogram-browser-image').css('height', '350px');
+$('.homepage-non-auth-user-sign-in-link').bind('ajax:complete', function() {
+  $('.homepage-non-auth-user-sign-up').replaceWith('<%= j render('static_pages/home/sign_in_form') %>');
+  $('.homepage-non-auth-user-sign-in-link').replaceWith('<%= j render('static_pages/home/sign_up_link') %>');
 });
 
-$('.col-lg-11.col-md-11.col-centered.homepage-non-auth-user-sign-up-link').bind('ajax:complete', function() {
-  $('.col-lg-11.col-md-11.homepage-non-auth-user-sign-in').replaceWith('<%= j render('static_pages/home/sign_up_form') %>');
-  $('.col-lg-11.col-md-11.homepage-non-auth-user-sign-up-link').replaceWith('<%= j render('static_pages/home/sign_in_link')%>');
-  $('.homepage-non-auth-user-kotogram-browser-image').css('height', '515px');
+$('.homepage-non-auth-user-sign-up-link').bind('ajax:complete', function() {
+  $('.homepage-non-auth-user-sign-in').replaceWith('<%= j render('static_pages/home/sign_up_form') %>');
+  $('.homepage-non-auth-user-sign-up-link').replaceWith('<%= j render('static_pages/home/sign_in_link')%>');
 });
