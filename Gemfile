@@ -1,6 +1,5 @@
 # source 'https://rubygems.org'
 
-gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
