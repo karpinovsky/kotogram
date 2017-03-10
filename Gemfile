@@ -1,6 +1,5 @@
 # source 'https://rubygems.org'
 
-gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
@@ -31,6 +30,7 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
 
