@@ -30,11 +30,11 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
 
 group :test do
   gem 'capybara'
-  gem 'factory_girl_rails'
   gem 'selenium-webdriver'
 end
