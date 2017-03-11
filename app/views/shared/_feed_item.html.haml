@@ -9,7 +9,7 @@
         = link_to feed_item.user.username, feed_item.user, class: 'feed-item-user-link'
     .col-lg-5
       .feed-item-time
-        = time_ago_in_words(feed_item.created_at)
+        = link_to time_ago_in_words(feed_item.created_at), user_post_path(feed_item.user_username, feed_item)
   .feed-item-image
     = image_tag feed_item.image.image.homepage.url
   .feed-item-comments

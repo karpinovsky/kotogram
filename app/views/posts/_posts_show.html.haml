@@ -3,5 +3,7 @@
   %br
   = post.description
   %br
+  = link_to '#', user_post_path(post.user_username, post)
+  %br
   = render partial: 'comments/comments_show', locals: { post: post }
   = render partial: 'comments/comment_form',  locals: { post: post, user: current_user }
