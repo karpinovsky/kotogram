@@ -35,6 +35,6 @@ group :development, :test do
 end
 
 group :test do
+  gem 'poltergeist'
   gem 'capybara'
-  gem 'selenium-webdriver'
 end
