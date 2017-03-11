@@ -7,7 +7,8 @@ feature 'User log in' do
     scenario 'with valid data', js: true do
       visit root_path
       click_link('Log in')
-      expect(page).not_to have_content('from')
+      page.save_screenshot('/tmp/image.jpg', full: true)
+      expect(page).not_to have_selector('.homepage-non-auth-user-sign-in')
     end
   end
 end
