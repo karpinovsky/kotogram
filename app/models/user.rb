@@ -28,7 +28,7 @@ class User < ApplicationRecord
          :confirmable
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.first_name + ' ' + auth.info.last_name
@@ -36,9 +36,8 @@ class User < ApplicationRecord
       user.skip_confirmation!
     end
 
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.avatar = Avatar.create(avatar: auth.info.image)
-    end
+    user.avatar = Avatar.create!(user: user, remote_avatar_url: auth.info.image.gsub('http://','https://'))
+    user
   end
 
   def facebook_avatar

@@ -5,6 +5,24 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'capybara/poltergeist'
+
+# rubocop:disable all
+Capybara.register_driver :poltergeist do |app|
+  if ENV["TRACE"]
+    set_trace_func proc { |event, file, line, id, _binding, classname|
+      printf "%8s %s:%-2d %10s %8s\n", event, file, line, id, classname if file =~ /poltergeist/
+    }
+  end
+
+  Capybara::Poltergeist::Driver.new(app, js_errors: true, timeout: 180, logger: (ENV["DEBUG"] ? Rails.logger : nil))
+end
+# rubocop:enable all
+
+Capybara.ignore_hidden_elements = false
+Capybara.javascript_driver = :poltergeist
+Capybara.default_max_wait_time = 30
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
