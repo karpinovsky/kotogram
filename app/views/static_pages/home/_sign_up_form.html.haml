@@ -1,4 +1,4 @@
-.col-lg-11.col-md-11.col-sm-11.col-centered.homepage-non-auth-user-sign-up
+.col-lg-11.col-md-11.col-sm-11.col-centered.homepage-non-auth-user-sign-up.cp-sign-up
   .row
     .col-lg-12.homepage-non-auth-user-logo Kotogram
     .col-lg-12.homepage-non-auth-user-sign-up-suggestion
@@ -12,6 +12,8 @@
       OR
       .homepage-non-auth-user-or-sign-up-with-form-right-line
     .col-lg-12.homepage-non-auth-user-form
+      %p.notice= notice
+      %p.alert=  alert
       = form_for(resource, as: resource_name, url: registration_path(resource_name),
         remote: true) do |f|
         = devise_error_messages!
