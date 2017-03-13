@@ -36,7 +36,7 @@ class User < ApplicationRecord
       user.skip_confirmation!
     end
 
-    user.avatar = Avatar.create!(user: user, remote_avatar_url: auth.info.image.gsub('http://','https://'))
+    user.avatar = Avatar.create!(user: user, remote_avatar_url: auth.info.image)
     user
   end
 
