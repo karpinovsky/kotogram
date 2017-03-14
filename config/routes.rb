@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   #devise_for :users, path: '', path_names: { sign_in: '', sign_out: 'signout'}
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { omniauth_callbacks:  'users/omniauth_callbacks',
+                                       confirmations: 'confirmations'}
   resources :users, param: :username, path: '', except: [ :index, :create, :new ] do
     resources :avatars, only: [ :create, :destroy, :update ]
     resources :posts, only: [ :show, :create, :destroy ] do
