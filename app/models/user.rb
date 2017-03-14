@@ -40,10 +40,6 @@ class User < ApplicationRecord
     user
   end
 
-  def facebook_avatar
-    "http://graph.facebook.com/#{self.uid}/picture?type=large"
-  end
-
 
   def self.new_with_session(params, session)
     super.tap do |user|
