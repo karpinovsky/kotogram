@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action_mailer_cache_delivery (0.3.7)
+      actionmailer (>= 3.0)
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
       nio4r (~> 1.2)
@@ -277,6 +279,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action_mailer_cache_delivery
   autoprefixer-rails
   bootstrap-sass
   byebug
