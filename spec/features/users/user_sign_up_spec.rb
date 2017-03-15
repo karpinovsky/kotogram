@@ -8,7 +8,7 @@ feature 'User sign up' do
       expect(page).to have_selector('.cp-sign-up-form')
     end
 
-    context 'use sign up form' do
+    context 'fill sign up form' do
       context 'with valid data' do
         given!(:user) { FactoryGirl.create(:user) }
 
@@ -23,7 +23,7 @@ feature 'User sign up' do
         }
 
         context 'create an account' do
-          scenario 'with chosen email' do
+          scenario 'with entered email' do
             expect(User.find_by(email: user.email)).not_to be_nil
           end
 
