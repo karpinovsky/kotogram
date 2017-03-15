@@ -35,7 +35,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'poltergeist'
-  gem 'database_cleaner'
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'poltergeist'
+  gem 'action_mailer_cache_delivery'
 end
