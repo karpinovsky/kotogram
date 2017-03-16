@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :tags]
 
   def show
     @post = Post.find(params[:id])
