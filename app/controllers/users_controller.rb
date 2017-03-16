@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   include Concerns::UserByUsername
   include Concerns::CurrentUser
+  before_action :authenticate_user!, except: [:show]
+
+  def home
+    @feed_items = current_user.feed.order('created_at DESC')
+  end
 
   def index
     @users = User.search(params[:search])
