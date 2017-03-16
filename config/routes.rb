@@ -5,7 +5,7 @@ Rails.application.routes.draw do
                                        confirmations: 'confirmations'}
   resources :users, param: :username, path: '', except: [ :index, :create, :new ] do
     resources :avatars, only: [ :create, :destroy, :update ]
-    resources :posts, only: [ :show, :create, :destroy ] do
+    resources :posts, only: [ :show, :create, :destroy ], path: '/p' do
       resources :images, only: [ :create, :destroy ]
       resources :comments, only: [ :create, :destroy ]
     end
