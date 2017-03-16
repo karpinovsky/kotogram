@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks:  'users/omniauth_callbacks',
                                        confirmations: 'confirmations'}
   resources :users, param: :username, path: '', except: [ :index, :create, :new ] do
-    resources :avatars, only: [ :create, :destroy, :update ]
+    resources :avatars, only: [ :create, :destroy, :update ], path: '/a'
     resources :posts, only: [ :show, :create, :destroy ], path: '/p' do
       resources :images, only: [ :create, :destroy ]
       resources :comments, only: [ :create, :destroy ]
@@ -15,5 +15,5 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [ :create, :destroy ]
-  get '/posts/explore/tags/:name', to: 'posts#tags', as: :tag
+  get '/p/explore/tags/:name', to: 'posts#tags', as: :tag
 end
