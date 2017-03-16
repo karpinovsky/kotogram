@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   #devise_for :users, path: '', path_names: { sign_in: '', sign_out: 'signout'}
-  devise_for :users, :controllers => { omniauth_callbacks:  'users/omniauth_callbacks',
-                                       confirmations: 'confirmations'}
+  devise_for :users, :controllers => { omniauth_callbacks:  'users/omniauth_callbacks' }
   devise_scope :user do
     authenticated :user do
       root 'users#home', as: :authenticated_root
