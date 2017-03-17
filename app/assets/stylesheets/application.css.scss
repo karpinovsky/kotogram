@@ -24,6 +24,11 @@
   margin: 0 auto;
 }
 
+.all {
+  height: 100vh;
+  background: #fafafa;
+}
+
 @mixin content-centered {
   align-items: center;
   display: flex;
@@ -467,4 +472,49 @@ $col-e6: #e6e6e6;
   outline: none;
 }
 
+// ----------------- indexpage authenticated user -----------------
 
+$container: #fff;
+$container-border: #e7e7e7;
+
+.user-index-container {
+  margin-top: 50px;
+  background: $container;
+  border: 1px solid $container-border;
+  border-radius: 4px;
+}
+
+.user-index-users-finded {
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
+.user-index-user {
+  padding: 15px;
+  border-top: 1px solid $container-border;
+}
+
+.user-index-user-avatar {
+  display: inline-block;
+  margin-right: 10px;
+  a {
+    width: 28px;
+    height: 28px;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.user-index-user-link {
+  display: inline-block;
+
+  a {
+    font-weight: bold;
+    color: #363636;
+    text-decoration: none;
+  }
+}
