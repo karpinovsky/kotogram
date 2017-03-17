@@ -1,18 +1,15 @@
 - if user_signed_in?
-  %header.nav.navbar-default
-    .container.header
+  .header
+    .container
       .row
-        .col-lg-4
-          .navbar-header
-            = link_to icon('instagram'), authenticated_root_path
-        .col-lg-4
-          .navbar-form.auth-user-header-search-form
-            = form_tag(users_path, method: :get) do
-              .form-group
-                = text_field_tag :search, '', placeholder: 'Search', class: 'form-control'
-                //= submit_tag 'Search', name: nil, class: 'btn btn-default'
-        .col-lg-4
-          .nav.navbar-nav
-            = link_to icon('circle-thin'), '#', class: 'explore'
-            = link_to icon('heart-o'), '#', class: 'news'
-            = link_to icon('user-o'), current_user, class: 'profile'
+        .col-lg-11.col-centered
+          .row
+            .col-lg-4.logo
+              %i.fa.fa-instagram{ onclick: "location.href = '#{authenticated_root_path}'" }
+            .col-lg-4.search
+              = form_tag(users_path, method: :get) do
+                = text_field_tag :search, '', placeholder: 'Search'
+            .col-lg-4.links
+              %i.fa.fa-circle-thin{ onclick: "location.href = '#'" }
+              %i.fa.fa-heart-o{ onclick: "location.href = '#'" }
+              %i.fa.fa-user-o{ onclick: "location.href = '#{user_path(current_user)}'" }
