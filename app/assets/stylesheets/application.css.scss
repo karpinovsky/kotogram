@@ -19,6 +19,16 @@
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css?family=Lobster+Two');
 
+
+// ---------- variables ----------
+
+$container: #fff;
+$container-border: #e7e7e7;
+$logo: #262626;
+$logo-border: #9b9b9b;
+
+// -------------------------------
+
 .col-centered {
   float: none;
   margin: 0 auto;
@@ -35,7 +45,6 @@
   justify-content: center;
   overflow: auto;
 }
-
 // --------------------------- homepage non authenticated user ---------------------------
 
 $homepage-non-auth-user-background: #fafafa;
@@ -211,133 +220,71 @@ $col-e6: #e6e6e6;
   background-color: $light-gray;
 }
 
+// ---------------------------------------------------- header
 
-// ---------- header for authenticated user, lg ----------------
+.header {
+  width: 100%;
+  background: $container;
+  border-bottom: 1px solid $container-border;
+}
 
-.nav.navbar-default {
-  background-color: $white;
-  border-bottom: 1px solid $light-gray-header-border;
+.logo,
+.links,
+.search {
   height: 77px;
+  @include content-centered;
 }
 
-.container.header {
-  height: inherit;
-}
+.fa-instagram {
+  color: $logo;
+  font-size: 35px;
+  cursor: pointer;
 
-.row {
-  height: inherit;
-}
-
-.col-lg-4 {
-  height: inherit;
-}
-
-.navbar-header {
-  left: 50%;
-  position: relative;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  a {
-    display: block;
-    height: inherit;
-
-    .fa.fa-instagram {
-      color: $light-black-logo;
-      font-size: 260%;
-    }
-
-    .fa.fa-instagram::after {
-      border-left: 1px solid $light-black-logo-border;
-      bottom: 3px;
-      content: 'Kotogram';
-      font-family: 'Lobster Two';
-      font-size: 70%;
-      margin-left: 18px;
-      padding-left: 15px;
-      position: relative;
-    }
-
-  }
-
-}
-
-.auth-user-header-search-form {
-  left: 50%;
-  position: relative;
-  top: 43%;
-  transform: translate(-50%, -50%);
-
-  .form-group {
-    left: 50%;
+  &::after {
+    border-left: 1px solid $logo-border;
+    bottom: 3px;
+    content: 'Kotogram';
+    font-family: 'Lobster Two';
+    font-size: 25px;
+    margin-left: 18px;
+    padding-left: 15px;
     position: relative;
-    transform: translate(-50%, 0%);
-
-    .form-control {
-      border-color: $light-gray-search-form-border;
-      border-radius: 3px;
-      border-width: 1px;
-      height: 30px;
-      left: 50%;
-      position: relative;
-      text-align: center;
-      transform: translate(-50%, 0%);
-      width: 215px;
-
-    }
-
-    .form-control,
-    textarea {
-      background: $light-gray;
-    }
-
-    .form-control:focus {
-      background-color: $white;
-      box-shadow: none;
-      position: relative;
-      text-align: left;
-    }
-
-    .form-control::placeholder {
-      color: $light-gray-fontawesome-search-icon;
-    }
-
   }
-
 }
 
-.nav.navbar-nav {
-  left: 50%;
+.search input {
+  width: 210px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid $light-gray-search-form-border;
+  border-radius: 3px;
+  background: $light-gray;
+  padding: 0 10px;
+}
+
+.search input:focus {
+  background-color: $white;
+  box-shadow: none;
   position: relative;
-  top: 54%;
-  transform: translate(-50%, -50%);
+  text-align: left;
+  outline: none;
+}
 
-  .explore a {
-    display: inline-block;
-  }
+.search input::placeholder {
+  color: $light-gray-fontawesome-search-icon;
+}
 
-  .fa.fa-circle-thin {
-    color: $light-black-logo;
-    font-size: 160%;
-  }
+.fa-circle-thin,
+.fa-heart-o {
+  color: $logo;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 60px;
+}
 
-  .news {
-    margin-left: 30px;
-  }
-
-  .fa.fa-heart-o {
-    color: $light-black-logo;
-    font-size: 160%;
-  }
-
-  .profile {
-    margin-left: 30px;
-  }
-
-  .fa.fa-user-o {
-    color: $light-black-logo;
-    font-size: 160%;
-  }
+.fa-user-o {
+  @extend .fa-heart-o;
+  margin-right: 0px;
 }
 
 // ----------------------------------------- user's homepage, lg -----------------------------------------
@@ -375,12 +322,6 @@ $col-e6: #e6e6e6;
     width: 28px;
     height: 28px;
   }
-}
-
-.fa.fa-user-o {
-  color: $light-black-logo;
-  font-size: 200%;
-  position: relative;
 }
 
 .feed-item-user {
@@ -473,9 +414,6 @@ $col-e6: #e6e6e6;
 }
 
 // ----------------- indexpage authenticated user -----------------
-
-$container: #fff;
-$container-border: #e7e7e7;
 
 .user-index-container {
   margin-top: 50px;
