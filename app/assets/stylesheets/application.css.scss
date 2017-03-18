@@ -22,10 +22,13 @@
 
 // ---------- variables ----------
 
+$all: #fafafa;
 $container: #fff;
 $container-border: #e7e7e7;
 $logo: #262626;
 $logo-border: #9b9b9b;
+$search-border: #dbdbdb;
+$search-placeholder: #999cb4;
 
 // -------------------------------
 
@@ -36,7 +39,7 @@ $logo-border: #9b9b9b;
 
 .all {
   height: 100vh;
-  background: #fafafa;
+  background: $all;
 }
 
 @mixin content-centered {
@@ -201,13 +204,6 @@ $homepage-non-auth-user-links: #3897f3;
 }
 
 
-$white: #fff;
-$light-gray: #fafafa;
-$light-gray-header-border: #e7e7e7;
-$light-black-logo: #262626;
-$light-black-logo-border: #939393;
-$light-gray-search-form-border: #dbdbdb;
-$light-gray-fontawesome-search-icon: #999cb4;
 
 $ef: #efefef;
 $nine: #999;
@@ -216,9 +212,6 @@ $col-3897f0: #3897f0;
 $col-e6: #e6e6e6;
 
 
-.container-fluid {
-  background-color: $light-gray;
-}
 
 // ---------------------------------------------------- header
 
@@ -256,22 +249,23 @@ $col-e6: #e6e6e6;
   width: 210px;
   height: 30px;
   text-align: center;
-  border: 1px solid $light-gray-search-form-border;
+  border: 1px solid $search-border;
   border-radius: 3px;
-  background: $light-gray;
+  background: $all;
   padding: 0 10px;
 }
 
 .search input:focus {
-  background-color: $white;
+  background-color: $container;
   box-shadow: none;
   position: relative;
   text-align: left;
   outline: none;
 }
 
+
 .search input::placeholder {
-  color: $light-gray-fontawesome-search-icon;
+  color: $search-placeholder;
 }
 
 .fa-circle-thin,
@@ -296,7 +290,7 @@ $col-e6: #e6e6e6;
 }
 
 .feed-item {
-  background-color: $white;
+  background-color: $container;
   margin-bottom: 60px;
   width: inherit;
 }
@@ -332,7 +326,7 @@ $col-e6: #e6e6e6;
 }
 
 .feed-item-user-link {
-  color: $light-black-logo;
+  color: $logo;
   display: inline-block;
   font-weight: 600;
   left: 8px;
@@ -340,7 +334,7 @@ $col-e6: #e6e6e6;
 }
 
 .feed-item-user-link:hover {
-  color: $light-black-logo;
+  color: $logo;
   text-decoration: none;
 }
 
@@ -373,14 +367,14 @@ $col-e6: #e6e6e6;
 }
 
 .feed-item-commentor-link {
-  color: $light-black-logo;
+  color: $logo;
   display: inline-block;
   font-size: 15px;
   font-weight: 600;
 }
 
 .feed-item-commentor-link:hover {
-  color: $light-black-logo;
+  color: $logo;
   text-decoration: none;
 }
 
