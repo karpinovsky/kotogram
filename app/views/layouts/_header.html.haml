@@ -2,14 +2,14 @@
   .header
     .container
       .row
-        .col-lg-11.col-centered
+        .col-lg-11.col-md-12.col-sm-12.col-xs-12.col-centered
           .row
-            .col-lg-4.logo
+            .col-lg-4.col-md-4.col-sm-4.col-xs-12.logo
               %i.fa.fa-instagram{ onclick: "location.href = '#{authenticated_root_path}'" }
-            .col-lg-4.search
+            .col-lg-4.col-md-4.col-sm-4.col-xs-12.search
               = form_tag(users_path, method: :get) do
                 = text_field_tag :search, '', placeholder: 'Search'
-            .col-lg-4.links
+            .col-lg-4.col-md-4.col-sm-4.col-xs-12.links
               %i.fa.fa-circle-thin{ onclick: "location.href = '#'" }
               %i.fa.fa-heart-o{ onclick: "location.href = '#'" }
               %i.fa.fa-user-o{ onclick: "location.href = '#{user_path(current_user)}'" }
