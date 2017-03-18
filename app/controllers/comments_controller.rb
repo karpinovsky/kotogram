@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create!(comment_params)
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: authenticated_root_path)
   end
 
   private
