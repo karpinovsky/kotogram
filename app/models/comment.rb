@@ -9,5 +9,4 @@ class Comment < ApplicationRecord
       post.tags << tag
     end
   end
-
 end
