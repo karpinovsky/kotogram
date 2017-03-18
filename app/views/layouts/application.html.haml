@@ -10,8 +10,7 @@
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
 
   %body
-    .all
-      = render 'layouts/header'
-      - flash.each do |key, value|
-        = content_tag(:div, value, class: "alert alert-#{key}")
-      = yield
+    = render 'layouts/header'
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: "alert alert-#{key}")
+    = yield
