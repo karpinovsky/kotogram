@@ -29,17 +29,14 @@ $logo: #262626;
 $logo-border: #9b9b9b;
 $search-border: #dbdbdb;
 $search-placeholder: #999cb4;
+$post-time: #999;
+$line-between-comments-and-form: #efefef;
 
 // -------------------------------
 
 .col-centered {
   float: none;
   margin: 0 auto;
-}
-
-.all {
-  height: 100vh;
-  background: $all;
 }
 
 @mixin content-centered {
@@ -281,134 +278,153 @@ $col-e6: #e6e6e6;
   margin-right: 0px;
 }
 
-// ----------------------------------------- user's homepage, lg -----------------------------------------
+// ----------------------------------------- user homepage
 
-.container.user-homepage.lg {
-  margin-top: 60px;
-  max-height: 100%;
-  width: 602px;
+.user-home {
+  background: $all
 }
 
-.feed-item {
-  background-color: $container;
-  margin-bottom: 60px;
-  width: inherit;
+.user-home-container {
+  padding-top: 50px;
 }
 
-.feed-item-header {
-  border: 1px solid $col-e6;
+.user-home-post {
+  background: $container;
+  margin-bottom: 50px;
+}
+
+.user-home-post-header {
+  border: 1px solid $container-border;
   border-radius: 4px;
-  height: 64px;
-
-  .col-lg-7 {
-    height: inherit;
-  }
-
-  .col-lg-5 {
-    height: inherit;
-  }
 }
 
-.feed-item-user-avatar-link {
+.user-home-post-user-info {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.user-home-post-avatar {
+  display: inline-block;
+  margin: 0 10px 0 5px;
 
   img {
-    border-radius: 50%;
     width: 28px;
     height: 28px;
+    border-radius: 50%;
+  }
+
+  a {
+    display: inline-block;
+    height: inherit;
+    width: inherit;
   }
 }
 
-.feed-item-user {
-  padding-left: 5px;
-  position: relative;
-  top: 50%;
-  transform: translate(0%, -50%);
-}
-
-.feed-item-user-link {
-  color: $logo;
+.user-home-post-username {
   display: inline-block;
-  font-weight: 600;
-  left: 8px;
-  position: relative;
+
+  a {
+    color: $logo;
+    text-decoration: none;
+    font-weight: bold;
+  }
 }
 
-.feed-item-user-link:hover {
-  color: $logo;
-  text-decoration: none;
+.user-home-post-time-and-link {
+  @extend .user-home-post-user-info;
+  justify-content: flex-end;
+
+  a {
+    color: $post-time;
+    text-decoration: none;
+    margin-right: 5px;
+  }
 }
 
-.feed-item-time {
-  color: $nine;
-  padding-right: 5px;
-  position: relative;
-  text-align: right;
-  top: 50%;
-  transform: translate(0%, -50%);
+.user-home-post-attachment {
+  padding: 0;
+
+  img {
+    height: inherit;
+    width: inherit;
+  }
 }
 
-.feed-item-image {
-  border-left: 1px solid $ef;
-  border-right: 1px solid $ef;
-  margin: 0;
-  overflow: hidden;
-  width: inherit;
-}
-
-.feed-item-comments {
-  border: 1px solid $ef;
+.user-home-post-comments {
+  border: 1px solid $container-border;
   border-radius: 4px;
-  padding: 0 24px;
 }
 
-.feed-item-comments-show {
-  border-bottom: 1px solid $ef;
-  padding: 15px 0;
+.user-home-post-comments-show {
+  padding: 15px;
 }
 
-.feed-item-commentor-link {
-  color: $logo;
+.user-home-post-comment {
+  margin-bottom: 10px;
+}
+
+.user-home-post-commentor {
   display: inline-block;
-  font-size: 15px;
-  font-weight: 600;
+  margin: 0 10px 0 5px;
+
+  a {
+    color: $logo;
+    font-weight: bold;
+    text-decoration: none;
+  }
 }
 
-.feed-item-commentor-link:hover {
-  color: $logo;
-  text-decoration: none;
-}
-
-.feed-item-comment-body {
+.user-home-post-comment-body {
   display: inline-block;
-  font-size: 15px;
-  margin-bottom: 5px;
-  padding-left: 5px;
 }
 
-.feed-item-comments-form {
-  height: 55px;
-  margin-top: 25px;
+.user-home-post-with-tags-or-links {
+  a {
+    color: #337ab7;
+    text-decoration: none;
+  }
 }
 
-.feed-item-comment-textarea {
-  border: 0;
-  font-size: 15px;
-  height: 27px;
-  margin-left: 50px;
-  overflow: hidden;
-  position: relative;
-  resize: none;
-  width: 450px;
+.user-home-post-comments-line {
+  height: 1px;
+  background: $line-between-comments-and-form;
 }
 
-.feed-item-comment-textarea:focus {
-  border: 0;
-  box-shadow: none;
-  outline: none;
+.user-home-post-comment-form {
+  padding: 20px 15px;
+  form {
+    display: inline-block;
+    margin-left: 50px;
+    width: 400px;
+  }
+
+  input {
+    border: none;
+    width: 400px;
+    padding-left: 10px;
+    height: 19px;
+  }
+
+  input:focus {
+    border: 0;
+    box-shadow: none;
+    outline: none;
+  }
+
+  input::placeholder {
+    color: $post-time;
+    font-size: 15px;
+    line-height: 20px;
+  }
 }
 
 // ----------------- indexpage authenticated user -----------------
 
+.user-index {
+  height: 100vh;
+  background: $all;
+}
 .user-index-container {
   margin-top: 50px;
   background: $container;
