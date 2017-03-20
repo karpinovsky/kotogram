@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' },
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' },
     :controllers => { omniauth_callbacks:  'users/omniauth_callbacks' }
   devise_scope :user do
     authenticated :user do
@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     end
 
     unauthenticated :user do
-      root 'devise/registrations#new', as: :non_authenticated_root
+      #root 'devise/registrations#new', as: :non_authenticated_root
+      root to: redirect('/signup'), as: :non_authenticated_root
     end
   end
   resources :users, param: :username, path: '', except: [ :create, :new ] do
