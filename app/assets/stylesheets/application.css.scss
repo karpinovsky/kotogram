@@ -344,6 +344,9 @@ $col-e6: #e6e6e6;
 
 .user-home-post-comments-show {
   padding: 15px;
+  max-height: 200px;
+  margin: 0;
+  overflow: auto;
 }
 
 .user-home-post-comment {
