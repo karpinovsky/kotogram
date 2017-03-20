@@ -14,18 +14,18 @@
 }
 
 .post-show-attachment {
-  height: 500px;
   padding: 0;
 
   img {
-    height: 100%;
+    display: block;
     width: 100%;
+    height: auto;
+    max-height: 488px;
     border-radius: 3px 0 0 3px;
   }
 }
 
 .post-show-info {
-  height: 500px;
   background: $container;
   border: 1px solid $container-border;
   border-radius: 0 3px 3px 0;
@@ -114,7 +114,10 @@
 }
 
 .post-show-comments {
+  height: 300px;
+  overflow: auto;
   list-style: none;
+  margin: 0;
 
   li {
     margin: 0 5px 7px 5px;
@@ -150,8 +153,6 @@
 
 
 .post-show-comment-form {
-  position: absolute;
-  bottom: 0;
   height: 60px;
   padding: 20px 15px;
 
