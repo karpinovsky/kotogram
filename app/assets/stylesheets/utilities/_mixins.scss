@@ -1,0 +1,11 @@
+@mixin link($color: null, $font-size: null, $font-weight: null) {
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $color;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    text-decoration: none;
+  }
+}
