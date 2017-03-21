@@ -7,26 +7,22 @@
         .col-lg-5.col-md-5.col-sm-5.post-show-about
           .row
             %header.col-lg-12.col-md-12.col-sm-12
-              .row
-                .col-lg-7.col-md-7.col-sm-7
-                  - if @post.user.avatar.blank?
-                    = link_to image_tag('default_avatar.jpg'), @post.user,
-                      class: 'post-show-user-avatar'
-                  - else
-                    = link_to image_tag(@post.user.avatar.avatar), @post.user,
-                      class: 'post-show-user-avatar'
-                  = link_to @post.user.username, @post.user,
-                    class: 'post-show-user-username'
-                .col-lg-5.col-md-5.col-sm-5
-                  = form_for(current_user.relationships.build(followed_id: @post.user.id),
-                    html: { class: 'post-show-relationships-form' }, remote: true) do |f|
-                    = f.hidden_field :followed_id
-                    = f.submit 'Following'
+              - if @post.user.avatar.blank?
+                = link_to image_tag('default_avatar.jpg'), @post.user,
+                  class: 'post-show-user-avatar'
+              - else
+                = link_to image_tag(@post.user.avatar.avatar), @post.user,
+                  class: 'post-show-user-avatar'
+                = link_to @post.user.username, @post.user,
+                  class: 'post-show-user-username'
+              = form_for(current_user.relationships.build(followed_id: @post.user.id),
+                html: { class: 'post-show-relationships-form' }, remote: true) do |f|
+                = f.hidden_field :followed_id
+                = f.submit 'Following'
             .col-lg-12.col-md-12.col-sm-12
               .row
                 .col-lg-11.col-md-11.col-sm-11.col-centered.post-show-border
-            %section.col-lg-5.col-md-5.col-sm-5
-            %section.col-lg-7.col-md-7.col-sm-7
+            %section.col-lg-12.col-md-12.col-sm-12
               = link_to time_ago_in_words(@post.created_at), user_post_path(@post.user, @post),
                 class: 'post-show-time'
             %ul.col-lg-12.col-md-12.col-sm-12.post-show-comments

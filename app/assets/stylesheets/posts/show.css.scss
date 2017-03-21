@@ -18,13 +18,14 @@
   border: 1px solid $container-border;
   border-radius: 0 3px 3px 0;
   border-left: 0;
+  padding: 0 20px;
 }
 
 .post-show-user-avatar {
   display: inline-block;
   height: 40px;
   width: 40px;
-  margin: 15px 5px;
+  margin: 15px 5px 15px 0;
 
   img {
     height: inherit;
@@ -49,7 +50,8 @@
 .post-show-relationships-form {
   height: 30px;
   width: 95px;
-  margin: 20px 5px 20px auto;
+  float: right;
+  margin: 20px 0;
 
   input {
     height: inherit;
@@ -102,8 +104,9 @@
 .post-show-time {
   display: block;
   height: 20px;
+  float: right;
   text-align: right;
-  margin: 15px 5px;
+  margin: 15px 0;
   color: $post-time;
 
   &:hover,
