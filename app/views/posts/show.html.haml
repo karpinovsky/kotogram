@@ -1,47 +1,51 @@
-.post-show
-  .container.post-show-container
-    .row
-      .col-lg-9.col-md-10.col-sm-11.col-centered
-        .row
-          .col-lg-7.col-md-7.col-sm-7.post-show-attachment
-            = image_tag @post.image.image
-          .col-lg-5.col-md-5.col-sm-5.post-show-info
-            .row
-              .col-lg-7.col-md-7.col-sm-7.post-show-user-info
-                .post-show-header-avatar
+.container.main-container
+  .row
+    %article.col-lg-9.col-md-10.col-sm-11.col-centered
+      .row
+        .col-lg-7.col-md-7.col-sm-7.post-show-attachment
+          = image_tag @post.image.image
+        .col-lg-5.col-md-5.col-sm-5.post-show-about
+          .row
+            %header.col-lg-12.col-md-12.col-sm-12
+              .row
+                .col-lg-7.col-md-7.col-sm-7
                   - if @post.user.avatar.blank?
-                    = link_to image_tag('default_avatar.jpg'), @post.user
+                    = link_to image_tag('default_avatar.jpg'), @post.user,
+                      class: 'post-show-user-avatar'
                   - else
-                    = link_to image_tag(@post.user.avatar.avatar), @post.user
-                .post-show-header-user
-                  = link_to @post.user.username, @post.user
-              .col-lg-5.col-md-5.col-sm-5.post-show-user-follow
-                = form_for(current_user.relationships.build(followed_id: @post.user.id), remote: true) do |f|
-                  = f.hidden_field :followed_id
-                  = f.submit 'Following'
-              .col-lg-12.col-md-12.col-sm-12
-                .row
-                  .col-lg-11.col-md-11.col-sm-11.col-centered.post-show-border
-              .col-lg-5.col-md-5.col-sm-5.post-show-likes
-              .col-lg-7.col-md-7.col-sm-7.post-show-time
-                = link_to time_ago_in_words(@post.created_at), user_post_path(@post.user, @post)
-              %ul.col-lg-12.col-md-12.col-sm-12.post-show-comments
-                - unless @post.description.blank?
-                  %li
-                    = link_to @post.user_username, user_path(@post.user_username),
-                      class: 'post-show-commentor'
-                    %span= with_links_to_users(with_links_to_tags(@post.description))
-                - @post.comments.each do |comment|
-                  %li
-                    = link_to comment.user_username, user_path(comment.user_username),
-                      class: 'post-show-commentor'
-                    %span= with_links_to_users(with_links_to_tags(comment.body))
-              .col-lg-12.col-md-12.col-sm-12
-                .row
-                  .col-lg-11.col-md-11.col-sm-11.col-centered.post-show-border
-              .col-lg-12.col-md-12.col-sm-12.post-show-comment-form
-                = form_for [current_user, @post, Comment.new] do |comment|
-                  = comment.hidden_field :post_id, value: @post.id
-                  = comment.hidden_field :user_username, value: current_user.username
-                  = comment.text_field :body, placeholder: 'Add a comment...'
-
+                    = link_to image_tag(@post.user.avatar.avatar), @post.user,
+                      class: 'post-show-user-avatar'
+                  = link_to @post.user.username, @post.user,
+                    class: 'post-show-user-username'
+                .col-lg-5.col-md-5.col-sm-5
+                  = form_for(current_user.relationships.build(followed_id: @post.user.id),
+                    html: { class: 'post-show-relationships-form' }, remote: true) do |f|
+                    = f.hidden_field :followed_id
+                    = f.submit 'Following'
+            .col-lg-12.col-md-12.col-sm-12
+              .row
+                .col-lg-11.col-md-11.col-sm-11.col-centered.post-show-border
+            %section.col-lg-5.col-md-5.col-sm-5
+            %section.col-lg-7.col-md-7.col-sm-7
+              = link_to time_ago_in_words(@post.created_at), user_post_path(@post.user, @post),
+                class: 'post-show-time'
+            %ul.col-lg-12.col-md-12.col-sm-12.post-show-comments
+              - unless @post.description.blank?
+                %li
+                  = link_to @post.user_username, user_path(@post.user_username),
+                    class: 'post-show-commentor'
+                  %span= with_links_to_users(with_links_to_tags(@post.description))
+              - @post.comments.each do |comment|
+                %li
+                  = link_to comment.user_username, user_path(comment.user_username),
+                    class: 'post-show-commentor'
+                  %span= with_links_to_users(with_links_to_tags(comment.body))
+            .col-lg-12.col-md-12.col-sm-12
+              .row
+                .col-lg-11.col-md-11.col-sm-11.col-centered.post-show-border
+            %section.col-lg-12.col-md-12.col-sm-12
+              = form_for([current_user, @post, Comment.new],
+                html: { class: 'post-show-comment-form' }) do |comment|
+                = comment.hidden_field :post_id, value: @post.id
+                = comment.hidden_field :user_username, value: current_user.username
+                = comment.text_field :body, placeholder: 'Add a comment...'
