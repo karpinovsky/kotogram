@@ -67,6 +67,11 @@
   }
 }
 
+.post-show-border {
+  height: 1px;
+  background: $container-border;
+}
+
 .post-show-user-follow {
   @extend .post-show-user-info;
   justify-content: flex-end;
@@ -91,13 +96,6 @@
     color: $post-time;
     outline: none;
   }
-}
-
-.post-show-header-border {
-  width: 285px;
-  margin: auto;
-  height: 1px;
-  background: $container-border;
 }
 
 .post-show-time {
@@ -138,19 +136,6 @@
 .post-show-commentor {
   @include link($color: $logo, $font-size: 14px, $font-weight: bold);
 }
-
-.post-show-comment-form-border {
-  position: absolute;
-  bottom: 60px;
-}
-
-.post-show-form-border {
-  width: 285px;
-  margin: auto;
-  height: 1px;
-  background: $container-border;
-}
-
 
 .post-show-comment-form {
   height: 60px;

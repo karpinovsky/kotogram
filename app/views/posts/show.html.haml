@@ -20,7 +20,8 @@
                   = f.hidden_field :followed_id
                   = f.submit 'Following'
               .col-lg-12
-                .post-show-header-border
+                .row
+                  .col-lg-11.col-centered.post-show-border
               .col-lg-5.post-show-likes
               .col-lg-7.post-show-time
                 = link_to time_ago_in_words(@post.created_at), user_post_path(@post.user, @post)
@@ -35,8 +36,9 @@
                     = link_to comment.user_username, user_path(comment.user_username),
                       class: 'post-show-commentor'
                     %span= with_links_to_users(with_links_to_tags(comment.body))
-              .col-lg-12.post-show-comment-form-border
-                .post-show-form-border
+              .col-lg-12
+                .row
+                  .col-lg-11.col-centered.post-show-border
               .col-lg-12.post-show-comment-form
                 = form_for [current_user, @post, Comment.new] do |comment|
                   = comment.hidden_field :post_id, value: @post.id
