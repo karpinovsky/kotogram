@@ -1,18 +1,6 @@
 @import 'utilities/variables';
 @import 'utilities/mixins';
 
-.post-show {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  background: $all-page
-}
-
-.post-show-container {
-  margin-top: 50px;
-}
-
 .post-show-attachment {
   padding: 0;
 
@@ -25,50 +13,70 @@
   }
 }
 
-.post-show-info {
+.post-show-about {
   background: $container;
   border: 1px solid $container-border;
   border-radius: 0 3px 3px 0;
   border-left: 0;
+  padding: 0 20px;
 }
 
-.post-show-user-info {
-  display: flex;
-  align-items: center;
-  height: 75px;
-}
-
-.post-show-header-avatar {
+.post-show-user-avatar {
   display: inline-block;
-  margin-right: 10px;
-
-  a {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    margin-left: 5px;
-  }
+  height: 40px;
+  width: 40px;
+  margin: 15px 5px 15px 0;
 
   img {
-    border-radius: 50%;
-    width: inherit;
     height: inherit;
+    width: inherit;
+    border-radius: 50%;
   }
 }
 
-.post-show-header-user {
+.post-show-user-username {
   display: inline-block;
+  color: $logo;
+  font-size: 15px;
+  font-weight: bold;
 
-  a {
+  &:hover,
+  &:active,
+  &:visited {
     color: $logo;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
   }
+}
+
+.post-show-relationships-form {
+  height: 30px;
+  width: 95px;
+  float: right;
+  margin: 20px 0;
+
+  input {
+    height: inherit;
+    width: inherit;
+    color: $logo;
+    font-weight: bold;
+    background: $container;
+    font-size: 15px;
+    border: 1px solid $container-border;
+    border-radius: 4px;
+  }
+
+  input:focus {
+    box-shadow: none;
+    color: $post-time;
+    outline: none;
+  }
+}
+
+.post-show-border {
+  height: 1px;
+  background: $container-border;
 }
 
 .post-show-user-follow {
-  @extend .post-show-user-info;
   justify-content: flex-end;
 
   form {
@@ -93,28 +101,24 @@
   }
 }
 
-.post-show-header-border {
-  width: 285px;
-  margin: auto;
-  height: 1px;
-  background: $container-border;
-}
-
 .post-show-time {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 50px;
+  display: block;
+  height: 20px;
+  float: right;
+  text-align: right;
+  margin: 15px 0;
+  color: $post-time;
 
-  a {
+  &:hover,
+  &:active,
+  &:visited {
     color: $post-time;
-    text-decoration: none;
-    margin-right: 5px;
   }
 }
 
 .post-show-comments {
-  height: 300px;
+  max-height: 300px;
+  min-height: 200px;
   overflow: auto;
   list-style: none;
   margin: 0;
@@ -135,36 +139,17 @@
   }
 }
 
-.post-show-commentor {
-  @include link($color: $logo, $font-size: 14px, $font-weight: bold);
-}
-
-.post-show-comment-form-border {
-  position: absolute;
-  bottom: 60px;
-}
-
-.post-show-form-border {
-  width: 285px;
-  margin: auto;
-  height: 1px;
-  background: $container-border;
-}
-
+.post-show-commentor { @include link($color: $logo, $font-size: 14px, $font-weight: bold); }
 
 .post-show-comment-form {
-  height: 60px;
-  padding: 20px 15px;
+  margin: 20px auto 20px 50px;
+  height: 20px;
+  width: 150px;
 
-  form {
-    display: inline-block;
-    margin-left: 50px;
-  }
 
   input {
     border: none;
     width: 150px;
-    padding-left: 10px;
     height: 20px;
   }
 
