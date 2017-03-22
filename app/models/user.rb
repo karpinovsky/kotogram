@@ -17,15 +17,18 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :avatar
 
-  devise :omniauthable, :omniauth_providers => [:facebook]
-
   devise :database_authenticatable,
          :registerable,
          :recoverable,
          :rememberable,
          :trackable,
          :validatable,
-         :confirmable
+         :confirmable,
+         :lockable,
+         :timeoutable,
+         :omniauthable, :omniauth_providers => [:facebook]
+
+  # :confirmable, :lockable, :timeoutable and :omniauthable
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
