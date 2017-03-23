@@ -22,7 +22,7 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook]
 
   def to_param
-    user_profile.user_username
+    profile.user_username
   end
 
   def self.from_omniauth(auth)
