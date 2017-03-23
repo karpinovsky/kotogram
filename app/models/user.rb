@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :user_profile
   scope :search, ->(search) { where('username LIKE ?', "%#{search}%") }
   has_many :posts
   has_one  :avatar, dependent: :destroy
@@ -27,8 +28,6 @@ class User < ApplicationRecord
          :lockable,
          :timeoutable,
          :omniauthable, :omniauth_providers => [:facebook]
-
-  # :confirmable, :lockable, :timeoutable and :omniauthable
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
