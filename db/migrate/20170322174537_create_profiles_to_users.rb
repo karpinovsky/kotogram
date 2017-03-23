@@ -1,7 +1,7 @@
 class CreateProfilesToUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :profiles_to_users, id: false do |t|
-      t.reference :user, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
       t.string :user_username, null: false, default: ''
       t.string :user_fullName
       t.string :user_website
