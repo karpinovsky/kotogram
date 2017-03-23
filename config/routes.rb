@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' },
-    :controllers => { omniauth_callbacks:  'users/omniauth_callbacks' }
+  devise_for :users, path: '',
+    path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' },
+    :controllers => { registrations: 'users/registrations',
+                      omniauth_callbacks:  'users/omniauth_callbacks' }
   devise_scope :user do
     authenticated :user do
       root 'users#home', as: :authenticated_root
@@ -11,8 +13,8 @@ Rails.application.routes.draw do
       root to: redirect('/signup'), as: :non_authenticated_root
     end
   end
-  resources :users, param: :username, path: '', except: [ :create, :new ] do
-    resources :avatars, only: [ :create, :destroy, :update ], path: '/a'
+
+  resources :users, path: '', param: :user_username, except: [ :create, :new ] do
     resources :posts, only: [ :show, :create, :destroy ] do
       resources :images, only: [ :create, :destroy ]
       resources :comments, only: [ :create, :destroy ]
