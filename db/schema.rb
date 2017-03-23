@@ -44,20 +44,17 @@ ActiveRecord::Schema.define(version: 20170322182906) do
     t.index ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
   end
 
-  create_table "profiles_to_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "profiles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.string   "user_username",               default: "",                   null: false
     t.string   "user_fullName"
-    t.string   "user_website"
-    t.string   "user_phone"
     t.string   "user_gender"
     t.string   "user_avatar",                 default: "default_avatar.jpg", null: false
     t.text     "user_about_me", limit: 65535
     t.datetime "created_at",                                                 null: false
     t.datetime "updated_at",                                                 null: false
-    t.index ["user_id"], name: "index_profiles_to_users_on_user_id", using: :btree
-    t.index ["user_phone"], name: "index_profiles_to_users_on_user_phone", unique: true, using: :btree
-    t.index ["user_username"], name: "index_profiles_to_users_on_user_username", unique: true, using: :btree
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
+    t.index ["user_username"], name: "index_profiles_on_user_username", unique: true, using: :btree
   end
 
   create_table "relationships", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -110,5 +107,5 @@ ActiveRecord::Schema.define(version: 20170322182906) do
   add_foreign_key "posts", "users"
   add_foreign_key "posts_tags", "posts"
   add_foreign_key "posts_tags", "tags"
-  add_foreign_key "profiles_to_users", "users"
+  add_foreign_key "profiles", "users"
 end
