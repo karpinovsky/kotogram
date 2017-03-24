@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(version: 20170322182906) do
 
   create_table "profiles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.string   "user_username",               default: "",                   null: false
+    t.string   "user_username",               null: false
     t.string   "user_fullName"
     t.string   "user_gender"
-    t.string   "user_avatar",                 default: "default_avatar.jpg", null: false
+    t.string   "user_avatar"
     t.text     "user_about_me", limit: 65535
-    t.datetime "created_at",                                                 null: false
-    t.datetime "updated_at",                                                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
     t.index ["user_username"], name: "index_profiles_on_user_username", unique: true, using: :btree
   end
