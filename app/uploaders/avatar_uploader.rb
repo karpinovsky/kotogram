@@ -14,6 +14,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def default_url
+    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_avatar.jpg"].compact.join('_'))
+  end
+
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
@@ -22,14 +26,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :homepage do
-    process resize_to_fill: [28, 28]
-  end
-
-  version :userpage do
-    process resize_to_fit: [150, 150]
-  end
-
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
