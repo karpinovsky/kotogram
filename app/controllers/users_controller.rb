@@ -14,19 +14,9 @@ class UsersController < ApplicationController
   def show
   end
 
-  def update
-    current_user.update_attributes(user_params)
-  end
-
   def following
   end
 
   def followers
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end
