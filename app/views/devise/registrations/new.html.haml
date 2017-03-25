@@ -31,10 +31,6 @@
                           = f.email_field :email, autofocus: true, placeholder: 'Email',
                             class: 'form-control'
 
-                          = f.fields_for :profile do |p|
-                            = p.text_field :user_username, placeholder: 'Username'
-                            = p.text_field :user_fullName, placeholder: 'Full name'
-
                         .input-group
                           = f.password_field :password, autocomplete: 'off',
                             placeholder: 'Password', class: 'form-control'
