@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  has_one :profile, dependent: :destroy
-  accepts_nested_attributes_for :profile
   scope :search, ->(search) { where('username LIKE ?', "%#{search}%") }
   has_many :posts
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
