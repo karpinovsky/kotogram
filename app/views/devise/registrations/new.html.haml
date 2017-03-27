@@ -1,27 +1,25 @@
-.homepage-non-auth-user
-  .container.homepage-non-auth-user-container
+.devise-registration-new
+  .container
     .row
       .col-lg-8.col-md-10.col-sm-6.col-xs-10.col-centered
         .row
-          .col-lg-6.col-md-6.hidden-sm.hidden-xs.homepage-non-auth-user-kotogram-browser-image
-            = image_tag 'kotogram_browser.png'
-          .col-lg-6.col-md-6.col-sm-12.col-xs-12
+          .col-lg-6.col-md-6.col-sm-12.col-xs-12.col-centered
             .row
-              .col-lg-11.col-md-11.col-sm-11.col-centered.homepage-non-auth-user-sign-up.cp-sign-up
+              .col-lg-11.col-md-11.col-sm-11.col-centered.signup
                 .row
-                  .col-lg-12.homepage-non-auth-user-logo Kotogram
-                  .col-lg-12.homepage-non-auth-user-sign-up-suggestion
+                  .col-lg-12.kotogram Kotogram
+                  .col-lg-12.signup-suggestion
                     Sign up to see photos and videos from your friends.
-                  .col-lg-12.homepage-non-auth-user-log-in-with-facebook
-                    = button_tag 'cancel', type: 'button', class: 'homepage-non-auth-user-btn',
+                  .col-lg-12.facebook
+                    = button_tag 'cancel', type: 'button', class: 'facebook-btn',
                       onclick: "location.href = '#{user_facebook_omniauth_authorize_path}'" do
                       = icon('facebook-official')
                       Log in with Facebook
-                  .col-lg-12.homepage-non-auth-user-or-sign-up-with-form
-                    .homepage-non-auth-user-or-sign-up-with-form-left-line
-                    OR
-                    .homepage-non-auth-user-or-sign-up-with-form-right-line
-                  .col-lg-12.homepage-non-auth-user-form.cp-sign-up-form
+                  .col-lg-12.or
+                    .left-line
+                    %span OR
+                    .right-line
+                  .col-lg-12.signup-form
                     = form_for resource, as: resource_name,
                       url: registration_path(resource_name) do |f|
                       = devise_error_messages!
@@ -48,7 +46,7 @@
                             placeholder: 'Password Confirmation', class: 'form-control'
 
                         .actions
-                          = f.submit 'Sign up', class: 'homepage-non-auth-user-btn'
-              .col-lg-11.col-md-11.col-sm-11.col-centered.homepage-non-auth-user-sign-in-link
+                          = f.submit 'Sign up', class: 'facebook-btn'
+              .col-lg-11.col-md-11.col-sm-11.col-centered.signin-link
                 Have an account?
                 = link_to 'Log in', new_user_session_path
