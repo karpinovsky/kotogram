@@ -1,14 +1,4 @@
 class User < ApplicationRecord
-  has_one :profile, dependent: :destroy
-  scope :search, ->(search) { where('username LIKE ?', "%#{search}%") }
-  has_many :posts
-  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
-  has_many :followed_users, through: :relationships, source: :followed
-  has_many :reverse_relationships, foreign_key: 'followed_id',
-                                   class_name: 'Relationship',
-                                   dependent: :destroy
-  has_many :followers, through: :reverse_relationships
-
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -20,8 +10,13 @@ class User < ApplicationRecord
          :timeoutable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  has_one :profile, dependent: :destroy
+  before_create do
+    build_profile(username: email.slice(0, email.index('@')))
+  end
+
   def to_param
-    profile.user_username
+    profile.username
   end
 
   def self.from_omniauth(auth)

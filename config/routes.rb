@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, path: '', param: :user_username, except: [ :create, :new ] do
+  resources :users, path: '', param: :username, except: [ :create, :new ] do
     resources :posts, only: [ :show, :create, :destroy ] do
       resources :images, only: [ :create, :destroy ]
       resources :comments, only: [ :create, :destroy ]
