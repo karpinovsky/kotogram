@@ -10,9 +10,7 @@ class User < ApplicationRecord
          :timeoutable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  before_create do
-    build_profile(username: email.slice(0, email.index('@')))
-  end
+  before_save { username.downcase! }
 
   def to_param
     profile.username
