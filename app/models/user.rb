@@ -13,7 +13,7 @@ class User < ApplicationRecord
   before_save { username.downcase! }
 
   def to_param
-    profile.username
+    username
   end
 
   def self.from_omniauth(auth)
