@@ -1,16 +1,14 @@
-10.times do |n|
+1.upto(3) do |i|
   user = User.new(
-    email: "example#{n}@kotogram.ru",
-    password: "example",
-    password_confirmation: "example",
-    confirmed_at: Time.now
+    email: "user#{i}@kotogram.ru",
+    password: 'kotogram',
+    password_confirmation: 'kotogram',
+    confirmed_at: Time.now,
+    username: "user#{i}@kotogram.ru",
+    full_name: "user#{i}",
+    about_me: "Hi, I'am #{i} user"
   )
 
   user.skip_confirmation!
   user.save!
-
-  Profile.create(
-    user_id: user.id,
-    user_username: "example#{n}"
-  )
 end
