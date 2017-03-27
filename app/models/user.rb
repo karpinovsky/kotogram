@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  before_save { username.downcase! }
+
+  validates :username, presence: true, length: { minimum: 6, maximum: 20 },
+    uniqueness: { case_sensitive: false }
+
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -10,7 +15,6 @@ class User < ApplicationRecord
          :timeoutable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  before_save { username.downcase! }
 
   def to_param
     username
