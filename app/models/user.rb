@@ -10,7 +10,6 @@ class User < ApplicationRecord
          :timeoutable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  has_one :profile, dependent: :destroy
   before_create do
     build_profile(username: email.slice(0, email.index('@')))
   end
