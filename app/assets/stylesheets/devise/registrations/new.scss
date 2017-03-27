@@ -1,0 +1,157 @@
+.devise-registration-new {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  background-color: #fafafa;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.signup {
+  background-color: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.kotogram {
+  color: #262626;
+  font-family: 'Lobster Two';
+  font-size: 45px;
+  margin: 10px 0 8px;
+}
+
+.signup-suggestion {
+  color: #999;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.facebook {
+  margin-bottom: 12px;
+}
+
+.facebook-btn {
+    background-color: #3897f0;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    height: 30px;
+    line-height: 28px;
+    overflow: hidden;
+    padding: 0 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 230px;
+    outline: none;
+}
+
+.fa.fa-facebook-official {
+    position: relative;
+    font-size: 18px;
+    top: 1px;
+    margin-right: 3px;
+  }
+
+.homepage-non-auth-user-btn-on-sign-in-form {
+  background-color: #3897f0;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  height: 30px;
+  line-height: 28px;
+  overflow: hidden;
+  padding: 0 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 230px;
+  outline: none;
+  color: #385185;
+  background: white;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.or {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+
+  color: #999;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.left-line {
+  display: inline-block;
+  background: #c7c7c7;
+  height: 1px;
+  width: 90px;
+  margin-right: 15px;
+}
+
+.right-line {
+  display: inline-block;
+  background: #c7c7c7;
+  height: 1px;
+  width: 90px;
+  margin-left: 15px;
+}
+
+.signup-form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+
+  .form-group {
+
+    .actions {
+      margin: 10px 0;
+    }
+
+    .form-control {
+      border: 1px solid #dbdbdb;
+      border-radius: 2px;
+      margin-bottom: 5px;
+      height: 30px;
+      width: 230px;
+    }
+
+    .form-control:focus {
+      border-color: #b2b2b2;
+      box-shadow: none;
+    }
+
+    .form-control::placeholder {
+      color: #999cb4;
+    }
+  }
+}
+
+.signin-link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  white-space: nowrap;
+  height: 60px;
+  background-color: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+
+  a {
+    color: #3897f3;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+}
