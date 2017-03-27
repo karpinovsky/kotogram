@@ -16,7 +16,7 @@ class User < ApplicationRecord
   end
 
   def to_param
-    profile.user_username
+    profile.username
   end
 
   def self.from_omniauth(auth)
