@@ -15,6 +15,7 @@ class User < ApplicationRecord
          :timeoutable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  mount_uploader :avatar, AvatarUploader
 
   def to_param
     username
