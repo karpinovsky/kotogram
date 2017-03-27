@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :account, dependent: :destroy
+  has_one :profile, dependent: :destroy
   scope :search, ->(search) { where('username LIKE ?', "%#{search}%") }
   has_many :posts
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
