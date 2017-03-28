@@ -1,36 +1,20 @@
-.devise-sessions-new
-  .container
-    .row
-      .col-lg-8.col-md-10.col-sm-6.col-xs-12.col-centered
-        .row
-          .col-lg-6.col-md-6.col-sm-12.col-xs-12.col-centered
-            .row
-              .col-lg-11.col-md-11.col-sm-11.col-xs-12.col-centered.login
-                .row
-                  .col-lg-12.kotogram Kotogram
-                  .col-lg-12.login-form
-                    = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
-                      .form-group
-                        .input-group
-                          = f.email_field :email, autofocus: true, placeholder: 'Email',
-                            class: 'form-control'
+.container
+  .row
+    .col-lg-12
+      %h1 Kotogram
+      = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+        = f.email_field :email, autofocus: true, placeholder: 'Email'
+        %br
 
-                        .input-group
-                          = f.password_field :password, autocomplete: 'off',
-                            placeholder: 'Password', class: 'form-control'
+        = f.password_field :password, autocomplete: 'off',
+          placeholder: 'Password'
+        %br
 
-                        .actions
-                          = f.submit 'Log in', class: 'facebook-btn'
-                  .col-lg-12.or
-                    .left-line
-                    %span OR
-                    .right-line
-                  .col-lg-12.login-with-facebook
-                    = button_tag 'cancel', type: 'button',
-                      class: 'homepage-non-auth-user-btn-on-sign-in-form',
-                      onclick: "location.href = '#{user_facebook_omniauth_authorize_path}'" do
-                      = icon('facebook-official')
-                      Log in with Facebook
-              .col-lg-11.col-md-11.col-sm-11.col-centered.signup-link
-                Don't have an account?
-                = link_to 'Sign up', new_user_registration_path
+        = f.submit 'Log in'
+      %h4 OR
+      = button_tag 'cancel', type: 'button',
+        onclick: "location.href = '#{user_facebook_omniauth_authorize_path}'" do
+        = icon('facebook-official')
+        %span Log in with Facebook
+      %h4 Don't have an account?
+      %span= link_to 'Sign up', new_user_registration_path
