@@ -1,0 +1,3 @@
+= form_for [user, post, post.comments.build] do |f|
+  = f.hidden_field :commenter, value: current_user.username
+  = f.text_field :body, placeholder: 'Add a comment...'
