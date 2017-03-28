@@ -10,6 +10,11 @@ class PostsController < ApplicationController
     redirect_back(fallback_location: authenticated_root_path)
   end
 
+  def destroy
+    current_user.posts.find(params[:id]).destroy
+    redirect_to current_user
+  end
+
   def tags
     tag = Tag.find_by(name: params[:name])
     @posts = tag.posts
@@ -18,6 +23,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:id, :user_id, image_attributes: [:image])
+    params.require(:post).permit(:id, :user_id, comments_attributes: [:commenter, :body], image_attributes: [:image])
   end
 end
