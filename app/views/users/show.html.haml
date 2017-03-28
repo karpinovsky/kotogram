@@ -5,21 +5,21 @@
         %header.col-lg-12
           .row
             .col-lg-5
-              = image_tag user_by_username.avatar
+              = image_tag @user.avatar
             .col-lg-7
-              - if user_signed_in? && current_user?(user_by_username)
+              - if user_signed_in? && current_user == @user
                 = link_to 'Edit Profile', edit_user_registration_path(current_user)
                 = link_to 'Log out', destroy_user_session_path, method: :delete
                 = render 'posts/form'
               = render 'relationships/form'
               .stats
-                = link_to followers_user_path(user_by_username) do
+                = link_to followers_user_path(@user) do
                   .stat#followers
-                    = user_by_username.followers.count
+                    = @user.followers.count
                     %span followers
-                = link_to following_user_path(user_by_username) do
+                = link_to following_user_path(@user) do
                   .stat#following
-                    = user_by_username.followed_users.count
+                    = @user.followed_users.count
                     %span following
         .col-lg-12
-          = render user_by_username.posts
+          = render @user.posts
