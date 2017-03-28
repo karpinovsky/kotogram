@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  before_save { username.downcase! }
+
+  validates :username, presence: true, length: { minimum: 6, maximum: 20 },
+    uniqueness: { case_sensitive: false }
+
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -10,13 +15,10 @@ class User < ApplicationRecord
          :timeoutable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  has_one :profile, dependent: :destroy
-  before_create do
-    build_profile(username: email.slice(0, email.index('@')))
-  end
+  mount_uploader :avatar, AvatarUploader
 
   def to_param
-    profile.username
+    username
   end
 
   def self.from_omniauth(auth)

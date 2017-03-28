@@ -1,16 +1,14 @@
-.homepage-non-auth-user
-  .container.homepage-non-auth-user-container
+.devise-sessions-new
+  .container
     .row
-      .col-lg-8.col-md-10.col-sm-6.col-xs-10.col-centered
+      .col-lg-8.col-md-10.col-sm-6.col-xs-12.col-centered
         .row
-          .col-lg-6.col-md-6.hidden-sm.hidden-xs.homepage-non-auth-user-kotogram-browser-image
-            = image_tag 'kotogram_browser.png'
-          .col-lg-6.col-md-6.col-sm-12.col-xs-12
+          .col-lg-6.col-md-6.col-sm-12.col-xs-12.col-centered
             .row
-              .col-lg-11.col-md-11.col-centered.homepage-non-auth-user-sign-in.cp-log-in
+              .col-lg-11.col-md-11.col-sm-11.col-xs-12.col-centered.login
                 .row
-                  .col-lg-12.homepage-non-auth-user-logo Kotogram
-                  .col-lg-12.homepage-non-auth-user-form
+                  .col-lg-12.kotogram Kotogram
+                  .col-lg-12.login-form
                     = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
                       .form-group
                         .input-group
@@ -22,17 +20,17 @@
                             placeholder: 'Password', class: 'form-control'
 
                         .actions
-                          = f.submit 'Log in', class: 'homepage-non-auth-user-btn'
-                  .col-lg-12.homepage-non-auth-user-or-sign-up-with-form
-                    .homepage-non-auth-user-or-sign-up-with-form-left-line
-                    OR
-                    .homepage-non-auth-user-or-sign-up-with-form-right-line
-                  .col-lg-12.homepage-non-auth-user-log-in-with-facebook
+                          = f.submit 'Log in', class: 'facebook-btn'
+                  .col-lg-12.or
+                    .left-line
+                    %span OR
+                    .right-line
+                  .col-lg-12.login-with-facebook
                     = button_tag 'cancel', type: 'button',
                       class: 'homepage-non-auth-user-btn-on-sign-in-form',
                       onclick: "location.href = '#{user_facebook_omniauth_authorize_path}'" do
                       = icon('facebook-official')
                       Log in with Facebook
-              .col-lg-11.col-md-11.col-sm-11.col-centered.homepage-non-auth-user-sign-up-link
+              .col-lg-11.col-md-11.col-sm-11.col-centered.signup-link
                 Don't have an account?
-                = link_to 'Sign up', non_authenticated_root_path
+                = link_to 'Sign up', new_user_registration_path
