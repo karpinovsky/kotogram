@@ -1,9 +1,0 @@
-.stats
-  = link_to followers_user_path(user_by_username) do
-    .stat#followers
-      = user_by_username.followers.count
-    %span followers
-  = link_to following_user_path(user_by_username) do
-    .stat#following
-      = user_by_username.followed_users.count
-    %span following

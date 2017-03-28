@@ -1,6 +1,0 @@
-- unless current_user?(user_by_username)
-  #follow_form
-    - if current_user.following?(user_by_username)
-      = render 'unfollow'
-    - else
-      = render 'follow'
