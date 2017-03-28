@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/', to: 'users#index', as: :users
   resources :users, path: '', param: :username, only: [:show] do
-    resources :posts, only: [ :show, :create, :destroy ] do
+    resources :posts, path: 'p', only: [ :show, :create, :destroy ] do
       resources :images, only: [ :create, :destroy ]
       resources :comments, only: [ :create, :destroy ]
     end

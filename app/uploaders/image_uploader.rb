@@ -31,14 +31,6 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # process resize_to_fit: [800,800]
 
-  version :homepage do
-    process resize_to_fit: [602, nil]
-  end
-
-  version :thumb do
-    process resize_to_fit: [400, 400]
-  end
-
   def extension_whitelist
     %w(jpg jpeg gif png)
   end

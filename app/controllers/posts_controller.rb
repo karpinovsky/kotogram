@@ -6,8 +6,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(post_params)
-    redirect_to current_user
+    current_user.posts.create!(post_params)
+    redirect_back(fallback_location: authenticated_root_path)
   end
 
   def tags
@@ -18,6 +18,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:id, :user_id, :user_username, :description, image_attributes: [:image])
+    params.require(:post).permit(:id, :user_id, image_attributes: [:image])
   end
 end

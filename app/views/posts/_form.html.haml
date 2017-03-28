@@ -1,0 +1,4 @@
+= form_for [current_user, current_user.posts.build] do |f|
+  = f.fields_for :image, Image.new do |ff|
+    = ff.file_field :image
+  = f.submit
