@@ -1,5 +1,0 @@
-- post.comments.each do |comment|
-  = link_to comment.user_username, user_path(comment.user_username), class: 'feed-item-commentor-link'
-  .feed-item-comment-body
-    = with_links_to_users(with_links_to_tags(comment.body))
-  %br
