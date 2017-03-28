@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   before_save { username.downcase! }
 
-  validates :username, presence: true, length: { minimum: 6, maximum: 20 },
+  validates :username, presence: true, length: { within: 6..20 },
     uniqueness: { case_sensitive: false }
 
   devise :database_authenticatable,
