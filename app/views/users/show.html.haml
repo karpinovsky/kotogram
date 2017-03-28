@@ -1,7 +1,7 @@
 .container
   .row
     .col-lg-12
-      = image_tag user_by_username.avatar, class: 'user-show-avatar'
+      = image_tag user_by_username.avatar
       - if current_user?(user_by_username)
         = link_to 'Edit Profile', edit_user_registration_path(current_user)
         = link_to 'Log out', destroy_user_session_path, method: :delete

@@ -12,9 +12,5 @@
 
         = f.submit 'Log in'
       %h4 OR
-      = button_tag 'cancel', type: 'button',
-        onclick: "location.href = '#{user_facebook_omniauth_authorize_path}'" do
-        = icon('facebook-official')
-        %span Log in with Facebook
-      %h4 Don't have an account?
-      %span= link_to 'Sign up', new_user_registration_path
+      = render 'devise/shared/provider'
+      = render 'devise/shared/links'

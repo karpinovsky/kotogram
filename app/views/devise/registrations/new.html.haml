@@ -3,10 +3,7 @@
     .col-lg-12
       %h1 Kotogram
       %h3 Sign up to see photos and videos from your friends.
-      = button_tag 'cancel', type: 'button',
-        onclick: "location.href = '#{user_facebook_omniauth_authorize_path}'" do
-        = icon('facebook-official')
-        %span Log in with Facebook
+      = render 'devise/shared/provider'
       %h4 OR
       = form_for resource, as: resource_name,
         url: registration_path(resource_name) do |f|
@@ -30,5 +27,4 @@
         %br
 
         = f.submit 'Sign up'
-      %h4 Have an account?
-      %span= link_to 'Log in', new_user_session_path
+      = render 'devise/shared/links'
