@@ -1,8 +1,15 @@
 class User < ApplicationRecord
   before_save { username.downcase! }
 
-  validates :username, presence: true, length: { minimum: 6, maximum: 20 },
-    uniqueness: { case_sensitive: false }
+  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: 'followed_id',
+                                   class_name: 'Relationship',
+                                   dependent: :destroy
+  has_many :followers, through: :reverse_relationships
+  has_many :posts, dependent: :destroy
+
+  mount_uploader :avatar, AvatarUploader
 
   devise :database_authenticatable,
          :registerable,
@@ -15,14 +22,10 @@ class User < ApplicationRecord
          :timeoutable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  mount_uploader :avatar, AvatarUploader
 
-  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
-  has_many :followed_users, through: :relationships, source: :followed
-  has_many :reverse_relationships, foreign_key: 'followed_id',
-                                   class_name: 'Relationship',
-                                   dependent: :destroy
-  has_many :followers, through: :reverse_relationships
+  validates :username, presence: true, length: { within: 6..20 },
+    uniqueness: { case_sensitive: false }
+  validates_associated :posts
 
   def to_param
     username

@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  include Concerns::UserByUsername
-  include Concerns::CurrentUser
   skip_before_action :authenticate_user!, only: [:show]
 
   def home
@@ -12,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by(username: params[:username])
   end
 
   def following
