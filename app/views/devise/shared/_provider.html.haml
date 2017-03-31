@@ -1,6 +1,6 @@
 - if devise_mapping.omniauthable?
   - resource_class.omniauth_providers.each do |provider|
-    = button_tag 'cancel', type: 'button',
+    = button_tag 'cancel', type: 'button', class: 'btn-facebook',
       onclick: "location.href = '#{omniauth_authorize_path(resource_name, provider)}'" do
       = icon('facebook-official')
       %span Log in with #{OmniAuth::Utils.camelize(provider)}

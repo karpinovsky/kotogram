@@ -1,0 +1,64 @@
+.kotogram {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  margin: 10px 0;
+}
+
+.suggestion {
+  text-align: center;
+  height: 50px;
+  margin: 0 0 10px 0;
+  line-height: 25px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.btn-facebook {
+  display: block;
+  margin: 0 auto 10px auto;
+  height: 30px;
+  width: 200px;
+  padding: 0px;
+  text-align: center;
+  line-height: 25px;
+  overflow: hidden;
+}
+
+.or {
+  font-size: 14px;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.signup-form {
+  margin: 0 auto 10px auto;
+  text-align: center;
+  width: 200px;
+
+  input {
+    width: 200px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.login-link {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.confirmation {
+  text-align: center;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.unlock {
+  text-align: center;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
