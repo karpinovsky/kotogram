@@ -1,3 +1,3 @@
 %li
-  = link_to comment.commenter, user_path(comment.commenter)
+  = link_to commenter_username(comment.commenter), user_path(commenter_username(comment.commenter))
   = comment.body
