@@ -11,13 +11,12 @@ class Comment < ApplicationRecord
     likes.find_by(liker: user.id)
   end
 
-  #after_create do
-  #  comment = Comment.find(self.id)
-  #  post = comment.post
-  #  hashtags = self.body.scan(/#\w+/)
-  #  hashtags.uniq.map do |hashtag|
-  #    tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
-  #    post.tags << tag
-  #  end
-  #end
+  after_create do
+    post = self.post
+    hashtags = self.body.scan(/#\w+/)
+    hashtags.uniq.map do |hashtag|
+      tag = Tag.find_or_create_by(body: hashtag.downcase.delete('#'))
+      post.tags << tag
+    end
+  end
 end

@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def tags
-    tag = Tag.find_by(name: params[:name])
+    tag = Tag.find_by(body: params[:body])
     @posts = tag.posts
   end
 
