@@ -14,10 +14,13 @@ Rails.application.routes.draw do
   end
 
   get '/', to: 'users#index', as: :users
-  resources :users, path: '', param: :username, only: [:show] do
-    resources :posts, path: 'p', only: [ :show, :create, :destroy ] do
+  resources :users, path: '', param: :username, only: :show do
+    resources :posts, path: 'p', only: [:show, :create, :destroy] do
+      resources :likes, only: [:create, :destroy]
       resources :images, only: :create
-      resources :comments, only: [ :create, :destroy ]
+      resources :comments, only: [:create, :destroy] do
+        resources :likes, only: [:create, :destroy]
+      end
     end
     member do
       get :following, :followers
