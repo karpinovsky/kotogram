@@ -3,6 +3,14 @@ class Comment < ApplicationRecord
 
   validates :post_id, :commenter, :body, presence: true,
     unless: Proc.new { |a| a.post.nil? }
+
+  has_many :likes, as: :likeable, dependent: :destroy
+
+
+  def has_like_from?(user)
+    likes.find_by(liker: user.id)
+  end
+
   #after_create do
   #  comment = Comment.find(self.id)
   #  post = comment.post
