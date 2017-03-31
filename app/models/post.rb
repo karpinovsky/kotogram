@@ -9,6 +9,8 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :comments
   validates_associated :comments
 
+  has_many :likes, as: :likeable
+
   validates :user_id, presence: true
   scope :from_users_followed_by, lambda { |user|
     followed_user_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
@@ -19,5 +21,9 @@ class Post < ApplicationRecord
     comments.first.destroy if comments.first.body.blank?
   end
   #has_and_belongs_to_many :tags
+  #
 
+  def has_like_from?(user)
+    likes.find_by(liker: user.id)
+  end
 end
