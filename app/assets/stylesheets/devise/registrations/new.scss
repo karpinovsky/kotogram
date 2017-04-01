@@ -1,78 +1,138 @@
-.kotogram {
+@import 'utilities/variables';
+@import 'utilities/mixins';
+
+.signup {
+  position: fixed;
+  display: flex;
+  background: $color-background-gray-light;
+  overflow: auto;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+
+  @media only screen and (max-height: 565px) {
+    justify-content: flex-start;
+  }
+}
+
+.signup-container {
+  width: 350px;
+  background: $white;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  margin-bottom: 15px;
+
+  @include phone {
+    width: 80%;
+    background: $color-background-gray-light;
+    border: 0;
+  }
+}
+
+
+.logo {
+  font-family: 'Lobster Two';
   text-align: center;
-  height: 40px;
-  line-height: 40px;
-  margin: 10px 0;
+  font-size: 45px;
+  margin: 15px 0;
 }
 
 .suggestion {
+  width: 100%;
   text-align: center;
-  height: 50px;
-  margin: 0 0 10px 0;
-  line-height: 25px;
-  font-weight: bold;
-  font-size: 17px;
+  color: #999;
+  font-size: 18px;
+  margin: 15px 0;
 }
+
 
 .btn-facebook {
   display: block;
-  margin: 0 auto 10px auto;
-  height: 30px;
-  width: 200px;
-  padding: 0px;
-  text-align: center;
-  line-height: 25px;
+  margin: 15px auto;
+  width: 75%;
+  background: #3897f0;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
   overflow: hidden;
-}
+  padding: 0 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  outline: none;
+  }
 
 .or {
   font-size: 14px;
   text-align: center;
-  margin: 0 0 10px 0;
+  color: #999;
+  margin: 15px 0;
 }
 
-.signup-login-form {
-  margin: 0 auto 10px auto;
+.signup-form {
+  width: 75%;
   text-align: center;
-  width: 200px;
-
+  margin: 15px auto;
 }
 
 .form-control {
-  width: 200px;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  outline: none;
+  height: 30px;
   margin-bottom: 5px;
   padding-left: 5px;
-  border: 1px solid #dbdbdb;
-  height: 30px;
-  border-radius: 2px;
 
-  &:hover,
-  &:active,
   &:focus {
-    border-color: #dbdbdb;
     box-shadow: none;
-    outline: none;
-  }
-
-  &:focus {
     border-color: #b2b2b2;
   }
 }
 
-.login-link {
-  text-align: center;
-  margin: 10px 0;
-  font-size: 16px;
+
+.btn-signup {
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 15px;
+  background: #3897f0;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
+
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
 }
 
-.confirmation {
-  text-align: center;
-  margin: 0 0 10px 0;
-  font-size: 14px;
-}
 
-.unlock {
-  text-align: center;
-  margin: 0 0 10px 0;
-  font-size: 14px;
+.shared-links {
+  width: 350px;
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+
+  h3 {
+    margin: 15px 0;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  @include phone {
+    width: 80%;
+    background: $color-background-gray-light;
+    border: 0;
+
+    h3 {
+      margin: 10px 0;
+    }
+  }
 }
