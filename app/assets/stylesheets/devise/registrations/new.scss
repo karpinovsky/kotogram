@@ -5,7 +5,7 @@
   position: fixed;
   display: flex;
   background: $color-background-gray-light;
-  overflow: auto;
+  overflow: scroll;
   align-items: center;
   flex-direction: column;
   width: 100vw;
@@ -24,13 +24,16 @@
   border-radius: 3px;
   margin-bottom: 15px;
 
+  @media only screen and (max-height: 565px) and (min-width: 768px) {
+    margin-top: 15px;
+  }
+
   @include phone {
     width: 80%;
     background: $color-background-gray-light;
     border: 0;
   }
 }
-
 
 .logo {
   font-family: 'Lobster Two';
