@@ -1,10 +1,25 @@
 @import 'bootstrap';
 @import 'utilities/variables';
+@import 'utilities/mixins';
 
 .form {
   width: 75%;
   text-align: center;
   margin: 15px auto;
+}
+
+.form-control {
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  outline: none;
+  height: 30px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+
+  &:focus {
+    box-shadow: none;
+    border-color: #b2b2b2;
+  }
 }
 
 .button {

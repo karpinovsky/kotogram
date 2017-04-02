@@ -47,11 +47,20 @@
   }
 }
 
-@mixin flex-item($width) {
-  width: $width;
+@mixin flex-item($width: null, $margin-bottom: null) {
+  width: 350px;
+
+  @if $width {
+    width: $width;
+  }
+
   background: $white;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   margin-bottom: 15px;
+
+  @if $margin-bottom {
+    margin-bottom: $margin-bottom;
+  }
 }
 

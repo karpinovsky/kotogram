@@ -2,28 +2,11 @@
 @import 'utilities/mixins';
 
 .signup {
-  position: fixed;
-  display: flex;
-  background: $color-background-gray-light;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  align-items: center;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-
-  @media only screen and (max-height: 565px) {
-    justify-content: flex-start;
-  }
+  @include flex-container($max-height: 563px)
 }
 
 .signup-container {
-  width: 350px;
-  background: $white;
-  border: 1px solid #e6e6e6;
-  border-radius: 3px;
-  margin-bottom: 15px;
+  @include flex-item;
 
   @include phone {
     width: 80%;
@@ -34,109 +17,25 @@
 
 .logo {
   font-family: 'Lobster Two';
+  color: $color-text-black-light;
   text-align: center;
   font-size: 45px;
   margin: 15px 0;
 }
 
 .suggestion {
-  width: 100%;
   text-align: center;
-  color: #999;
+  color: $color-text-gray-light;
   font-size: 18px;
   margin: 15px 0;
 }
 
-
-.btn-facebook {
-  display: block;
-  margin: 15px auto;
-  width: 75%;
-  background: #3897f0;
-  color: white;
-  border: 0;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 30px;
-  overflow: hidden;
-  padding: 0 15px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  outline: none;
-}
-
 .or {
+  @extend .suggestion;
   font-size: 14px;
-  text-align: center;
-  color: #999;
-  margin: 15px 0;
 }
 
-.signup-form {
-  width: 75%;
-  text-align: center;
-  margin: 15px auto;
-}
-
-.form-control {
-  border: 1px solid #dbdbdb;
-  border-radius: 2px;
-  outline: none;
-  height: 30px;
-  margin-bottom: 5px;
-  padding-left: 5px;
-
-  &:focus {
-    box-shadow: none;
-    border-color: #b2b2b2;
-  }
-}
-
-.btn-signup {
+.button-signup {
   width: 100%;
   margin-top: 10px;
-  padding: 0 15px;
-  background: #3897f0;
-  color: white;
-  border: 0;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 30px;
-
-  &:focus,
-  &:active {
-    box-shadow: none;
-    outline: none;
-  }
-}
-
-
-.shared-links {
-  width: 350px;
-  background: white;
-  border: 1px solid #e6e6e6;
-  border-radius: 2px;
-
-  h3 {
-    margin: 15px 0;
-    font-size: 15px;
-    text-align: center;
-
-    a {
-      text-decoration: none;
-      color: #337ab7;
-    }
-  }
-
-  @include phone {
-    width: 80%;
-    background: $color-background-gray-light;
-    border: 0;
-
-    h3 {
-      margin: 10px 0;
-    }
-  }
 }

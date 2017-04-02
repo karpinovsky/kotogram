@@ -1,0 +1,27 @@
+@import 'utilities/variables';
+@import 'utilities/mixins';
+
+.shared-links {
+  @include flex-item($width: 350px, $margin-bottom: 0);
+
+  h3 {
+    margin: 15px 0;
+    font-size: 15px;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: #337ab7;
+    }
+  }
+
+  @include phone {
+    width: 80%;
+    background: $color-background-gray-light;
+    border: 0;
+
+    h3 {
+      margin: 10px 0;
+    }
+  }
+}
