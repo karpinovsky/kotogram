@@ -1,11 +1,12 @@
 @import 'utilities/variables';
 @import 'utilities/mixins';
 
-.password-new {
+.confirmation-new {
   @include flex-container($max-height: 309px);
 }
-.password-new-container {
-  @include flex-item($width: 350px);
+
+.confirmation-new-container {
+  @include flex-item;
 
   @include phone {
     width: 80%;
@@ -20,7 +21,7 @@
   }
 }
 
-.button-password-new {
+.button-confirmation-new {
   width: 100%;
   margin-top: 10px;
 }

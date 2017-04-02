@@ -1,0 +1,16 @@
+.confirmation-new
+  .confirmation-new-container
+    %h2 Resend confirmation instructions
+
+    = form_for(resource, as: resource_name, url: confirmation_path(resource_name),
+      html: { method: :post, class: 'form form-confirmation-new' }) do |f|
+      = devise_error_messages!
+
+      = f.email_field :email, autofocus: true,
+        value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+        class: 'form-control', placeholder: 'Email'
+
+      = f.submit 'Resend instructions', class: 'button button-confirmation-new'
+
+  .shared-links
+    = render 'devise/shared/links'
