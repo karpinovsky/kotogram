@@ -1,0 +1,26 @@
+@import 'utilities/variables';
+@import 'utilities/mixins';
+
+.password-new {
+  @include flex-container($max-height: 311px);
+}
+.password-new-container {
+  @include flex-item($width: 350px);
+
+  @include phone {
+    width: 80%;
+    background: $color-background-gray-light;
+    border: 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 30px;
+    margin: 15px 0;
+  }
+}
+
+.button-password-new {
+  width: 100%;
+  margin-top: 10px;
+}

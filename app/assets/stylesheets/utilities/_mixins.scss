@@ -27,3 +27,31 @@
     @content;
   }
 }
+
+@mixin flex-container($max-height) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  background: $color-background-gray-light;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+
+  @media only screen and (max-height: #{$max-height}) {
+    justify-content: flex-start;
+  }
+}
+
+@mixin flex-item($width) {
+  width: $width;
+  background: $white;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+

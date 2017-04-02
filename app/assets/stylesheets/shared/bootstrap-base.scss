@@ -1,1 +1,28 @@
 @import 'bootstrap';
+@import 'utilities/variables';
+
+.form {
+  width: 75%;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.button {
+  background: #3f97f0;
+  color: $white;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
+  overflow: hidden;
+  padding: 0 15px;
+  text-overflow: ellipsis;
+  border: 0;
+  border-radius: 4px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
+}
