@@ -1,22 +1,16 @@
-.container
-  .row
-    .col-lg-4.col-lg-offset-4
-      .row
-        .col-lg-12
-          %h1.kotogram Kotogram
-        .col-lg-12
-          = form_for resource, as: resource_name, url: session_path(resource_name),
-            html: { class: 'signup-login-form', id: '' } do |f|
-            = f.email_field :email, autofocus: true, placeholder: 'Email',
-              class: 'form-control'
+.login
+  .login-container
+    %h1.logo Kotogram
+    = form_for resource, as: resource_name, url: session_path(resource_name),
+      html: { class: 'login-form', id: '' } do |f|
+      = f.email_field :email, autofocus: true, placeholder: 'Email',
+        class: 'form-control'
 
-            = f.password_field :password, autocomplete: 'off',
-              placeholder: 'Password', class: 'form-control'
+      = f.password_field :password, autocomplete: 'off',
+        placeholder: 'Password', class: 'form-control'
 
-            = f.submit 'Log in', class: 'btn-facebook'
-        .col-lg-12
-          %h4.or OR
-        .col-lg-12
-          = render 'devise/shared/provider'
-        .col-lg-12
-          = render 'devise/shared/links'
+      = f.submit 'Log in', class: 'btn-login'
+    %h2.or OR
+    = render 'devise/shared/provider'
+  .shared-links
+    = render 'devise/shared/links'

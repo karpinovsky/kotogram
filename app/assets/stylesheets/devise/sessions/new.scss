@@ -1,17 +1,58 @@
-.signup-link {
-  text-align: center;
-  margin: 10px 0;
-  font-size: 16px;
+@import 'utilities/variables';
+@import 'utilities/mixins';
+
+.login {
+  position: fixed;
+  display: flex;
+  background: $color-background-gray-light;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+
+  @media only screen and (max-height: 432px) {
+    justify-content: flex-start;
+  }
 }
 
-.password {
-  text-align: center;
-  margin: 0 0 10px 0;
-  font-size: 14px;
+.login-container {
+  background: $white;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  width: 350px;
+
+  @include phone {
+    width: 80%;
+    background: $color-background-gray-light;
+    border: 0;
+  }
 }
 
-.unlock {
+.login-form {
+  width: 75%;
   text-align: center;
-  margin: 0 0 10px 0;
-  font-size: 14px;
+  margin: 15px auto;
+}
+
+.btn-login {
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 15px;
+  background: #3897f0;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
+
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
 }
