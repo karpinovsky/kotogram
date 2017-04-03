@@ -2,10 +2,10 @@
 @import 'utilities/mixins';
 
 .password-new {
-  @include flex-container($max-height: 309px);
+  @include flex-container($max-height: 373px);
 }
 .password-new-container {
-  @include flex-item($width: 350px);
+  @include flex-item;
 
   @include phone {
     width: 80%;
