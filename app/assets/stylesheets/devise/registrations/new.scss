@@ -1,41 +1,121 @@
-@import 'utilities/variables';
 @import 'utilities/mixins';
 
-.signup {
-  @include flex-container($max-height: 563px)
+.flex-container-signup {
+  background: #fafafa;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 100vh;
+  justify-content: center;
+
+  @media only screen and (max-height: 563px) {
+    justify-content: flex-start;
+  }
 }
 
-.signup-container {
-  @include flex-item;
+.flex-item-signup {
+  width: 350px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 15px;
 
   @include phone {
     width: 80%;
-    background: $color-background-gray-light;
+    background: #fafafa;
+    border: 0;
+  }
+
+  @media only screen and (max-height: 563px) {
+    background: #fafafa;
     border: 0;
   }
 }
 
-.logo {
+.logo-signup {
   font-family: 'Lobster Two';
-  color: $color-text-black-light;
+  color: #262626;
   text-align: center;
   font-size: 45px;
   margin: 15px 0;
 }
 
-.suggestion {
+.suggestion-signup {
   text-align: center;
-  color: $color-text-gray-light;
+  color: #999;
   font-size: 18px;
   margin: 15px 0;
 }
 
-.or {
-  @extend .suggestion;
+.or-signup {
+  text-align: center;
+  color: #999;
+  margin: 15px 0;
   font-size: 14px;
 }
 
-.button-signup {
+.form-signup {
+  width: 75%;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.btn-signup {
+  background: #3f97f0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
+  overflow: hidden;
+  padding: 0 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 0;
+  border-radius: 4px;
   width: 100%;
   margin-top: 10px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.shared-links-signup {
+
+  width: 350px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 0px;
+
+  h3 {
+    margin: 15px 0;
+    font-size: 15px;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: #337ab7;
+    }
+  }
+
+  @include phone {
+    width: 80%;
+    background: #fafafa;
+    border: 0;
+
+    h3 {
+      margin: 10px 0;
+    }
+  }
+
+  @media only screen and (max-height: 563px) {
+    background: #fafafa;
+    border: 0;
+  }
 }
