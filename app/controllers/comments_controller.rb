@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
 
   def create
-    @post = Post.find(params[:post_id])
-    @post.comments.create(comment_params)
+    Post.find(params[:post_id]).comments.create comment_params
     redirect_back(fallback_location: authenticated_root_path)
   end
 
