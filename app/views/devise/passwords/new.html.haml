@@ -1,16 +1,16 @@
-.password-new
-  .password-new-container
-    %h1.logo Kotogram
+.flex-container-password-new
+  .flex-item-password-new
+    %h1.logo-password-new Kotogram
     %h2 Forgot your password?
 
     = form_for(resource, as: resource_name, url: password_path(resource_name),
-      html: { method: :post, class: 'form form-password-new' }) do |f|
+      html: { method: :post, class: 'form-password-new' }) do |f|
 
       = f.email_field :email, autofocus: true, placeholder: 'Email',
         class: 'form-control'
 
       = f.submit 'Send me reset instructions',
-        class: 'button button-password-new'
+        class: 'btn-password-new'
 
-  .shared-links
+  .shared-links-password-new
     = render 'devise/shared/links'
