@@ -25,13 +25,13 @@
   @include phone {
     width: 80%;
     background: #fafafa;
-    border: 0;
+    border-color: #fafafa;
     margin-bottom: 0;
   }
 
   @media only screen and (max-height: 436px) {
     background: #fafafa;
-    border: 0;
+    border-color: #fafafa;
   }
 }
 
@@ -101,7 +101,7 @@
   @include phone {
     width: 80%;
     background: #fafafa;
-    border: 0;
+    border-color: #fafafa;
 
     h3 {
       margin: 10px 0;
@@ -110,6 +110,6 @@
 
   @media only screen and (max-height: 436px) {
     background: #fafafa;
-    border: 0;
+    border-color: #fafafa;
   }
 }

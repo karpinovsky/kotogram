@@ -1,9 +1,5 @@
 @import 'utilities/mixins';
 
-.confirmation-new {
-  @include flex-container($max-height: 373px);
-}
-
 .flex-container-confirmation-new {
   background: #fafafa;
   position: relative;
@@ -29,13 +25,13 @@
   @include phone {
     width: 80%;
     background: #fafafa;
-    border: 0;
+    border-color: #fafafa;
     margin-bottom: 0;
   }
 
   @media only screen and (max-height: 373px) {
     background: #fafafa;
-    border: 0;
+    border-color: #fafafa;
   }
 
   h2 {
@@ -43,11 +39,6 @@
     font-size: 20px;
     margin: 20px 0;
   }
-}
-
-.button-confirmation-new {
-  width: 100%;
-  margin-top: 10px;
 }
 
 .logo-confirmation-new {
@@ -108,7 +99,7 @@
   @include phone {
     width: 80%;
     background: #fafafa;
-    border: 0;
+    border-color: #fafafa;
 
     h3 {
       margin: 10px 0;
@@ -117,6 +108,6 @@
 
   @media only screen and (max-height: 373px) {
     background: #fafafa;
-    border: 0;
+    border-color: #fafafa;
   }
 }

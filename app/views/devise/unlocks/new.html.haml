@@ -1,15 +1,15 @@
-.unlock-new
-  .unlock-new-container
-    %h1.logo Kotogram
+.flex-container-unlock-new
+  .flex-item-unlock-new
+    %h1.logo-unlock-new Kotogram
     %h2 Resend unlock instructions
 
     = form_for(resource, as: resource_name, url: unlock_path(resource_name),
-      html: { method: :post, class: 'form form-unlock-new' }) do |f|
+      html: { method: :post, class: 'form-unlock-new' }) do |f|
 
       = f.email_field :email, autofocus: true, placeholder: 'Email',
         class: 'form-control'
 
-      = f.submit 'Resend instructions', class: 'button button-unlock-new'
+      = f.submit 'Resend instructions', class: 'btn-unlock-new'
 
-  .shared-links
+  .shared-links-unlock-new
     = render 'devise/shared/links'
