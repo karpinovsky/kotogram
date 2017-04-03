@@ -1,11 +1,11 @@
 @import 'utilities/variables';
 @import 'utilities/mixins';
 
-.confirmation-new {
+.unlock-new {
   @include flex-container($max-height: 373px);
 }
 
-.confirmation-new-container {
+.unlock-new-container {
   @include flex-item;
 
   @include phone {
@@ -21,7 +21,7 @@
   }
 }
 
-.button-confirmation-new {
+.button-unlock-new {
   width: 100%;
   margin-top: 10px;
 }
