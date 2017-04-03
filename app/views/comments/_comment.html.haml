@@ -3,3 +3,5 @@
   = with_links_to_users(with_links_to_tags(comment.body))
   = render partial: 'likes/likes', locals: { likeable: comment }
   = render partial: 'likes/comments/form', locals: { likeable: comment }
+  = link_to 'delete comment', user_post_comment_path(commenter_username(comment.commenter),
+    comment.post, comment), method: :delete
