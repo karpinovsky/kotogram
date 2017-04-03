@@ -1,16 +1,16 @@
-.login
-  .login-container
-    %h1.logo Kotogram
+.flex-container-login
+  .flex-item-login
+    %h1.logo-login Kotogram
     = form_for resource, as: resource_name, url: session_path(resource_name),
-      html: { class: 'form form-login' } do |f|
+      html: { class: 'form-login' } do |f|
       = f.email_field :email, autofocus: true, placeholder: 'Email',
         class: 'form-control'
 
       = f.password_field :password, autocomplete: 'off',
         placeholder: 'Password', class: 'form-control'
 
-      = f.submit 'Log in', class: 'button button-login'
-    %h2.or OR
+      = f.submit 'Log in', class: 'btn-login'
+    %h2.or-login OR
     = render 'devise/shared/provider'
-  .shared-links
+  .shared-links-login
     = render 'devise/shared/links'
