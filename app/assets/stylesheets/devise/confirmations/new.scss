@@ -1,16 +1,40 @@
-@import 'utilities/variables';
 @import 'utilities/mixins';
 
 .confirmation-new {
   @include flex-container($max-height: 373px);
 }
 
-.confirmation-new-container {
-  @include flex-item;
+.flex-container-confirmation-new {
+  background: #fafafa;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 100vh;
+  justify-content: center;
+
+  @media only screen and (max-height: 373px) {
+    justify-content: flex-start;
+  }
+}
+
+.flex-item-confirmation-new {
+  width: 350px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 15px;
 
   @include phone {
     width: 80%;
-    background: $color-background-gray-light;
+    background: #fafafa;
+    border: 0;
+    margin-bottom: 0;
+  }
+
+  @media only screen and (max-height: 373px) {
+    background: #fafafa;
     border: 0;
   }
 
@@ -24,4 +48,75 @@
 .button-confirmation-new {
   width: 100%;
   margin-top: 10px;
+}
+
+.logo-confirmation-new {
+  font-family: 'Lobster Two';
+  color: #262626;
+  text-align: center;
+  font-size: 45px;
+  margin: 15px 0;
+}
+
+.form-confirmation-new {
+  width: 75%;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.btn-confirmation-new {
+  background: #3f97f0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
+  overflow: hidden;
+  padding: 0 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 0;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 10px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.shared-links-confirmation-new {
+  width: 350px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 0px;
+
+  h3 {
+    margin: 15px 0;
+    font-size: 15px;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: #337ab7;
+    }
+  }
+
+  @include phone {
+    width: 80%;
+    background: #fafafa;
+    border: 0;
+
+    h3 {
+      margin: 10px 0;
+    }
+  }
+
+  @media only screen and (max-height: 373px) {
+    background: #fafafa;
+    border: 0;
+  }
 }

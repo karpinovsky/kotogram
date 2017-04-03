@@ -1,16 +1,16 @@
-.confirmation-new
-  .confirmation-new-container
-    %h1.logo Kotogram
+.flex-container-confirmation-new
+  .flex-item-confirmation-new
+    %h1.logo-confirmation-new Kotogram
     %h2 Resend confirmation instructions
 
     = form_for(resource, as: resource_name, url: confirmation_path(resource_name),
-      html: { method: :post, class: 'form form-confirmation-new' }) do |f|
+      html: { method: :post, class: 'form-confirmation-new' }) do |f|
 
       = f.email_field :email, autofocus: true,
         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
         class: 'form-control', placeholder: 'Email'
 
-      = f.submit 'Resend instructions', class: 'button button-confirmation-new'
+      = f.submit 'Resend instructions', class: 'btn-confirmation-new'
 
-  .shared-links
+  .shared-links-confirmation-new
     = render 'devise/shared/links'
