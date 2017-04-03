@@ -1,10 +1,10 @@
-.password-edit
-  .password-edit-container
-    %h1.logo Kotogram
+.flex-container-password-edit
+  .flex-item-password-edit
+    %h1.logo-password-edit Kotogram
     %h2 Change your password
 
     = form_for(resource, as: resource_name, url: password_path(resource_name),
-      html: { method: :put, class: 'form form-password-edit' }) do |f|
+      html: { method: :put, class: 'form-password-edit' }) do |f|
       = f.hidden_field :reset_password_token
 
       = f.password_field :password, autofocus: true, autocomplete: 'off',
@@ -13,7 +13,7 @@
       = f.password_field :password_confirmation, autocomplete: "off",
         placeholder: 'Confirm new password', class: 'form-control'
 
-      = f.submit 'Change my password', class: 'button button-password-edit'
+      = f.submit 'Change my password', class: 'btn-password-edit'
 
-  .shared-links
+  .shared-links-password-edit
     = render 'devise/shared/links'
