@@ -1,19 +1,22 @@
-.flex-container-password-edit
-  .flex-item-password-edit
-    %h1.logo-password-edit Kotogram
-    %h2 Change your password
-
+.password-new-page.flex-container-to-devise-pages-for-not-authenticated-user
+  %section.password-edit-page-content.flex-item-to-devise-pages-for-not-authenticated-user
+    %h1.kotogram-logo-to-devise-pages-for-not-authenticated-user Kotogram
+    %h2.description-of-devise-recovery-pages-for-not-authenticated-user Change your password
     = form_for(resource, as: resource_name, url: password_path(resource_name),
-      html: { method: :put, class: 'form-password-edit' }) do |f|
+      html: { method: :put,
+      class: 'form-password-edit form-to-devise-pages-for-not-authenticated-user',
+      id: '' }) do |f|
       = f.hidden_field :reset_password_token
 
       = f.password_field :password, autofocus: true, autocomplete: 'off',
-        placeholder: 'New password', class: 'form-control'
+        placeholder: 'New password',
+        class: 'form-input-to-devise-pages-for-not-authenticated-user'
 
       = f.password_field :password_confirmation, autocomplete: "off",
-        placeholder: 'Confirm new password', class: 'form-control'
+        placeholder: 'Confirm new password',
+        class: 'form-input-to-devise-pages-for-not-authenticated-user'
 
-      = f.submit 'Change my password', class: 'btn-password-edit'
-
-  .shared-links-password-edit
+      = f.submit 'Change my password',
+        class: 'form-button-to-devise-pages-for-not-authenticated-user'
+  %section.shared-links-password-edit-page.shared-links-to-devise-pages-for-not-authenticated-user
     = render 'devise/shared/links'
