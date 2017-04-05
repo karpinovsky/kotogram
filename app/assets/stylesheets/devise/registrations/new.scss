@@ -1,121 +1,30 @@
 @import 'utilities/mixins';
 
-.flex-container-signup {
-  background: #fafafa;
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  overflow-y: scroll;
-  height: 100vh;
-  justify-content: center;
+@media only screen and (max-height: 563px) {
 
-  @media only screen and (max-height: 563px) {
+  .signup-page {
     justify-content: flex-start;
   }
-}
 
-.flex-item-signup {
-  width: 350px;
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 5px;
-  margin-bottom: 15px;
-
-  @include phone {
-    width: 80%;
+  .signup-page-content {
     background: #fafafa;
     border-color: #fafafa;
-    margin-bottom: 0;
   }
 
-  @media only screen and (max-height: 563px) {
+  .shared-links-signup-page {
     background: #fafafa;
     border-color: #fafafa;
   }
 }
 
-.logo-signup {
-  font-family: 'Lobster Two';
-  color: #262626;
-  text-align: center;
-  font-size: 45px;
-  margin: 15px 0;
-}
-
-.suggestion-signup {
-  text-align: center;
+.suggestion-to-signup {
   color: #999;
   font-size: 18px;
   margin: 15px 0;
 }
 
-.or-signup {
-  text-align: center;
+.separator-for-signup-types {
+  font-size: 14px;
   color: #999;
   margin: 15px 0;
-  font-size: 14px;
-}
-
-.form-signup {
-  width: 75%;
-  text-align: center;
-  margin: 15px auto;
-}
-
-.btn-signup {
-  background: #3f97f0;
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 30px;
-  overflow: hidden;
-  padding: 0 15px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  border: 0;
-  border-radius: 4px;
-  width: 100%;
-  margin-top: 10px;
-
-  &:hover,
-  &:focus,
-  &:active {
-    box-shadow: none;
-    outline: none;
-  }
-}
-
-.shared-links-signup {
-
-  width: 350px;
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 5px;
-
-  h3 {
-    margin: 15px 0;
-    font-size: 15px;
-    text-align: center;
-
-    a {
-      text-decoration: none;
-      color: #337ab7;
-    }
-  }
-
-  @include phone {
-    width: 80%;
-    background: #fafafa;
-    border-color: #fafafa;
-
-    h3 {
-      margin: 10px 0;
-    }
-  }
-
-  @media only screen and (max-height: 563px) {
-    background: #fafafa;
-    border-color: #fafafa;
-  }
 }

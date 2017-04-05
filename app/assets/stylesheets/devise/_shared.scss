@@ -1,0 +1,116 @@
+@import 'utilities/mixins';
+
+.flex-container-to-devise-pages-for-not-authenticated-user {
+  background: #fafafa;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 100vh;
+  justify-content: center;
+}
+
+.flex-item-to-devise-pages-for-not-authenticated-user {
+  width: 350px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+
+  @include phone {
+    width: 80%;
+    background: #fafafa;
+    border-color: #fafafa;
+    margin-bottom: 0;
+  }
+}
+
+.kotogram-logo-to-devise-pages-for-not-authenticated-user {
+  font-family: 'Lobster Two';
+  color: #262626;
+  font-size: 45px;
+  margin: 15px 0;
+}
+
+.form-to-devise-pages-for-not-authenticated-user {
+  width: 75%;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.form-input-to-devise-pages-for-not-authenticated-user {
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  outline: none;
+  height: 30px;
+  width: 100%;
+  margin-bottom: 5px;
+  padding-left: 8px;
+
+  &:focus {
+    box-shadow: none;
+    border-color: #b2b2b2;
+  }
+
+  &::placeholder {
+    color: #b2b2b2;
+    font-weight: 100;
+  }
+}
+
+.form-button-to-devise-pages-for-not-authenticated-user {
+  background: #3f97f0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 30px;
+  overflow: hidden;
+  padding: 0 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 0;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 10px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.shared-links-to-devise-pages-for-not-authenticated-user {
+  width: 350px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  text-align: center;
+
+  @include phone {
+    width: 80%;
+    background: #fafafa;
+    border-color: #fafafa;
+  }
+}
+
+.devise-shared-link-login,
+.devise-shared-link-signup,
+.devise-shared-link-password-recovery,
+.devise-shared-link-confirmation-resend,
+.devise-shared-link-unlock-resend {
+  margin: 15px 0;
+  font-size: 15px;
+
+  a {
+    text-decoration: none;
+    color: #337ab7;
+  }
+
+  @include phone {
+    margin: 10px 0;
+  }
+}
