@@ -1,16 +1,16 @@
-.flex-container-login
-  .flex-item-login
-    %h1.logo-login Kotogram
+.login-page.flex-container-to-devise-pages-for-not-authenticated-user
+  %section.login-page-content.flex-item-to-devise-pages-for-not-authenticated-user
+    %h1.kotogram-logo-to-devise-pages-for-not-authenticated-user Kotogram
     = form_for resource, as: resource_name, url: session_path(resource_name),
-      html: { class: 'form-login' } do |f|
+      html: { class: 'form-login form-to-devise-pages-for-not-authenticated-user' } do |f|
       = f.email_field :email, autofocus: true, placeholder: 'Email',
-        class: 'form-control'
+        class: 'form-input-to-devise-pages-for-not-authenticated-user'
 
-      = f.password_field :password, autocomplete: 'off',
-        placeholder: 'Password', class: 'form-control'
+      = f.password_field :password, autocomplete: 'off', placeholder: 'Password',
+        class: 'form-input-to-devise-pages-for-not-authenticated-user'
 
-      = f.submit 'Log in', class: 'btn-login'
-    %h2.or-login OR
+      = f.submit 'Log in', class: 'form-button-to-devise-pages-for-not-authenticated-user'
+    %h3.separator-for-signup-or-login-types OR
     = render 'devise/shared/provider'
-  .shared-links-login
+  %section.shared-links-login-page.shared-links-to-devise-pages-for-not-authenticated-user
     = render 'devise/shared/links'
