@@ -1,1 +1,2 @@
-= likeable.likes_count
+- unless likeable.likes_count.zero?
+  %span= pluralize(likeable.likes_count, 'like')

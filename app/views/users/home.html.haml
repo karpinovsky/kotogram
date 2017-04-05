@@ -1,11 +1,22 @@
-- @feed_items.each do |feed_item|
-  = link_to (image_tag feed_item.user.avatar), user_path(feed_item.user)
-  = link_to feed_item.user.username, user_path(feed_item.user)
-  %br
-  = render partial: 'likes/likes', locals: { likeable: feed_item }
-  = render partial: 'likes/posts/form', locals: { likeable: feed_item }
-  = link_to time_ago_in_words(feed_item.created_at), user_post_path(feed_item.user, feed_item)
-  %br
-  = image_tag feed_item.image.image
-  = render feed_item.comments
-  = render partial: 'comments/form', locals: { user: feed_item.user, post: feed_item }
+.flex-container-user-home
+  .flex-item-user-home
+    - @feed_items.each do |feed_item|
+      %article.user-home-post
+        %header.user-home-header
+          = link_to user_path(feed_item.user), class: 'user-home-header-avatar-link' do
+            = image_tag feed_item.user.avatar, class: 'user-home-header-avatar-img'
+          = link_to feed_item.user.username, user_path(feed_item.user),
+            class: 'user-home-header-username-link'
+          = link_to time_ago_in_words(feed_item.created_at),
+            user_post_path(feed_item.user, feed_item),
+            class: 'user-home-header-post-time'
+        = image_tag feed_item.image.image, class: 'user-home-post-media'
+        = render partial: 'likes/posts/form', locals: { likeable: feed_item }
+        %p.user-home-post-likes= render partial: 'likes/likes',
+          locals: { likeable: feed_item }
+        %ul.user-home-post-comments
+          = render feed_item.comments
+      %br
+      = render partial: 'likes/likes', locals: { likeable: feed_item }
+      %br
+      = render partial: 'comments/form', locals: { user: feed_item.user, post: feed_item }
