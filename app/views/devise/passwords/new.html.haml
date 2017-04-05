@@ -1,16 +1,15 @@
-.flex-container-password-new
-  .flex-item-password-new
-    %h1.logo-password-new Kotogram
-    %h2 Forgot your password?
-
+.password-new-page.flex-container-to-devise-pages-for-not-authenticated-user
+  %section.password-new-page-content.flex-item-to-devise-pages-for-not-authenticated-user
+    %h1.kotogram-logo-to-devise-pages-for-not-authenticated-user Kotogram
+    %h2.description-of-devise-recovery-pages-for-not-authenticated-user Forgot your password?
     = form_for(resource, as: resource_name, url: password_path(resource_name),
-      html: { method: :post, class: 'form-password-new' }) do |f|
+      html: { method: :post,
+      class: 'form-password-new form-to-devise-pages-for-not-authenticated-user', id: '' }) do |f|
 
       = f.email_field :email, autofocus: true, placeholder: 'Email',
-        class: 'form-control'
+        class: 'form-input-to-devise-pages-for-not-authenticated-user'
 
       = f.submit 'Send me reset instructions',
-        class: 'btn-password-new'
-
-  .shared-links-password-new
+        class: 'form-button-to-devise-pages-for-not-authenticated-user'
+  %section.shared-links-password-new-page.shared-links-to-devise-pages-for-not-authenticated-user
     = render 'devise/shared/links'
