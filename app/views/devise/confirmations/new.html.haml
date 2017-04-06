@@ -1,16 +1,18 @@
-.flex-container-confirmation-new
-  .flex-item-confirmation-new
-    %h1.logo-confirmation-new Kotogram
-    %h2 Resend confirmation instructions
+.confirmation-new-page.flex-container-to-devise-pages-for-not-authenticated-user
+  %section.confirmation-new-page-content.flex-item-to-devise-pages-for-not-authenticated-user
+    %h1.kotogram-logo-to-devise-pages-for-not-authenticated-user Kotogram
+    %h2.description-of-devise-recovery-pages-for-not-authenticated-user Resend confirmation instructions
 
     = form_for(resource, as: resource_name, url: confirmation_path(resource_name),
-      html: { method: :post, class: 'form-confirmation-new' }) do |f|
+      html: { method: :post, class: 'form-confirmation-new form-to-devise-pages-for-not-authenticated-user' }) do |f|
 
       = f.email_field :email, autofocus: true,
         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-        class: 'form-control', placeholder: 'Email'
+          placeholder: 'Email',
+        class: 'form-input-to-devise-pages-for-not-authenticated-user'
 
-      = f.submit 'Resend instructions', class: 'btn-confirmation-new'
+      = f.submit 'Resend instructions',
+        class: 'form-button-to-devise-pages-for-not-authenticated-user'
 
-  .shared-links-confirmation-new
+  %section.shared-links-confirmation-new-page.shared-links-to-devise-pages-for-not-authenticated-user
     = render 'devise/shared/links'
