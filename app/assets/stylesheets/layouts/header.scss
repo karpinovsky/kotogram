@@ -1,6 +1,6 @@
 @import 'utilities/mixins';
 
-.flex-container-header {
+.flex-container-for-header-to-pages-for-authenticated-user {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,8 +11,7 @@
   border-bottom: 1px solid #e7e7e7;
 }
 
-
-.flex-item-header {
+.flex-item-for-header-to-pages-for-authenticated-user {
   display: flex;
   height: inherit;
   align-items: center;
@@ -21,7 +20,7 @@
 }
 
 
-.kotogram-header {
+.kotogram-logo-link-to-homepage-for-header-for-authenticated-user {
   margin-left: 5%;
   margin-right: auto;
   display: flex;
@@ -43,7 +42,7 @@
   }
 }
 
-.kotogram-t-header {
+.kotogram-logo-text-link-for-header {
   margin: 0 0 0 22px;
   padding-left: 17px;
   font-family: 'Lobster Two';
@@ -54,14 +53,14 @@
   }
 }
 
-.form-header {
+.form-search-for-header {
   height: 40px;
   margin: 0 auto;
   width: 50%;
   max-width: 215px;
 }
 
-.form-header-control {
+.form-input-for-search-for-header {
   display: block;
   height: 28px;
   width: 100%;
@@ -90,18 +89,23 @@
   }
 }
 
-.profile-header {
+.user-profile-link-for-header {
   display: flex;
   align-items: center;
-  margin: 0 16% 0 13%;
+  margin: 0 17% 0 11%;
+  height: 40px;
+  color: #262626;
 
   @include phone {
     margin: 0 5% 0 auto;
   }
 
-  height: 40px;
-  color: #262626;
-
+  &:hover,
+  &:active,
+  &:focus {
+    color: #262626;
+    text-decoration: none;
+  }
 
   .fa-user-o {
     font-size: 22px;

@@ -1,11 +1,12 @@
 - if user_signed_in?
-  %header.flex-container-header
-    .flex-item-header
-      = link_to authenticated_root_path, class: 'kotogram-header' do
+  %header.flex-container-for-header-to-pages-for-authenticated-user
+    .flex-item-for-header-to-pages-for-authenticated-user
+      = link_to authenticated_root_path,
+        class: 'kotogram-logo-link-to-homepage-for-header-for-authenticated-user' do
         = icon('instagram')
-        %h3.kotogram-t-header Kotogram
-      = form_tag users_path, method: :get, class: 'form-header' do
+        %h3.kotogram-logo-text-link-for-header Kotogram
+      = form_tag users_path, method: :get, class: 'form-search-for-header' do
         = text_field_tag :search, '', placeholder: 'Search',
-          class: 'form-header-control'
-      = link_to icon('user-o'), user_path(current_user), 
-        class: 'profile-header'
+          class: 'form-input-for-search-for-header'
+      = link_to icon('user-o'), user_path(current_user),
+        class: 'user-profile-link-for-header'
