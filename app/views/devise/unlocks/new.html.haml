@@ -1,15 +1,16 @@
-.flex-container-unlock-new
-  .flex-item-unlock-new
-    %h1.logo-unlock-new Kotogram
-    %h2 Resend unlock instructions
+.unlock-new-page.flex-container-to-devise-pages-for-not-authenticated-user
+  %section.unlock-new-page-content.flex-item-to-devise-pages-for-not-authenticated-user
+    %h1.kotogram-logo-to-devise-pages-for-not-authenticated-user Kotogram
+    %h2.description-of-devise-recovery-pages-for-not-authenticated-user Resend unlock instructions
 
     = form_for(resource, as: resource_name, url: unlock_path(resource_name),
-      html: { method: :post, class: 'form-unlock-new' }) do |f|
+      html: { method: :post, class: 'form-unlock-new form-to-devise-pages-for-not-authenticated-user' }) do |f|
 
       = f.email_field :email, autofocus: true, placeholder: 'Email',
-        class: 'form-control'
+        class: 'form-input-to-devise-pages-for-not-authenticated-user'
 
-      = f.submit 'Resend instructions', class: 'btn-unlock-new'
+      = f.submit 'Resend instructions',
+        class: 'form-button-to-devise-pages-for-not-authenticated-user'
 
-  .shared-links-unlock-new
+  %section.shared-links-unlock-new-page.shared-links-to-devise-pages-for-not-authenticated-user
     = render 'devise/shared/links'
