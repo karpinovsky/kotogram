@@ -1,7 +1,7 @@
 %li
   %section
     = link_to user_path(commenter_username(comment.commenter)) do
-      %strong= commenter_username(comment.commenter)
+      = commenter_username(comment.commenter)
     - if current_user == User.find(comment.commenter)
       %aside
         = link_to user_post_comment_path(commenter_username(comment.commenter),

@@ -11,8 +11,9 @@
       %div= image_tag feed_item.image.image
       = render partial: 'likes/posts/form', locals: { likeable: feed_item }
       - unless feed_item.likes_count.zero?
-        %section
+        %p
           = render partial: 'likes/likes', locals: { likeable: feed_item }
       %ul
         = render feed_item.comments
-      = render partial: 'comments/form', locals: { user: feed_item.user, post: feed_item }
+      %section
+        = render partial: 'comments/form', locals: { user: feed_item.user, post: feed_item }
