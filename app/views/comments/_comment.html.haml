@@ -1,7 +1,13 @@
 %li
-  = link_to commenter_username(comment.commenter), user_path(commenter_username(comment.commenter))
-  = with_links_to_users(with_links_to_tags(comment.body))
-  = render partial: 'likes/likes', locals: { likeable: comment }
-  = render partial: 'likes/comments/form', locals: { likeable: comment }
-  = link_to 'delete comment', user_post_comment_path(commenter_username(comment.commenter),
-    comment.post, comment), method: :delete
+  %section
+    = link_to user_path(commenter_username(comment.commenter)) do
+      = commenter_username(comment.commenter)
+    - if current_user == User.find(comment.commenter)
+      %aside
+        = link_to user_post_comment_path(commenter_username(comment.commenter),
+          comment.post, comment), method: :delete do
+          = icon('times')
+    %section
+      = render partial: 'likes/likes', locals: { likeable: comment }
+      = render partial: 'likes/comments/form', locals: { likeable: comment }
+    = with_links_to_users(with_links_to_tags(comment.body))

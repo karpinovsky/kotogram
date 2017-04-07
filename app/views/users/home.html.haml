@@ -1,11 +1,19 @@
-- @feed_items.each do |feed_item|
-  = link_to (image_tag feed_item.user.avatar), user_path(feed_item.user)
-  = link_to feed_item.user.username, user_path(feed_item.user)
-  %br
-  = render partial: 'likes/likes', locals: { likeable: feed_item }
-  = render partial: 'likes/posts/form', locals: { likeable: feed_item }
-  = link_to time_ago_in_words(feed_item.created_at), user_post_path(feed_item.user, feed_item)
-  %br
-  = image_tag feed_item.image.image
-  = render feed_item.comments
-  = render partial: 'comments/form', locals: { user: feed_item.user, post: feed_item }
+%main#user-home-page
+  - @feed_items.each do |feed_item|
+    %article
+      %nav
+        = link_to (image_tag feed_item.user.avatar), user_path(feed_item.user)
+        = link_to user_path(feed_item.user) do
+          %strong= feed_item.user.username
+        %em
+          = link_to user_post_path(feed_item.user, feed_item) do
+            = time_ago_in_words(feed_item.created_at)
+      %div= image_tag feed_item.image.image
+      = render partial: 'likes/posts/form', locals: { likeable: feed_item }
+      - unless feed_item.likes_count.zero?
+        %p
+          = render partial: 'likes/likes', locals: { likeable: feed_item }
+      %ul
+        = render feed_item.comments
+      %section
+        = render partial: 'comments/form', locals: { user: feed_item.user, post: feed_item }

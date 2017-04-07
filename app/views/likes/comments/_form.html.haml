@@ -1,11 +1,14 @@
 - if user_signed_in?
   - if likeable.has_like_from?(current_user)
     = form_for([likeable.post.user, likeable.post, likeable.likes.find_by(liker: current_user.id)],
-      html: { method: :delete }) do |f|
-      = f.submit 'Dislike'
+      html: { method: :delete, class: 'form-comment-dislike', id: '' }) do |f|
+      = button_tag(type: 'submit', class: 'button-comment-dislike') do
+        = icon('heart')
   - else
-    = form_for [likeable.post.user, likeable.post, likeable.likes.build] do |f|
+    = form_for [likeable.post.user, likeable.post, likeable.likes.build],
+      html: { class: 'form-comment-like', id: '' } do |f|
       = f.hidden_field :likeable_type, value: likeable.class.name
       = f.hidden_field :likeable_id, value: likeable.id
       = f.hidden_field :liker, value: current_user.id
-      = f.submit 'Like'
+      = button_tag(type: 'submit', class: 'button-comment-like') do
+        = icon('heart-o')
