@@ -1,143 +1,228 @@
 @import 'utilities/mixins';
 
-.flex-container-user-home {
+main#user-home-page {
   display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.flex-item-user-home {
-  width: 100%;
-  max-width: 500px;
-}
-
-.user-home-post-likes {
-  padding: 0 15px;
-  height: 15px;
-  margin: 0;
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.user-home-header {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 60px;
-  border: 1px solid black;
-}
 
-.user-home-header-avatar-link {
-  margin-left: 3%;
-  margin-right: 7px;
-}
+  article {
+    width: 600px;
+    max-width: 600px;
+    margin-top: 50px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    background: white;
 
-.user-home-header-avatar-img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
+    @include phone {
+      width: 90%;
+    }
 
-.user-home-header-username-link {
-  &:link,
-  &:visited,
-  &:hover,
-  &:active, {
-    font-weight: bold;
-    color: #262626;
-    text-decoration: none;
-  }
-}
+    > nav {
+      display: flex;
+      align-items: center;
+      height: 60px;
+      padding: 3%;
 
-.user-home-header-post-time {
-  margin-left: auto;
-  margin-right: 3%;
+      > a {
+        display: flex;
+        align-items: center;
+        max-height: 30px;
+        text-decoration: none;
 
-  &:link,
-  &:visited,
-  &:hover,
-  &:active, {
-    color: #999;
-    text-decoration: none;
-  }
-}
+        > img {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          overflow: hidden;
+        }
 
-.user-home-post-media {
-  display: block;
-  width: 100%;
-}
+        > strong {
+          color: #262626;
+          padding-left: 9px;
+          overflow: hidden;
+          height: 18px;
+          line-height: 18px;
+          font-size: 15px;
+        }
+      }
 
-.user-home-post-like-form {
+      > em {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        font-style: normal;
 
-  .form-post-like {
-    height: 24px;
-    width: 24px;
-  }
-}
+        a {
+          display: inline-block;
+          height: 18px;
+          line-height: 18px;
+          color: #999;
+          text-decoration: none;
+          font-size: 14px;
+        }
+      }
+    }
 
-.form-post-dislike {
-  height: 40px;
-  padding: 8px 15px;
-}
+    > div {
+      > img {
+        width: 100%;
+        height: 598px;
+      }
+    }
 
-.post-like {
-  background: #fff;
-  border: 0;
-  padding: 0;
-  height: 24px;
-  width: 24px;
+    > form {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: 8px 3%;
 
-  &:active,
-  &:focus {
-    box-shadow: none;
-    border: 0;
-    outline: none;
-  }
+      > button {
+        padding: 0;
+        height: 24px;
+        width: 24px;
+        box-shadow: none;
+        background: white;
+        border: 0;
+        outline: none;
 
-  .fa-heart-o {
-    font-size: 24px;
-  }
-}
+        > .fa-heart {
+          font-size: 24px;
+          color: #ed4956;
+        }
 
-.post-dislike {
-  background: #fff;
-  border: 0;
-  padding: 0;
-  height: 24px;
-  width: 24px;
+        > .fa-heart-o {
+          font-size: 24px;
+          color: #262626;
+        }
+      }
+    }
 
-  &:active,
-  &:focus {
-    box-shadow: none;
-    border: 0;
-    outline: none;
-  }
-
-  .fa-heart {
-    font-size: 24px;
-    color: #ed4956;
-  }
-}
-
-.user-home-post-comments {
-  list-style: none;
-  padding: 15px;
-  .comment {
-    margin-bottom: 7px;
-  }
-
-  .commenter {
-    &:link,
-    &:visited,
-    &:hover,
-    &:active, {
-      color: #262626;
-      text-decoration: none;
+    > section {
+      padding: 0 3%;
+      display: flex;
+      margin: 0;
+      margin-bottom: 10px;
       font-weight: 600;
+      font-size: 13px;
+    }
+
+    > ul {
+      list-style: none;
+      padding: 0 3% 0 3%;
+      max-height: 300px;
+      overflow: auto;
+
+      > li {
+        margin-bottom: 7px;
+        min-height: 40px;
+
+        &:hover section aside { display: flex; }
+
+        > section {
+          display: block;
+          height: auto;
+          margin: 0;
+          word-break: break-all;
+          padding: 0;
+          font-weight: normal;
+          font-size: 14px;
+
+          > a {
+            display: block;
+            float: left;
+            clear: left;
+            margin-right: 3px;
+          }
+
+          > section {
+            @extend a;
+            display: flex;
+            align-items: center;
+            height: 20px;
+            margin: 0;
+
+            > span {
+              height: inherit;
+              line-height: 20px;
+              margin-right: 3px;
+            }
+
+            > form {
+              display: inline-block;
+              margin-right: 3px;
+              width: 16px;
+              height: inherit;
+
+              > button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: inherit;
+                height: inherit;
+                padding: 0;
+                background: white;
+                border: 0;
+                box-shadow: none;
+                outline: none;
+
+                > .fa-heart {
+                  color: #ed4956;
+                  font-size: 14px;
+                }
+
+                > .fa-heart-o {
+                  color: #262626;
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+
+          > aside {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            float: right;
+            clear: right;
+            width: 40px;
+            height: 40px;
+            margin-right: 0;
+
+            > a {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              width: 20px;
+              height: 20px;
+              text-decoration: none;
+
+              > .fa-times {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+
+
+      > .commenter {
+        display: block;
+        float: left;
+        clear: left;
+
+        &:link,
+        &:visited,
+        &:hover,
+        &:active, {
+          color: #262626;
+          text-decoration: none;
+          font-weight: 600;
+        }
+      }
     }
   }
-
-  .comment-body {
-    word-wrap: break-word;
-  }
-
 }
+
+
