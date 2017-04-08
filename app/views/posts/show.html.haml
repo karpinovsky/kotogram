@@ -1,20 +1,18 @@
-.container
-  .row
-    %article.col-lg-8.col-lg-offset-2
-      .row
-        %section.col-lg-8
-          = image_tag @post.image.image
-        %header.col-lg-4
-          = link_to image_tag(@post.user.avatar), user_path(@post.user)
-          = link_to @post.user.username, user_path(@post.user)
-          - if current_user == @post.user
-            = link_to 'Delete post', user_post_path(@post), method: :delete
-        %section
-          = render partial: 'likes/likes', locals: { likeable: @post }
-          = render partial: 'likes/posts/form', locals: { likeable: @post }
-        %section
-          = link_to time_ago_in_words(@post.created_at), user_post_path(@post.user, @post)
-        %ul
-          = render @post.comments
-        - if user_signed_in?
-          = render partial: 'comments/form', locals: { user: @post.user, post: @post }
+%main#post-show
+  %article
+    = image_tag @post.image.image
+    %section
+      %header
+        = link_to image_tag(@post.user.avatar), user_path(@post.user)
+        = link_to user_path(@post.user) do
+          %strong= @post.user.username
+        - if current_user == @post.user
+          = link_to 'Delete post', user_post_path(@post), method: :delete
+      %section
+        = render partial: 'likes/posts/form', locals: { likeable: @post }
+        = render partial: 'likes/likes', locals: { likeable: @post }
+        = link_to time_ago_in_words(@post.created_at), user_post_path(@post.user, @post)
+      %ul
+        = render @post.comments
+      - if user_signed_in?
+        = render partial: 'comments/form', locals: { user: @post.user, post: @post }
