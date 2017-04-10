@@ -7,12 +7,13 @@
         = link_to user_path(@post.user) do
           %strong= @post.user.username
         - if current_user == @post.user
-          = link_to 'Delete post', user_post_path(@post), method: :delete
+          = button_to 'Delete post', user_post_path(@post), method: :delete
       %section
         = render 'likes/posts/form', likeable: @post
         = render 'likes/likes', likeable: @post
         = link_to time_ago_in_words(@post.created_at), user_post_path(@post.user, @post)
-      %ul
-        = render @post.comments
+      - if @post.comments.any?
+        %ul
+          = render @post.comments
       - if user_signed_in?
         = render 'comments/form', post: @post
