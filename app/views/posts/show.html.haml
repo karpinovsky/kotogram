@@ -9,10 +9,10 @@
         - if current_user == @post.user
           = link_to 'Delete post', user_post_path(@post), method: :delete
       %section
-        = render partial: 'likes/posts/form', locals: { likeable: @post }
-        = render partial: 'likes/likes', locals: { likeable: @post }
+        = render 'likes/posts/form', likeable: @post
+        = render 'likes/likes', likeable: @post
         = link_to time_ago_in_words(@post.created_at), user_post_path(@post.user, @post)
       %ul
         = render @post.comments
       - if user_signed_in?
-        = render partial: 'comments/form', locals: { user: @post.user, post: @post }
+        = render 'comments/form', post: @post
