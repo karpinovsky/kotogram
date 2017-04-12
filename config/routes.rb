@@ -3,14 +3,12 @@ Rails.application.routes.draw do
                                              sign_out: 'logout', edit: ':username/edit'},
                      controllers: { omniauth_callbacks:  'users/omniauth_callbacks' }
 
-  devise_scope :user do
-    authenticated :user do
-      root 'users#home', as: :authenticated_root
-    end
+  authenticated :user do
+    root 'users#home', as: :authenticated_root
+  end
 
-    unauthenticated :user do
-      root 'devise/registrations#new', as: :non_authenticated_root
-    end
+  unauthenticated :user do
+    root 'static_pages#home', as: :non_authenticated_root
   end
 
   get '/', to: 'users#index', as: :users
