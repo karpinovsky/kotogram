@@ -1,5 +1,53 @@
 @import 'utilities/mixins';
 
+.container-devise-unauthenticated-user-pages {
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  @include phone {
+    padding-top: 0;
+  }
+}
+
+.devise-unauthenticated-user-pages-main-content {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 15px;
+
+  @include phone {
+    background: #fafafa;
+    border-color: #fafafa;
+    margin-bottom: 0;
+  }
+}
+
+.devise-unauthenticated-user-pages-main-content h1 {
+  font-family: 'Lobster Two';
+  color: #262626;
+  font-size: 3em;
+
+  @include phone {
+    margin-top: 10px;
+  }
+}
+
+.devise-unauthenticated-user-pages-shared-links {
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  @include phone {
+    background: #fafafa;
+    border-color: #fafafa;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+
 .flex-container-to-devise-pages-for-not-authenticated-user {
   background: #fafafa;
   position: relative;
