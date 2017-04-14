@@ -1,6 +1,6 @@
 @import 'utilities/mixins';
 
-.flex-container-for-header-to-pages-for-authenticated-user {
+.header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,9 +9,10 @@
   height: 80px;
   width: 100%;
   border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 50px;
 }
 
-.flex-item-for-header-to-pages-for-authenticated-user {
+.nav {
   display: flex;
   height: inherit;
   align-items: center;
@@ -19,8 +20,18 @@
   max-width: 1024px;
 }
 
+.logo h3 {
+  margin: 0 0 0 22px;
+  padding-left: 17px;
+  font-family: 'Lobster Two';
+  border-left: 1px solid #939393;
 
-.kotogram-logo-link-to-homepage-for-header-for-authenticated-user {
+  @include phone {
+    display: none;
+  }
+}
+
+.logo {
   margin-left: 5%;
   margin-right: auto;
   display: flex;
@@ -42,29 +53,17 @@
   }
 }
 
-.kotogram-logo-text-link-for-header {
-  margin: 0 0 0 22px;
-  padding-left: 17px;
-  font-family: 'Lobster Two';
-  border-left: 1px solid #939393;
-
-  @include phone {
-    display: none;
-  }
-}
-
-.form-search-for-header {
-  height: 40px;
+.nav form {
   margin: 0 auto;
   width: 50%;
   max-width: 215px;
 }
 
-.form-input-for-search-for-header {
+.nav form input {
   display: block;
   height: 28px;
   width: 100%;
-  margin-top: 9px;
+  margin-top: 7px;
   font-size: 14px;
   padding: 0 9px;
   border: 1px solid #dbdbdb;
@@ -85,9 +84,11 @@
   }
 
   @include phone {
-    margin: 6px 0;
+    margin-top: 0;
   }
 }
+
+
 
 .user-profile-link-for-header {
   display: flex;
