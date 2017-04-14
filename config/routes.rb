@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, path: '', path_names: { sign_up: 'signup', sign_in: 'login',
                                              sign_out: 'logout', edit: ':username/edit'},
-                     controllers: { omniauth_callbacks:  'users/omniauth_callbacks' }
+                     controllers: { omniauth_callbacks:  'users/omniauth_callbacks',
+                                    registrations: 'users/registrations' }
 
   authenticated :user do
     root 'users#feed', as: :authenticated_root

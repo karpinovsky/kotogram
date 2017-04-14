@@ -10,7 +10,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(username: params[:username])
+    if @profile = Profile.find_by_username(params[:username])
+      @user = User.find(@profile.user_id)
+    else
+      fail ActiveRecord::RecordNotFound
+    end
   end
 
   def following

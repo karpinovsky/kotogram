@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  before_save { username.downcase! }
+
+  has_one :profile, autosave: true, dependent: :destroy
+  accepts_nested_attributes_for :profile
+  validates_associated :profile
 
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
@@ -9,7 +12,6 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_relationships
   has_many :posts, dependent: :destroy
 
-  mount_uploader :avatar, AvatarUploader
 
   devise :database_authenticatable,
          :registerable,
@@ -23,12 +25,10 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook]
 
 
-  validates :username, presence: true, length: { within: 6..20 },
-    uniqueness: { case_sensitive: false }
   validates_associated :posts
 
   def to_param
-    username
+    profile.username
   end
 
   def self.from_omniauth(auth)
