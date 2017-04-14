@@ -3,9 +3,9 @@
     = image_tag @post.image.image
     %section
       %header
-        = link_to image_tag(@post.user.avatar), user_path(@post.user)
+        = link_to image_tag(@post.user.profile.avatar), user_path(@post.user)
         = link_to user_path(@post.user) do
-          %strong= @post.user.username
+          %strong= @post.user.profile.username
         - if current_user == @post.user
           = button_to 'Delete post', user_post_path(@post), method: :delete
       %section

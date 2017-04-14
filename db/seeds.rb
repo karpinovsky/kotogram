@@ -4,6 +4,9 @@
     password: 'kotogram',
     password_confirmation: 'kotogram',
     confirmed_at: Time.now,
+  )
+
+  user.build_profile(
     username: "kotogram#{i}",
     full_name: "kotogram#{i}",
     about_me: "Hi, I'am #{i} user"
