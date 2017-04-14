@@ -20,10 +20,6 @@ class Post < ApplicationRecord
     where("user_id IN (#{followed_user_ids})", user_id: user.id)
   }
 
-  before_save do
-    comments.first.destroy if comments.first.body.blank?
-  end
-
   def has_like_from?(user)
     likes.find_by(liker: user.id)
   end
