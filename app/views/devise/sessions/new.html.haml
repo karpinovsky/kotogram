@@ -1,16 +1,28 @@
-.login-page.flex-container-to-devise-pages-for-not-authenticated-user
-  %section.login-page-content.flex-item-to-devise-pages-for-not-authenticated-user
-    %h1.kotogram-logo-to-devise-pages-for-not-authenticated-user Kotogram
-    = form_for resource, as: resource_name, url: session_path(resource_name),
-      html: { class: 'form-login form-to-devise-pages-for-not-authenticated-user' } do |f|
-      = f.email_field :email, autofocus: true, placeholder: 'Email',
-        class: 'form-input-to-devise-pages-for-not-authenticated-user'
+.container.container-devise-unauthenticated-user-pages
+  .row
+    .col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-12.col-xs-12
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12.devise-unauthenticated-user-pages-main-content
+          .row
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              %h1.text-center.text-nowrap Kotogram
+            .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-10.col-xs-offset-1
+              = render 'devise/shared/provider'
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              %h5.text-center.text-nowrap OR
+            .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-10.col-xs-offset-1
+              = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
 
-      = f.password_field :password, autocomplete: 'off', placeholder: 'Password',
-        class: 'form-input-to-devise-pages-for-not-authenticated-user'
+                .form-group
+                  = f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control'
 
-      = f.submit 'Log in', class: 'form-button-to-devise-pages-for-not-authenticated-user'
-    %h3.separator-for-signup-or-login-types OR
-    = render 'devise/shared/provider'
-  %section.shared-links-login-page.shared-links-to-devise-pages-for-not-authenticated-user
-    = render 'devise/shared/links'
+                .form-group
+                  = f.password_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control'
+
+
+                = f.submit 'Log in', class: 'btn btn-default btn-block'
+                %br
+        .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-10.col-xs-offset-1.devise-unauthenticated-user-pages-shared-links
+          .row
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              = render 'devise/shared/links'

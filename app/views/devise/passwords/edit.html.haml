@@ -1,23 +1,27 @@
-.password-edit-page.flex-container-to-devise-pages-for-not-authenticated-user
-  %section.password-edit-page-content.flex-item-to-devise-pages-for-not-authenticated-user
-    %h1.kotogram-logo-to-devise-pages-for-not-authenticated-user Kotogram
-    %h2.description-of-devise-recovery-pages-for-not-authenticated-user Change your password
-    = form_for(resource, as: resource_name, url: password_path(resource_name),
-      html: { method: :put,
-      class: 'form-password-edit form-to-devise-pages-for-not-authenticated-user',
-      id: '' }) do |f|
-      = f.hidden_field :reset_password_token
+.container.container-devise-unauthenticated-user-pages
+  .row
+    .col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-12.col-xs-12
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12.devise-unauthenticated-user-pages-main-content
+          .row
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              %h1.text-center.text-nowrap Kotogram
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              %p.text-center
+                %big Change your password
+            .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-10.col-xs-offset-1
+              = form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put } do |f|
+                = f.hidden_field :reset_password_token
 
-      = f.password_field :password, autofocus: true, autocomplete: 'off',
-        placeholder: 'New password',
-        class: 'form-input-to-devise-pages-for-not-authenticated-user'
+                .form-group
+                  = f.password_field :password, autofocus: true, autocomplete: 'off', placeholder: 'New password', class: 'form-control'
 
-      = f.password_field :password_confirmation, autocomplete: "off",
-        placeholder: 'Confirm new password',
-        class: 'form-input-to-devise-pages-for-not-authenticated-user'
+                .form-group
+                  = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm new password', class: 'form-control'
 
-      = f.submit 'Change my password',
-        class: 'form-button-to-devise-pages-for-not-authenticated-user'
-
-  %section.shared-links-password-edit-page.shared-links-to-devise-pages-for-not-authenticated-user
-    = render 'devise/shared/links'
+                = f.submit 'Change password', class: 'btn btn-default btn-block'
+                %br
+        .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-10.col-xs-offset-1.devise-unauthenticated-user-pages-shared-links
+          .row
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              = render 'devise/shared/links'

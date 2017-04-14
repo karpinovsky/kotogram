@@ -1,18 +1,25 @@
-.confirmation-new-page.flex-container-to-devise-pages-for-not-authenticated-user
-  %section.confirmation-new-page-content.flex-item-to-devise-pages-for-not-authenticated-user
-    %h1.kotogram-logo-to-devise-pages-for-not-authenticated-user Kotogram
-    %h2.description-of-devise-recovery-pages-for-not-authenticated-user Resend confirmation instructions
+.container.container-devise-unauthenticated-user-pages
+  .row
+    .col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-12.col-xs-12
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12.devise-unauthenticated-user-pages-main-content
+          .row
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              %h1.text-center.text-nowrap Kotogram
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              %p.text-center
+                %big Resend confirmation instructions
+            .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-10.col-xs-offset-1
+              = form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post } do |f|
 
-    = form_for(resource, as: resource_name, url: confirmation_path(resource_name),
-      html: { method: :post, class: 'form-confirmation-new form-to-devise-pages-for-not-authenticated-user' }) do |f|
+                .form-group
+                  = f.email_field :email, autofocus: true, placeholder: 'Email',
+                    value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+                    class: 'form-control'
 
-      = f.email_field :email, autofocus: true,
-        value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-          placeholder: 'Email',
-        class: 'form-input-to-devise-pages-for-not-authenticated-user'
-
-      = f.submit 'Resend instructions',
-        class: 'form-button-to-devise-pages-for-not-authenticated-user'
-
-  %section.shared-links-confirmation-new-page.shared-links-to-devise-pages-for-not-authenticated-user
-    = render 'devise/shared/links'
+                = f.submit 'Resend instructions', class: 'btn btn-default btn-block'
+                %br
+        .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-10.col-xs-offset-1.devise-unauthenticated-user-pages-shared-links
+          .row
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              = render 'devise/shared/links'

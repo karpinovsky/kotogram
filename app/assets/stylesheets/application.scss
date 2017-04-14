@@ -1,9 +1,16 @@
 /*
- *= require shared/bootstrap-base
  *= require_tree .
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
 @import 'https://fonts.googleapis.com/css?family=Lobster+Two';
+
+@import 'custom';
+
+@import 'home';
