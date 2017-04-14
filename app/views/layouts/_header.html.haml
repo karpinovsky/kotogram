@@ -1,6 +1,6 @@
 - if user_signed_in?
-  %header.header
-    %nav.nav
+  %header.header-authenticated-user
+    %nav.nav-authenticated-user
       = link_to authenticated_root_path,
         class: 'logo' do
         = icon('instagram')

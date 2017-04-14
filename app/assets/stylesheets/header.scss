@@ -1,6 +1,6 @@
 @import 'utilities/mixins';
 
-.header {
+.header-authenticated-user {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@
   margin-bottom: 50px;
 }
 
-.nav {
+.nav-authenticated-user {
   display: flex;
   height: inherit;
   align-items: center;
@@ -53,13 +53,13 @@
   }
 }
 
-.nav form {
+.nav-authenticated-user form {
   margin: 0 auto;
   width: 50%;
   max-width: 215px;
 }
 
-.nav form input {
+.nav-authenticated-user form input {
   display: block;
   height: 28px;
   width: 100%;

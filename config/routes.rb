@@ -4,7 +4,7 @@ Rails.application.routes.draw do
                      controllers: { omniauth_callbacks:  'users/omniauth_callbacks' }
 
   authenticated :user do
-    root 'users#home', as: :authenticated_root
+    root 'users#feed', as: :authenticated_root
   end
 
   unauthenticated :user do

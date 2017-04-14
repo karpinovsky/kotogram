@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
-  def home
+  def feed
     @feed_items = current_user.feed.order('created_at DESC')
   end
 
