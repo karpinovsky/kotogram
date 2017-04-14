@@ -1,48 +1,53 @@
 /* Space out content a bit */
 
-.static-pages {
-  background-color: white;
-}
-
-.container-static-pages {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.container-static-pages-home {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header-static-pages,
-.footer-static-pages {
-  padding-left: 15px;
-  padding-right: 15px;
+.header-static-pages-home {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  margin-bottom: 10px;
 }
 
-/* Make the masthead heading the same height as the navigation */
-.header-static-pages h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+.header-static-pages-home h1 {
+  margin: 0;
+  margin-left: 15px;
+  padding-left: 10px;
+  font-family: 'Lobster Two';
+  font-size: 2em;
+  border-left: 1px solid #939393;
 }
 
-/* Custom page footer */
-.footer-static-pages {
-  color: #777;
+.nav-static-pages-home {
+  margin-left: auto;
 }
 
-/* Customize container */
 @media (min-width: 768px) {
-  .container-static-pages {
+  .container-static-pages-home {
     max-width: 730px;
   }
 }
-.container-static-pages-narrow > hr {
-  margin: 30px 0;
+
+@media (max-width: 767px) {
+  .header-static-pages-home .fa-instagram {
+    display: none;
+  }
+
+  .header-static-pages-home h1 {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
 }
 
 /* Main marketing message and sign up button */
 .jumbotron-static-pages {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+  background: white;
+  border: 1px solid #e6e6e6;
 }
 .jumbotron-static-pages .btn-static-pages {
   font-size: 21px;
@@ -59,11 +64,7 @@
   }
   /* Space out the masthead */
   .header-static-pages {
-    margin-bottom: 30px;
     border-bottom: 1px solid #e5e5e5;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron-static-pages {
-    border-bottom: 0;
-  }
 }
