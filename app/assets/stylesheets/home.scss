@@ -1,16 +1,17 @@
-/* Space out content a bit */
-
 .container-static-pages-home {
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
 .header-static-pages-home {
   display: flex;
   align-items: center;
   height: 70px;
   margin-bottom: 10px;
+}
+
+.header-static-pages-home .fa-instagram {
+  font-size: 2.8em;
 }
 
 .header-static-pages-home h1 {
@@ -32,19 +33,6 @@
   }
 }
 
-@media (max-width: 767px) {
-  .header-static-pages-home .fa-instagram {
-    display: none;
-  }
-
-  .header-static-pages-home h1 {
-    margin-left: 0;
-    padding-left: 0;
-    border-left: 0;
-  }
-}
-
-/* Main marketing message and sign up button */
 .jumbotron-static-pages {
   background: white;
   border: 1px solid #e6e6e6;
@@ -54,17 +42,15 @@
   padding: 14px 24px;
 }
 
-/* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
+
   .header-static-pages,
   .footer-static-pages {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
+
   .header-static-pages {
     border-bottom: 1px solid #e5e5e5;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
 }

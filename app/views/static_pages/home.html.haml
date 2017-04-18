@@ -1,10 +1,11 @@
 %main.container.container-static-pages-home
   %header.header.header-static-pages-home
-    = icon('instagram fa-2x')
+    = icon('instagram')
     %h1 Kotogram
     %ul.nav.nav-static-pages-home
       %li
-        = link_to 'Contact', 'https://vk.com/karpinovsky', role: 'button', target: '_blank', class: 'btn btn-default'
+        = link_to 'Contact', 'https://vk.com/karpinovsky', role: 'button', target: '_blank',
+          class: 'btn btn-default'
 
   .jumbotron.jumbotron-static-pages.text-center
     %h1 Rails project
@@ -18,4 +19,5 @@
       features and techiques. I'm working by the Scrum Methodology that's why I'm getting full-fledged
       experience in developing real products.
     %p
-      = link_to 'Let me see!', new_user_registration_path, role: 'button', class: 'btn btn-static-pages btn-default btn-lg'
+      = link_to 'Let me see!', new_user_registration_path, role: 'button',
+        class: 'btn btn-static-pages btn-default btn-lg'
