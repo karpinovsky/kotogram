@@ -1,120 +1,64 @@
 @import 'utilities/mixins';
 
-.header-authenticated-user {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: #fff;
-  height: 80px;
-  width: 100%;
+#navbar-override {
+  background-color: white;
   border-bottom: 1px solid #e7e7e7;
-  margin-bottom: 50px;
 }
 
-.nav-authenticated-user {
+#navbar-toggle-override {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+#navbar-brand-override {
+  height: 70px;
   display: flex;
-  height: inherit;
   align-items: center;
-  width: 100%;
-  max-width: 1024px;
-}
-
-.logo h3 {
-  margin: 0 0 0 22px;
-  padding-left: 17px;
+  padding-top: 17px;
+  padding-bottom: 17px;
   font-family: 'Lobster Two';
-  border-left: 1px solid #939393;
+  line-height: 24px;
+  font-size: 24px;
 
-  @include phone {
-    display: none;
-  }
-}
-
-.logo {
-  margin-left: 5%;
-  margin-right: auto;
-  display: flex;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  color: #262626;
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: #262626;
-    text-decoration: none;
-  }
-
-  .fa-instagram {
-    display: block;
+  > .fa-instagram {
     font-size: 36px;
   }
 }
 
-.nav-authenticated-user form {
-  margin: 0 auto;
-  width: 50%;
-  max-width: 215px;
+#kotogram {
+  margin-left: 13px;
+  padding-left: 10px;
+  border-left: 1px solid #aaa;
 }
 
-.nav-authenticated-user form input {
-  display: block;
-  height: 28px;
+#navbar-form-override {
+  margin-top: 18px;
+  margin-bottom: 18px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top: 0;
+  border-bottom: 0;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+#navbar-form-override .input-group {
   width: 100%;
-  margin-top: 7px;
-  font-size: 14px;
-  padding: 0 9px;
-  border: 1px solid #dbdbdb;
-  border-radius: 4px;
-  background: #fafafa;
-  text-align: center;
-
-  &:focus,
-  &:active {
-    box-shadow: none;
-    outline: none;
-    background: #fff;
-    text-align: left;
-  }
-
-  &::placeholder {
-    color: #999;
-  }
-
-  @include phone {
-    margin-top: 0;
-  }
 }
 
+#navbar-form-override .input-group .input-group-btn {
+  width: 1%;
+}
 
-
-.user-profile-link-for-header {
-  display: flex;
-  align-items: center;
-  margin: 0 17% 0 11%;
-  height: 40px;
-  color: #262626;
-
-  @include phone {
-    margin: 0 5% 0 auto;
-  }
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: #262626;
-    text-decoration: none;
-  }
-
-  .fa-user-o {
-    font-size: 22px;
-    margin-top: 9px;
-
-    @include phone {
-      font-size: 30px;
-      margin: 0;
-    }
+#dropdown-toggle-override {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  @media screen and (max-width: 767px) {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
