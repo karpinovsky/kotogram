@@ -46,3 +46,25 @@
     padding-bottom: 0;
   }
 }
+
+.editpage-content {
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 50px;
+
+
+  @include phone {
+    background-color: #fafafa;
+    border: #fafafa;
+    margin-bottom: 0;
+  }
+}
+
+.editpage-avatar {
+  margin-top: 30px;
+
+  @include phone {
+    margin-top: 10px;
+  }
+}

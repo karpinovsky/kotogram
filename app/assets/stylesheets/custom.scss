@@ -8,3 +8,11 @@ body {
   overflow-y: scroll;
   background-color: #fafafa;
 }
+
+.main-content {
+  margin-top: 121px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 91px;
+  }
+}

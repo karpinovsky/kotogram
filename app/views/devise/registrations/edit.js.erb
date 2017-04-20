@@ -1,0 +1,7 @@
+$('#btn-to-privacy-section').bind('ajax:complete', function() {
+  $('.public').replaceWith('<%= j render('devise/registrations/privacy') %>');
+});
+
+$('#btn-to-public-section').bind('ajax:complete', function() {
+  $('.privacy').replaceWith('<%= j render('devise/registrations/public') %>');
+});

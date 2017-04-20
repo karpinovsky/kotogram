@@ -8,9 +8,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [profile_attributes: [:username, :full_name]])
-    devise_parameter_sanitizer.permit(:account_update, keys: [profile_attributes: [:avatar, :avatar_cache,
-                                                              :remove_avatar, :username,
-                                                              :full_name, :about_me]])
   end
 
   def render_404

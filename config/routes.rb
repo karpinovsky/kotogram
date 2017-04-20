@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, path: '', path_names: { sign_up: 'signup', sign_in: 'login',
-                                             sign_out: 'logout', edit: ':username/edit'},
+                                             sign_out: 'logout', edit: 'edit'},
                      controllers: { omniauth_callbacks:  'users/omniauth_callbacks',
                                     registrations: 'users/registrations' }
 
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  patch '/edit', to: 'profiles#update', as: :profile
   resources :relationships, only: [ :create, :destroy ]
   get '/posts/tags/:body', to: 'posts#tags', as: :tag
 end

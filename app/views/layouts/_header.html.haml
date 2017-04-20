@@ -6,12 +6,15 @@
           .row
             .col-lg-4.col-md-4.col-sm-4.col-xs-12
               .navbar-header
-                %button#navbar-toggle-override.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                %button#navbar-toggle-override.navbar-toggle.collapsed{'aria-expanded' => 'false',
+                  'data-target' => '#bs-example-navbar-collapse-1',
+                  'data-toggle' => 'collapse', :type => 'button'}
                   %span.sr-only Toggle navigation
                   %span.icon-bar
                   %span.icon-bar
                   %span.icon-bar
-                = link_to authenticated_root_path, id: 'navbar-brand-override', class: 'navbar-brand' do
+                = link_to authenticated_root_path, id: 'navbar-brand-override',
+                  class: 'navbar-brand' do
                   = icon('instagram')
                   #kotogram Kotogram
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
@@ -31,7 +34,7 @@
                       %li
                         = link_to 'Profile', user_path(current_user)
                       %li
-                        = link_to 'Settings', edit_user_registration_path(current_user)
+                        = link_to 'Settings', edit_user_registration_path
                       %li.divider{:role => "separator"}
                       %li
                         = link_to 'Log out', destroy_user_session_path, method: :delete

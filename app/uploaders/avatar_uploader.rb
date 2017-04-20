@@ -15,7 +15,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "fallback/" + [version_name, "default_avatar.jpg"].compact.join('_')
+    "fallback/" + [version_name, "default_avatar.png"].compact.join('_')
   end
 
   # Process files as they are uploaded:
@@ -24,6 +24,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+
+  version :editpage do
+    process resize_to_fill: [100,100]
+  end
 
   # Create different versions of your uploaded files:
   def extension_whitelist
