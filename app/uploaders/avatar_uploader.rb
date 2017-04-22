@@ -25,6 +25,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  version :showpage do
+    process resize_to_fill: [150,150]
+  end
+
   version :editpage do
     process resize_to_fill: [100,100]
   end

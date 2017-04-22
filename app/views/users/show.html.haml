@@ -1,8 +1,8 @@
-.container
+.container.main-content
   .row
     .col-lg-10.col-lg-offset-1
       .row
-        %header.col-lg-12
+        .col-lg-12
           .row
             .col-lg-5
               = image_tag @user.profile.avatar
@@ -23,3 +23,39 @@
                     %span following
         .col-lg-12
           = render @user.posts
+
+
+
+.container.main-content
+  .row
+    .col-lg-8.col-lg-offset-2
+      .row
+        .col-lg-12.text-center
+          = image_tag @user.profile.avatar.showpage, class: 'img-circle'
+        .col-lg-12.text-center.text-muted
+          %h2{ style: 'margin-bottom: 10px;' }= @user.profile.username
+        .col-lg-12
+          .row
+            .col-lg-2.col-lg-offset-3.text-center.text-muted
+              %h4= @user.posts.count
+              %h5= 'post'.pluralize(@user.posts.count)
+            .col-lg-2
+              = link_to followers_user_path(@user), class: 'text-center text-muted' do
+                %h4= @user.followers.count
+                %h5 followers
+            .col-lg-2
+              = link_to following_user_path(@user), class: 'text-center text-muted' do
+                %h4= @user.followed_users.count
+                %h5 following
+        .col-lg-8.col-lg-offset-2.text-muted{style: 'margin-top: 10px;' }
+          %strong= @user.profile.full_name
+          %p= @user.profile.about_me
+    - if user_signed_in? && current_user == @user
+      .col-lg-10.col-lg-offset-1
+        .pull-right= button_tag 'Share new moments', class: 'btn btn-primary'
+    - if @user.posts.any?
+      .col-lg-10.col-lg-offset-1
+        .row
+          = render @user.posts
+    - else
+      = render 'posts/no_posts'

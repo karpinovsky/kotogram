@@ -1,5 +1,5 @@
 = form_for [current_user, current_user.posts.build] do |f|
-  = f.text_field :description, placeholder: 'Add a description...'
   = f.fields_for :image, Image.new do |ff|
     = ff.file_field :image
-  = f.submit
+  = f.text_field :description, placeholder: 'Add a description...', class: 'form-control'
+  = f.submit 'New post', class: 'btn btn-primary'
