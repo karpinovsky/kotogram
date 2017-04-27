@@ -1,33 +1,5 @@
 .container.main-content
   .row
-    .col-lg-10.col-lg-offset-1
-      .row
-        .col-lg-12
-          .row
-            .col-lg-5
-              = image_tag @user.profile.avatar
-            .col-lg-7
-              - if user_signed_in? && current_user == @user
-                = link_to 'Edit Profile', edit_user_registration_path(current_user)
-                = link_to 'Log out', destroy_user_session_path, method: :delete
-                = render 'posts/form'
-              = render 'relationships/form'
-              .stats
-                = link_to followers_user_path(@user) do
-                  .stat#followers
-                    = @user.followers.count
-                    %span followers
-                = link_to following_user_path(@user) do
-                  .stat#following
-                    = @user.followed_users.count
-                    %span following
-        .col-lg-12
-          = render @user.posts
-
-
-
-.container.main-content
-  .row
     .col-lg-8.col-lg-offset-2
       .row
         .col-lg-12.text-center
@@ -47,15 +19,8 @@
               = link_to following_user_path(@user), class: 'text-center text-muted' do
                 %h4= @user.followed_users.count
                 %h5 following
-        .col-lg-8.col-lg-offset-2.text-muted{style: 'margin-top: 10px;' }
+        .col-lg-8.col-lg-offset-2.text-muted{style: 'margin-top: 10px; word-wrap: break-word;' }
           %strong= @user.profile.full_name
           %p= @user.profile.about_me
-    - if user_signed_in? && current_user == @user
-      .col-lg-10.col-lg-offset-1
-        .pull-right= button_tag 'Share new moments', class: 'btn btn-primary'
-    - if @user.posts.any?
-      .col-lg-10.col-lg-offset-1
-        .row
-          = render @user.posts
-    - else
-      = render 'posts/no_posts'
+
+    = render 'users/posts'

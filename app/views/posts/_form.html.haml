@@ -1,5 +1,19 @@
-= form_for [current_user, current_user.posts.build] do |f|
-  = f.fields_for :image, Image.new do |ff|
-    = ff.file_field :image
-  = f.text_field :description, placeholder: 'Add a description...', class: 'form-control'
-  = f.submit 'New post', class: 'btn btn-primary'
+.col-lg-10.col-lg-offset-1#new-post
+  .row
+    .col-lg-10.col-lg-offset-1
+      .row
+        .col-lg-6.col-lg-offset-3{ style: 'margin-top: 10px; margin-bottom: 10px' }
+          .btn-group.btn-group-justified{ role: 'group', 'aria-label' => '...' }
+            .btn-group{ role: 'group' }
+              %button#btn-to-my-posts{ class: 'btn btn-default', 'data-remote' => 'true' } My posts
+            .btn-group{ role: 'group' }
+              %button{ class: 'btn btn-default active' } Share new moments
+        .col-lg-6.col-lg-offset-3
+          = form_for [current_user, current_user.posts.build] do |f|
+            .form-group
+              = f.fields_for :image, Image.new do |ff|
+                = ff.file_field :image
+            .form-group
+              = f.text_area :description, placeholder: 'Add a description..', class: 'form-control',
+                style: "max-width: 100%; min-width: 100%"
+            = f.submit 'New post', class: 'btn btn-primary btn-block'

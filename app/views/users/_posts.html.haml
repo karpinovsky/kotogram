@@ -1,0 +1,18 @@
+.col-lg-10.col-lg-offset-1#user-posts
+  .row
+    .col-lg-10.col-lg-offset-1
+      .row
+        - if user_signed_in? && current_user == @user
+          .col-lg-6.col-lg-offset-3{ style: 'margin-top: 10px; margin-bottom: 10px' }
+            .btn-group.btn-group-justified{ role: 'group', 'aria-label' => '...' }
+              .btn-group{ role: 'group' }
+                %button{ class: 'btn btn-default active' } My posts
+              .btn-group{ role: 'group' }
+                %button#btn-to-new-post{ class: 'btn btn-default', 'data-remote' => 'true' }
+                  Share new moments
+  .col-lg-12
+    .row
+      - if @user.posts.any?
+        = render @user.posts
+      - else
+        = render 'posts/no_posts'
