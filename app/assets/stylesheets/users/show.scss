@@ -1,0 +1,24 @@
+@import 'utilities/mixins';
+
+.post-image {
+  width: 100%;
+
+  @include large-desktop {
+    height: 284px;
+  }
+
+  @include desktop {
+    height: 229px;
+  }
+}
+
+.user-post {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#user-post {
+  @include phone {
+    padding: 5px;
+  }
+}
