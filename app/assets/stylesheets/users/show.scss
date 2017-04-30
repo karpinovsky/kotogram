@@ -22,3 +22,13 @@
     padding: 5px;
   }
 }
+
+#user-posts-options {
+  @include tablet {
+    display: none;
+  }
+
+  @include phone {
+    display: none;
+  }
+}
