@@ -7,9 +7,9 @@
         .btn-group{ role: 'group' }
           %button#btn-to-privacy-section{ class: 'btn btn-default', 'data-remote' => 'true' } Privacy
     .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-12
-      = form_for current_user.profile, html: { method: :patch, style: "margin-bottom: 30px;" } do |f|
+      = form_for current_user.profile, html: { method: :patch, class: "devise-registrations-edit-public-form" } do |f|
 
-        .form-group
+        .form-group.devise-registrations-edit-avatar-field
           = f.label :avatar, class: 'text-muted'
           = f.file_field :avatar
           = f.hidden_field :avatar_cache

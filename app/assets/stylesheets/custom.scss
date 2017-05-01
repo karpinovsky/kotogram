@@ -10,9 +10,5 @@ body {
 }
 
 .main-content {
-  margin-top: 111px;
-
-  @media screen and (max-width: 767px) {
-    margin-top: 91px;
-  }
+  padding-top: 71px;
 }

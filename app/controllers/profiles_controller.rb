@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
     else
       flash[:error] = current_user.profile.errors.full_messages.first
     end
-    redirect_back(fallback_location: authenticated_root_path)
+      redirect_back(fallback_location: authenticated_root_path)
   end
 
   private

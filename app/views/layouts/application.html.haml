@@ -11,5 +11,6 @@
 
   %body
     = render 'layouts/header'
-    = render 'layouts/messages'
-    = yield
+    %div{ class: "#{"main-content" if user_signed_in?}" }
+      = render 'layouts/messages'
+      = yield
