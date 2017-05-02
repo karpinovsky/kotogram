@@ -1,3 +1,5 @@
 .col-lg-4.col-md-4.col-sm-4.col-xs-4.text-center.user-post#user-post
-  = link_to user_post_path(post.user, post) do
-    = image_tag post.image.image, class: 'post-image'
+  - if post.attachment.content_type.start_with? 'video'
+    = video_tag post.attachment.media, controls: :true
+  - else
+    = image_tag post.attachment.media

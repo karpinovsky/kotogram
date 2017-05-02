@@ -1,6 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :user
 
+  has_one :attachment, dependent: :destroy
+  accepts_nested_attributes_for :attachment
+  validates_associated :attachment
+
   has_one :image, dependent: :destroy
   accepts_nested_attributes_for :image
   validates_associated :image

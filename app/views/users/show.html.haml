@@ -2,6 +2,15 @@
   .row
     .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
       .row
+        .col-lg-12
+          = form_for [current_user, current_user.posts.build] do |f|
+            .form-group
+              = f.fields_for :attachment, Attachment.new do |ff|
+                = ff.file_field :media
+            .form-group
+              = f.text_area :description, placeholder: 'Add a description..', class: 'form-control',
+                style: "max-width: 100%; min-width: 100%"
+            = f.submit 'New post', class: 'btn btn-primary btn-block'
         .col-lg-12.col-md-12.col-sm-12.col-xs-12.text-center
           = image_tag @user.profile.avatar.showpage, class: 'img-circle'
         .col-lg-12.col-md-12.col-sm-12.col-xs-12.text-center.text-muted
