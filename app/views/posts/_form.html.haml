@@ -11,8 +11,8 @@
         .col-lg-6.col-lg-offset-3
           = form_for [current_user, current_user.posts.build] do |f|
             .form-group
-              = f.fields_for :image, Image.new do |ff|
-                = ff.file_field :image
+              = f.fields_for :attachment, Attachment.new do |ff|
+                = ff.file_field :media
             .form-group
               = f.text_area :description, placeholder: 'Add a description..', class: 'form-control',
                 style: "max-width: 100%; min-width: 100%"

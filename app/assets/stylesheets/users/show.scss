@@ -1,6 +1,16 @@
 @import 'utilities/mixins';
 
-.post-image {
+.users-show-container {
+  margin-top: 30px;
+  margin-bottom: 15px;
+
+  @include phone {
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+}
+
+.post-attachment {
   width: 100%;
 
   @include large-desktop {
