@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-lg-6.col-lg-offset-3
+      .row
+        .col-lg-12
+          - @user.followers.each do |follower|
+            = image_tag follower.profile.avatar
+
