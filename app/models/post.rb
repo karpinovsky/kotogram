@@ -5,10 +5,6 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :attachment
   validates_associated :attachment
 
-  has_one :image, dependent: :destroy
-  accepts_nested_attributes_for :image
-  validates_associated :image
-
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :comments
   validates_associated :comments

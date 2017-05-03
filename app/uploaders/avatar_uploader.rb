@@ -33,6 +33,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [100,100]
   end
 
+  version :followed_user do
+    process resize_to_fill: [38,38]
+  end
+
   # Create different versions of your uploaded files:
   def extension_whitelist
     %w(jpg jpeg gif png)

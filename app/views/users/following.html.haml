@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-lg-6.col-lg-offset-3
+      .row
+        - @user.followed_users.each do |followed_user|
+          .col-lg-10.col-lg-offset-1
+            = link_to user_path(followed_user) do
+              = image_tag followed_user.profile.avatar.followed_user, class: 'img-circle'
+              %span.text-muted{style: 'margin-left: 5px;'}= followed_user.profile.username
