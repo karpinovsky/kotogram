@@ -10,30 +10,12 @@
   }
 }
 
-.post-attachment {
-  width: 100%;
-
-  @include large-desktop {
-    height: 284px;
-  }
-
-  @include desktop {
-    height: 229px;
-  }
+.users-show-profile-info {
+  margin-top: 10px;
+  word-wrap: break-word;
 }
 
-.user-post {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-#user-post {
-  @include phone {
-    padding: 10px;
-  }
-}
-
-#user-posts-options {
+.users-show-posts-desktop-switchable-menu {
   @include tablet {
     display: none;
   }
@@ -41,4 +23,30 @@
   @include phone {
     display: none;
   }
+}
+
+.users-show-post-container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.post-attachment {
+  width: 100%;
+
+  @include large-desktop {
+    height: 293px;
+    width: 293px;
+  }
+
+  @include desktop {
+    width: 239px;
+    height: 239px;
+  }
+
+  @include tablet {
+    width: 220px;
+    height: 220px;
+  }
+
+  @include desktop
 }
