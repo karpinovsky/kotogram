@@ -1,0 +1,107 @@
+.users-feed-post-comments-list li {
+  margin-bottom: 7px;
+  min-height: 40px;
+}
+
+.comment {
+  display: block;
+  height: auto;
+  margin: 0;
+  word-break: break-all;
+  padding: 0;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  min-height: 20px;
+
+  &:hover .comment-delete-icon { display: flex; }
+}
+
+.commenter {
+  display: inline-block;
+  max-height: 20px;
+  float: left;
+  clear: left;
+  margin-right: 3px;
+  color: #262626;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.comment-likes-container {
+  display: inline-block;
+  max-height: 20px;
+  float: left;
+  clear: left;
+  margin-right: 3px;
+  color: #262626;
+  text-decoration: none;
+  font-weight: 600;
+
+  height: 20px;
+  margin: 0;
+
+  .like {
+    height: inherit;
+    line-height: 20px;
+    margin-right: 3px;
+    font-size: 13px;
+  }
+}
+
+.form-comment-like,
+.form-comment-dislike {
+  display: inline-block;
+  margin-right: 3px;
+  width: 16px;
+  height: inherit;
+}
+
+.btn-comment-like,
+.btn-comment-dislike {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  height: inherit;
+  padding: 0;
+  background: white;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+
+  > .fa-heart {
+    color: #ed4956;
+    font-size: 14px;
+  }
+
+  > .fa-heart-o {
+    color: #262626;
+    font-size: 14px;
+  }
+}
+
+.comment-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  clear: right;
+  width: 40px;
+  height: 40px;
+  margin-right: 0;
+}
+
+.comment-delete-icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  width: 20px;
+  height: 20px;
+  text-decoration: none;
+
+  > .fa-times {
+    font-size: 18px;
+  }
+}
