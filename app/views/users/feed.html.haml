@@ -12,15 +12,16 @@
                 = link_to user_post_path(feed_item.user, feed_item), class: 'users-feed-post-time' do
                   %span.text-muted= time_ago_in_words(feed_item.created_at)
               - if feed_item.attachment.content_type.start_with? 'video'
-                = video_tag feed_item.attachment.media, controls: :true, class: 'users-feed-post-attachment'
+                = video_tag feed_item.attachment.media, controls: :true, style: 'width: 100%; height: 100%;'
               - else
-                = image_tag feed_item.attachment.media, class: 'users-feed-post-attachment'
-              .col-lg-12.users-feed-post-likes-container
+                = image_tag feed_item.attachment.media, style: 'width: 100%; height: 100%;'
+              .col-lg-12
                 = render 'likes/posts/form', likeable: feed_item
                 = render 'likes/likes', likeable: feed_item
               - unless feed_item.description.blank?
-                .col-lg-12
-                  %strong= with_links_to_users(with_links_to_tags(feed_item.description))
+                .col-lg-12{ style: 'margin-top: 5px; margin-bottom: 5px;' }
+                  %strong= feed_item.user.profile.username
+                  = with_links_to_users(with_links_to_tags(feed_item.description))
               .col-lg-12
                 %ul.users-feed-post-comments-list
                   = render feed_item.comments

@@ -1,12 +1,11 @@
-%li
-  .comment
-    = link_to commenter_username(comment.commenter), user_path(commenter_username(comment.commenter)), class: 'commenter'
-    - if current_user.id == comment.commenter
-      %aside.comment-delete
-        = link_to user_post_comment_path(commenter_username(comment.commenter),
-          comment.post, comment), method: :delete, class: 'comment-delete-icon' do
-          = icon('times')
-    .comment-likes-container
-      = render partial: 'likes/likes', locals: { likeable: comment }
-      = render partial: 'likes/comments/form', locals: { likeable: comment }
-    = with_links_to_users(with_links_to_tags(comment.body))
+%li.comment
+  %strong= link_to commenter_username(comment.commenter), user_path(commenter_username(comment.commenter)), class: 'commenter'
+  - if current_user.id == comment.commenter
+    .comment-delete
+      = link_to user_post_comment_path(commenter_username(comment.commenter),
+        comment.post, comment), method: :delete, class: 'comment-delete-icon' do
+        = icon('times')
+  .comment-likes
+    = render partial: 'likes/comments/form', locals: { likeable: comment }
+    = render partial: 'likes/likes', locals: { likeable: comment }
+  = with_links_to_users(with_links_to_tags(comment.body))
