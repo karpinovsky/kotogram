@@ -1,19 +1,28 @@
-%main#user-home-page
-  - @feed_items.each do |feed_item|
-    %article
-      %nav
-        = link_to (image_tag feed_item.user.profile.avatar), user_path(feed_item.user)
-        = link_to user_path(feed_item.user) do
-          %strong= feed_item.user.profile.username
-        %em
-          = link_to user_post_path(feed_item.user, feed_item) do
-            = time_ago_in_words(feed_item.created_at)
-      %div= image_tag feed_item.image.image
-      = render partial: 'likes/posts/form', locals: { likeable: feed_item }
-      - unless feed_item.likes_count.zero?
-        %p
-          = render partial: 'likes/likes', locals: { likeable: feed_item }
-      %ul
-        = render feed_item.comments
-      %section
-        = render partial: 'comments/form', locals: { user: feed_item.user, post: feed_item }
+.container.users-feed-container
+  .row
+    .col-lg-6.col-lg-offset-3
+      .row
+        - @feed_items.each do |feed_item|
+          .col-lg-12.users-feed-post
+            .row
+              .col-lg-12.users-feed-post-header
+                = link_to user_path(feed_item.user) do
+                  = image_tag feed_item.user.profile.avatar.feedpage, class: 'img-circle'
+                  %strong.users-feed-post-header-username= feed_item.user.profile.username
+                = link_to user_post_path(feed_item.user, feed_item), class: 'users-feed-post-time' do
+                  %span.text-muted= time_ago_in_words(feed_item.created_at)
+              - if feed_item.attachment.content_type.start_with? 'video'
+                = video_tag feed_item.attachment.media, controls: :true, class: 'users-feed-post-attachment'
+              - else
+                = image_tag feed_item.attachment.media, class: 'users-feed-post-attachment'
+              .col-lg-12.users-feed-post-likes-container
+                = render 'likes/posts/form', likeable: feed_item
+                = render 'likes/likes', likeable: feed_item
+              - unless feed_item.description.blank?
+                .col-lg-12
+                  %strong= with_links_to_users(with_links_to_tags(feed_item.description))
+              .col-lg-12
+                %ul.users-feed-post-comments-list
+                  = render feed_item.comments
+              .col-lg-12.users-feed-new-comment
+                = render 'comments/form', post: feed_item
