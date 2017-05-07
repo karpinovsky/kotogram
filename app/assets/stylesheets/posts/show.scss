@@ -1,12 +1,56 @@
 @import 'utilities/mixins';
 
-html {
-  height: 100%;
+.posts-show-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  @include phone {
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
 }
 
-body {
-  min-height: 100%;
-  background: #fafafa;
+.posts-show-post {
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  background: white;
+
+  @include large-desktop {
+    width: 975px;
+    height: 575px;
+  }
+}
+
+.posts-show-info {
+  @include large-desktop {
+    height: 575px;
+  }
+}
+
+.posts-show-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
+}
+
+.posts-show-header-username {
+  color: #262626;
+  margin-left: 3px;
+}
+
+.posts-show-delete {
+  margin-left: auto;
+}
+
+.posts-show-likes-and-time-container {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.posts-show-link-time {
+  margin-left: auto;
 }
 
 main#post-show {
