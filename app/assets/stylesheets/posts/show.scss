@@ -5,7 +5,7 @@
   margin-bottom: 50px;
 
   @include phone {
-    margin-top: 15px;
+    margin-top: 0;
     margin-bottom: 0;
   }
 }
@@ -18,6 +18,14 @@
   @include large-desktop {
     width: 975px;
     height: 575px;
+  }
+
+  @include desktop {
+    height: 475px;
+  }
+
+  @include tablet {
+    height: 368px;
   }
 }
 
@@ -51,6 +59,30 @@
 
 .posts-show-link-time {
   margin-left: auto;
+}
+
+.posts-show-comments-container {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 1px;
+  height: 390px;
+  overflow: auto;
+
+  @include large-desktop {
+    height: 390px;
+  }
+
+  @include desktop {
+    height: 270px;
+  }
+
+  @include tablet {
+    height: 160px;
+  }
+
+  @include phone {
+    height: 130px;
+  }
 }
 
 main#post-show {
