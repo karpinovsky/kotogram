@@ -3,7 +3,8 @@
     .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-12{ style: "margin-top: 15px; margin-bottom: 15px;" }
       .btn-group.btn-group-justified{ role: 'group', 'aria-label' => '...' }
         .btn-group{ role: 'group' }
-          %button#btn-to-public-section{ class: 'btn btn-default', 'data-remote' => 'true' } Public
+          = link_to 'Public', edit_user_registration_path, remote: true, class: 'btn btn-default',
+            id: 'btn-to-public-section', role: 'button'
         .btn-group{ role: 'group' }
           %button{ class: 'btn btn-danger active' } Privacy
     .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-12
