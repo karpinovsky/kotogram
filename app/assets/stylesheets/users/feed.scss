@@ -30,8 +30,18 @@
   margin-left: auto;
 }
 
+.users-feed-post-description {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  word-break: break-all;
+}
+
 .users-feed-new-comment .new_comment {
   margin-bottom: 15px;
+
+  @include phone {
+    margin-bottom: 5px;
+  }
 }
 
 .btn-post-like,
@@ -56,8 +66,22 @@
   list-style: none;
   padding: 0;
   margin-bottom: 1px;
-  max-height: 300px;
   overflow-y: auto;
   overflow-x: hidden;
-  //border-bottom: 1px solid #efefef;
+
+  @include large-desktop {
+    max-height: 300px;
+  }
+
+  @include desktop {
+    max-height: 250px;
+  }
+
+  @include tablet {
+    max-height: 200px;
+  }
+
+  @include phone {
+    max-height: 150px;
+  }
 }
