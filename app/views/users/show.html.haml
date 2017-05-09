@@ -6,7 +6,7 @@
           = image_tag user_by_profile_username.profile.avatar.showpage, class: 'img-circle'
         .col-lg-12.col-md-12.col-sm-12.col-xs-12.text-center.text-muted
           %h2= user_by_profile_username.profile.username
-          = render partial: 'relationships/form'
+          = render 'relationships/form', user: user_by_profile_username
         .col-lg-12.col-md-12.col-sm-12.col-xs-12
           .row
             .col-lg-2.col-lg-offset-3.col-md-2.col-md-offset-3.col-sm-2.col-sm-offset-3.col-xs-4.text-center.text-muted
