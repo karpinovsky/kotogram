@@ -1,8 +1,18 @@
-.container
+.container.users-followers
   .row
     .col-lg-6.col-lg-offset-3
       .row
-        .col-lg-12
-          - @user.followers.each do |follower|
-            = image_tag follower.profile.avatar
+        .col-lg-10.col-lg-offset-1.users-followers-container
+          .row
+            .col-lg-12.users-followers-text
+              %big Followers
+            - user_by_profile_username.followers.each do |follower|
+              .col-lg-12.users-followers-follower-container
+                .row
+                  .col-lg-12
+                    = link_to user_path(follower) do
+                      = image_tag follower.profile.avatar.followed_user, class: 'img-circle'
+                      %strong.users-followers-follower-username= follower.profile.username
+                    .pull-right
+                      = render 'relationships/form', user: follower
 
