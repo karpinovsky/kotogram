@@ -19,9 +19,9 @@
                   #kotogram Kotogram
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               .col-lg-4.col-md-4.col-sm-4.col-xs-12
-                %form#navbar-form-override.navbar-form
+                = form_tag users_path, method: :get, class: 'navbar-form', id: 'navbar-form-override' do
                   .input-group
-                    %input.form-control{:placeholder => "Search", :type => "text"}/
+                    = text_field_tag :search, '', placeholder: 'Search', class: 'form-control'
                     %span.input-group-btn
                       %button.btn.btn-default{:type => "submit"} Go
               .col-lg-4.col-md-4.col-sm-4.col-xs-12

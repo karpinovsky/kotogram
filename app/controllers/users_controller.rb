@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.search(params[:search])
+    @users = User.joins(:profile).where('username LIKE ? ', "%#{params[:search]}%")
   end
 
   def show

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     root 'static_pages#home', as: :non_authenticated_root
   end
 
-  get '/', to: 'users#index', as: :users
+  get 'users/', to: 'users#index', as: :users
   resources :users, path: '', param: :username, only: :show do
     resources :posts, path: 'p', only: [:show, :create, :destroy] do
       resources :likes, only: [:create, :destroy]

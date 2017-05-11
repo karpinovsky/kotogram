@@ -1,0 +1,28 @@
+.users-followers {
+  margin-top: 50px;
+}
+
+.users-followers-container {
+  max-height: 600px;
+  overflow: auto;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #e7e7e7;
+}
+
+.users-followers-text {
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.users-followers-follower-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #e7e7e7;
+}
+
+.users-followers-follower-username {
+  color: #262626;
+  margin-left: 5px;
+}

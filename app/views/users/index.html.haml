@@ -1,16 +1,17 @@
-.user-index
-  .container
-    .row
-      .col-lg-4.col-md-5.col-sm-6.col-xs-10.col-centered.user-index-container
-        .row
-          .col-lg-12.user-index-users-finded Finded users
-          .col-lg-12
+.container.users-followers
+  .row
+    .col-lg-6.col-lg-offset-3
+      .row
+        .col-lg-10.col-lg-offset-1.users-followers-container
+          .row
+            .col-lg-12.users-followers-text
+              %big Finded users
             - @users.each do |user|
-              .row
-                .col-lg-12.user-index-user
-                  .user-index-user-avatar
-                    - if user.avatar.blank?
-                      = link_to image_tag('default_avatar.jpg'), user
-                    - else
-                      = link_to image_tag(user.avatar.avatar.homepage), user
-                  .user-index-user-link= link_to user.username, user_path(user)
+              .col-lg-12.users-followers-follower-container
+                .row
+                  .col-lg-12
+                    = link_to user_path(user) do
+                      = image_tag user.profile.avatar.followed_user, class: 'img-circle'
+                      %strong.users-followers-follower-username= user.profile.username
+                    .pull-right
+                      = render 'relationships/form', user: user
