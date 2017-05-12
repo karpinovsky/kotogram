@@ -24,8 +24,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 
   @include phone {
     width: 100%;
@@ -165,18 +165,4 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
-}
-
-.unauthorized-user-shared-links-container {
-  width: 350px;
-  border: 1px solid #e6e6e6;
-  background-color: #fff;
-  border-radius: 1px;
-  padding: 15px;
-
-  @include phone {
-    width: 100%;
-    background-color: #fafafa;
-    border-color: #fafafa;
-  }
 }
