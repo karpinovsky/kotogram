@@ -1,5 +1,8 @@
 # source 'https://rubygems.org'
-
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
+gem 'capistrano-rvm'
 gem 'omniauth-facebook'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
