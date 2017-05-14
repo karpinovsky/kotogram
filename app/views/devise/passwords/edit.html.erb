@@ -1,0 +1,24 @@
+<div class='unauthorized-user-passwords-edit-page'>
+  <div class='unauthorized-user-passwords-edit-page-container'>
+    <div class='unauthorized-user-passwords-edit-page-main-content'>
+      <h1 class='unauthorized-user-passwords-edit-page-kotogram'>Kotogram</h1>
+      <h2 class='unauthorized-user-passwords-edit-page-text-explain-page'>
+        Change your password
+      </h2>
+      <%= form_for resource, as: resource_name, url: password_path(resource_name),
+        html: { method: :put, class: 'unauthorized-user-passwords-edit-page-form' } do |f| %>
+        <%= f.hidden_field :reset_password_token %>
+        <%= f.password_field :password, autofocus: true, autocomplete: 'off',
+          placeholder: 'New password',
+          class: 'unauthorized-user-passwords-edit-page-form-input-control' %>
+        <%= f.password_field :password_confirmation, autocomplete: 'off',
+          placeholder: 'Confirm new password',
+          class: 'unauthorized-user-passwords-edit-page-form-input-control' %>
+        <%= f.submit 'Change password', class: 'unauthorized-user-passwords-edit-page-send-button' %>
+      <% end %>
+    </div>
+    <div class='unauthorized-user-shared-links-container'>
+      <%= render 'devise/shared/links' %>
+    </div>
+  </div>
+</div>

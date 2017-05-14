@@ -8,7 +8,7 @@
       <%= form_for resource, as: resource_name, url: password_path(resource_name),
         html: { method: :post, class: 'unauthorized-user-passwords-new-form' } do |f| %>
         <%= f.email_field :email, autofocus: true, placeholder: 'Email',
-          class: 'unauthorized-user-unlocks-new-page-form-input-control' %>
+          class: 'unauthorized-user-passwords-new-page-form-input-control' %>
         <%= f.submit 'Send me reset instructions', class: 'unauthorized-user-passwords-new-page-send-button' %>
       <% end %>
     </div>
