@@ -1,0 +1,19 @@
+<div class='unauthorized-user-unlocks-new-page'>
+  <div class='unauthorized-user-unlocks-new-page-container'>
+    <div class='unauthorized-user-unlocks-new-page-main-content'>
+      <h1 class='unauthorized-user-unlocks-new-page-kotogram'>Kotogram</h1>
+      <h2 class='unauthorized-user-unlocks-new-page-text-explain-page'>
+        Resend unlock instructions
+      </h2>
+      <%= form_for resource, as: resource_name, url: unlock_path(resource_name),
+        html: { method: :post, class: 'unauthorized-user-unlocks-new-page-form' } do |f| %>
+        <%= f.email_field :email, autofocus: true, placeholder: 'Email',
+          class: 'unauthorized-user-unlocks-new-page-form-input-control' %>
+        <%= f.submit 'Resend instructions', class: 'unauthorized-user-unlocks-new-page-resend-button' %>
+      <% end %>
+    </div>
+    <div class='unauthorized-user-shared-links-container'>
+      <%= render 'devise/shared/links' %>
+    </div>
+  </div>
+</div>
