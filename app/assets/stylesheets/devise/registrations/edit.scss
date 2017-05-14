@@ -1,0 +1,49 @@
+@import 'utilities/mixins';
+
+.devise-registrations-edit-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  @include phone {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.devise-registrations-edit-main-content {
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+
+  @include phone {
+    background-color: #fafafa;
+    border: #fafafa;
+  }
+}
+
+.editpage-avatar {
+  margin-top: 30px;
+
+  @include phone {
+    margin-top: 10px;
+  }
+}
+
+.devise-registrations-edit-public-form,
+.devise-registrations-edit-privacy-form {
+  margin-bottom: 30px;
+
+  @include phone {
+    margin-bottom: 10px;
+  }
+}
+
+.devise-registrations-edit-avatar-field {
+  @include phone {
+    display: none;
+  }
+
+  @include tablet {
+    display: none;
+  }
+}
