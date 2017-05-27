@@ -10,7 +10,7 @@ feature 'User sign up' do
 
     context 'fill out the sign up form' do
       context 'with valid data' do
-        given!(:user) { FactoryGirl.create(:user_with_profile) }
+        given!(:user) { FactoryGirl.build(:user_with_profile) }
 
         before do
           visit new_user_registration_path
@@ -23,12 +23,12 @@ feature 'User sign up' do
         end
 
         context 'create an account' do
-          #scenario 'see the alert associated with the registration' do
-          #expect(page).to have_selector('.alert-info')
-          #expect(page).to have_content('A message with a confirmation link
-          #has been sent to your email address.
-          #Please follow the link to activate your account.')
-          #end
+          scenario 'see the alert associated with the registration' do
+            expect(page).to have_selector('.alert-info')
+            expect(page).to have_content('A message with a confirmation link
+              has been sent to your email address.
+              Please follow the link to activate your account.')
+          end
 
           scenario 'with the entered email' do
             expect(User.find_by(email: user.email)).not_to be_nil

@@ -5,8 +5,8 @@ FactoryGirl.define do
     password_confirmation 'password'
 
     factory :user_with_profile do
-      after(:create) do |user|
-        create(:profile, user: user)
+      after(:build) do |user|
+        build(:profile, user: user)
       end
     end
   end
