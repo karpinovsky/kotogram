@@ -27,5 +27,5 @@ staging:
 production:
   <<: *default
   database: kotogram_production
-  username: kotogram
+  username: <%= ENV['KOTOGRAM_DATABASE_USER'] %>
   password: <%= ENV['KOTOGRAM_DATABASE_PASSWORD'] %>
