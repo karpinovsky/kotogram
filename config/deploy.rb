@@ -5,6 +5,8 @@ set :application, "kotogram"
 set :repo_url, "git@github.com:/karpinovsky/kotogram.git"
 set :deploy_to, '/home/kotogram/kotogram'
 
+set :branch, ENV["BRANCH"]
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
