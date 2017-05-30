@@ -38,6 +38,12 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.skip_confirmation!
       user.save!
+
+      Profile.create(
+        user: user,
+        username: auth.info.first_name + auth.info.last_name,
+        full_name: auth.info.first_name + ' ' +  auth.info.last_name,
+        remote_avatar_url: auth.info.image)
     end
   end
 
