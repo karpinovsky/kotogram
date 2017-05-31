@@ -7,7 +7,7 @@
       <div class='unauthorized-user-log-in-page-log-in-container'>
         <h1 class='unauthorized-user-log-in-page-kotogram'>Kotogram</h1>
         <%= form_for resource, as: resource_name, url: session_path(resource_name),
-          html: { class: 'unauthorized-user-log-in-page-log-in-form' } do |f| %>
+          html: { class: 'unauthorized-user-log-in-page-log-in-form cp-log-in-form' } do |f| %>
           <%- devise_error_messages! %>
           <%= f.email_field :email, autofocus: true, placeholder: 'Email',
             class: 'unauthorized-user-log-in-page-log-in-form-input-control' %>

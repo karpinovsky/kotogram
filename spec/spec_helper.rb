@@ -21,6 +21,9 @@ require 'active_support'
 require 'action_mailer'
 require 'email_spec'
 require 'email_spec/rspec'
+require 'omniauth'
+
+OmniAuth.config.test_mode = true
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
