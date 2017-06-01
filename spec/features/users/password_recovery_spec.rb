@@ -8,7 +8,7 @@ feature 'Password recovery' do
     visit new_user_password_path
   end
 
-  context 'with email' do
+  context 'send instructions to email' do
     given!(:user) { FactoryGirl.create(:user_with_profile) }
 
     it { is_expected.to have_content('Forgot your password?') }
@@ -20,5 +20,22 @@ feature 'Password recovery' do
 
     it { is_expected.to have_content('You will receive an email with instructions
       on how to reset your password in a few minutes.') }
+
+    context 'open inbox email' do
+      subject { open_email(user.email) }
+
+      it { is_expected.to have_subject('Reset password instructions') }
+
+      it { is_expected.to have_link('Change my password') }
+
+      scenario 'create new password' do
+
+        open_email(user.email)
+
+        visit_in_email('Change my password')
+
+        expect(page).to have_content('Change your password')
+      end
+    end
   end
 end
