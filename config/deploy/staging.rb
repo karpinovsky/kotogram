@@ -5,7 +5,7 @@
 
 set :rails_env, :staging
 set :stage, :staging
-server "staging.kotogram.com", user: "kotogram", roles: %w{app db web}
+server "kotogram-project.com", user: "kotogram", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
