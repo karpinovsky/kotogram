@@ -45,9 +45,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [38,38]
   end
 
-  # Create different versions of your uploaded files:
-  def extension_whitelist
-    %w(jpg jpeg gif png)
+  def content_type_whitelist
+    /image\//
   end
 
   # Override the filename of the uploaded files:
