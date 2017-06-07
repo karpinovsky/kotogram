@@ -8,8 +8,8 @@
               .btn-group{ role: 'group' }
                 %button{ class: 'btn btn-default active' } My posts
               .btn-group{ role: 'group' }
-                %button.btn-to-new-post{ class: 'btn btn-default', 'data-remote' => 'true' }
-                  Share new moments
+                = link_to 'Share new moments', user_path(current_user), remote: true,
+                  class: 'btn btn-default btn-to-new-post', role: 'button'
     .col-lg-12.col-md-12.col-sm-12.col-xs-12
       .row
         - if user_by_profile_username.posts.any?
