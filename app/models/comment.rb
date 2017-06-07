@@ -18,5 +18,6 @@ class Comment < ApplicationRecord
       tag = Tag.find_or_create_by(body: hashtag.downcase.delete('#'))
       post.tags << tag
     end
+    Tag.reindex
   end
 end
