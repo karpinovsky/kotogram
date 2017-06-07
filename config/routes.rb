@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   end
   patch '/edit', to: 'profiles#update', as: :profile
   resources :relationships, only: [ :create, :destroy ]
-  get '/posts/tags/:body', to: 'posts#tags', as: :tag
+  get '/explore/tags/:body', to: 'posts#tags', as: :tag
 end

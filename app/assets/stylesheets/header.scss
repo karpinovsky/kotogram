@@ -63,3 +63,102 @@
     padding-bottom: 8px;
   }
 }
+
+.bs-navbar-collapse-override {
+  overflow-y: visible !important;
+}
+
+
+.aa-input-container,
+.algolia-autocomplete {
+  display: block !important;
+  width: 215px;
+  height: 28px;
+  margin: 20px auto;
+}
+
+.aa-input-search {
+  width: 100%;
+  height: 100%;
+  padding: 3px 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #262626;
+  text-align: center;
+  outline: none;
+  box-shadow: none;
+  background-color: #fafafa;
+
+  &:focus,
+  &:active {
+    background-color: white !important;
+    text-align: left;
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.aa-dropdown-menu {
+  width: 243px;
+  max-height: 364px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .0975);
+  margin-top: 18px;
+  overflow-y: auto;
+  left: -14px !important;
+}
+
+.algolia-user-link,
+.algolia-tag-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 67px;
+  border-bottom: 1px solid #efefef;
+  padding: 8px 14px;
+
+  &:hover {
+    background-color: #fafafa;
+  }
+}
+
+.algolia-tag-link > .fa-hashtag {
+  font-size: 17px;
+  color: #999;
+  margin: 0 18px 0 10px;
+}
+
+.algolia-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+}
+
+.algolia-user-username,
+.algolia-tag-container {
+  font-weight: 600;
+  line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: -4px;
+  color: #262626;
+
+  &:hover,
+  &:visited {
+    color: #262626;
+  }
+}
+
+.algolia-user-full-name {
+  font-weight: 300;
+  line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #999;
+}

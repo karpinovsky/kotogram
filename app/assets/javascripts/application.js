@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require algolia/v3/algoliasearch.min
 //= require_tree .
