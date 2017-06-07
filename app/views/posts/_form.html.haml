@@ -5,7 +5,8 @@
         .col-lg-6.col-lg-offset-3{ style: 'margin-top: 10px; margin-bottom: 10px' }
           .btn-group.btn-group-justified{ role: 'group', 'aria-label' => '...' }
             .btn-group{ role: 'group' }
-              %button.btn-to-my-posts{ class: 'btn btn-default', 'data-remote' => 'true' } My posts
+              = link_to 'My posts', user_path(current_user), remote: true,
+                class: 'btn btn-default btn-to-my-posts', role: 'button'
             .btn-group{ role: 'group' }
               %button{ class: 'btn btn-default active' } Share new moments
         .col-lg-6.col-lg-offset-3
