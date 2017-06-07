@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  rescue_from ActionController::RoutingError, with: :render_404
 
   protected
 
@@ -11,6 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   def render_404
-    head :ok
+    respond_to do |format|
+      format.html { render :file => "#{Rails.root}/public/404", :layout => true, :status => :not_found }
+      format.xml  { head :not_found }
+      format.any  { head :not_found }
+    end
   end
 end
