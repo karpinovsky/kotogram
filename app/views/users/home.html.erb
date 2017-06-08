@@ -1,0 +1,72 @@
+<main class="users-home-main-container">
+  <section class="users-home-container">
+    <div class="users-home-posts-main-container">
+      <%- @feed_items.each do |post| %>
+        <article class="users-home-post-container">
+          <header class="users-home-post-header">
+            <%= link_to user_path(post.user),
+              class: "users-home-post-header-avatar-link" do %>
+              <%= image_tag post.user.profile.avatar,
+                class: "users-home-post-header-avatar-image" %>
+            <% end %>
+            <%= link_to user_path(post.user),
+              class: "users-home-post-header-username-link" do %>
+              <%= post.user.profile.username %>
+            <% end %>
+            <%= link_to user_post_path(post.user, post),
+              class: 'users-home-post-header-date-link' do %>
+              <time class="users-home-post-header-date">
+                <%= time_ago_in_words(post.created_at) %>
+              </time>
+            <% end %>
+          </header>
+          <div class="users-home-post-attachment-container">
+            <%- if post.attachment.content_type.start_with? "video" %>
+              <%= video_tag post.attachment.media,
+                class: "users-home-post-attachment video" %>
+            <%- else %>
+              <%= image_tag post.attachment.media,
+                class: "users-home-post-attachment" %>
+            <% end %>
+          </div>
+          <div class="users-home-post-info-container">
+            <section class="users-home-post-like-dislike-container">
+              <%= render 'likes/posts/form', likeable: post %>
+            </section>
+            <%- unless post.likes_count.zero? %>
+              <section class="users-home-post-likes-container">
+                <%= render 'likes/likes', likeable: post %>
+              </section>
+            <% end %>
+            <%- unless post.description.blank? %>
+              <section class="users-home-post-description-container">
+                <%= link_to user_path(post.user),
+                  class: "users-home-post-description-username-link" do %>
+                  <%= post.user.profile.username %>
+                <% end %>
+                <span class="users-home-post-description">
+                  <%= with_links_to_users(with_links_to_tags(post.description)) %>
+                </span>
+              </section>
+            <% end %>
+            <ul class="users-home-post-comments-container">
+              <%= render post.comments %>
+            </ul>
+            <section class="users-home-post-comment-form-container">
+              <%= render 'comments/form', post: post %>
+            </section>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </section>
+</main>
+<script>
+  $('.video').click(function() {
+    if (this.paused) {
+      this.play();
+    } else {
+      this.pause();
+    }
+  });
+</script>

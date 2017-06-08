@@ -1,6 +1,4 @@
-= form_for [post.user, post, post.comments.build] do |f|
+= form_for [post.user, post, post.comments.build],
+  html: { class: "form-comment" } do |f|
   = f.hidden_field :commenter, value: current_user.id
-  .input-group
-    = f.text_field :body, placeholder: 'Add a comment...', class: 'form-control'
-    %span.input-group-btn
-      %button.btn.btn-default{:type => "submit"} Comment
+  = f.text_field :body, placeholder: 'Add a comment...', class: "form-comment-input"

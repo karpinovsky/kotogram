@@ -1,0 +1,404 @@
+@import 'utilities/mixins';
+
+.users-home-main-container {
+  overflow: hidden;
+}
+
+.users-home-container {
+  @include large-desktop {
+    width: 600px;
+    margin: 60px auto 60px auto;
+  }
+
+  @include desktop {
+    width: 600px;
+    margin: 60px auto 60px auto;
+  }
+}
+
+.users-home-post-container {
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+
+  @include large-desktop {
+    margin-bottom: 60px;
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+
+  @include desktop {
+    margin-bottom: 60px;
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.users-home-post-header {
+
+  @include large-desktop {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid #efefef;
+    height: 60px;
+    padding: 16px;
+  }
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid #efefef;
+    height: 60px;
+    padding: 16px;
+  }
+}
+
+.users-home-post-header-avatar-link {
+
+  @include large-desktop {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  @include desktop {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+}
+
+
+.users-home-post-header-avatar-image {
+
+  @include large-desktop {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  @include desktop {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+
+.users-home-post-header-username-link {
+
+  @include large-desktop {
+    color: #262626;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 5px;
+    font-size: 14px;
+
+    &:visited,
+    &:hover,
+    &:active {
+      color: #262626;
+    }
+  }
+
+  @include desktop {
+    color: #262626;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 5px;
+    font-size: 14px;
+
+    &:visited,
+    &:hover,
+    &:active {
+      color: #262626;
+    }
+  }
+}
+
+.users-home-post-header-date-link {
+  @include large-desktop {
+    margin-left: auto;
+  }
+
+  @include desktop {
+    margin-left: auto;
+  }
+}
+
+
+.users-home-post-header-date {
+
+  @include large-desktop {
+    color: #999;
+    font-size: 13px;
+
+    &:visited,
+    &:hover,
+    &:active {
+      color: #999;
+    }
+  }
+
+  @include desktop {
+    color: #999;
+    font-size: 13px;
+
+    &:visited,
+    &:hover,
+    &:active {
+      color: #999;
+    }
+  }
+}
+
+.users-home-post-attachment-container {
+
+  @include large-desktop {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  @include desktop {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.users-home-post-attachment {
+  @include large-desktop {
+    height: 100%;
+    width: 100%;
+    margin-left: -1px;
+  }
+
+  @include desktop {
+    height: 100%;
+    width: 100%;
+    margin-left: -1px;
+  }
+}
+
+.video {
+  cursor: pointer;
+}
+
+.users-home-post-info-container {
+
+  @include large-desktop {
+    padding: 0 16px;
+  }
+
+  @include desktop {
+    padding: 0 16px;
+  }
+}
+
+.users-home-post-like-dislike-container {
+
+  @include large-desktop {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
+}
+
+.form-post-like,
+.form-post-dislike {
+
+  @include large-desktop {
+    height: 40px;
+    width: 40px;
+    padding: 9px;
+    margin-left: -9px;
+  }
+
+  @include desktop {
+    height: 40px;
+    width: 40px;
+    padding: 9px;
+    margin-left: -9px;
+  }
+}
+
+.button-post-like,
+.button-post-dislike {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  box-shadow: none;
+  background: white;
+  border: 0;
+  outline: none;
+}
+
+.button-post-like .fa-heart-o {
+  font-size: 22px;
+  color: #262626;
+}
+
+.button-post-dislike .fa-heart {
+  font-size: 22px;
+  color: #ed4956;
+}
+
+.users-home-post-likes-container {
+
+  @include large-desktop {
+  }
+
+  @include desktop {
+  }
+}
+
+.likes {
+
+  @include large-desktop {
+    color: #262626;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  @include desktop {
+    color: #262626;
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
+
+.users-home-post-description-container {
+
+  @include large-desktop {
+    margin: 5px 0 7px 0;
+  }
+
+  @include desktop {
+    margin: 5px 0 7px 0;
+  }
+}
+
+.users-home-post-description-username-link {
+
+  @include large-desktop {
+    color: #262626;
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 3px;
+
+    &:visited,
+    &:hover,
+    &:active {
+      color: #262626;
+    }
+  }
+
+  @include desktop {
+    color: #262626;
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 3px;
+
+    &:visited,
+    &:hover,
+    &:active {
+      color: #262626;
+    }
+  }
+}
+.users-home-post-description {
+
+  @include large-desktop {
+    word-break: break-all;
+  }
+
+  @include desktop {
+    word-break: break-all;
+  }
+}
+
+.users-home-post-comments-container {
+
+  @include large-desktop {
+    max-height: 300px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  @include desktop {
+    max-height: 300px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+.users-home-post-comment-form-container {
+
+  @include large-desktop {
+    padding: 16px 26px 16px 0;
+    margin-top: 4px;
+    border-top: 1px solid #efefef;
+  }
+
+  @include desktop {
+    padding: 16px 26px 16px 0;
+    margin-top: 4px;
+    border-top: 1px solid #efefef;
+  }
+}
+
+.form-comment {
+
+  @include large-desktop {
+  }
+
+  @include desktop {
+  }
+}
+
+.form-comment-input {
+
+  @include large-desktop {
+    width: 100%;
+    border: none;
+    color: #262626;
+    box-shadow: none;
+    outline: none;
+    height: 18px;
+    resize: none;
+  }
+
+  @include desktop {
+    width: 100%;
+    border: none;
+    color: #262626;
+    box-shadow: none;
+    outline: none;
+    height: 18px;
+    resize: none;
+  }
+}

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
                                     registrations: 'users/registrations' }
 
   authenticated :user do
-    root 'users#feed', as: :authenticated_root
+    root 'users#home', as: :authenticated_root
   end
 
   unauthenticated :user do
