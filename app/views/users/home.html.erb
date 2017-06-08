@@ -22,8 +22,14 @@
           </header>
           <div class="users-home-post-attachment-container">
             <%- if post.attachment.content_type.start_with? "video" %>
-              <%= video_tag post.attachment.media,
-                class: "users-home-post-attachment video" %>
+              <div class="play-icon-container">
+                <%= icon("play fa-5x") %>
+              <div class="video-camera-container">
+                <%= icon("video-camera fa-2x") %>
+                <%= video_tag post.attachment.media,
+                  class: "users-home-post-attachment video" %>
+              </div>
+              </div>
             <%- else %>
               <%= image_tag post.attachment.media,
                 class: "users-home-post-attachment" %>
@@ -64,9 +70,18 @@
 <script>
   $('.video').click(function() {
     if (this.paused) {
+      $(".fa-play").css({"visibility": "hidden", "opacity": "0"});
+      $(".fa-video-camera").css({"visibility": "hidden", "opacity": "0"});
       this.play();
     } else {
+      $(".fa-play").css({"visibility": "", "opacity": ""});
+      $(".fa-video-camera").css({"visibility": "", "opacity": ""});
       this.pause();
     }
+  });
+
+  $('.video').on("ended", function(){
+    $(".fa-play").css({"visibility": "", "opacity": ""});
+    $(".fa-video-camera").css({"visibility": "", "opacity": ""});
   });
 </script>
