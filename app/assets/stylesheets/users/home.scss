@@ -170,7 +170,6 @@
     width: 100%;
 
     &:hover .fa-play { visibility: visible; opacity: 1; }
-    &:hover .fa-video-camera { visibility: hidden; opacity: 0; }
   }
 
   @include desktop {
@@ -178,7 +177,6 @@
     width: 100%;
 
     &:hover .fa-play { visibility: visible; opacity: 1; }
-    &:hover .fa-video-camera { visibility: hidden; opacity: 0; }
   }
 }
 
@@ -192,6 +190,24 @@
     height: 100%;
     width: 100%;
     margin-left: -1px;
+  }
+}
+
+.users-home-post-videocamera-image {
+  @include large-desktop {
+    margin-left: auto;
+    height: 40px;
+    width: 40px;
+    padding: 6px;
+    margin-right: -6px;
+  }
+
+  @include desktop {
+    margin-left: auto;
+    height: 40px;
+    width: 40px;
+    padding: 6px;
+    margin-right: -6px;
   }
 }
 
@@ -237,46 +253,6 @@
     }
   }
 }
-
-.video-camera-container {
-
-  @include large-desktop {
-    display: flex;
-    justify-content: flex-end;
-
-    .fa-video-camera {
-      padding: 10px;
-      position: absolute;
-      z-index: 1;
-      visibility: visible;
-      opacity: 1;
-      transition: opacity 0.4s ease-out;
-      transition-delay: .1s;
-      pointer-events: none;
-      cursor: pointer;
-      color: #999;
-    }
-  }
-
-  @include desktop {
-    display: flex;
-    justify-content: flex-end;
-
-    .fa-video-camera {
-      padding: 10px;
-      position: absolute;
-      z-index: 1;
-      visibility: visible;
-      opacity: 1;
-      transition: opacity 0.4s ease-out;
-      transition-delay: .1s;
-      pointer-events: none;
-      cursor: pointer;
-      color: #999;
-    }
-  }
-}
-
 
 .users-home-post-info-container {
 

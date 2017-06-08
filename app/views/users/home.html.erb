@@ -24,11 +24,8 @@
             <%- if post.attachment.content_type.start_with? "video" %>
               <div class="play-icon-container">
                 <%= icon("play fa-5x") %>
-              <div class="video-camera-container">
-                <%= icon("video-camera fa-2x") %>
                 <%= video_tag post.attachment.media,
                   class: "users-home-post-attachment video" %>
-              </div>
               </div>
             <%- else %>
               <%= image_tag post.attachment.media,
@@ -38,6 +35,10 @@
           <div class="users-home-post-info-container">
             <section class="users-home-post-like-dislike-container">
               <%= render 'likes/posts/form', likeable: post %>
+              <%- if post.attachment.content_type.start_with? "video" %>
+                <%= image_tag "videocamera.png",
+                  class: "users-home-post-videocamera-image" %>
+              <%- end %>
             </section>
             <%- unless post.likes_count.zero? %>
               <section class="users-home-post-likes-container">
@@ -71,17 +72,14 @@
   $('.video').click(function() {
     if (this.paused) {
       $(".fa-play").css({"visibility": "hidden", "opacity": "0"});
-      $(".fa-video-camera").css({"visibility": "hidden", "opacity": "0"});
       this.play();
     } else {
       $(".fa-play").css({"visibility": "", "opacity": ""});
-      $(".fa-video-camera").css({"visibility": "", "opacity": ""});
       this.pause();
     }
   });
 
   $('.video').on("ended", function(){
     $(".fa-play").css({"visibility": "", "opacity": ""});
-    $(".fa-video-camera").css({"visibility": "", "opacity": ""});
   });
 </script>
