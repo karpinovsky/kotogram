@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def tags
     @tag = Tag.find_by(body: params[:body])
-    @posts = @tag.posts
+    @posts = @tag.posts.by_date
     @top_posts = @tag.posts.order(likes_count: :desc).take(9)
   end
 

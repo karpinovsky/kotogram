@@ -13,6 +13,6 @@
     .col-lg-12.col-md-12.col-sm-12.col-xs-12
       .row
         - if user_by_profile_username.posts.any?
-          = render user_by_profile_username.posts
+          = render user_by_profile_username.posts.by_date
         - else
           = render 'posts/no_posts'
