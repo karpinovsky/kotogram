@@ -1,0 +1,61 @@
+<main class="tag-main-container">
+  <article class="tag-container">
+    <header class="tag-header-container">
+      <h1 class="tag">#<%= @tag.body %></h1>
+      <h2 class="tag-posts-count">
+        <strong>
+          <%= @tag.posts.count %>
+        </strong>
+        <%= 'post'.pluralize(@tag.posts.count) %>
+      </h2>
+    </header>
+    <div class="tag-posts-main-container">
+      <div class="tag-top-posts-main-container">
+        <h3 class="tag-top-posts">Top posts</h3>
+        <div class="tag-top-posts-container">
+          <%- @top_posts.each_slice(3) do |top_posts_row| %>
+            <div class="tag-top-posts-row">
+              <%- top_posts_row.each do |top_post| %>
+                <%- if top_post.attachment.content_type.start_with? "video" %>
+                  <%= link_to user_post_path(top_post.user, top_post),
+                    class: "tag-top-post-link" do %>
+                    <%= video_tag top_post.attachment.media, controls: :true,
+                      class: "tag-top-post-attachment" %>
+                  <% end %>
+                <%- else %>
+                  <%= link_to user_post_path(top_post.user, top_post),
+                    class: "tag-top-post-link" do %>
+                    <%= image_tag top_post.attachment.media, class: "tag-top-post-attachment" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="tag-most-recent-posts-main-container">
+        <h3 class="tag-most-recent-posts">Most recent</h3>
+        <div class="tag-most-recent-posts-container">
+          <%- @posts.each_slice(3) do |posts_row| %>
+            <div class="tag-most-recent-posts-row">
+              <%- posts_row.each do |recent_post| %>
+                <%- if recent_post.attachment.content_type.start_with? "video" %>
+                  <%= link_to user_post_path(recent_post.user, recent_post),
+                    class: "tag-most-recent-post-link" do %>
+                    <%= video_tag recent_post.attachment.media, controls: :true,
+                      class: "tag-most-recent-post-attachment" %>
+                  <% end %>
+                <%- else %>
+                  <%= link_to user_post_path(recent_post.user, recent_post),
+                    class: "tag-most-recent-post-link" do %>
+                    <%= image_tag recent_post.attachment.media, class: "tag-most-recent-post-attachment" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>

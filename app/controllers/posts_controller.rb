@@ -16,8 +16,9 @@ class PostsController < ApplicationController
   end
 
   def tags
-    tag = Tag.find_by(body: params[:body])
-    @posts = tag.posts
+    @tag = Tag.find_by(body: params[:body])
+    @posts = @tag.posts
+    @top_posts = @tag.posts.order(likes_count: :desc).take(9)
   end
 
   private
