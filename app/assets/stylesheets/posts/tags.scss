@@ -93,7 +93,10 @@
 
 .tag-most-recent-post-link,
 .tag-top-post-link {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 
   @include desktop {
     width: 293px;
@@ -115,6 +118,5 @@
 
 .tag-most-recent-post-attachment,
 .tag-top-post-attachment {
-  width: 100%;
-  height: 100%;
+  min-height: 100%;
 }
