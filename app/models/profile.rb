@@ -12,7 +12,7 @@ class Profile < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  algoliasearch do
+  algoliasearch per_environment: true do
     attribute :username, :full_name, :avatar
 
     searchableAttributes ['username', 'full_name']

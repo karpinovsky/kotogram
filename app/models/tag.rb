@@ -5,7 +5,7 @@ class Tag < ApplicationRecord
 
   validates :body, presence: true
 
-  algoliasearch do
+  algoliasearch per_environment: true do
     attribute :body
   end
 end
