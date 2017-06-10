@@ -5,23 +5,15 @@
       <%= render "users/show/posts" %>
     </div>
   </article>
-  <span id="users-show-close-settings-modal">×</span>
-  <span id="users-show-close-followers-modal">×</span>
-  <span id="users-show-close-following-modal">×</span>
 </main>
 <script>
   <%- if user_signed_in? && current_user == user_by_profile_username %>
     var settings_modal = document.getElementById('users-show-settings-modal');
     var settings_btn = document.getElementById("users-show-header-info-top-settings");
-    var settings_close = document.getElementById("users-show-close-settings-modal");
     var settings_cancel = document.getElementById("users-show-settings-modal-cancel");
 
     settings_btn.onclick = function() {
       settings_modal.style.display = "flex";
-    }
-
-    settings_close.onclick = function() {
-      settings_modal.style.display = "none";
     }
 
     settings_cancel.onclick = function() {
@@ -31,15 +23,10 @@
 
   var followers_modal = document.getElementById('users-show-followers-modal');
   var followers_btn = document.getElementById("users-show-header-info-middle-item-followers");
-  var followers_close = document.getElementById("users-show-close-followers-modal");
 
 
   followers_btn.onclick = function() {
     followers_modal.style.display = "flex";
-  }
-
-  followers_close.onclick = function() {
-    followers_modal.style.display = "none";
   }
 
   var following_modal = document.getElementById('users-show-following-modal');
@@ -49,10 +36,6 @@
 
   following_btn.onclick = function() {
     following_modal.style.display = "flex";
-  }
-
-  following_close.onclick = function() {
-    following_modal.style.display = "none";
   }
 
   window.onclick = function(event) {
