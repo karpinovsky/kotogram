@@ -249,7 +249,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -263,7 +263,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -436,7 +436,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -450,7 +450,7 @@
     overflow-y: auto;
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -763,27 +763,86 @@
   }
 }
 
-.users-show-post-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-
-  @include desktop {
-    width: 293px;
-    height: 293px;
-    margin-right: 28px;
-  }
+.users-show-post-container {
 
   @include large-desktop {
+    display: flex;
+    justify-content: flex-end;
     width: 293px;
     height: 293px;
     margin-right: 28px;
 
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
-  &:last-child {
-    margin-right: 0;
+  @include desktop {
+    display: flex;
+    justify-content: flex-end;
+    width: 293px;
+    height: 293px;
+    margin-right: 28px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.users-show-video-icon {
+
+  @include large-desktop {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: none;
+    cursor: pointer;
+    background-image: image-url("kotogram.png");
+    background-position: -355px 0;
+  }
+
+  @include desktop {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: none;
+    cursor: pointer;
+    background-image: image-url("kotogram.png");
+    background-position: -355px 0;
+  }
+}
+
+.users-show-post-link {
+
+  @include large-desktop {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  @include desktop {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 }
 
@@ -876,3 +935,4 @@
   color: #262626;
   border-color: #dbdbdb;
 }
+

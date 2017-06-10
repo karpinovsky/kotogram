@@ -1,12 +1,15 @@
-<%- if post.attachment.content_type.start_with? "video" %>
-  <%= link_to user_post_path(post.user, post),
-    class: "users-show-post-link" do %>
-    <%= video_tag post.attachment.media, controls: :false,
-      class: "users-show-post-attachment" %>
+<div class="users-show-post-container">
+  <%- if post.attachment.content_type.start_with? "video" %>
+    <div class="users-show-video-icon"></div>
+    <%= link_to user_post_path(post.user, post),
+      class: "users-show-post-link" do %>
+      <%= video_tag post.attachment.media, controls: :false,
+        class: "users-show-post-attachment" %>
+    <% end %>
+  <%- else %>
+    <%= link_to user_post_path(post.user, post),
+      class: "users-show-post-link" do %>
+      <%= image_tag post.attachment.media, class: "users-show-post-attachment" %>
+    <% end %>
   <% end %>
-<%- else %>
-  <%= link_to user_post_path(post.user, post),
-    class: "users-show-post-link" do %>
-    <%= image_tag post.attachment.media, class: "users-show-post-attachment" %>
-  <% end %>
-<% end %>
+</div>
