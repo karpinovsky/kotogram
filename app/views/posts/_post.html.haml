@@ -1,7 +1,0 @@
-.col-lg-4.col-md-4.col-sm-4.col-xs-4.users-show-post-container
-  - if post.attachment.content_type.start_with? 'video'
-    = link_to user_post_path(post.user, post) do
-      = video_tag post.attachment.media, controls: :true, class: 'post-attachment'
-  - else
-    = link_to user_post_path(post.user, post) do
-      = image_tag post.attachment.media, class: 'post-attachment'

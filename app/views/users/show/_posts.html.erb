@@ -1,0 +1,21 @@
+<%- if user_signed_in? && current_user == user_by_profile_username && current_user.posts.empty? %>
+  <%= render "posts/form" %>
+<% end %>
+<%- if user_signed_in? %>
+  <%- if current_user != user_by_profile_username && user_by_profile_username.posts.empty? %>
+    <%= render "users/show/no_posts" %>
+  <% end %>
+<% else %>
+  <%- if user_by_profile_username.posts.empty? %>
+    <%= render "users/show/no_posts" %>
+  <% end %>
+<% end %>
+<div class="users-show-posts-container">
+  <%- user_by_profile_username.posts.by_date.each_slice(3) do |posts_row| %>
+    <div class="users-show-posts-row">
+      <%- posts_row.each do |post| %>
+        <%= render "posts/post", post: post %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

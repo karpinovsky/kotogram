@@ -1,0 +1,22 @@
+<div class="users-show-posts-no-posts-container">
+  <div class="users-show-posts-no-posts-image-container">
+    <%= image_tag "no_posts.jpg",
+      class: "users-show-posts-no-posts-image" %>
+  </div>
+  <div class="users-show-posts-no-posts-info-main-container">
+    <div class="users-show-posts-no-posts-info-container">
+      <h2 class="users-show-posts-no-posts-start-capturing">
+        Start capturing and sharing your moments.
+      </h2>
+      <%- if user_signed_in? %>
+        <%= form_for [current_user, current_user.posts.build] do |f| %>
+          <%= f.fields_for :attachment, Attachment.new do |ff| %>
+            <%= ff.file_field :media %>
+          <% end %>
+          <%= f.text_area :description, placeholder: 'Add a description..' %>
+          <%= f.submit 'New post', class: "new-post" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

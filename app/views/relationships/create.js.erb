@@ -1,2 +1,2 @@
 $("#follow_form").html("<%= escape_javascript(render('relationships/unfollow', user: @user)) %>")
-$("#followers").html('<%= @user.followers.count %>')
+$("#users-show-header-info-middle-item-followers").html('<strong style="margin-right: 4px;"><%= @user.followers.count %></strong>followers')
