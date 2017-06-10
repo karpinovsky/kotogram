@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    render "users/show/show"
   end
 
   def following
