@@ -1,5 +1,32 @@
 <main class="users-home-main-container">
   <section class="users-home-container">
+    <ul class="users-home-suggestions-main-container">
+      <li class="users-home-suggestion-user">
+        <div class="users-home-suggestion-for-you-container">
+          <span class="users-home-suggestions-for-you">
+            Suggestions for you
+          </span>
+          <%= link_to '#', class: "users-home-suggestions-for-you-see-all" do %>
+            See All
+            <span class="users-home-suggestions-for-you-see-all-icon-container"></span>
+          <% end %>
+        </div>
+      <%- @recent_users.each do |recent_user| %>
+        <li class="users-home-suggestion-user">
+          <%= link_to user_path(recent_user),
+            class: "users-home-suggestion-user-avatar-link" do %>
+            <%= image_tag recent_user.profile.avatar,
+              class: "users-home-suggestion-user-avatar" %>
+          <% end %>
+          <div class="users-home-suggestion-user-info">
+            <%= link_to recent_user.profile.username, user_path(recent_user),
+              class: "users-home-suggestion-user-username-link" %>
+            <span class="users-home-suggestion-user-full-name">
+              <%= recent_user.profile.full_name %>
+            </span>
+          </div>
+      <% end %>
+    </ul>
     <div class="users-home-posts-main-container">
       <%- @feed_items.each do |post| %>
         <article class="users-home-post-container">

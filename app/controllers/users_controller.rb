@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def home
     @feed_items = current_user.feed.order('created_at DESC')
+    @recent_users = User.last(3).reverse
   end
 
   def show

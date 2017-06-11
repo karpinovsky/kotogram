@@ -1,4 +1,13 @@
+@import "utilities/mixins";
+
 html {
+  @include tablet {
+    display: none;
+  }
+
+  @include phone {
+    display: none;
+  }
 }
 
 body {

@@ -16,6 +16,111 @@
   }
 }
 
+.users-home-suggestions-main-container {
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #e6e6e6;
+  margin: 0 -1px 20px -1px;
+  padding: 0;
+  list-style: none;
+}
+
+.users-home-suggestion-user {
+  border-bottom: solid 1px #efefef;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.users-home-suggestion-for-you-container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding-top: 8px;
+}
+
+.users-home-suggestions-for-you {
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.users-home-suggestions-for-you-see-all {
+  font-size: 15px;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: #3897f0;
+  }
+}
+
+.users-home-suggestions-for-you-see-all-icon-container {
+  display: inline-block;
+  margin-left: 8px;
+  background-color: transparent;
+  background-image: image-url("kotogram.png");
+  background-position: -397px -188px;
+  height: 11px;
+  width: 6px;
+}
+
+.users-home-suggestion-user-avatar-link {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.users-home-suggestion-user-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.users-home-suggestion-user-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 5px;
+}
+
+.users-home-suggestion-user-username-link {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: #262626;
+  }
+}
+
+.users-home-suggestion-user-full-name {
+  width: 100%;
+  display: block;
+  color: #999;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .users-home-post-container {
   background-color: white;
   border: 1px solid #e6e6e6;
