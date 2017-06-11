@@ -38,6 +38,10 @@
   }
 }
 
+.devise-registrations-edit-privacy-form {
+  margin-bottom: 0px;
+}
+
 .devise-registrations-edit-avatar-field {
   @include phone {
     display: none;
