@@ -565,3 +565,38 @@
     resize: none;
   }
 }
+
+.users-home-welcome-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  margin-left: -1px;
+  margin-right: -1px;
+  padding: 55px 30px;
+}
+
+.users-home-welcome-icon-container {
+  align-self: center;
+  width: 55px;
+  height: 47px;
+  background-color: transparent;
+  background-image: image-url("kotogram.png");
+  background-position: 0 -289px;
+}
+
+.users-home-welcome-to-kotogram {
+  font-weight: 600;
+  margin: 30px 0 15px;
+  color: #262626;
+  text-align: center;
+  font-size: 16px;
+}
+
+.users-home-follow-accounts {
+  font-size: 16px;
+  color: #262626;
+  text-align: center;
+}

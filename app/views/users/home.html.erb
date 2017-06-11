@@ -1,5 +1,16 @@
 <main class="users-home-main-container">
   <section class="users-home-container">
+    <%- if @feed_items.empty? %>
+      <div class="users-home-welcome-container">
+        <div class="users-home-welcome-icon-container"></div>
+        <h2 class="users-home-welcome-to-kotogram">
+          Welcome to Kotogram!
+        </h2>
+        <p class="users-home-follow-accounts">
+          Follow accounts to see photos and videos in your feed.
+        </p>
+      </div>
+    <% end %>
     <ul class="users-home-suggestions-main-container">
       <li class="users-home-suggestion-user">
         <div class="users-home-suggestion-for-you-container">
@@ -30,72 +41,74 @@
         <% end %>
       <% end %>
     </ul>
-    <div class="users-home-posts-main-container">
-      <%- @feed_items.each do |post| %>
-        <article class="users-home-post-container">
-          <header class="users-home-post-header">
-            <%= link_to user_path(post.user),
-              class: "users-home-post-header-avatar-link" do %>
-              <%= image_tag post.user.profile.avatar,
-                class: "users-home-post-header-avatar-image" %>
-            <% end %>
-            <%= link_to user_path(post.user),
-              class: "users-home-post-header-username-link" do %>
-              <%= post.user.profile.username %>
-            <% end %>
-            <%= link_to user_post_path(post.user, post),
-              class: 'users-home-post-header-date-link' do %>
-              <time class="users-home-post-header-date">
-                <%= time_ago_in_words(post.created_at) %>
-              </time>
-            <% end %>
-          </header>
-          <div class="users-home-post-attachment-container">
-            <%- if post.attachment.content_type.start_with? "video" %>
-              <div class="play-icon-container">
-                <%= icon("play fa-5x") %>
-                <%= video_tag post.attachment.media,
-                  class: "users-home-post-attachment video" %>
-              </div>
-            <%- else %>
-              <%= image_tag post.attachment.media,
-                class: "users-home-post-attachment" %>
-            <% end %>
-          </div>
-          <div class="users-home-post-info-container">
-            <section class="users-home-post-like-dislike-container">
-              <%= render 'likes/posts/form', likeable: post %>
+    <%- if @feed_items.any? %>
+      <div class="users-home-posts-main-container">
+        <%- @feed_items.each do |post| %>
+          <article class="users-home-post-container">
+            <header class="users-home-post-header">
+              <%= link_to user_path(post.user),
+                class: "users-home-post-header-avatar-link" do %>
+                <%= image_tag post.user.profile.avatar,
+                  class: "users-home-post-header-avatar-image" %>
+              <% end %>
+              <%= link_to user_path(post.user),
+                class: "users-home-post-header-username-link" do %>
+                <%= post.user.profile.username %>
+              <% end %>
+              <%= link_to user_post_path(post.user, post),
+                class: 'users-home-post-header-date-link' do %>
+                <time class="users-home-post-header-date">
+                  <%= time_ago_in_words(post.created_at) %>
+                </time>
+              <% end %>
+            </header>
+            <div class="users-home-post-attachment-container">
               <%- if post.attachment.content_type.start_with? "video" %>
-                <%= image_tag "videocamera.png",
-                  class: "users-home-post-videocamera-image" %>
-              <%- end %>
-            </section>
-            <%- unless post.likes_count.zero? %>
-              <section class="users-home-post-likes-container">
-                <%= render 'likes/likes', likeable: post %>
+                <div class="play-icon-container">
+                  <%= icon("play fa-5x") %>
+                  <%= video_tag post.attachment.media,
+                    class: "users-home-post-attachment video" %>
+                </div>
+              <%- else %>
+                <%= image_tag post.attachment.media,
+                  class: "users-home-post-attachment" %>
+              <% end %>
+            </div>
+            <div class="users-home-post-info-container">
+              <section class="users-home-post-like-dislike-container">
+                <%= render 'likes/posts/form', likeable: post %>
+                <%- if post.attachment.content_type.start_with? "video" %>
+                  <%= image_tag "videocamera.png",
+                    class: "users-home-post-videocamera-image" %>
+                <%- end %>
               </section>
-            <% end %>
-            <%- unless post.description.blank? %>
-              <section class="users-home-post-description-container">
-                <%= link_to user_path(post.user),
-                  class: "users-home-post-description-username-link" do %>
-                  <%= post.user.profile.username %>
-                <% end %>
-                <span class="users-home-post-description">
-                  <%= with_links_to_users(with_links_to_tags(post.description)) %>
-                </span>
+              <%- unless post.likes_count.zero? %>
+                <section class="users-home-post-likes-container">
+                  <%= render 'likes/likes', likeable: post %>
+                </section>
+              <% end %>
+              <%- unless post.description.blank? %>
+                <section class="users-home-post-description-container">
+                  <%= link_to user_path(post.user),
+                    class: "users-home-post-description-username-link" do %>
+                    <%= post.user.profile.username %>
+                  <% end %>
+                  <span class="users-home-post-description">
+                    <%= with_links_to_users(with_links_to_tags(post.description)) %>
+                  </span>
+                </section>
+              <% end %>
+              <ul class="users-home-post-comments-container">
+                <%= render post.comments %>
+              </ul>
+              <section class="users-home-post-comment-form-container">
+                <%= render 'comments/form', post: post %>
               </section>
-            <% end %>
-            <ul class="users-home-post-comments-container">
-              <%= render post.comments %>
-            </ul>
-            <section class="users-home-post-comment-form-container">
-              <%= render 'comments/form', post: post %>
-            </section>
-          </div>
-        </article>
-      <% end %>
-    </div>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    <% end %>
   </section>
 </main>
 <script>
