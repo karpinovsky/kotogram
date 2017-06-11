@@ -12,19 +12,22 @@
           <% end %>
         </div>
       <%- @recent_users.each do |recent_user| %>
-        <li class="users-home-suggestion-user">
-          <%= link_to user_path(recent_user),
-            class: "users-home-suggestion-user-avatar-link" do %>
-            <%= image_tag recent_user.profile.avatar,
-              class: "users-home-suggestion-user-avatar" %>
-          <% end %>
-          <div class="users-home-suggestion-user-info">
-            <%= link_to recent_user.profile.username, user_path(recent_user),
-              class: "users-home-suggestion-user-username-link" %>
-            <span class="users-home-suggestion-user-full-name">
-              <%= recent_user.profile.full_name %>
-            </span>
-          </div>
+        <%- if recent_user != current_user %>
+          <li class="users-home-suggestion-user">
+            <%= link_to user_path(recent_user),
+              class: "users-home-suggestion-user-avatar-link" do %>
+              <%= image_tag recent_user.profile.avatar,
+                class: "users-home-suggestion-user-avatar" %>
+            <% end %>
+            <div class="users-home-suggestion-user-info">
+              <%= link_to recent_user.profile.username, user_path(recent_user),
+                class: "users-home-suggestion-user-username-link" %>
+              <span class="users-home-suggestion-user-full-name">
+                <%= recent_user.profile.full_name %>
+              </span>
+            </div>
+          </li>
+        <% end %>
       <% end %>
     </ul>
     <div class="users-home-posts-main-container">
