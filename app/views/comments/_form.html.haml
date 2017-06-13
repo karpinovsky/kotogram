@@ -1,4 +1,5 @@
 = form_for [post.user, post, post.comments.build],
   html: { class: "form-comment" } do |f|
-  = f.hidden_field :commenter, value: current_user.id
-  = f.text_field :body, placeholder: 'Add a comment...', class: "form-comment-input"
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :user_username, value: current_user.profile.username
+  = f.text_field :body, placeholder: 'Add a comment...', class: "form-comment-input post-form-comment-input-#{post.id}", autocomplete: :off

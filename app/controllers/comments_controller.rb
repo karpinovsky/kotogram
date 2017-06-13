@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
 
   def create
-    Post.find(params[:post_id]).comments.create comment_params
-    redirect_back(fallback_location: authenticated_root_path)
+    comment = Post.find(params[:post_id]).comments.create comment_params
+    ActionCable.server.broadcast 'comment_channel', comment: comment if comment.save
   end
 
   def destroy
@@ -13,6 +13,6 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:post_id, :commenter, :body)
+      params.require(:comment).permit(:post_id, :user_id, :user_username, :body)
     end
 end

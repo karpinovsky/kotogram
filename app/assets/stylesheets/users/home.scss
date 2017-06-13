@@ -1,4 +1,4 @@
-@import 'utilities/mixins';
+@import "utilities/mixins";
 
 .users-home-main-container {
   overflow: hidden;
@@ -531,38 +531,6 @@
     padding: 16px 26px 16px 0;
     margin-top: 4px;
     border-top: 1px solid #efefef;
-  }
-}
-
-.form-comment {
-
-  @include large-desktop {
-  }
-
-  @include desktop {
-  }
-}
-
-.form-comment-input {
-
-  @include large-desktop {
-    width: 100%;
-    border: none;
-    color: #262626;
-    box-shadow: none;
-    outline: none;
-    height: 18px;
-    resize: none;
-  }
-
-  @include desktop {
-    width: 100%;
-    border: none;
-    color: #262626;
-    box-shadow: none;
-    outline: none;
-    height: 18px;
-    resize: none;
   }
 }
 
