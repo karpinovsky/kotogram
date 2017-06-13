@@ -8,6 +8,23 @@ App.comment = App.cable.subscriptions.create("CommentChannel", {
   },
 
   received: function(data) {
-    // Called when there's incoming data on the websocket for this channel
+    if (data){
+      var li = document.createElement("LI");
+      li.className = "comment";
+
+      var text = document.createTextNode(data.comment.body);
+      var span = document.createElement("SPAN");
+      span.appendChild(text);
+
+      var a = document.createElement("A");
+      a.className = "comment-user-username-link";
+      a.href = "/" + data.comment.user_username;
+      a.innerHTML = data.comment.user_username;
+
+      li.appendChild(a);
+      li.appendChild(span);
+      document.getElementsByClassName("post-" + data.comment.post_id)[0].appendChild(li);
+      document.getElementsByClassName("post-form-comment-input-" + data.comment.post_id)[0].value = "";
+    }
   }
 });
