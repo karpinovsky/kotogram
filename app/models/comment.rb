@@ -1,11 +1,9 @@
 class Comment < ApplicationRecord
   belongs_to :post
 
-  validates :post_id, :commenter, :body, presence: true,
-    unless: Proc.new { |a| a.post.nil? }
+  validates :post_id, :user_id, :user_username, :body, presence: true
 
   has_many :likes, as: :likeable, dependent: :destroy
-
 
   def has_like_from?(user)
     likes.find_by(liker: user.id)
