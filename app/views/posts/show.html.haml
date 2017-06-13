@@ -30,4 +30,5 @@
               %ul{ class: " posts-show-comments-container post-#{@post.id}" }
                 = render @post.comments
             .col-lg-12.col-md-12.col-sm-12.col-xs-12
-              = render 'comments/form', post: @post
+              - if user_signed_in?
+                = render 'comments/form', post: @post
