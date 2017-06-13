@@ -1,11 +1,7 @@
 %li.comment
-  %strong= link_to commenter_username(comment.commenter), user_path(commenter_username(comment.commenter)), class: 'commenter'
-  - if current_user.id == comment.commenter
-    .comment-delete
-      = link_to user_post_comment_path(commenter_username(comment.commenter),
-        comment.post, comment), method: :delete, class: 'comment-delete-icon' do
-        = icon('times')
-  .comment-likes
-    = render partial: 'likes/comments/form', locals: { likeable: comment }
-    = render partial: 'likes/likes', locals: { likeable: comment }
-  = with_links_to_users(with_links_to_tags(comment.body))
+  = link_to comment.user_username, user_path(comment.user_username),
+    class: "comment-user-username-link"
+  - if current_user.id == comment.user_id
+    = link_to 'Delete comment', user_post_comment_path(comment.user_username,
+              comment.post, comment), method: :delete, class: 'comment-delete-link'
+  %span= with_links_to_users(with_links_to_tags(comment.body))

@@ -1,17 +1,58 @@
-.comment {
-  min-height: 40px;
-  margin-bottom: 7px;
-  word-break: break-all;
-  line-height: 20px;
+@import "utilities/mixins";
 
-  &:hover .comment-delete-icon { display: flex; }
+.form-comment {
+
+  @include large-desktop {
+  }
+
+  @include desktop {
+  }
 }
 
-.commenter {
+.form-comment-input {
+
+  @include large-desktop {
+    width: 100%;
+    border: none;
+    color: #262626;
+    box-shadow: none;
+    outline: none;
+    height: 18px;
+    resize: none;
+  }
+
+  @include desktop {
+    width: 100%;
+    border: none;
+    color: #262626;
+    box-shadow: none;
+    outline: none;
+    height: 18px;
+    resize: none;
+  }
+}
+
+.comment {
+  font-size: 15px;
+  padding-top: 5px;
+  margin-top: -5px;
+  padding-bottom: 6px;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.comment-user-username-link {
+  font-weight: 600;
   float: left;
   clear: left;
   margin-right: 3px;
-  color: #262626;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: #262626;
+  }
 }
 
 .comment-likes {
@@ -46,27 +87,24 @@
   font-size: 14px;
 }
 
-.comment-delete {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.comment-delete-link {
+  display: block;
   float: right;
   clear: right;
-  width: 40px;
-  height: 40px;
-  margin-right: 0;
-}
+  background: transparent;
+  border: none;
+  color: #c7c7c7;
+  cursor: pointer;
+  height: 1em;
+  width: 1em;
+  overflow: hidden;
+  padding: 0;
+  margin-left: 10px;
 
-.comment-delete-icon {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  width: 20px;
-  height: 20px;
-  text-decoration: none;
-
-  > .fa-times {
-    font-size: 18px;
+  &:before {
+    display: block;
+    content: '\2715';
+    width: inherit;
+    height: inherit;
   }
 }
