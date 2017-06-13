@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
+
   devise_for :users, path: '', path_names: { sign_up: 'signup', sign_in: 'login',
                                              sign_out: 'logout', edit: 'edit'},
                      controllers: { omniauth_callbacks:  'users/omniauth_callbacks',
