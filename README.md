@@ -24,6 +24,7 @@
 * Покупка сервера, домена, поднятие проекта в **production** окружении
 * Настройка сервера, production окружения, capistrano, nginx, passenger, ssl
 * Настрока почтового сервиса mailgun для production
+* Rollbar для production
  
 
 Вещи, которые предстоит сделать:
