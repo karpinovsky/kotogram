@@ -6,4 +6,6 @@ Rails.application.configure do
     api_key: 'key-48e15945ae08563021d2f6bae7c24c86',
     domain: 'kotogram-project.com',
   }
+  config.action_cable.url = "/cable"
+  config.action_cable.allowed_request_origins = ["https://kotogram-project.com"]
 end

@@ -25,6 +25,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'rollbar'
 gem 'oj', '~> 2.12.14'
 gem "algoliasearch-rails"
+gem 'redis'
 
 gem 'haml_lint'
 gem 'rubocop', require: false
