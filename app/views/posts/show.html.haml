@@ -27,7 +27,7 @@
                 %strong= @post.user.profile.username
                 %span= @post.description
             .col-lg-12.col-md-12.col-sm-12.col-xs-12
-              %ul.posts-show-comments-container
+              %ul{ class: " posts-show-comments-container post-#{@post.id}" }
                 = render @post.comments
             .col-lg-12.col-md-12.col-sm-12.col-xs-12
               = render 'comments/form', post: @post
