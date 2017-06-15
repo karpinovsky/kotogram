@@ -1,3 +1,23 @@
+<main class="posts-show-main-container">
+  <article class="posts-show-container">
+    <header class="posts-show-header">
+      <%= link_to user_path(@post.user),
+        class: "users-show-info-header-user-avatar-link" do %>
+        <%= image_tag @post.user.profile.avatar,
+          class: "users-show-info-header-user-avatar" %>
+      <% end %>
+      <%= link_to @post.user.profile.username, user_path(@post.user),
+        class: "users-show-info-header-user-username-link" %>
+    </header>
+    <%- if @post.attachment.content_type.start_with? "video" %>
+      <%= video_tag @post.attachment.media, class: "posts-show-attachment" %>
+    <% else %>
+      <%= image_tag @post.attachment.media, class: "posts-show-attachment" %>
+    <% end %>
+    </div>
+  </acticle>
+</main>
+<!--
 .container.posts-show-container
   .row
     .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-12.posts-show-post
