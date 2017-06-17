@@ -1,54 +1,74 @@
 <main class="posts-show-main-container">
   <article class="posts-show-container">
-    <header class="posts-show-header">
-      <%= link_to user_path(@post.user),
-        class: "users-show-info-header-user-avatar-link" do %>
-        <%= image_tag @post.user.profile.avatar,
-          class: "users-show-info-header-user-avatar" %>
+    <div class="posts-show-attachment-container">
+      <%- if @post.attachment.content_type.start_with? "video" %>
+        <div class="play-icon-container">
+          <%= icon("play fa-5x") %>
+          <%= video_tag @post.attachment.media, class: "posts-show-attachment video" %>
+        </div>
+      <% else %>
+        <%= image_tag @post.attachment.media, class: "posts-show-attachment" %>
       <% end %>
-      <%= link_to @post.user.profile.username, user_path(@post.user),
-        class: "users-show-info-header-user-username-link" %>
-    </header>
-    <%- if @post.attachment.content_type.start_with? "video" %>
-      <%= video_tag @post.attachment.media, class: "posts-show-attachment" %>
-    <% else %>
-      <%= image_tag @post.attachment.media, class: "posts-show-attachment" %>
-    <% end %>
+    </div>
+    <div class="posts-show-left-container">
+      <header class="posts-show-header">
+        <%= link_to user_path(@post.user),
+          class: "users-show-info-header-user-avatar-link" do %>
+          <%= image_tag @post.user.profile.avatar,
+            class: "users-show-info-header-user-avatar" %>
+        <% end %>
+        <%= link_to @post.user.profile.username, user_path(@post.user),
+          class: "users-show-info-header-user-username-link" %>
+        <%- if user_signed_in? %>
+          <%- if current_user == @post.user %>
+            <%= button_to 'Delete', user_post_path(@post), method: :delete, class: 'btn-follow',
+              style: 'padding: 0 12px',
+              data: { confirm: "Are you sure?" } %>
+          <%- else %>
+            <div class="posts-show-relationship-container">
+              <%= render "relationships/form", user: @post.user %>
+            </div>
+          <% end %>
+        <% end %>
+      </header>
+      <div class="posts-show-info-main-container">
+        <div class="posts-show-info-comments-main-container">
+          <ul class="posts-show-info-comments-container post-<%= @post.id %>">
+            <%= render @post.comments %>
+          </ul>
+        </div>
+        <section class="posts-show-info-options-container">
+          <%= render 'likes/posts/form', likeable: @post %>
+        </section>
+        <%- unless @post.likes_count.zero? %>
+          <section class="posts-show-info-likes-container">
+            <%= render 'likes/likes', likeable: @post %>
+          </section>
+        <% end %>
+        <div class="posts-show-info-time-container">
+          <span><%= time_ago_in_words @post.created_at %></span>
+        </div>
+        <%- if user_signed_in? %>
+          <section class="posts-show-info-comment-form-main-container">
+            <%= render 'comments/form', post: @post %>
+          </section>
+        <% end %>
+      </div>
     </div>
   </acticle>
 </main>
-<!--
-.container.posts-show-container
-  .row
-    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-12.posts-show-post
-      .row
-        .col-lg-7.col-md-7.col-sm-7.col-xs-12{ style: 'padding-left: 0px; padding-right: 0px;' }
-          - if @post.attachment.content_type.start_with? 'video'
-            = video_tag @post.attachment.media, controls: :true, style: 'width: 100%; height: 100%;'
-          - else
-            = image_tag @post.attachment.media, style: 'width: 100%; height: 100%;'
-        .col-lg-5.col-md-5.col-sm-5.col-xs-12.posts-show-info
-          .row
-            .col-lg-12.col-md-12.col-sm-12.col-xs-12.posts-show-header
-              = link_to user_path(@post.user) do
-                = image_tag @post.user.profile.avatar.post_showpage, class: 'img-circle'
-                %strong.posts-show-header-username= @post.user.profile.username
-              - if current_user == @post.user
-                .posts-show-delete
-                  = button_to 'Delete post', user_post_path(@post), method: :delete, class: 'btn btn-danger',
-                    data: { confirm: "Are you sure?" }
-            .col-lg-12.col-md-12.col-sm-12.col-xs-12.posts-show-likes-and-time-container
-              = render 'likes/posts/form', likeable: @post
-              = render 'likes/likes', likeable: @post
-              = link_to user_post_path(@post.user, @post), class: 'posts-show-link-time' do
-                .text-muted= time_ago_in_words @post.created_at
-            - unless @post.description.blank?
-              .col-lg-12.col-md-12.col-sm-12.col-xs-12
-                %strong= @post.user.profile.username
-                %span= @post.description
-            .col-lg-12.col-md-12.col-sm-12.col-xs-12
-              %ul{ class: " posts-show-comments-container post-#{@post.id}" }
-                = render @post.comments
-            .col-lg-12.col-md-12.col-sm-12.col-xs-12
-              - if user_signed_in?
-                = render 'comments/form', post: @post
+<script>
+  $('.video').click(function() {
+    if (this.paused) {
+      $(".fa-play").css({"visibility": "hidden", "opacity": "0"});
+      this.play();
+    } else {
+      $(".fa-play").css({"visibility": "", "opacity": ""});
+      this.pause();
+    }
+  });
+
+  $('.video').on("ended", function(){
+    $(".fa-play").css({"visibility": "", "opacity": ""});
+  });
+</script>
