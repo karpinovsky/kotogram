@@ -1,25 +1,6 @@
 @import "utilities/mixins";
 
-.form-comment {
-
-  @include large-desktop {
-  }
-
-  @include desktop {
-  }
-}
-
 .form-comment-input {
-
-  @include large-desktop {
-    width: 100%;
-    border: none;
-    color: #262626;
-    box-shadow: none;
-    outline: none;
-    height: 18px;
-    resize: none;
-  }
 
   @include desktop {
     width: 100%;

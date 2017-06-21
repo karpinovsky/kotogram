@@ -1,9 +1,6 @@
 @import 'utilities/mixins';
 
 .users-show-main-container {
-  @include large-desktop {
-    overflow: hidden;
-  }
 
   @include desktop {
     overflow: hidden;
@@ -11,12 +8,6 @@
 }
 
 .users-show-container {
-
-  @include large-desktop {
-    width: 935px;
-    margin: 60px auto;
-    overflow: hidden;
-  }
 
   @include desktop {
     width: 935px;
@@ -27,12 +18,6 @@
 
 .users-show-header {
 
-  @include large-desktop {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 44px;
-  }
-
   @include desktop {
     display: flex;
     flex-direction: row;
@@ -42,25 +27,12 @@
 
 .users-show-header-avatar-main-container {
 
-  @include large-desktop {
-    flex-grow: 1;
-  }
   @include desktop {
     flex-grow: 1;
   }
 }
 
 .users-show-header-avatar-container {
-
-  @include large-desktop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    width: 152px;
-    height: 152px;
-    margin: 0 auto;
-  }
 
   @include desktop {
     display: flex;
@@ -75,11 +47,6 @@
 
 .users-show-header-avatar {
 
-  @include large-desktop {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-  }
   @include desktop {
     height: 100%;
     width: 100%;
@@ -89,22 +56,12 @@
 
 .users-show-header-info-main-container {
 
-  @include large-desktop {
-    flex-grow: 2;
-  }
-
   @include desktop {
     flex-grow: 2;
   }
 }
 .users-show-header-info-top {
 
-  @include large-desktop {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px;
-  }
   @include desktop {
     display: flex;
     flex-direction: row;
@@ -114,17 +71,6 @@
 }
 
 .users-show-header-info-top-username {
-
-  @include large-desktop {
-    color: #262626;
-    margin: 0 20px 0 0;
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 200;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 
   @include desktop {
     color: #262626;
@@ -142,33 +88,10 @@
 .users-show-header-info-top-new-post-btn,
 .users-show-header-info-top-my-posts-btn {
 
-  @include large-desktop {
-    padding: 0 24px;
-    color: #262626;
-    background-color: transparent;
-    border: 1px solid #dbdbdb;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 26px;
-    outline: none;
-    box-shadow: none;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    border-radius: 3px;
-
-    &:link,
-    &:visited,
-    &:hover,
-    &:active {
-      color: #262626;
-    }
-  }
-
   @include desktop {
     padding: 0 24px;
     color: #262626;
-    background-color: white;
+    background-color: transparent;
     border: 1px solid #dbdbdb;
     font-size: 14px;
     font-weight: 600;
@@ -192,19 +115,11 @@
 .users-show-header-info-top-new-post-btn,
 .users-show-header-info-top-my-posts-btn {
 
-  @include large-desktop {
-    margin-left: 7px;
-  }
-
   @include desktop {
     margin-left: 7px;
   }
 }
 .users-show-header-info-top-settings-container {
-
-  @include large-desktop {
-    margin-left: 7px;
-  }
 
   @include desktop {
     margin-left: 7px;
@@ -212,20 +127,6 @@
 }
 
 #users-show-header-info-top-settings {
-
-  @include large-desktop {
-    display: block;
-    border: 0;
-    outline: none;
-    box-shadow: none;
-    padding: 0;
-    width: 24px;
-    height: 24px;
-    background-color: transparent;
-    cursor: pointer;
-    background-image: image-url("kotogram.png");
-    background-position: -243px -289px;
-  }
 
   @include desktop {
     display: block;
@@ -244,20 +145,6 @@
 
 #users-show-settings-modal {
 
-  @include large-desktop {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: rgba(0,0,0,0.4);
-  }
-
   @include desktop {
     display: none;
     align-items: center;
@@ -275,12 +162,6 @@
 
 #users-show-settings-modal-content {
 
-  @include large-desktop {
-    background-color: white;
-    border: 0;
-    width: 500px;
-  }
-
   @include desktop {
     background-color: white;
     border: 0;
@@ -290,12 +171,6 @@
 
 #users-show-settings-modal-content-container {
 
-  @include large-desktop {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
   @include desktop {
     list-style: none;
     padding: 0;
@@ -303,12 +178,6 @@
   }
 }
 .users-show-settings-modal-content-item {
-
-  @include large-desktop {
-    background-color: white;
-    border-bottom: 1px solid #dbdbdb;
-    height: 51px;
-  }
 
   @include desktop {
     background-color: white;
@@ -319,37 +188,6 @@
 
 #users-show-settings-modal-logout-link,
 #users-show-settings-modal-cancel {
-
-  @include large-desktop {
-    display: inline-block;
-    background-color: white;
-    border: none;
-    color: #262626;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 50px;
-    margin: 0;
-    overflow: hidden;
-    padding: 0 16px;
-    text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%;
-    outline: none;
-    box-shadow: none;
-
-    &:link,
-    &:visited,
-    &:hover,
-    &:active {
-      color: #262626;
-    }
-
-    &:hover {
-      background-color: #dbdbdb;
-    }
-  }
 
   @include desktop {
     display: inline-block;
@@ -385,14 +223,6 @@
 
 
 .users-show-header-info-middle {
-  @include large-desktop {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-  }
-
   @include desktop {
     display: flex;
     flex-direction: row;
@@ -403,14 +233,6 @@
 }
 
 .users-show-header-info-middle-item {
-  @include large-desktop {
-    font-size: 16px;
-    margin-right: 40px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
 
   @include desktop {
     font-size: 16px;
@@ -430,25 +252,11 @@
 #users-show-followers-modal,
 #users-show-following-modal {
 
-  @include large-desktop {
-    overflow-y: auto;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
-  }
-
   @include desktop {
-    align-items: center;
-    justify-content: center;
     overflow-y: auto;
     display: none;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     z-index: 2;
     left: 0;
@@ -462,24 +270,14 @@
 #users-show-followers-modal-content,
 #users-show-following-modal-content {
 
-  @include large-desktop {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: white;
-    border: 0;
-    height: 500px;
-    width: 500px;
-  }
-
   @include desktop {
     display: flex;
     align-items: center;
     flex-direction: column;
     background-color: white;
     border: 0;
-    width: 500px;
     height: 500px;
+    width: 500px;
   }
 }
 
@@ -496,17 +294,6 @@
 
 #users-show-followers-modal-content-container,
 #users-show-following-modal-content-container {
-
-  @include large-desktop {
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 500px;
-    flex: 1 1 auto;
-  }
 
   @include desktop {
     height: 100%;
@@ -593,13 +380,6 @@
 
 .users-show-header-info-bottom {
 
-  @include large-desktop {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    line-height: 24px;
-  }
-
   @include desktop {
     display: flex;
     flex-direction: column;
@@ -610,13 +390,6 @@
 
 .users-show-header-info-bottom-full-name {
 
-  @include large-desktop {
-    margin: 0;
-    font-weight: 600;
-    font-size: inherit;
-    word-break: break-all;
-  }
-
   @include desktop {
     margin: 0;
     font-weight: 600;
@@ -624,24 +397,8 @@
     word-break: break-all;
   }
 }
-
-.users-show-header-info-bottom-about-me {
-
-  @include large-desktop {
-  }
-
-  @include desktop {
-  }
-}
-
 
 .users-show-posts-no-posts-container {
-
-  @include large-desktop {
-    display: flex;
-    flex-direction: row;
-    background-color: white;
-  }
 
   @include desktop {
     display: flex;
@@ -652,11 +409,6 @@
 
 .users-show-posts-no-posts-image-container {
 
-  @include large-desktop {
-    width: 380px;
-    height: 380px;
-  }
-
   @include desktop {
     width: 380px;
     height: 380px;
@@ -664,11 +416,6 @@
 }
 
 .users-show-posts-no-posts-image {
-
-  @include large-desktop {
-    width: 100%;
-    height: 100%;
-  }
 
   @include desktop {
     width: 100%;
@@ -678,26 +425,12 @@
 
 .users-show-posts-no-posts-info-main-container {
 
-  @include large-desktop {
-    flex-basis: 555px;
-  }
-
   @include desktop {
     flex-basis: 555px;
   }
 }
 
 .users-show-posts-no-posts-info-container {
-
-  @include large-desktop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-    height: 100%;
-    flex-direction: column;
-  }
 
   @include desktop {
     display: flex;
@@ -711,12 +444,6 @@
 }
 
 .users-show-posts-no-posts-start-capturing {
-
-  @include large-desktop {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 13px 0;
-  }
 
   @include desktop {
     font-size: 18px;
@@ -745,10 +472,6 @@
 
 .new-post {
 
-  @include large-desktop {
-    display: block;
-  }
-
   @include desktop {
     display: block;
   }
@@ -765,18 +488,6 @@
 
 .users-show-post-container {
 
-  @include large-desktop {
-    display: flex;
-    justify-content: flex-end;
-    width: 293px;
-    height: 293px;
-    margin-right: 28px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
   @include desktop {
     display: flex;
     justify-content: flex-end;
@@ -791,22 +502,6 @@
 }
 
 .users-show-video-icon {
-
-  @include large-desktop {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 1;
-    visibility: visible;
-    opacity: 1;
-    pointer-events: none;
-    cursor: pointer;
-    background-image: image-url("kotogram.png");
-    background-position: -355px 0;
-  }
 
   @include desktop {
     width: 50px;
@@ -827,15 +522,6 @@
 
 .users-show-post-link {
 
-  @include large-desktop {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
   @include desktop {
     width: 100%;
     height: 100%;
@@ -852,17 +538,6 @@
 
 .users-show-posts-no-posts-another-user-container {
 
-  @include large-desktop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid #efefef;
-    border-radius: 3px;
-    background-color: #fff;
-    padding: 40px;
-  }
-
   @include desktop {
     display: flex;
     align-items: center;
@@ -877,14 +552,6 @@
 
 .users-show-posts-no-posts-another-user-container-info {
 
-  @include large-desktop {
-    color: #262626;
-    margin: 0;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-  }
-
   @include desktop {
     color: #262626;
     margin: 0;
@@ -896,22 +563,6 @@
 
 .btn-follow,
 .btn-unfollow {
-
-  @include large-desktop {
-    padding: 0 24px;
-    background-color: #3897f0;
-    color: white;
-    border: 1px solid #3897f0;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 26px;
-    outline: none;
-    box-shadow: none;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 
   @include desktop {
     padding: 0 24px;
@@ -935,4 +586,3 @@
   color: #262626;
   border-color: #dbdbdb;
 }
-

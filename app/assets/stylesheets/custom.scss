@@ -1,23 +1,11 @@
-@import "utilities/mixins";
+@import "utilities/variables";
 
-html {
-  @include tablet {
-    display: none;
-  }
-
-  @include phone {
-    display: none;
-  }
-}
-
+html { height: 100%; }
 body {
-  overflow-x: hidden;
+  height: 100%;
+  background-color: $color-body;
   overflow-y: scroll;
-  background-color: #fafafa;
-}
-
-.main-content {
-  padding-top: 71px;
+  overflow-x: hidden;
 }
 
 a:link,
