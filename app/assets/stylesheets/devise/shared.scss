@@ -1,5 +1,10 @@
 @import 'utilities/mixins';
 
+.devise-shared-pages {
+  @media (max-height: 416px ) { align-items: flex-start; }
+  @media (max-width: 767px) and (min-height: 416px) { align-items: center; }
+}
+
 .devise-main-container {
   display: flex;
   min-height: 100%;

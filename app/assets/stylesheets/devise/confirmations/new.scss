@@ -1,6 +1,0 @@
-@import 'utilities/mixins';
-
-.devise-confirmations-new {
-  @media (max-height: 416px ) { justify-content: flex-start; }
-  @media (max-width: 767px) and (min-height: 416px) { align-items: center; }
-}

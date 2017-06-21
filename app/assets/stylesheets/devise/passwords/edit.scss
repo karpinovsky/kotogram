@@ -1,7 +1,0 @@
-@import 'utilities/mixins';
-
-.devise-passwords-edit {
-
-  @media (max-height: 460px ) { justify-content: flex-start; }
-  @media (max-width: 767px) and (min-height: 460px) { align-items: center; }
-}
