@@ -1,8 +1,9 @@
-@import "utilities/mixins";
+@import "utilities/variables";
 
 html { height: 100%; }
 body {
   height: 100%;
+  background-color: $color-body;
   overflow-y: scroll;
   overflow-x: hidden;
 }
