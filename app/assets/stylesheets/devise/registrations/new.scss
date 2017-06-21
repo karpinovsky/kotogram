@@ -1,40 +1,25 @@
 @import 'utilities/mixins';
 
-.unauthorized-user-home-page {
+.devise-registrations-new {
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100%;
   align-items: center;
   justify-content: center;
+  background-color: $color-body;
 
-  @media (max-height: 660px ) {
-    align-items: flex-start;
-  }
+  @media (max-height: 660px ) { align-items: flex-start }
 }
 
-
-.unauthorized-user-home-page-container-kotogram-image {
-  @include phone {
-    display: none;
-  }
-}
-
-.unauthorized-user-home-page-container {
+.devise-registrations-new-container {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: row;
-  padding-top: 25px;
-  padding-bottom: 25px;
-
-  @include phone {
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
+  padding: 25px 0;
 }
 
-.unauthorized-user-home-page-main-content {
+.devise-registrations-new-container-image { @include tablet-phone { display: none } }
+
+.devise-registrations-new-container-main-content {
   margin-left: 15px;
 
   @include phone {
@@ -43,7 +28,7 @@
   }
 }
 
-.unauthorized-user-home-page-sign-up-container {
+.devise-registrations-new-container-main-content-signup-container {
   width: 350px;
   border: 1px solid #e6e6e6;
   background-color: #fff;
@@ -60,14 +45,7 @@
   }
 }
 
-.unauthorized-user-home-page-kotogram {
-  text-align: center;
-  margin: 0 0 15px 0;
-  font-family: 'Lobster Two';
-  font-size: 46px;
-}
-
-.unauthorized-user-home-page-sign-up-suggestion {
+.devise-registrations-new-container-main-content-signup-container h2 {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -103,21 +81,21 @@
   top: 1px;
 }
 
-.unauthorized-user-home-page-or-sign-up-with-form-container {
+.devise-registrations-new-container-main-content-signup-container-or-signup-with-form-container {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  h3 {
+    margin: 15px 18px;
+    font-size: 13px;
+    color: #999;
+    line-height: 15px;
+    font-weight: 600;
+  }
 }
 
-.unauthorized-user-home-page-or-sign-up-with-form {
-  margin: 15px 18px;
-  font-size: 13px;
-  color: #999;
-  line-height: 15px;
-  font-weight: 600;
-}
-
-.unauthorized-user-home-page-or-sign-up-with-form-line {
+.devise-registrations-new-container-main-content-signup-container-or-signup-with-form-container-line {
   height: 1px;
   width: 106px;
   background-color: #c7c7c7;
@@ -125,44 +103,4 @@
   @include phone {
     width: 100%;
   }
-}
-
-.unauthorized-user-home-page-signup-form {
-}
-
-.unauthorized-user-home-page-sign-up-form-input-control {
-  display: block;
-  margin-bottom: 6px;
-  border: 1px solid #dbdbdb;
-  border-radius: 3px;
-  color: #262626;
-  font-size: 14px;
-  padding: 9px 8px 7px;
-  width: 100%;
-
-  &:focus {
-    box-shadow: none;
-    outline: none;
-    border-color: #b2b2b2;
-  }
-}
-
-.unauthorized-user-home-page-sign-up-button {
-  margin-top: 10px;
-  padding: 0 8px;
-  cursor: pointer;
-  background-color: #3897f0;
-  border-color: #3897f0;
-  color: #fff;
-  border-radius: 3px;
-  border-style: solid;
-  border-width: 1px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 26px;
-  outline: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
 }

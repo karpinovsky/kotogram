@@ -1,5 +1,48 @@
 @import 'utilities/mixins';
 
+.kotogram {
+  text-align: center;
+  margin: 0 0 15px 0;
+  font-family: 'Lobster Two';
+  font-size: 46px;
+}
+
+.devise-input {
+  margin-bottom: 6px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  color: #262626;
+  font-size: 14px;
+  padding: 9px 8px 7px;
+  width: 100%;
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: #b2b2b2;
+  }
+}
+
+.devise-btn {
+  margin-top: 10px;
+  padding: 0 8px;
+  cursor: pointer;
+  background-color: #3897f0;
+  border-color: #3897f0;
+  color: #fff;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 26px;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
 .unauthorized-user-shared-links-container {
   width: 350px;
   border: 1px solid #e6e6e6;
