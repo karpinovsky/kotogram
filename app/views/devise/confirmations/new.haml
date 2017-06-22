@@ -8,5 +8,5 @@
           = f.email_field :email, autofocus: true, placeholder: :Email,
             value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'input-devise'
           = f.submit 'Resend instructions', class: 'btn-devise'
-      .devise-shared-links-container
-        = render 'devise/shared/links'
+
+      = render 'devise/shared/links'

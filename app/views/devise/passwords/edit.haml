@@ -9,5 +9,5 @@
           = f.password_field :password, autofocus: true, autocomplete: :off, placeholder: 'New password', class: 'input-devise'
           = f.password_field :password_confirmation, autocomplete: :off, placeholder: 'Confirm new password', class: 'input-devise'
           = f.submit 'Change password', class: 'btn-devise'
-      .devise-shared-links-container
-        = render 'devise/shared/links'
+
+      = render 'devise/shared/links'
