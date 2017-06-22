@@ -1,0 +1,73 @@
+%main.users-home-main-container
+  %section.users-home-container
+    - if @feed_items.empty?
+      .users-home-welcome-container
+        .users-home-welcome-icon-container
+          %h2.users-home-welcome-to-kotogram Welcome to Kotogram!
+          %p.users-home-follow-accounts Follow accounts to see photos and videos in your feed.
+    %ul.users-home-suggestions-main-container
+      %li.users-home-suggestion-user
+        .users-home-suggestion-for-you-container
+          %span.users-home-suggestions-for-you Suggestions for you
+          = link_to '#', class: 'users-home-suggestions-for-you-see-all' do
+            See All
+            %span.users-home-suggestions-for-you-see-all-icon-container
+        - @recent_users.each do |recent_user|
+          - if recent_user != current_user
+            %li.users-home-suggestion-user
+              = link_to user_path(recent_user), class: 'users-home-suggestion-user-avatar-link' do
+                = image_tag recent_user.profile.avatar, class: 'users-home-suggestion-user-avatar'
+              .users-home-suggestion-user-info
+                = link_to recent_user.profile.username, user_path(recent_user),
+                  class: 'users-home-suggestion-user-username-link'
+                %span.users-home-suggestion-user-full-name
+                  = recent_user.profile.full_name
+    - if @feed_items.any?
+      .users-home-posts-main-container
+        - @feed_items.each do |post|
+          %article.users-home-post-container
+            %header.users-home-post-header
+              = link_to user_path(post.user), class: "users-home-post-header-avatar-link" do
+                = image_tag post.user.profile.avatar, class: "users-home-post-header-avatar-image"
+              = link_to user_path(post.user), class: "users-home-post-header-username-link" do
+                = post.user.profile.username
+              = link_to user_post_path(post.user, post), class: 'users-home-post-header-date-link' do
+                %time.users-home-post-header-date= time_ago_in_words(post.created_at)
+            .users-home-post-attachment-container
+              - if post.attachment.content_type.start_with? 'video'
+                .play-icon-container
+                  = icon("play fa-5x")
+                  = video_tag post.attachment.media, class: 'users-home-post-attachment video'
+              - else
+                = image_tag post.attachment.media, class: 'users-home-post-attachment'
+            .users-home-post-info-container
+              %section.users-home-post-like-dislike-container
+                = render 'likes/posts/form', likeable: post
+              - unless post.likes_count.zero?
+                %section.users-home-post-likes-container
+                  = render 'likes/likes', likeable: post
+              - unless post.description.blank?
+                %section.users-home-post-description-container
+                  = link_to user_path(post.user),
+                    class: "users-home-post-description-username-link" do
+                    = post.user.profile.username
+                  %span.users-home-post-description
+                    = with_links_to_users(with_links_to_tags(post.description))
+              %ul{:class => "users-home-post-comments-container post-#{post.id}"}
+                = render post.comments
+              %section.users-home-post-comment-form-container
+                = render 'comments/form', post: post
+  :javascript
+    $('.video').click(function() {
+      if (this.paused) {
+        $(".fa-play").css({"visibility": "hidden", "opacity": "0"});
+        this.play();
+      } else {
+        $(".fa-play").css({"visibility": "", "opacity": ""});
+        this.pause();
+      }
+    });
+
+    $('.video').on("ended", function(){
+      $(".fa-play").css({"visibility": "", "opacity": ""});
+    });

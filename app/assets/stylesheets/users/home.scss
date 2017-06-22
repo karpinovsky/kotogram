@@ -211,8 +211,6 @@
   @include desktop {
     overflow: hidden;
     width: 100%;
-
-    &:hover .fa-play { visibility: visible; opacity: 1; }
   }
 }
 
@@ -249,8 +247,8 @@
     .fa-play {
       position: absolute;
       z-index: 1;
-      visibility: hidden;
-      opacity: 0;
+      visibility: visible;
+      opacity: 1;
       transition: opacity 0.2s ease-out;
       transition-delay: .1s;
       pointer-events: none;
