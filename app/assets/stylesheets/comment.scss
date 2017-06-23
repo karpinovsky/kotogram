@@ -1,16 +1,13 @@
 @import "utilities/mixins";
 
 .form-comment-input {
-
-  @include desktop {
-    width: 100%;
-    border: none;
-    color: #262626;
-    box-shadow: none;
-    outline: none;
-    height: 18px;
-    resize: none;
-  }
+  width: 100%;
+  border: none;
+  color: #262626;
+  box-shadow: none;
+  outline: none;
+  height: 18px;
+  resize: none;
 }
 
 .comment {
@@ -69,23 +66,28 @@
 }
 
 .comment-delete-link {
-  display: block;
-  float: right;
-  clear: right;
-  background: transparent;
-  border: none;
-  color: #c7c7c7;
-  cursor: pointer;
-  height: 15px;
-  width: 10px;
-  overflow: hidden;
-  padding: 0;
-  margin-left: 10px;
 
-  &:before {
+  @include desktop {
     display: block;
-    content: '\2715';
-    width: inherit;
-    height: inherit;
+    float: right;
+    clear: right;
+    background: transparent;
+    border: none;
+    color: #c7c7c7;
+    cursor: pointer;
+    height: 15px;
+    width: 10px;
+    overflow: hidden;
+    padding: 0;
+    margin-left: 10px;
+
+    &:before {
+      display: block;
+      content: '\2715';
+      width: inherit;
+      height: inherit;
+    }
   }
+
+  @include tablet-phone { display: none; }
 }

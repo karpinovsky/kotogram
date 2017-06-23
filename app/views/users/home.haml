@@ -31,8 +31,6 @@
                 = image_tag post.user.profile.avatar, class: "users-home-post-header-avatar-image"
               = link_to user_path(post.user), class: "users-home-post-header-username-link" do
                 = post.user.profile.username
-              = link_to user_post_path(post.user, post), class: 'users-home-post-header-date-link' do
-                %time.users-home-post-header-date= time_ago_in_words(post.created_at)
             .users-home-post-attachment-container
               - if post.attachment.content_type.start_with? 'video'
                 .play-icon-container
@@ -55,6 +53,8 @@
                     = with_links_to_users(with_links_to_tags(post.description))
               %ul{:class => "users-home-post-comments-container post-#{post.id}"}
                 = render post.comments
+              = link_to time_ago_in_words(post.created_at), user_post_path(post.user, post),
+                class: 'date'
               %section.users-home-post-comment-form-container
                 = render 'comments/form', post: post
   :javascript

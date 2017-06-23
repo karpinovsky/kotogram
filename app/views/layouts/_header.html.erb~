@@ -5,6 +5,8 @@
         <%= icon("instagram") %>
         <h3 id="kotogram">Kotogram</h3>
       <% end %>
+      <button></button>
+      <h1>Kotogram</h1>
       <div class="aa-input-container" id="aa-input-container">
         <input autocomplete="off" class="aa-input-search" id="aa-search-input" name="search" placeholder="Search" type="search"></input>
       </div>
