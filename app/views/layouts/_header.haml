@@ -1,0 +1,52 @@
+- if user_signed_in?
+  .header-tablet-mobile
+    %header.header-authorized-user
+      %nav.nav-authorized-user
+        = link_to authenticated_root_path, class: "logo" do
+          = icon("instagram")
+          %h3#kotogram Kotogram
+        %button
+        %h1 Kotogram
+        #aa-input-container.aa-input-container
+          %input#aa-search-input.aa-input-search{:autocomplete => "off", :name => "search", :placeholder => "Search", :type => "search"}/
+        .nav-authorized-user-left
+          = link_to "", user_path(current_user),
+            id: "profile-link"
+    %script{:src => "https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"}
+    :javascript
+      var client = algoliasearch("H604D46QS3", "e0681dacff62916045d29b113371f926")
+      var profiles = client.initIndex("Profile_" + "#{Rails.env}");
+      var tags = client.initIndex("Tag_" + "#{Rails.env}");
+
+      autocomplete('#aa-search-input', { autoselect: true, openOnFocus: true, debug: false }, [
+        {
+          source: autocomplete.sources.hits(tags, { hitsPerPage: 5 }),
+          displayKey: 'body',
+          templates: {
+            suggestion: function(suggestion) {
+              return '<a class="algolia-tag-link" href="/explore/tags/' + suggestion.body + '">' +
+                '<i class="fa fa-hashtag"></i>' +
+                '<div class="algolia-tag-container">' + suggestion.body + '</div></a>';
+            }
+          }
+        },
+        {
+          source: autocomplete.sources.hits(profiles, { hitsPerPage: 100 }),
+          displayKey: 'username',
+          templates: {
+            suggestion: function(suggestion) {
+              var path = "";
+              if ( suggestion.avatar.url.startsWith("fallback") ) {
+                path = "assets/";
+              }
+
+              return '<a class="algolia-user-link" href="/' + suggestion.username + '">' +
+                '<img class="algolia-user-avatar" src="' + path + suggestion.avatar.url + '">' +
+                '<div class="algolia-user-info">' +
+                '<div class="algolia-user-username">' + suggestion.username + '</div>' +
+                '<div class="algolia-user-full-name">' + suggestion.full_name + '</div>' +
+                '</div></a>';
+            }
+          }
+        }
+      ]);

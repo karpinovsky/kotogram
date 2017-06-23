@@ -1,0 +1,9 @@
+.date {
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: #999;
+    text-transform: uppercase;
+  }
+}
