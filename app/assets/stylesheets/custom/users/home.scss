@@ -1,4 +1,5 @@
 @import 'utilities/mixins';
+@import 'utilities/variables';
 
 .users-home-main-container {
   overflow: hidden;
@@ -23,7 +24,7 @@
   margin: 0 -1px 20px;
   padding: 0;
 
-  @include phone { display: none; }
+  @include tablet-phone { display: none; }
 }
 
 .users-home-suggestion-user {
@@ -196,6 +197,7 @@
 
 .users-home-post-attachment-container {
   overflow: hidden;
+  position: relative;
   width: 100%;
 }
 

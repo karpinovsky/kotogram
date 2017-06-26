@@ -33,9 +33,8 @@
                 = post.user.profile.username
             .users-home-post-attachment-container
               - if post.attachment.content_type.start_with? 'video'
-                .play-icon-container
-                  = icon("play fa-5x")
-                  = video_tag post.attachment.media, class: 'users-home-post-attachment video'
+                .play-icon
+                = video_tag post.attachment.media, class: 'users-home-post-attachment video'
               - else
                 = image_tag post.attachment.media, class: 'users-home-post-attachment'
             .users-home-post-info-container
@@ -60,14 +59,14 @@
   :javascript
     $('.video').click(function() {
       if (this.paused) {
-        $(".fa-play").css({"visibility": "hidden", "opacity": "0"});
+        $(".play-icon").css({"visibility": "hidden", "opacity": "0"});
         this.play();
       } else {
-        $(".fa-play").css({"visibility": "", "opacity": ""});
+        $(".play-icon").css({"visibility": "", "opacity": ""});
         this.pause();
       }
     });
 
     $('.video').on("ended", function(){
-      $(".fa-play").css({"visibility": "", "opacity": ""});
+      $(".play-icon").css({"visibility": "", "opacity": ""});
     });

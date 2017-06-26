@@ -34,14 +34,14 @@
     height: 24px;
     border: 0;
     padding: 0;
-    background-image: image-url('kotogram2.png');
+    background-image: image-url('1.png');
     background-color: transparent;
     background-size: 401px 355px;
   }
 
-  .home { background-position: -81px -283px; }
-  .search { background-position: -300px -331px }
+  .home { background-position: -150px -331px; }
+  .search { background-position: -325px -331px; }
   .post { height: 21px; background-position: -176px -112px; }
-  .news { background-position: -306px -283px; }
-  .profile { background-position: -250px -331px; }
+  .news { background-position: 0 -331px; }
+  .profile { background-position: -275px -331px; }
 }
