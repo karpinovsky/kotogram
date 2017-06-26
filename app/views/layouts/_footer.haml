@@ -1,6 +1,7 @@
 %footer.footer
   %section
-    %button{ class: "home #{ 'active' if params[:action] == 'home'}"}
+    = link_to authenticated_root_path do
+      %button{ class: "home #{ 'active' if params[:action] == 'home'}"}
   %section
     %button.search
   %section
@@ -8,4 +9,5 @@
   %section
     %button.news
   %section
-    %button.profile
+    = link_to user_path(current_user) do
+      %button{ class: "profile #{ 'active' if params[:controller] == 'users' && params[:action] == 'show'}"}
