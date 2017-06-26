@@ -10,7 +10,7 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   validates :username, presence: true, length: { within: 6..20 },
-    uniqueness: { case_sensitive: false }
+                       uniqueness: { case_sensitive: false }
 
   validates :about_me, length: { maximum: 75 }
 
@@ -19,12 +19,12 @@ class Profile < ApplicationRecord
   algoliasearch per_environment: true do
     attribute :username, :full_name, :avatar
 
-    searchableAttributes ['username', 'full_name']
+    searchableAttributes %w(username full_name)
   end
 
   def set_new_username_to_comments
-    Comment.where(user_id: self.user.id).each do |comment|
-      comment.update(user_username: self.username)
+    Comment.where(user_id: user.id).find_each do |comment|
+      comment.update(user_username: username)
     end
   end
 end
