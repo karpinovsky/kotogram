@@ -1,20 +1,20 @@
 @import 'utilities/mixins';
 
 .devise-shared-pages {
-  @media (max-height: 416px ) { align-items: flex-start; }
+  @media (max-height: 416px) { align-items: flex-start; }
   @media (max-width: 767px) and (min-height: 416px) { align-items: center; }
 }
 
 .devise-main-container {
-  display: flex;
-  min-height: 100%;
   align-items: center;
+  display: flex;
   justify-content: center;
+  min-height: 100%;
 }
 
 .devise-container {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: row;
   padding: 25px 0;
 }
@@ -22,114 +22,107 @@
 .devise-container-image {
   margin-right: 15px;
 
-  @include tablet-phone { display: none }
+  @include tablet-phone { display: none; }
 }
 
 .devise-main-content {
-  width: 350px;
-  border: 1px solid #e6e6e6;
-  background-color: #fff;
+  background-color: $color-white;
+  border: 1px solid $color-border;
   border-radius: 1px;
-  padding: 15px 40px;
   margin-bottom: 10px;
+  padding: 15px 40px;
+  width: 350px;
 
   @include phone {
-    width: 100%;
+    background-color: $color-body;
+    border-color: $color-body;
+    margin-bottom: 0;
     padding: 15px 10%;
-    background-color: #fafafa;
-    border-color: #fafafa;
-    margin-bottom: 0px;
+    width: 100%;
   }
 
   h2 {
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    color: #999;
+    color: $color-time;
     font-size: 17px;
-    line-height: 20px;
     font-weight: 600;
+    line-height: 20px;
+    margin: 15px 0;
+    text-align: center;
   }
 }
 
 .kotogram {
-  text-align: center;
-  margin: 0 0 15px 0;
   font-family: 'Lobster Two';
   font-size: 46px;
+  margin: 0 0 15px;
+  text-align: center;
 }
 
 .btn-facebook {
-  padding: 0 8px;
-  cursor: pointer;
-  background-color: #3897f0;
-  border-color: #3897f0;
-  color: #fff;
+  background-color: $color-btn-primary;
+  border: 1px solid $color-btn-primary;
   border-radius: 3px;
-  border-style: solid;
-  border-width: 1px;
+  color: $color-white;
   font-size: 14px;
   font-weight: 600;
   line-height: 26px;
   outline: none;
   overflow: hidden;
+  padding: 0 8px;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
 
   .fa-facebook-official {
-    margin-right: 5px;
     font-size: 16px;
+    margin-right: 5px;
     position: relative;
     top: 1px;
   }
 }
 
 .input-devise {
-  margin-bottom: 6px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid $color-input;
   border-radius: 3px;
-  color: #262626;
+  color: $color-light-black;
   font-size: 14px;
+  margin-bottom: 6px;
   padding: 9px 8px 7px;
   width: 100%;
 
   &:focus {
+    border-color: $color-input-focus;
     box-shadow: none;
     outline: none;
-    border-color: #b2b2b2;
   }
 }
 
 .btn-devise {
-  margin-top: 10px;
-  padding: 0 8px;
-  cursor: pointer;
-  background-color: #3897f0;
-  border-color: #3897f0;
-  color: #fff;
+  background-color: $color-btn-primary;
+  border: 1px solid $color-btn-primary;
   border-radius: 3px;
-  border-style: solid;
-  border-width: 1px;
+  color: $color-white;
   font-size: 14px;
   font-weight: 600;
   line-height: 26px;
+  margin-top: 10px;
   outline: none;
   overflow: hidden;
+  padding: 0 8px;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
 }
 
 .devise-or {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 
   .line {
+    background-color: $color-light-gray-c7c7c7;
     height: 1px;
     width: 106px;
-    background-color: #c7c7c7;
 
     @include phone {
       width: 100%;
@@ -137,30 +130,30 @@
   }
 
   h3 {
-    margin: 15px 18px;
+    color: $color-time;
     font-size: 13px;
-    color: #999;
-    line-height: 15px;
     font-weight: 600;
+    line-height: 15px;
+    margin: 15px 18px;
   }
 }
 
 .devise-shared-links {
-  width: 350px;
-  border: 1px solid #e6e6e6;
-  background-color: #fff;
+  background-color: $color-white;
+  border: 1px solid $color-border;
   border-radius: 1px;
   padding: 15px;
+  width: 350px;
 
   @include phone {
+    background-color: $color-body;
+    border-color: $color-body;
     width: 100%;
-    background-color: #fafafa;
-    border-color: #fafafa;
   }
 
   h5 {
-    text-align: center;
     overflow: hidden;
+    text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
