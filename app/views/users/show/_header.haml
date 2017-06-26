@@ -1,0 +1,79 @@
+%body
+  %header.users-show-header
+    .users-show-header-avatar-main-container
+      .users-show-header-avatar-container
+        = image_tag user_by_profile_username.profile.avatar, class: 'users-show-header-avatar'
+    .users-show-header-info-main-container
+      .users-show-header-info-container
+        .users-show-header-info-top
+          %h1.users-show-header-info-top-username
+            = user_by_profile_username.profile.username
+          - if user_signed_in? && current_user == user_by_profile_username
+            = link_to 'Edit Profile', edit_user_registration_path,
+              class: 'users-show-header-info-top-edit-profile-link', role: :button
+            = render 'users/show/new_post_btn'
+            .users-show-header-info-top-settings-container
+              %button#users-show-header-info-top-settings
+              #users-show-settings-modal
+                #users-show-settings-modal-content
+                  %ul#users-show-settings-modal-content-container
+                    %li.users-show-settings-modal-content-item
+                      = link_to 'Log Out', destroy_user_session_path, method: :delete,
+                        role: :button, id: 'users-show-settings-modal-logout-link'
+                    %li.users-show-settings-modal-content-item
+                      %button#users-show-settings-modal-cancel Cancel
+          - if user_signed_in? && current_user != user_by_profile_username
+            = render 'relationships/form', user: user_by_profile_username
+        %ul.users-show-header-info-middle
+          %li.users-show-header-info-middle-item
+            %span.users-show-header-info-middle-item-posts
+              %strong
+                = user_by_profile_username.posts.count
+              = 'post'.pluralize(user_by_profile_username.posts.count)
+          %li.users-show-header-info-middle-item
+            %span#users-show-header-info-middle-item-followers
+              %strong
+                = user_by_profile_username.followers.count
+              followers
+            #users-show-followers-modal
+              #users-show-followers-modal-content
+                #users-show-followers-modal-content-followers
+                  Followers
+                %ul#users-show-followers-modal-content-container
+                  - user_by_profile_username.followers.each do |follower|
+                    %li.users-show-followers-modal-content-item
+                      = link_to user_path(follower),
+                        class: 'users-show-followers-modal-content-avatar-link' do
+                        = image_tag follower.profile.avatar,
+                          class: 'users-show-followers-modal-content-avatar'
+                      .users-show-followers-modal-content-user-info
+                        = link_to follower.profile.username, user_path(follower),
+                          class: 'users-show-followers-modal-content-username'
+                        %span.users-show-followers-modal-content-full-name
+                          = follower.profile.full_name
+          %li.users-show-header-info-middle-item
+            %span#users-show-header-info-middle-item-following
+              %strong
+                = user_by_profile_username.followed_users.count
+              following
+            #users-show-following-modal
+              #users-show-following-modal-content
+                #users-show-following-modal-content-following
+                  Following
+                %ul#users-show-following-modal-content-container
+                  - user_by_profile_username.followed_users.each do |following|
+                    %li.users-show-following-modal-content-item
+                      = link_to user_path(following),
+                        class: 'users-show-following-modal-content-avatar-link' do
+                        = image_tag following.profile.avatar,
+                          class: 'users-show-following-modal-content-avatar'
+                      .users-show-following-modal-content-user-info
+                        = link_to following.profile.username, user_path(following),
+                          class: 'users-show-following-modal-content-username'
+                        %span.users-show-following-modal-content-full-name
+                          = following.profile.full_name
+        .users-show-header-info-bottom
+          %h2.users-show-header-info-bottom-full-name
+            = user_by_profile_username.profile.full_name
+          %span.users-show-header-info-bottom-about-me
+            = user_by_profile_username.profile.about_me

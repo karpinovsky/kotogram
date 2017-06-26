@@ -1,13 +1,11 @@
-<main class="users-show-main-container">
-  <article class="users-show-container">
-    <%= render "users/show/header" %>
-    <div class="users-show-posts-main-container">
-      <%= render "users/show/posts" %>
-    </div>
-  </article>
-</main>
-<script>
-  <%- if user_signed_in? && current_user == user_by_profile_username %>
+%main.users-show-main-container
+  %article.users-show-container
+    = render 'users/show/header'
+    .users-show-posts-main-container
+      = render 'users/show/posts'
+:javascript
+
+  if (#{ user_signed_in? && current_user == user_by_profile_username } === true) {
     var settings_modal = document.getElementById('users-show-settings-modal');
     var settings_btn = document.getElementById("users-show-header-info-top-settings");
     var settings_cancel = document.getElementById("users-show-settings-modal-cancel");
@@ -19,7 +17,7 @@
     settings_cancel.onclick = function() {
       settings_modal.style.display = "none";
     }
-  <% end %>
+  }
 
   var followers_modal = document.getElementById('users-show-followers-modal');
   var followers_btn = document.getElementById("users-show-header-info-middle-item-followers");
@@ -39,12 +37,11 @@
   }
 
   window.onclick = function(event) {
-    <%- if user_signed_in? && current_user == user_by_profile_username %>
+    if (#{user_signed_in? && current_user == user_by_profile_username} === true) {
       if (event.target == settings_modal) {
         settings_modal.style.display = "none";
       }
-    <% end %>
-
+    }
     if (event.target == followers_modal) {
       followers_modal.style.display = "none";
     }
@@ -71,19 +68,12 @@
   });
 
   $(document).on('click','.users-show-header-info-top-new-post-btn',function() {
-    $('.users-show-posts-container').replaceWith('<%= j render('posts/form') %>');
-    $('.users-show-header-info-top-new-post-btn').replaceWith('<%= j render('users/show/my_posts_btn') %>');
+    $('.users-show-posts-container').replaceWith('#{j render('posts/form')}');
+    $('.users-show-header-info-top-new-post-btn').replaceWith('#{j render('users/show/my_posts_btn')}');
   });
 
   $(document).on('click','.users-show-header-info-top-my-posts-btn',function() {
-    $('.users-show-posts-no-posts-container').replaceWith('<%= j render('users/show/posts') %>');
-    $('.users-show-header-info-top-my-posts-btn').replaceWith('<%= j render('users/show/new_post_btn') %>');
+    $('.users-show-posts-no-posts-container').replaceWith('#{j render('users/show/posts')}');
+    $('.users-show-header-info-top-my-posts-btn').replaceWith('#{j render('users/show/new_post_btn')}');
   });
-</script>
-
-
-
-
-
-
 
