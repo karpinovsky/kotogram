@@ -1,13 +1,14 @@
-%footer.footer
-  %section
-    = link_to authenticated_root_path do
-      %button{ class: "home #{ 'active' if params[:action] == 'home'}"}
-  %section
-    %button.search
-  %section
-    %button.post
-  %section
-    %button.news
-  %section
-    = link_to user_path(current_user) do
-      %button{ class: "profile #{ 'active' if params[:controller] == 'users' && params[:action] == 'show'}"}
+- if user_signed_in?
+  %footer.footer
+    %section
+      = link_to authenticated_root_path do
+        %button{ class: "home #{ 'active' if params[:action] == 'home'}"}
+    %section
+      %button.search
+    %section
+      %button.post
+    %section
+      %button.news
+    %section
+      = link_to user_path(current_user) do
+        %button{ class: "profile #{ 'active' if params[:controller] == 'users' && params[:action] == 'show'}"}
