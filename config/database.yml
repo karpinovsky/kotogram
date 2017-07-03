@@ -2,7 +2,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
+  username: <%= ENV['KOTOGRAM_DATABASE_USER'] %>
   password: <%= ENV['KOTOGRAM_DATABASE_PASSWORD'] %>
   socket: /var/run/mysqld/mysqld.sock
 
