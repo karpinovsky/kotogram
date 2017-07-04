@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   unauthenticated :user do
-    root 'static_pages#home', as: :non_authenticated_root
+    root to: redirect('/signup')
   end
 
   resources :users, path: '', param: :username, only: :show do
