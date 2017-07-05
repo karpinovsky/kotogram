@@ -1,7 +1,6 @@
 # source 'https://rubygems.org'
 gem 'algoliasearch-rails'
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass'
 gem 'capistrano'
 gem 'capistrano-passenger'
 gem 'capistrano-rails'
