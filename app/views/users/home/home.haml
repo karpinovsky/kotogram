@@ -1,11 +1,8 @@
 %main.users-home-main-container
   %section.users-home-container
     - if @feed_items.empty?
-      .users-home-welcome-container
-        .users-home-welcome-icon-container
-        %h2.users-home-welcome-to-kotogram Welcome to Kotogram!
-        %p.users-home-follow-accounts Follow accounts to see photos and videos in your feed.
-    - if @feed_items.any?
+      = render 'users/home/welcome'
+    - else
       .users-home-posts-main-container
         - @feed_items.each do |post|
           %article.users-home-post-container

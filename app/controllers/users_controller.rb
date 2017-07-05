@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def home
     @feed_items = current_user.feed.order('created_at DESC')
+    render 'users/home/home'
   end
 
   def show
