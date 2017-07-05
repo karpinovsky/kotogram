@@ -67,7 +67,10 @@
   margin: 0 0 0 22px;
   padding: 3px 0 3px 17px;
   font-family: 'Lobster Two';
+  font-weight: 500;
+  font-size: 1.5em;
   border-left: 1px solid #939393;
+  color: #262626;
 
   @include phone {
     display: none;
@@ -95,6 +98,7 @@
     .fa-instagram {
       font-size: 38px;
       display: block;
+      color: #262626;
     }
   }
 
