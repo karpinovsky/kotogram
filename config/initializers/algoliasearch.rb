@@ -1,4 +1,4 @@
 AlgoliaSearch.configuration = {
-  application_id: "H604D46QS3",
-  api_key: "cf1a049da8c1c6c19a0fe9949fc6a7b0"
+  application_id: ENV['KOTOGRAM_ALGOLIA_APPLICATION_ID'],
+  api_key: ENV['KOTOGRAM_ALGOLIA_ADMIN_API_KEY']
 }
