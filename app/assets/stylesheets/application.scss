@@ -3,14 +3,41 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+@import 'https://fonts.googleapis.com/css?family=Roboto:300';
 @import 'https://fonts.googleapis.com/css?family=Lobster+Two';
 
 @import 'custom';
 
 @import 'comment';
+
+
+* { box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+  color: $color-light-black;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  @include desktop { background-color: $color-body; }
+  @include tablet-phone { color: $color-white; }
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: $color-link;
+  text-decoration: none;
+}
+
+ol,
+ul { list-style: none; }
