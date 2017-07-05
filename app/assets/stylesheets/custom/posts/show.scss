@@ -1,4 +1,5 @@
-@import 'utilities/mixins';
+@import 'custom/utilities/variables';
+@import 'custom/utilities/mixins';
 
 .posts-show-main-container {
   display: flex;

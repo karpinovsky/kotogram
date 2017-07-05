@@ -1,4 +1,7 @@
-@import 'utilities/mixins';
+@import 'custom/utilities/variables';
+@import 'custom/utilities/mixins';
+
+@import 'https://fonts.googleapis.com/css?family=Lobster+Two';
 
 .devise-shared-pages {
   @media (max-height: 416px) { align-items: flex-start; }

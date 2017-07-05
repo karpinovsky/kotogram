@@ -1,3 +1,4 @@
-@import 'utilities/mixins';
+@import 'custom/utilities/variables';
+@import 'custom/utilities/mixins';
 
 .devise-registrations-new { @media (max-height: 660px) { align-items: flex-start; } }
