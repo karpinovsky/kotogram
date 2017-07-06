@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
 
-  @include desktop      { background-color: $color-body;  }
+  @include desktop { background-color: $color-body;  }
   @include tablet-phone { background-color: $color-white; }
 }
 
@@ -28,6 +28,16 @@ a:active {
 
 ol,
 ul { list-style: none; }
+
+button {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 26px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .date {
   &:link,
