@@ -15,9 +15,6 @@ test:
   <<: *default
   database: kotogram_test
 
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-
 staging:
   <<: *default
   database: kotogram_staging
