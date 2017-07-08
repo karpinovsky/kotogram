@@ -18,4 +18,6 @@ class Comment < ApplicationRecord
     end
     Tag.reindex
   end
+
+  after_commit -> { CommentRelayJob.perform_now(self) }
 end
