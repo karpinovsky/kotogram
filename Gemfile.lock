@@ -91,6 +91,7 @@ GEM
       carrierwave
     cliver (0.3.2)
     concurrent-ruby (1.0.2)
+    connection_pool (2.2.1)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     devise (4.2.0)
@@ -208,6 +209,8 @@ GEM
     public_suffix (2.0.4)
     puma (3.6.2)
     rack (2.0.1)
+    rack-protection (2.0.0)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.1)
@@ -284,6 +287,11 @@ GEM
       rake (>= 0.9, < 13)
       sass (~> 3.4.20)
     sexp_processor (4.7.0)
+    sidekiq (5.0.4)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (~> 3.3, >= 3.3.3)
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -369,6 +377,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5.0)
   scss_lint
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
