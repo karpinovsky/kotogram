@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
   def create
     comment = Post.find(params[:post_id]).comments.create comment_params
-    ActionCable.server.broadcast 'comment_channel', comment: comment if comment.save
   end
 
   def destroy
