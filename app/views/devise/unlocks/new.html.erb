@@ -4,7 +4,7 @@
     <h2>Resend unlock</h2>
     <%= form_for resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post } do |f| %>
       <%= f.email_field :email, autofocus: true, placeholder: :Email, class: 'input-devise' %>
-      <%= f.submit 'Resend instructions', class: 'btn-devise' %>
+      <%= f.submit 'Resend instructions', class: 'btn btn-primary btn-devise' %>
     <% end %>
   </div>
   <%= render 'devise/shared/links' %>

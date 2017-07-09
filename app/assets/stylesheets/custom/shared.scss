@@ -29,7 +29,7 @@ a:active {
 ol,
 ul { list-style: none; }
 
-button {
+.btn {
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
@@ -37,6 +37,16 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  outline: none;
+  width: 100%;
+  padding: 0 8px;
+}
+
+.btn-primary {
+  background-color: $color-btn-primary;
+  border: 1px solid $color-btn-primary;
+  border-radius: 3px;
+  color: $color-white;
 }
 
 .date {

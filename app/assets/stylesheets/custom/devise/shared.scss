@@ -42,28 +42,14 @@
   margin: 0 0 10px;
 }
 
-.btn-facebook {
-  background-color: $color-btn-primary;
-  border: 1px solid $color-btn-primary;
-  border-radius: 3px;
-  color: $color-white;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 26px;
-  outline: none;
-  overflow: hidden;
-  padding: 0 8px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-
-  .fa-facebook-official {
-    font-size: 16px;
-    margin-right: 5px;
-    position: relative;
-    top: 1px;
-  }
+.btn-facebook .fa-facebook-official {
+  font-size: 16px;
+  margin-right: 5px;
+  position: relative;
+  top: 1px;
 }
+
+.btn-devise { margin-top: 10px; }
 
 .input-devise {
   border: 1px solid $color-input;
@@ -81,22 +67,6 @@
   }
 }
 
-.btn-devise {
-  background-color: $color-btn-primary;
-  border: 1px solid $color-btn-primary;
-  border-radius: 3px;
-  color: $color-white;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 26px;
-  margin-top: 10px;
-  outline: none;
-  overflow: hidden;
-  padding: 0 8px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-}
 
 .or {
   align-items: center;
