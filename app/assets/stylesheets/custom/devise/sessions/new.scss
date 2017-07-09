@@ -1,7 +1,0 @@
-@import 'custom/utilities/variables';
-@import 'custom/utilities/mixins';
-
-.devise-sessions-new {
-  @media (max-height: 600px) { align-items: flex-start; }
-  @media (max-width: 767px) and (min-height: 448px) { align-items: center; }
-}

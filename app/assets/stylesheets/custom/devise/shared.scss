@@ -1,46 +1,27 @@
 @import 'custom/utilities/variables';
 @import 'custom/utilities/mixins';
-
 @import 'https://fonts.googleapis.com/css?family=Lobster+Two';
 
-.devise-shared-pages {
-  @media (max-height: 416px) { align-items: flex-start; }
-  @media (max-width: 767px) and (min-height: 416px) { align-items: center; }
-}
 
 .devise {
   align-items: center;
   display: flex;
   justify-content: center;
   min-height: 100%;
-}
-
-.devise-container {
-  align-items: center;
-  display: flex;
   flex-direction: column;
-  padding: 25px 0;
-
-  @include phone { padding: 0; }
 }
 
-.devise-container-image {
-  margin-right: 15px;
-
-  @include tablet-phone { display: none; }
-}
-
-.devise-main-content {
+.devise-content {
   background-color: $color-white;
   border: 1px solid $color-border;
-  border-radius: 1px;
-  margin-bottom: 10px;
   padding: 15px 40px;
+  margin: 25px 0 10px;
   width: 350px;
+  text-align: center;
 
   @include phone {
     border-color: $color-white;
-    margin-bottom: 0;
+    margin: 0;
     padding: 15px 10% 0;
     width: 100%;
   }
@@ -51,7 +32,6 @@
     font-weight: 600;
     line-height: 20px;
     margin: 0 0 15px;
-    text-align: center;
   }
 }
 
@@ -60,7 +40,6 @@
   font-size: 46px;
   font-weight: 500;
   margin: 0 0 10px;
-  text-align: center;
 }
 
 .btn-facebook {
@@ -143,16 +122,19 @@
   }
 }
 
-.devise-shared-links {
+.devise-shared {
   background-color: $color-white;
   border: 1px solid $color-border;
   border-radius: 1px;
   padding: 15px;
+  margin-bottom: 25px;
   width: 350px;
 
   @include phone {
     border-color: $color-white;
     width: 100%;
+    padding: 0 15px;
+    margin-bottom: 0;
   }
 
   h5 {
