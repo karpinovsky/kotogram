@@ -1,0 +1,52 @@
+@import 'custom/utilities/variables';
+@import 'custom/utilities/mixins';
+
+.devise-registrations-edit {
+  display: flex;
+  flex-direction: row;
+  margin: 60px auto;
+  max-width: 935px;
+  width: 100%;
+  background-color: $color-white;
+  border-radius: 3px;
+  border: 1px solid $color-input;
+}
+
+.devise-registrations-edit-nav {
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid $color-input;
+  flex-grow: 0;
+  flex-basis: 236px;
+  flex-shrink: 0;
+}
+
+.devise-registrations-edit-content {
+  flex: 1 0 auto;
+  margin: 32px 124px;
+}
+
+.devise-registrations-edit-content-header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}
+
+.devise-registrations-edit-content-header-avatar {
+  margin-right: 32px;
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+}
+
+.devise-registrations-edit-content-header-profile-username {
+  margin: 0px;
+  line-height: 38px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.devise-registrations-edit-public-content {
+}
+
+.form-group { margin-bottom: 16px; }
