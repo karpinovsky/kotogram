@@ -52,20 +52,7 @@
 .btn-devise { margin-top: 10px; }
 
 .input-devise {
-  border: 1px solid $color-input;
-  border-radius: 3px;
-  color: $color-light-black;
-  font-size: 14px;
-  margin-bottom: 6px;
-  padding: 9px 8px 7px;
-  width: 100%;
-
-  &:focus {
-    border-color: $color-input-focus;
-    box-shadow: none;
-    outline: none;
   }
-}
 
 
 .or {
@@ -114,3 +101,20 @@
     white-space: nowrap;
   }
 }
+
+.devise-form {
+  .form-group { margin-bottom: 6px; }
+
+  .input-control {
+    font-size: .9em;
+    padding: 9px 8px 7px;
+    height: initial;
+
+    &:focus {
+      border-color: $color-input-focus;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}
+

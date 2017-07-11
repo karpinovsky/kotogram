@@ -47,6 +47,45 @@
 }
 
 .devise-registrations-edit-public-content {
+  margin-top: 32px;
 }
 
-.form-group { margin-bottom: 16px; }
+.form-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+  flex: 0 0 auto;
+}
+
+.input-container,
+.textarea-container {
+  flex: 1 1 auto;
+}
+
+.label-control {
+  font-weight: bold;
+}
+
+.input-control {
+  width: 100%;
+  padding: 0 10px;
+  height: 32px;
+  border: 1px solid $color-input-control;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+.textarea-control {
+  width: 100%;
+  border: 1px solid $color-input-control;
+  border-radius: 3px;
+  resize: vertical;
+  height: 60px;
+  font-size: 1.1em;
+}
