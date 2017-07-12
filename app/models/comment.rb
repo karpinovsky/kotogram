@@ -19,5 +19,5 @@ class Comment < ApplicationRecord
     Tag.reindex
   end
 
-  after_commit -> { CommentRelayJob.perform_now(self) }
+  after_commit -> { CommentRelayJob.perform_later self }
 end
