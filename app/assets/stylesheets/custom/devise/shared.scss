@@ -102,8 +102,12 @@
   }
 }
 
-.devise-form {
+.form-devise {
   .form-group { margin-bottom: 6px; }
+  .form-group:last-child {
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
 
   .input-control {
     font-size: .9em;
