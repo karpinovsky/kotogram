@@ -8,8 +8,8 @@ module ApplicationCable
 
     protected
       def find_verified_user
-        if verified_user = User.find(cookies.signed["user.id"]) && cookies.signed["user.expires_at"] > Time.now
-          verified_user
+        if (current_user = User.find(cookies.signed["user.id"])) && cookies.signed["user.expires_at"] > Time.now
+          current_user
         else
           reject_unauthorized_connection
         end
