@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613102702) do
+ActiveRecord::Schema.define(version: 20170723172058) do
 
   create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "post_id"
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 20170613102702) do
     t.datetime "updated_at",    null: false
     t.index ["likeable_type", "likeable_id", "liker"], name: "index_likes_on_likeable_type_and_likeable_id_and_liker", unique: true, using: :btree
     t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id", using: :btree
+  end
+
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "recipient_id"
+    t.string   "action"
+    t.string   "notifiable_type"
+    t.integer  "notifiable_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -115,6 +126,7 @@ ActiveRecord::Schema.define(version: 20170613102702) do
 
   add_foreign_key "attachments", "posts"
   add_foreign_key "comments", "posts"
+  add_foreign_key "notifications", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "posts_tags", "posts"
   add_foreign_key "posts_tags", "tags"
