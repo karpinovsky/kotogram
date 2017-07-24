@@ -25,6 +25,7 @@ class User < ApplicationRecord
          :timeoutable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  has_many :notifications, foreign_key: :recipient_id
 
   validates_associated :posts
 
