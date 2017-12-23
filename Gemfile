@@ -1,4 +1,5 @@
-# source 'https://rubygems.org'
+source 'https://rubygems.org'
+
 gem 'sidekiq'
 gem 'algoliasearch-rails'
 gem 'autoprefixer-rails'
