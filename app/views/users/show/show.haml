@@ -69,11 +69,13 @@
 
   $(document).on('click','.users-show-header-info-top-new-post-btn',function() {
     $('.users-show-posts-container').replaceWith('#{j render('posts/form')}');
-    $('.users-show-header-info-top-new-post-btn').replaceWith('#{j render('users/show/my_posts_btn')}');
+    var className = '.users-show-header-info-top-new-post-btn'
+    $(className).replaceWith('#{j render('users/show/my_posts_btn')}');
   });
 
   $(document).on('click','.users-show-header-info-top-my-posts-btn',function() {
     $('.users-show-posts-no-posts-container').replaceWith('#{j render('users/show/posts')}');
-    $('.users-show-header-info-top-my-posts-btn').replaceWith('#{j render('users/show/new_post_btn')}');
+    var className = '.users-show-header-info-top-my-posts-btn'
+    $(className).replaceWith('#{j render('users/show/new_post_btn')}');
   });
 

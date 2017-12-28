@@ -3,6 +3,10 @@
  *= require_self
  */
 
+.application-meta {
+  display: hidden;
+}
+
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 

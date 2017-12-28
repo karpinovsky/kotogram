@@ -7,9 +7,9 @@
         - @feed_items.each do |post|
           %article.users-home-post-container
             %header.users-home-post-header
-              = link_to user_path(post.user), class: "users-home-post-header-avatar-link" do
-                = image_tag post.user.profile.avatar, class: "users-home-post-header-avatar-image"
-              = link_to user_path(post.user), class: "users-home-post-header-username-link" do
+              = link_to user_path(post.user), class: 'users-home-post-header-avatar-link' do
+                = image_tag post.user.profile.avatar, class: 'users-home-post-header-avatar-image'
+              = link_to user_path(post.user), class: 'users-home-post-header-username-link' do
                 = post.user.profile.username
             .users-home-post-attachment-container
               - if post.attachment.content_type.start_with? 'video'
@@ -23,14 +23,14 @@
               - unless post.likes_count.zero?
                 %section.users-home-post-likes-container
                   = render 'likes/likes', likeable: post
-              - unless post.description.blank?
+              - if post.description.present?
                 %section.users-home-post-description-container
                   = link_to user_path(post.user),
-                    class: "users-home-post-description-username-link" do
+                    class: 'users-home-post-description-username-link' do
                     = post.user.profile.username
                   %span.users-home-post-description
                     = with_links_to_users(with_links_to_tags(post.description))
-              %ul{:class => "users-home-post-comments-container post-#{post.id}"}
+              %ul{ class: "users-home-post-comments-container post-#{post.id}" }
                 = render post.comments
               = link_to time_ago_in_words(post.created_at), user_post_path(post.user, post),
                 class: 'date'

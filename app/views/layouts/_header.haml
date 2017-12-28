@@ -2,17 +2,16 @@
   .header-tablet-mobile
     %header.header-authorized-user
       %nav.nav-authorized-user
-        = link_to authenticated_root_path, class: "logo" do
-          = icon("instagram")
+        = link_to authenticated_root_path, class: 'logo' do
+          = icon('instagram')
           %h3#kotogram Kotogram
         %button
         %h1 Kotogram
-        #aa-input-container.aa-input-container
-          %input#aa-search-input.aa-input-search{:autocomplete => "off", :name => "search", :placeholder => "Search", :type => "search"}/
-        .nav-authorized-user-left
-          = link_to "", user_path(current_user),
-            id: "profile-link"
-    %script{:src => "https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"}
+        .aa-input-container#aa-input-container
+          %input.aa-input-search#aa-search-input{ autocomplete: 'off',
+            name: 'search', placeholder: 'Search', type: 'search' }
+        .nav-authorized-user-left= link_to '', user_path(current_user), id: 'profile-link'
+    %script{ src: 'https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js' }
     :javascript
       var client = algoliasearch("H604D46QS3", "e0681dacff62916045d29b113371f926")
       var profiles = client.initIndex("Profile_" + "#{Rails.env}");

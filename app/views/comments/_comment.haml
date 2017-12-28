@@ -1,6 +1,6 @@
 %li{ class: "comment comment-#{comment.id}" }
   = link_to comment.user_username, user_path(comment.user_username),
-    class: "comment-user-username-link"
+    class: 'comment-user-username-link'
   - if user_signed_in? && current_user.id == comment.user_id
     = link_to 'Delete comment', user_post_comment_path(comment.user_username,
       comment.post, comment), method: :delete, class: 'comment-delete-link'
