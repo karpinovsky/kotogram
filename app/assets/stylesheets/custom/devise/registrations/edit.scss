@@ -2,23 +2,23 @@
 @import 'custom/utilities/mixins';
 
 .devise-registrations-edit {
+  background-color: $color-white;
+  border: 1px solid $color-input;
+  border-radius: 3px;
   display: flex;
   flex-direction: row;
   margin: 60px auto;
   max-width: 935px;
   width: 100%;
-  background-color: $color-white;
-  border-radius: 3px;
-  border: 1px solid $color-input;
 }
 
 .devise-registrations-edit-nav {
+  border-right: 1px solid $color-input;
+  flex-basis: 236px;
+  flex-grow: 0;
+  flex-shrink: 0;
   margin: 0;
   padding: 0;
-  border-right: 1px solid $color-input;
-  flex-grow: 0;
-  flex-basis: 236px;
-  flex-shrink: 0;
 }
 
 .devise-registrations-edit-content {
@@ -33,17 +33,17 @@
 }
 
 .devise-registrations-edit-content-header-avatar {
-  margin-right: 32px;
-  height: 38px;
-  width: 38px;
   border-radius: 50%;
+  height: 38px;
+  margin-right: 32px;
+  width: 38px;
 }
 
 .devise-registrations-edit-content-header-profile-username {
-  margin: 0px;
-  line-height: 38px;
   font-size: 24px;
   font-weight: 400;
+  line-height: 38px;
+  margin: 0;
 }
 
 .devise-registrations-edit-public-content {
@@ -57,10 +57,10 @@
 }
 
 .label-container {
-  display: flex;
   align-items: center;
-  margin-right: 32px;
+  display: flex;
   flex: 0 0 auto;
+  margin-right: 32px;
 }
 
 .input-container,
@@ -73,19 +73,19 @@
 }
 
 .input-control {
-  width: 100%;
-  padding: 0 10px;
-  height: 32px;
   border: 1px solid $color-input-control;
   border-radius: 3px;
   font-size: 1em;
+  height: 32px;
+  padding: 0 10px;
+  width: 100%;
 }
 
 .textarea-control {
-  width: 100%;
   border: 1px solid $color-input-control;
   border-radius: 3px;
-  resize: vertical;
-  height: 60px;
   font-size: 1.1em;
+  height: 60px;
+  resize: vertical;
+  width: 100%;
 }

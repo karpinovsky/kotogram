@@ -1,23 +1,22 @@
 @import 'custom/utilities/variables';
-@import 'custom/utilities/mixins';
 @import 'https://fonts.googleapis.com/css?family=Lobster+Two';
 
 
 .devise {
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   min-height: 100%;
-  flex-direction: column;
 }
 
 .devise-content {
   background-color: $color-white;
   border: 1px solid $color-border;
-  padding: 15px 40px;
   margin: 25px 0 10px;
-  width: 350px;
+  padding: 15px 40px;
   text-align: center;
+  width: 350px;
 
   @include phone {
     border-color: $color-white;
@@ -77,15 +76,15 @@
   background-color: $color-white;
   border: 1px solid $color-border;
   border-radius: 1px;
-  padding: 15px;
   margin-bottom: 25px;
+  padding: 15px;
   width: 350px;
 
   @include phone {
     border-color: $color-white;
-    width: 100%;
-    padding: 0 15px;
     margin-bottom: 0;
+    padding: 0 15px;
+    width: 100%;
   }
 
   h5 {
@@ -99,14 +98,14 @@
 .form-devise {
   .form-group { margin-bottom: 6px; }
   .form-group:last-child {
-    margin-top: 15px;
     margin-bottom: 0;
+    margin-top: 15px;
   }
 
   .input-control {
     font-size: .9em;
-    padding: 9px 8px 7px;
     height: initial;
+    padding: 9px 8px 7px;
 
     &:focus {
       border-color: $color-input-focus;

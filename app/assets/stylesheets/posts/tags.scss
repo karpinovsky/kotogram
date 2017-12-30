@@ -6,40 +6,39 @@
 }
 
 .tag-container {
-
   @include desktop {
+    margin: 0 auto 56px;
     overflow: hidden;
     width: 935px;
-    margin: 0 auto 56px auto;
   }
 }
 
 .tag-header-container {
 
   @include desktop {
-    margin: 56px 0 44px 0;
+    margin: 56px 0 44px;
   }
 }
 
 .tag {
-  color: #262626;
-  text-align: center;
+  color: $color-mine-shaft;
   font-size: 32px;
-  line-height: 40px;
-  margin: 0 0 13px 0;
   font-weight: 300;
+  line-height: 40px;
+  margin: 0 0 13px;
   overflow: hidden;
+  text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .tag-posts-count {
-  margin: 0 0 0 0;
-  color: #262626;
-  text-align: center;
+  color: $color-mine-shaft;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   overflow: hidden;
+  text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -53,10 +52,10 @@
 
 .tag-top-posts,
 .tag-most-recent-posts {
-  color: #999;
+  color: $color-gray-dusty;
   font-size: 14px;
   font-weight: 400;
-  margin: 0 0 16px 0;
+  margin: 0 0 16px;
   text-align: left;
   text-transform: uppercase;
 }
@@ -73,15 +72,15 @@
 
 .tag-most-recent-post-link,
 .tag-top-post-link {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   overflow: hidden;
 
   @include desktop {
-    width: 293px;
     height: 293px;
     margin-right: 28px;
+    width: 293px;
   }
 
   &:last-child {

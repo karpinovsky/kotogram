@@ -1,42 +1,39 @@
-@import "custom/utilities/variables";
-@import "custom/utilities/mixins";
-
 .form-comment-input {
-  width: 100%;
-  border: none;
-  color: #262626;
+  border: 0;
   box-shadow: none;
-  outline: none;
+  color: $color-mine-shaft;
   height: 18px;
+  outline: none;
   resize: none;
+  width: 100%;
 }
 
 .comment {
   font-size: 15px;
-  padding-top: 5px;
   margin-top: -5px;
-  padding-bottom: 6px;
-  word-break: break-all;
   overflow: hidden;
+  padding-bottom: 6px;
+  padding-top: 5px;
+  word-break: break-all;
 }
 
 .comment-user-username-link {
-  font-weight: 600;
-  float: left;
   clear: left;
+  float: left;
+  font-weight: 600;
   margin-right: 3px;
 
   &:link,
   &:visited,
   &:hover,
   &:active {
-    color: #262626;
+    color: $color-mine-shaft;
   }
 }
 
 .comment-likes {
-  float: left;
   clear: left;
+  float: left;
   margin-right: 5px;
   max-height: 20px;
 }
@@ -49,7 +46,7 @@
 
 .btn-comment-like,
 .btn-comment-dislike {
-  background: white;
+  background-color: $color-white;
   border: 0;
   box-shadow: none;
   outline: none;
@@ -57,36 +54,36 @@
 }
 
 .btn-comment-dislike .fa-heart {
-  color: #ed4956;
+  color: $color-amaranth;
   font-size: 14px;
 }
 
 .btn-comment-like .fa-heart-o {
-  color: #262626;
+  color: $color-mine-shaft;
   font-size: 14px;
 }
 
 .comment-delete-link {
 
   @include desktop {
+    background: transparent;
+    border: 0;
+    clear: right;
+    color: $color-silver;
+    cursor: pointer;
     display: block;
     float: right;
-    clear: right;
-    background: transparent;
-    border: none;
-    color: #c7c7c7;
-    cursor: pointer;
     height: 15px;
-    width: 10px;
+    margin-left: 10px;
     overflow: hidden;
     padding: 0;
-    margin-left: 10px;
+    width: 10px;
 
     &:before {
-      display: block;
       content: '\2715';
-      width: inherit;
+      display: block;
       height: inherit;
+      width: inherit;
     }
   }
 

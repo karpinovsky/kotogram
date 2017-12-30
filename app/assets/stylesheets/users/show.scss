@@ -11,9 +11,9 @@
 .users-show-container {
 
   @include desktop {
-    width: 935px;
     margin: 60px auto;
     overflow: hidden;
+    width: 935px;
   }
 }
 
@@ -36,49 +36,46 @@
 .users-show-header-avatar-container {
 
   @include desktop {
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 152px;
     justify-content: center;
+    margin: 0 auto;
     overflow: hidden;
     width: 152px;
-    height: 152px;
-    margin: 0 auto;
   }
 }
 
 .users-show-header-avatar {
-
   @include desktop {
+    border-radius: 50%;
     height: 100%;
     width: 100%;
-    border-radius: 50%;
   }
 }
 
 .users-show-header-info-main-container {
-
   @include desktop {
     flex-grow: 2;
   }
 }
-.users-show-header-info-top {
 
+.users-show-header-info-top {
   @include desktop {
+    align-items: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
     margin-bottom: 20px;
   }
 }
 
 .users-show-header-info-top-username {
-
   @include desktop {
-    color: #262626;
-    margin: 0 20px 0 0;
+    color: $color-mine-shaft;
     font-size: 32px;
-    line-height: 40px;
     font-weight: 200;
+    line-height: 40px;
+    margin: 0 20px 0 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -90,99 +87,95 @@
 .users-show-header-info-top-my-posts-btn {
 
   @include desktop {
-    padding: 0 24px;
-    color: #262626;
     background-color: transparent;
-    border: 1px solid #dbdbdb;
+    border: 1px solid $color-alto;
+    border-radius: 3px;
+    box-shadow: none;
+    color: $color-mine-shaft;
     font-size: 14px;
     font-weight: 600;
     line-height: 26px;
     outline: none;
-    box-shadow: none;
     overflow: hidden;
+    padding: 0 24px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    border-radius: 3px;
 
     &:link,
     &:visited,
     &:hover,
     &:active {
-      color: #262626;
+      color: $color-mine-shaft;
     }
   }
 }
 
 .users-show-header-info-top-new-post-btn,
 .users-show-header-info-top-my-posts-btn {
-
   @include desktop {
     margin-left: 7px;
   }
 }
-.users-show-header-info-top-settings-container {
 
+.users-show-header-info-top-settings-container {
   @include desktop {
     margin-left: 7px;
   }
 }
 
 #users-show-header-info-top-settings {
-
   @include desktop {
-    display: block;
+    background-color: transparent;
+    background-image: image-url('kotogram.png');
+    background-position: -243px -289px;
     border: 0;
-    outline: none;
     box-shadow: none;
+    cursor: pointer;
+    display: block;
+    height: 24px;
+    outline: none;
     padding: 0;
     width: 24px;
-    height: 24px;
-    background-color: transparent;
-    cursor: pointer;
-    background-image: image-url("kotogram.png");
-    background-position: -243px -289px;
   }
 }
 
 #users-show-settings-modal {
-
   @include desktop {
-    display: none;
     align-items: center;
+    background-color: $color-white-lighten;
+    display: none;
+    height: 100%;
     justify-content: center;
-    position: fixed;
-    z-index: 2;
     left: 0;
+    overflow: hidden;
+    position: fixed;
     top: 0;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: rgba(0,0,0,0.4);
+    z-index: 2;
   }
 }
 
 #users-show-settings-modal-content {
 
   @include desktop {
-    background-color: white;
+    background-color: $color-white;
     border: 0;
     width: 500px;
   }
 }
 
 #users-show-settings-modal-content-container {
-
   @include desktop {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 }
-.users-show-settings-modal-content-item {
 
+.users-show-settings-modal-content-item {
   @include desktop {
-    background-color: white;
-    border-bottom: 1px solid #dbdbdb;
+    background-color: $color-white;
+    border-bottom: 1px solid $color-alto;
     height: 51px;
   }
 }
@@ -191,33 +184,33 @@
 #users-show-settings-modal-cancel {
 
   @include desktop {
-    display: inline-block;
-    background-color: white;
-    border: none;
-    color: #262626;
+    background-color: $color-white;
+    border: 0;
+    box-shadow: none;
+    color: $color-mine-shaft;
     cursor: pointer;
+    display: inline-block;
     font-size: 16px;
     font-weight: 400;
     line-height: 50px;
     margin: 0;
+    outline: none;
     overflow: hidden;
     padding: 0 16px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
-    outline: none;
-    box-shadow: none;
 
     &:link,
     &:visited,
     &:hover,
     &:active {
-      color: #262626;
+      color: $color-mine-shaft;
     }
 
     &:hover {
-      background-color: #dbdbdb;
+      background-color: $color-alto;
     }
   }
 }
@@ -228,8 +221,8 @@
     display: flex;
     flex-direction: row;
     list-style: none;
+    margin: 0 0 20px;
     padding: 0;
-    margin: 0 0 20px 0;
   }
 }
 
@@ -254,17 +247,17 @@
 #users-show-following-modal {
 
   @include desktop {
-    overflow-y: auto;
-    display: none;
     align-items: center;
+    background-color: $color-white-lighten;
+    display: none;
+    height: 100%;
     justify-content: center;
-    position: fixed;
-    z-index: 2;
     left: 0;
+    overflow-y: auto;
+    position: fixed;
     top: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
+    z-index: 2;
   }
 }
 
@@ -272,11 +265,11 @@
 #users-show-following-modal-content {
 
   @include desktop {
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    background-color: white;
+    background-color: $color-white;
     border: 0;
+    display: flex;
+    flex-direction: column;
     height: 500px;
     width: 500px;
   }
@@ -284,36 +277,34 @@
 
 #users-show-followers-modal-content-followers,
 #users-show-following-modal-content-following {
-  width: 500px;
-  background-color: white;
-  border-bottom: solid 1px #dbdbdb;
+  background-color: $color-white;
+  border-bottom: solid 1px $color-alto;
   font-size: 16px;
   font-weight: 600;
   padding: 16px;
+  width: 500px;
 }
-
 
 #users-show-followers-modal-content-container,
 #users-show-following-modal-content-container {
-
   @include desktop {
+    flex: 1 1 auto;
     height: 100%;
+    list-style: none;
+    margin: 0;
     overflow-x: hidden;
     overflow-y: scroll;
-    list-style: none;
     padding: 0;
-    margin: 0;
     width: 500px;
-    flex: 1 1 auto;
   }
 }
 
 .users-show-followers-modal-content-item,
 .users-show-following-modal-content-item {
-  border-bottom: 1px solid #efefef;
+  align-items: center;
+  border-bottom: 1px solid $color-gallery;
   display: flex;
   flex-direction: row;
-  align-items: center;
   padding: 8px 16px;
 
   &:last-child {
@@ -323,47 +314,47 @@
 
 .users-show-followers-modal-content-avatar-link,
 .users-show-following-modal-content-avatar-link {
-  width: 30px;
   height: 30px;
   margin-right: 13px;
+  width: 30px;
 }
 
 .users-show-followers-modal-content-avatar,
 .users-show-following-modal-content-avatar {
-  width: 100%;
-  height: 100%;
   border-radius: 50%;
+  height: 100%;
+  width: 100%;
 }
 
 .users-show-followers-modal-content-user-info,
 .users-show-following-modal-content-user-info {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: column;
 }
 
 .users-show-followers-modal-content-username,
 .users-show-following-modal-content-username {
-  color: #262626;
+  color: $color-mine-shaft;
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
+  margin-left: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-left: 5px;
 
   &:link,
   &:visited,
   &:hover,
   &:active {
-    color: #262626;
+    color: $color-mine-shaft;
   }
 }
 
 .users-show-followers-modal-content-full-name,
 .users-show-following-modal-content-full-name {
-  color: #999;
+  color: $color-gray-dusty;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -375,7 +366,7 @@
   &:visited,
   &:hover,
   &:active {
-    color: #999;
+    color: $color-gray-dusty;
   }
 }
 
@@ -392,55 +383,50 @@
 .users-show-header-info-bottom-full-name {
 
   @include desktop {
-    margin: 0;
-    font-weight: 600;
     font-size: inherit;
+    font-weight: 600;
+    margin: 0;
     word-break: break-all;
   }
 }
 
 .users-show-posts-no-posts-container {
-
   @include desktop {
+    background-color: $color-white;
     display: flex;
     flex-direction: row;
-    background-color: white;
   }
 }
 
 .users-show-posts-no-posts-image-container {
-
   @include desktop {
-    width: 380px;
     height: 380px;
+    width: 380px;
   }
 }
 
 .users-show-posts-no-posts-image {
-
   @include desktop {
-    width: 100%;
     height: 100%;
+    width: 100%;
   }
 }
 
 .users-show-posts-no-posts-info-main-container {
-
   @include desktop {
     flex-basis: 555px;
   }
 }
 
 .users-show-posts-no-posts-info-container {
-
   @include desktop {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-    height: 100%;
+    display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 0 20px;
+    text-align: center;
   }
 }
 
@@ -449,7 +435,7 @@
   @include desktop {
     font-size: 18px;
     font-weight: 600;
-    margin: 0 0 13px 0;
+    margin: 0 0 13px;
   }
 }
 
@@ -464,15 +450,11 @@
 
 #post_description {
   margin-bottom: 3px;
-}
-
-#post_description {
-  width: 265px;
   max-width: 265px;
+  width: 265px;
 }
 
 .new-post {
-
   @include desktop {
     display: block;
   }
@@ -488,13 +470,12 @@
 }
 
 .users-show-post-container {
-
   @include desktop {
     display: flex;
-    justify-content: flex-end;
-    width: 293px;
     height: 293px;
+    justify-content: flex-end;
     margin-right: 28px;
+    width: 293px;
 
     &:last-child {
       margin-right: 0;
@@ -503,33 +484,31 @@
 }
 
 .users-show-video-icon {
-
   @include desktop {
-    width: 48px;
-    height: 48px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 1;
-    visibility: visible;
-    opacity: 1;
-    pointer-events: none;
-    cursor: pointer;
     background-image: image-url('kotogram.png');
     background-position: -355px 0;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    justify-content: center;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    visibility: visible;
+    width: 48px;
+    z-index: 1;
   }
 }
 
 .users-show-post-link {
-
   @include desktop {
-    width: 100%;
-    height: 100%;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 100%;
     justify-content: center;
     overflow: hidden;
+    width: 100%;
   }
 }
 
@@ -538,27 +517,25 @@
 }
 
 .users-show-posts-no-posts-another-user-container {
-
   @include desktop {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid #efefef;
+    background-color: $color-white;
+    border: 1px solid $color-gallery;
     border-radius: 3px;
-    background-color: #fff;
+    display: flex;
+    justify-content: center;
     padding: 40px;
+    text-align: center;
   }
 }
 
 .users-show-posts-no-posts-another-user-container-info {
-
   @include desktop {
-    color: #262626;
-    margin: 0;
-    font-weight: 600;
+    color: $color-mine-shaft;
     font-size: 14px;
+    font-weight: 600;
     line-height: 24px;
+    margin: 0;
   }
 }
 
@@ -566,17 +543,17 @@
 .btn-unfollow {
 
   @include desktop {
-    padding: 0 24px;
-    background-color: #3897f0;
-    color: white;
-    border: 1px solid #3897f0;
+    background-color: $color-blue-picton;
+    border: 1px solid $color-blue-picton;
     border-radius: 3px;
+    box-shadow: none;
+    color: $color-white;
     font-size: 14px;
     font-weight: 600;
     line-height: 26px;
     outline: none;
-    box-shadow: none;
     overflow: hidden;
+    padding: 0 24px;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -584,6 +561,6 @@
 
 .btn-unfollow {
   background-color: transparent;
-  color: #262626;
-  border-color: #dbdbdb;
+  border-color: $color-alto;
+  color: $color-mine-shaft;
 }
