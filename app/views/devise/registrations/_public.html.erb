@@ -1,0 +1,49 @@
+<div class="devise-registrations-edit-public-content">
+  <%= form_for current_user.profile,
+    html: { method: :patch, class: "devise-registrations-edit-public-form" } do |f| %>
+    <div class="form-group">
+      <div class='label-container'>
+        <%= f.label :avatar, class: 'label-control' %>
+      </div>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %>
+    </div>
+    <div class="form-group">
+      <% if current_user.profile.avatar.url.present? %>
+      <div class='label-container'>
+        <%= f.label :remove_avatar, class: 'label-control' %>
+      </div>
+        <%= f.check_box :remove_avatar %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <div class='label-container'>
+        <%= f.label :full_name, class: 'label-control' %>
+      </div>
+      <div class='input-container'>
+        <%= f.text_field :full_name, class: 'input-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='label-container'>
+        <%= f.label :username, class: 'label-control' %>
+      </div>
+      <div class='input-container'>
+        <%= f.text_field :username, autofocus: true, class: 'input-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='label-container'>
+        <%= f.label :about_me, class: 'label-control' %>
+      </div>
+      <div class='textarea-container'>
+        <%= f.text_area :about_me, class: 'textarea-control' %>
+      </div>
+    </div>
+    <div class='form-group'>
+      <div class='btn-container'>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>

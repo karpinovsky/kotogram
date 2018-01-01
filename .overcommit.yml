@@ -1,0 +1,17 @@
+PreCommit:
+  RuboCop:
+    enabled: true
+    command: ['bundle', 'exec', 'rubocop']
+    on_warn: fail
+  HamlLint:
+    enabled: true
+    command: ['bundle', 'exec', 'haml-lint', 'app/views/']
+    on_warn: fail
+  ScssLint:
+    enabled: true
+    command: ['bundle', 'exec', 'scss-lint', 'app/assets/stylesheets']
+    on_warn: fail
+  TrailingWhitespace:
+    enabled: true
+    exclude:
+      - '**/db/structure.sql'

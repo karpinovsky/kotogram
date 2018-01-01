@@ -10,22 +10,76 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128195439) do
+ActiveRecord::Schema.define(version: 20170723172058) do
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "commentable_type"
-    t.integer  "commentable_id"
-    t.integer  "user_id"
-    t.text     "body",             limit: 65535
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+  create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "post_id"
+    t.string   "media"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "content_type"
+    t.index ["post_id"], name: "index_attachments_on_post_id", using: :btree
   end
 
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "image"
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "post_id"
     t.integer  "user_id"
+    t.text     "body",          limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "likes_count",                 default: 0
+    t.string   "user_username"
+    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "liker"
+    t.string   "likeable_type"
+    t.integer  "likeable_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["likeable_type", "likeable_id", "liker"], name: "index_likes_on_likeable_type_and_likeable_id_and_liker", unique: true, using: :btree
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id", using: :btree
+  end
+
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "recipient_id"
+    t.string   "action"
+    t.string   "notifiable_type"
+    t.integer  "notifiable_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "likes_count", default: 0
+    t.string   "description"
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+  end
+
+  create_table "posts_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+    t.index ["post_id"], name: "index_posts_tags_on_post_id", using: :btree
+    t.index ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
+  end
+
+  create_table "profiles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "full_name"
+    t.string   "username",                 null: false
+    t.string   "avatar"
+    t.text     "about_me",   limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
+    t.index ["username"], name: "index_profiles_on_username", unique: true, using: :btree
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -36,6 +90,10 @@ ActiveRecord::Schema.define(version: 20170128195439) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
     t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "body"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,14 +111,24 @@ ActiveRecord::Schema.define(version: 20170128195439) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name",                   default: "", null: false
-    t.string   "login",                  default: "", null: false
+    t.string   "provider"
+    t.string   "uid"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["login"], name: "index_users_on_login", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "attachments", "posts"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "posts", "users"
+  add_foreign_key "posts_tags", "posts"
+  add_foreign_key "posts_tags", "tags"
+  add_foreign_key "profiles", "users"
 end

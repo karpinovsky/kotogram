@@ -1,24 +1,13 @@
 class UsersController < ApplicationController
-  include Concerns::UserByLogin
-  include Concerns::CurrentUser
+  include Concerns::UserByProfileUsername
+  skip_before_action :authenticate_user!, only: [:show]
 
-  def index
-    @users = User.search(params[:search])
+  def home
+    @feed_items = current_user.feed.order('created_at DESC')
+    render 'users/home/home'
   end
 
   def show
-    @images = user_by_login.images.all.order('created_at DESC')
-  end
-
-  def feed
-    @feed_items = current_user.feed
-  end
-
-  def following
-    # users followed by user
-  end
-
-  def followers
-    # user's followers
+    render "users/show/show"
   end
 end

@@ -1,0 +1,232 @@
+@import 'custom/utilities/variables';
+@import 'custom/utilities/mixins';
+
+.header-tablet-mobile {
+  @include tablet-phone { height: 45px; }
+}
+
+.header-authorized-user {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid rgba(0,0,0,.0975);
+  background-color: $color-white;
+
+  @include desktop { height: 77px }
+
+  @include tablet-phone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 45px;
+  }
+}
+
+.nav-authorized-user {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+  @include desktop {
+    height: 76px;
+    max-width: 1024px;
+
+    h1, button { display: none }
+  }
+
+  @include tablet-phone {
+    height: 44px;
+    padding: 0 16px;
+
+    button {
+      position: absolute;
+      left: 16px;
+      top: 10px;
+      width: 30px;
+      height: 24px;
+      border: 0;
+      background: 0;
+      padding: 0;
+      background-image: image-url('kotogram.png');
+      background-position: -288px -180px;
+    }
+
+    h1 {
+      margin: 0;
+      flex-grow: 1;
+      text-align: center;
+      font-size: 26px;
+      line-height: 24px;
+      font-family: 'Lobster Two';
+    }
+  }
+}
+
+#kotogram {
+  margin: 0 0 0 22px;
+  padding: 3px 0 3px 17px;
+  font-family: 'Lobster Two';
+  font-weight: 500;
+  font-size: 1.5em;
+  border-left: 1px solid #939393;
+  color: #262626;
+
+  @include phone {
+    display: none;
+  }
+}
+
+.logo {
+
+  @include desktop {
+    margin-left: 5%;
+    margin-right: auto;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    color: #262626;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #262626;
+      text-decoration: none;
+    }
+
+    .fa-instagram {
+      font-size: 38px;
+      display: block;
+      color: #262626;
+    }
+  }
+
+  @include tablet-phone {
+    display: none;
+  }
+}
+
+.header-nav-explore {
+  @include desktop { display: none }
+
+  }
+
+.nav-authorized-user-left {
+  @include desktop {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin: 5px auto 0 auto;
+  }
+  @include tablet-phone {
+    display: none;
+  }
+}
+
+#profile-link {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: image-url("kotogram.png");
+  background-position: -27px -338px;
+}
+
+.aa-input-container,
+.algolia-autocomplete {
+  @include desktop {
+    display: block !important;
+    width: 215px;
+    height: 28px;
+    margin: 2px auto 0 auto;
+  }
+  @include tablet-phone {
+    display: none;
+  }
+}
+
+.aa-input-search {
+  width: 100%;
+  height: 100%;
+  padding: 3px 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #262626;
+  text-align: center;
+  outline: none;
+  box-shadow: none;
+  background-color: #fafafa;
+
+  &:focus,
+  &:active {
+    background-color: white !important;
+    text-align: left;
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.aa-dropdown-menu {
+  width: 243px;
+  max-height: 364px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .0975);
+  margin-top: 18px;
+  overflow-y: auto;
+  left: -14px !important;
+}
+
+.algolia-user-link,
+.algolia-tag-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 67px;
+  border-bottom: 1px solid #efefef;
+  padding: 8px 14px;
+
+  &:hover {
+    background-color: #fafafa;
+  }
+}
+
+.algolia-tag-link > .fa-hashtag {
+  font-size: 17px;
+  color: #999;
+  margin: 0 18px 0 10px;
+}
+
+.algolia-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+}
+
+.algolia-user-username,
+.algolia-tag-container {
+  font-weight: 600;
+  line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: -4px;
+  color: #262626;
+
+  &:hover,
+  &:visited {
+    color: #262626;
+  }
+}
+
+.algolia-user-full-name {
+  font-weight: 300;
+  line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #999;
+}

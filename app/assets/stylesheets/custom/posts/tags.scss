@@ -1,0 +1,95 @@
+@import 'custom/utilities/variables';
+@import 'custom/utilities/mixins';
+
+.tag-main-container {
+  overflow: hidden;
+}
+
+.tag-container {
+
+  @include desktop {
+    overflow: hidden;
+    width: 935px;
+    margin: 0 auto 56px auto;
+  }
+}
+
+.tag-header-container {
+
+  @include desktop {
+    margin: 56px 0 44px 0;
+  }
+}
+
+.tag {
+  color: #262626;
+  text-align: center;
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 13px 0;
+  font-weight: 300;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tag-posts-count {
+  margin: 0 0 0 0;
+  color: #262626;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tag-top-posts-main-container {
+
+  @include desktop {
+    margin-bottom: 74px;
+  }
+}
+
+.tag-top-posts,
+.tag-most-recent-posts {
+  color: #999;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.tag-most-recent-posts-row,
+.tag-top-posts-row {
+  display: flex;
+  margin-bottom: 28px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.tag-most-recent-post-link,
+.tag-top-post-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  @include desktop {
+    width: 293px;
+    height: 293px;
+    margin-right: 28px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.tag-most-recent-post-attachment,
+.tag-top-post-attachment {
+  min-height: 100%;
+}

@@ -1,0 +1,243 @@
+@import 'custom/utilities/variables';
+@import 'custom/utilities/mixins';
+
+.users-home-main-container {
+  overflow: hidden;
+
+  @include phone { background-color: $color-white; }
+}
+
+.users-home-container {
+  margin: 60px auto;
+  max-width: 600px;
+
+  @include phone {
+    margin: 0 auto;
+  }
+}
+
+.users-home-post-container {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 3px;
+  margin: 0 -1px 60px;
+
+  @include phone {
+    border: 0;
+    margin-bottom: 15px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+.users-home-post-header {
+  align-items: center;
+  border-bottom: 1px solid $color-border-header;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  padding: 16px;
+}
+
+.users-home-post-header-avatar-link {
+  display: inline-block;
+  height: 30px;
+  margin-right: 10px;
+  width: 30px;
+}
+
+.users-home-post-header-avatar-image {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.users-home-post-header-username-link {
+  color: $color-light-black;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:visited,
+  &:hover,
+  &:active {
+    color: $color-light-black;
+  }
+}
+
+.users-home-post-header-date-link {
+  margin-left: auto;
+
+  @include tablet-phone { display: none; }
+}
+
+.users-home-post-header-date {
+  color: $color-time;
+  font-size: 13px;
+
+  &:visited,
+  &:hover,
+  &:active {
+    color: $color-time;
+  }
+}
+
+.users-home-post-attachment-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.users-home-post-attachment {
+  height: 100%;
+  width: 100%;
+}
+
+.users-home-post-videocamera-image {
+  height: 40px;
+  margin: 0 -6px 0 auto;
+  padding: 6px;
+  width: 40px;
+}
+
+.video { cursor: pointer; }
+
+.play-icon-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  .fa-play {
+    color: $color-white;
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity .2s ease-out;
+    transition-delay: .1s;
+    visibility: visible;
+    z-index: 1;
+  }
+}
+
+.users-home-post-info-container { padding: 0 16px; }
+
+.users-home-post-like-dislike-container {
+  align-items: center;
+  display: flex;
+  margin-top: 4px;
+}
+
+.form-post-like,
+.form-post-dislike {
+  height: 40px;
+  margin-left: -9px;
+  padding: 9px;
+  width: 40px;
+}
+
+.button-post-like,
+.button-post-dislike {
+  background: $color-white;
+  border: 0;
+  box-shadow: none;
+  height: 22px;
+  outline: none;
+  padding: 0;
+  width: 22px;
+}
+
+.button-post-like .fa-heart-o {
+  color: $color-light-black;
+  font-size: 22px;
+}
+
+.button-post-dislike .fa-heart {
+  color: $color-dislike;
+  font-size: 22px;
+}
+
+.likes {
+  color: $color-light-black;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.users-home-post-description-container {
+  margin: 5px 0 7px;
+}
+
+.users-home-post-description-username-link {
+  color: $color-light-black;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 3px;
+
+  &:visited,
+  &:hover,
+  &:active {
+    color: $color-light-black;
+  }
+}
+
+.users-home-post-description {
+  word-break: break-word;
+}
+
+.users-home-post-comments-container {
+  list-style: none;
+  margin-bottom: 1px;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.users-home-post-comment-form-container {
+  @include desktop {
+    border-top: 1px solid $color-border-header;
+    margin-top: 4px;
+    padding: 16px 26px 16px 0;
+  }
+
+  @include tablet-phone { display: none; }
+}
+
+.users-home-welcome-container {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 -1px 20px;
+  padding: 55px 30px;
+}
+
+.users-home-welcome-icon-container {
+  align-self: center;
+  background-color: transparent;
+  background-image: image-url('kotogram.png');
+  background-position: 0 -289px;
+  height: 47px;
+  width: 55px;
+}
+
+.users-home-welcome-to-kotogram {
+  color: $color-light-black;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 30px 0 15px;
+  text-align: center;
+}
+
+.users-home-follow-accounts {
+  color: $color-light-black;
+  font-size: 16px;
+  text-align: center;
+}

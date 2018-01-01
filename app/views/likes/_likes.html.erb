@@ -1,0 +1,5 @@
+<%- unless likeable.likes_count.zero? %>
+  <span class="likes">
+    <%= pluralize(likeable.likes_count, 'like') %>
+  </span>
+<% end %>

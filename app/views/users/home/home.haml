@@ -1,0 +1,52 @@
+%main.users-home-main-container
+  %section.users-home-container
+    - if @feed_items.empty?
+      = render 'users/home/welcome'
+    - else
+      .users-home-posts-main-container
+        - @feed_items.each do |post|
+          %article.users-home-post-container
+            %header.users-home-post-header
+              = link_to user_path(post.user), class: 'users-home-post-header-avatar-link' do
+                = image_tag post.user.profile.avatar, class: 'users-home-post-header-avatar-image'
+              = link_to user_path(post.user), class: 'users-home-post-header-username-link' do
+                = post.user.profile.username
+            .users-home-post-attachment-container
+              - if post.attachment.content_type.start_with? 'video'
+                .play-icon
+                = video_tag post.attachment.media, class: 'users-home-post-attachment video'
+              - else
+                = image_tag post.attachment.media, class: 'users-home-post-attachment'
+            .users-home-post-info-container
+              %section.users-home-post-like-dislike-container
+                = render 'likes/posts/form', likeable: post
+              - unless post.likes_count.zero?
+                %section.users-home-post-likes-container
+                  = render 'likes/likes', likeable: post
+              - if post.description.present?
+                %section.users-home-post-description-container
+                  = link_to user_path(post.user),
+                    class: 'users-home-post-description-username-link' do
+                    = post.user.profile.username
+                  %span.users-home-post-description
+                    = with_links_to_users(with_links_to_tags(post.description))
+              %ul{ class: "users-home-post-comments-container post-#{post.id}" }
+                = render post.comments
+              = link_to time_ago_in_words(post.created_at), user_post_path(post.user, post),
+                class: 'date'
+              %section.users-home-post-comment-form-container
+                = render 'comments/form', post: post
+  :javascript
+    $('.video').click(function() {
+      if (this.paused) {
+        $(".play-icon").css({"visibility": "hidden", "opacity": "0"});
+        this.play();
+      } else {
+        $(".play-icon").css({"visibility": "", "opacity": ""});
+        this.pause();
+      }
+    });
+
+    $('.video').on("ended", function(){
+      $(".play-icon").css({"visibility": "", "opacity": ""});
+    });
