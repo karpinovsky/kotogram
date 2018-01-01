@@ -1,7 +1,5 @@
 module DeviseHelper
   def devise_error_messages!
-    if resource.errors.any?
-      flash.now[:error] = resource.errors.full_messages.first
-    end
+    flash.now[:error] = resource.errors.full_messages.first if resource.errors.any?
   end
 end

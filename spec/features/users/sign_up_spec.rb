@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'Sign up' do
-
   subject { page }
 
   before(:each) { visit new_user_registration_path }
@@ -21,19 +20,17 @@ feature 'Sign up' do
         click_button 'Sign up'
       end
 
-
       it { is_expected.to have_selector('.alert-info') }
-      it { is_expected.to have_content('A message with a confirmation link
-        has been sent to your email address. Please follow the link to activate your account.') }
+      it do
+        is_expected.to have_content 'A message with a confirmation link has been sent to your
+                                    email address. Please follow the link to activate your account.'
+      end
 
       context 'with confirmation email' do
-
         subject { open_email(user.email) }
 
         it { is_expected.to have_subject('Confirmation instructions') }
-
         it { is_expected.to have_link('Confirm my account') }
-
       end
     end
 

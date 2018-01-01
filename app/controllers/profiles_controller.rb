@@ -5,12 +5,14 @@ class ProfilesController < ApplicationController
     else
       flash[:error] = current_user.profile.errors.full_messages.first
     end
-      redirect_back(fallback_location: authenticated_root_path)
+    redirect_back(fallback_location: authenticated_root_path)
   end
 
   private
 
-    def profile_params
-      params.require(:profile).permit(:username, :full_name, :about_me, :avatar, :avatar_cache, :remove_avatar)
-    end
+  def profile_params
+    params.require(:profile).permit(
+      :username, :full_name, :about_me, :avatar, :avatar_cache, :remove_avatar
+    )
+  end
 end

@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :comments
   validates_associated :comments
 
-  has_many :likes, as: :likeable
+  has_many :likes, as: :likeable, dependent: :destroy
 
   has_and_belongs_to_many :tags, dependent: :destroy
   validates_associated :tags
@@ -22,7 +22,7 @@ class Post < ApplicationRecord
     where("user_id IN (#{followed_user_ids})", user_id: user.id)
   }
 
-  def has_like_from?(user)
+  def liked_by?(user)
     likes.find_by(liker: user.id)
   end
 end

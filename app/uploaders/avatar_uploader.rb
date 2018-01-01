@@ -1,7 +1,4 @@
 class AvatarUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -15,7 +12,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "fallback/" + [version_name, "default_avatar.png"].compact.join('_')
+    'fallback/' + [version_name, 'default_avatar.png'].compact.join('_')
   end
 
   # Process files as they are uploaded:
@@ -26,33 +23,26 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   version :post_showpage do
-    process resize_to_fill: [40,40]
+    process resize_to_fill: [40, 40]
   end
 
   version :feedpage do
-    process resize_to_fill: [30,30]
+    process resize_to_fill: [30, 30]
   end
 
   version :showpage do
-    process resize_to_fill: [150,150]
+    process resize_to_fill: [150, 150]
   end
 
   version :editpage do
-    process resize_to_fill: [100,100]
+    process resize_to_fill: [100, 100]
   end
 
   version :followed_user do
-    process resize_to_fill: [38,38]
+    process resize_to_fill: [38, 38]
   end
 
   def content_type_whitelist
-    /image\//
+    %r{image\/}
   end
-
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
-
 end

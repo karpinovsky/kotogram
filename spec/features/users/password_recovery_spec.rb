@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'Password recovery' do
-
   subject { page }
 
   before do
@@ -14,12 +13,14 @@ feature 'Password recovery' do
     it { is_expected.to have_content('Forgot your password?') }
 
     before do
-      fill_in 'user[email]',  with: user.email
+      fill_in 'user[email]', with: user.email
       click_button 'Send me reset instructions'
     end
 
-    it { is_expected.to have_content('You will receive an email with instructions
-      on how to reset your password in a few minutes.') }
+    it do
+      is_expected.to have_content('You will receive an email with instructions
+                                  on how to reset your password in a few minutes.')
+    end
 
     context 'open inbox email' do
       subject { open_email(user.email) }
@@ -29,7 +30,6 @@ feature 'Password recovery' do
       it { is_expected.to have_link('Change my password') }
 
       scenario 'create new password' do
-
         open_email(user.email)
 
         visit_in_email('Change my password')
