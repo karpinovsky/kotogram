@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     email                 'email@kotogram.ru'
     password              'password'
