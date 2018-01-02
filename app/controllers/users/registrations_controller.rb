@@ -1,4 +1,4 @@
-class Users
+module Users
   class RegistrationsController < Devise::RegistrationsController
     def new
       build_resource({})
