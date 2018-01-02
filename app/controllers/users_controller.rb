@@ -8,6 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    render "users/show/show"
+    render 'users/show/show'
   end
 end

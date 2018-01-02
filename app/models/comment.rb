@@ -5,13 +5,12 @@ class Comment < ApplicationRecord
 
   has_many :likes, as: :likeable, dependent: :destroy
 
-  def has_like_from?(user)
+  def liked_by?(user)
     likes.find_by(liker: user.id)
   end
 
   after_create do
-    post = self.post
-    hashtags = self.body.scan(/#\w+/)
+    hashtags = body.scan(/#\w+/)
     hashtags.uniq.map do |hashtag|
       tag = Tag.find_or_create_by(body: hashtag.downcase.delete('#'))
       post.tags << tag

@@ -7,12 +7,15 @@ module ApplicationCable
     end
 
     protected
-      def find_verified_user
-        if (current_user = User.find(cookies.signed["user.id"])) && cookies.signed["user.expires_at"] > Time.now
-          current_user
-        else
-          reject_unauthorized_connection
-        end
+
+    def find_verified_user
+      current_user = User.find(cookies.signed['user.id'])
+      expiration = cookies.signed['user.expires_at']
+      if current_user && expiration > Time.zone.now
+        current_user
+      else
+        reject_unauthorized_connection
       end
+    end
   end
 end
