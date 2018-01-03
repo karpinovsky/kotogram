@@ -22,6 +22,7 @@ gem 'oj', '~> 2.12.14'
 gem 'omniauth-facebook'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'react-rails'
 gem 'redis'
 gem 'rollbar'
 gem 'rubocop', require: false
