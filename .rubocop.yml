@@ -28,3 +28,5 @@ Rails/OutputSafety:
   Enabled: false
 Rails/HasAndBelongsToMany:
   Enabled: false
+Rails/InverseOf:
+  Enabled: false
