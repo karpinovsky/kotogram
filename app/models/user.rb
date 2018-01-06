@@ -5,14 +5,12 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
   validates_associated :profile
 
-  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
+  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy, inverse_of: :user
   has_many :followed_users, through: :relationships, source: :followed
-  has_many :reverse_relationships, foreign_key: 'followed_id',
-                                   class_name: 'Relationship',
-                                   dependent: :destroy
+  has_many :reverse_relationships, foreign_key: 'followed_id', class_name: 'Relationship',
+                                   dependent: :destroy, inverse_of: :user
   has_many :followers, through: :reverse_relationships
   has_many :posts, dependent: :destroy
-
 
   devise :database_authenticatable,
          :registerable,
@@ -23,9 +21,9 @@ class User < ApplicationRecord
          :confirmable,
          :lockable,
          :timeoutable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :notifications, foreign_key: :recipient_id
+  has_many :notifications, foreign_key: :recipient_id, dependent: :destroy, inverse_of: :user
 
   validates_associated :posts
 
@@ -33,30 +31,32 @@ class User < ApplicationRecord
     profile.username
   end
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.skip_confirmation!
-      user.save!
+  class << self
+    def from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0, 20]
+        user.skip_confirmation!
+        user.save!
 
-      Profile.create(
-        user: user,
-        username: auth.info.first_name + auth.info.last_name,
-        full_name: auth.info.first_name + ' ' +  auth.info.last_name,
-        remote_avatar_url: auth.info.image)
+        Profile.create(
+          user: user,
+          username: auth.info.first_name + auth.info.last_name,
+          full_name: auth.info.first_name + ' ' + auth.info.last_name,
+          remote_avatar_url: auth.info.image
+        )
+      end
     end
-  end
 
-
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
+    def self.new_with_session(params, session)
+      super.tap do |user|
+        data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+        if data
+          user.email = data['email'] if user.email.blank?
+        end
       end
     end
   end
-
 
   def feed
     Post.from_users_followed_by(self)

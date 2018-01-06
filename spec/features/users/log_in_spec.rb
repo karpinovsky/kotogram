@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'Log in' do
-
   subject { page }
 
   context 'via form' do

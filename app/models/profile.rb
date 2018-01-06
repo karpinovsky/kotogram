@@ -19,7 +19,7 @@ class Profile < ApplicationRecord
   algoliasearch per_environment: true do
     attribute :username, :full_name, :avatar
 
-    searchableAttributes %w(username full_name)
+    searchableAttributes %w[username full_name]
   end
 
   def set_new_username_to_comments
