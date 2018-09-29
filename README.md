@@ -1,35 +1,26 @@
-# KOTOGRAM
+# BREATHTAKING
 
-Привет! Kotogram - портфолио-проект, который я разрабатываю для того,
-чтобы устроиться на работу в качестве Junior Ruby on Rails разработчика.
+### ABOUT
 
-Проект представляет из себя копию Instagram. Я и мой ментор [Никита](https://github.com/nsklkn) решили
-делать проект такого типа, т.к. я смогу получить опыт разработки новейших технологий,
-многие из которых скорее всего встретятся в моей будущей работе.
+Hello dudes. This is my first and sole pet-project for educational purposes. It has been created in the distant 2016, in 13 November to be precise
 
-Мы работаем по Scrum методологии с недельными спринтами, таким образом
-я получаю опыт, похожий на разработку реального проекта.
+If you took note of project's name, it differs from the current. Ideologically, it was a photo-sharing service for cats only, something like Instagram. But not for now, I have some thoughts about a photographer community, where you may share your breathtaking photos and follow other beauty gazers, [unsplash](https://unsplash.com) comes to mind.
+You might think, why not just create another one? Dunno, I feel a nostalgic reminiscence type of way with this project, moreover, it's a good design refactoring practice. Actually, it doesn't matter what it is, and I'm not trying to declare it will be production-viable. First of all, the key purpose is to grok edge web technologies and tools
 
-Вещи, которые *реализованы*:
+Last but not least, my great thanks to [@nickskalkin](https://github.com/nickskalkin) for mentoring all the way up
 
-* Базовый дизайн сайта для ПК
-* Полноценная система идентификации и аутентификации, реализованная с помощью devise
-* Дополнительная возможность регистрации, авторизации через социальную сеть Facebook
-* Загрузка картинок, загрузка и воспроизведение видео, реализованные с помощью carrierwave 
-* Отношения между пользователями (follow/unfollow)
-* Создание, отображение, удаление комментариев с хэштегами или ссылками на профиль, реализованные с помощью **вебсокетов** 
-* Полиморфные лайки для постов и комментариев
-* Человекопонятные URL с ником пользователя
-* Поиск по пользователям/хэштегам с автодополнением, реализованный с помощью algolia
-* Покупка сервера, домена, поднятие проекта в **production** окружении
-* Настройка сервера, production окружения, capistrano, nginx, passenger, ssl
-* Настрока почтового сервиса mailgun для production
-* Rollbar для production
- 
+### MISCELLANEOUS
 
-Вещи, которые предстоит сделать:
+[README.OLD.md](README.OLD.md)
 
-* Лайки с вебсокетами
-* Пагинации для комментариев
-* WebPush уведомление
-* Docker
+Ruby on Rails newbie? Take a look at my first presentation: [How to start develop on Ruby on Rails](https://www.youtube.com/watch?v=4r25FC97k1o&t)
+
+Join our generous comminuty [orel.codes](https://orel.codes)
+
+### TECHNICAL INTRODUCTORY
+
+* [INSTALLATION.md](INSTALLATION.md)
+* [SERVICES.md](SERVICES.md)
+* [DEVELOPMENT.md](DEVELOPMENT.md)
+* [FRONTEND.md](FRONTEND.md)
+* [BACKEND.md](BACKEND.md)
