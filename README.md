@@ -1,3 +1,7 @@
+_UPD: <br>
+My great thanks to [@nickskalkin](https://github.com/nickskalkin) for mentoring 	all the way up <br>
+Ruby on Rails newbie? Take a look at my first presentation with Kotogram: [How to start develop on Ruby on Rails](https://www.youtube.com/watch?v=4r25FC97k1o&t)_
+
 # KOTOGRAM
 
 Привет! Kotogram - портфолио-проект, который я разрабатываю для того,
